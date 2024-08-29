@@ -1,21 +1,27 @@
-
+// Adicionar imports para Disciplina e Turma
 import java.util.ArrayList;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
-/**
- *
- * @author vitor
- */
-public class Professor {
-    private String nome;
-    private String ID;
+public class Professor extends Usuario {
+    // Nao necessita mais do nome e ID por extender Usuario
+    // private String nome;
+    // private String ID;
     private String titulacao;
-    private ArrayList<Disciplina> disciplina; // Mudar para tipo Disciplina
-    private ArrayList<Turma> turmas; // Mudar para o tipo Turma
+    private ArrayList<Disciplina> disciplinas;
+    private ArrayList<Turma> turmas;
+
+    public Professor(){
+        super();
+        this.titulacao = "";
+        this.disciplinas = new ArrayList<>;
+        this.turmas = new ArrayList<>;
+    }
+
+    public Professor(String nome, String ID, String titulacao, ArrayList<Disciplina> disciplinas, ArrayList<Turma> turmas){
+        super(nome, ID);
+        this.titulacao = titulacao;
+        this.disciplinas = disciplinas;
+        this.turmas = turmas;
+    }
     
     public String getTitulacao(){
         return this.titulacao;
@@ -33,27 +39,31 @@ public class Professor {
         this.turmas = turmas;
     }
     
-    public ArrayList<Disciplina> getDisciplina(){ // Alterar para tipo Disciplina
-        return this.disciplina;
+    public ArrayList<Disciplina> getDisciplina(){
+        return this.disciplinas;
     }
     
-    public void setDisciplina(ArrayList<Disciplina> disciplina){ // Alterar para tipo Disciplina
-        this.disciplina = disciplina;
+    public void setDisciplina(ArrayList<Disciplina> disciplinas){
+        this.disciplinas = disciplinas;
     }
 
     public String getNome() {
-        return nome;
+        return super.getNome();
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        super.setNome(nome);
     }
 
     public String getID() {
-        return ID;
+        return super.getID();
     }
 
     public void setID(String ID) {
-        this.ID = ID;
+        super.setID(ID);
+    }
+
+    public void adicionarDisciplina(Disciplina d){
+        this.disciplinas.add(d);
     }
 }
