@@ -1,3 +1,5 @@
+package modelo;
+
 public class AtividadeExtra{
 	protected double horasTotais;
 	protected String titulo;

@@ -1,3 +1,5 @@
+package modelo;
+
 public class Palestra extends AtividadeExtra{
 	private String palestrante;
 	private String descricao;
