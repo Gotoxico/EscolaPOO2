@@ -4,7 +4,10 @@ public class Palestra extends AtividadeExtra{
 	private String palestrante;
 	private String descricao;
 
-	public Palestra(){
+	public Palestra(double horasTotais, String titulo, String palestrante, String descricao){
+		super(horasTotais, titulo);
+		this.palestrante = palestrante;
+		this.descricao = descricao;
 	}
 
 	public String getPalestrante(){
