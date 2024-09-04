@@ -1,30 +1,30 @@
-//Mudar o array para o formato ArrayList!!!
+import java.util.ArrayList;
 
 public class Usuario{
     protected String nome;
-    protected String id;
+    protected String ID;
     protected int quantMulta;
-    protected Livro[] livros;
+    protected ArrayList<Livro> livros;
     protected static final int QUANT_MAX_LIVROS = 10; //suponhamos que o máximo que um usuário pode emprestar de livros ao mesmo tempo é 10  
     protected int contLivros;
 
     public Usuario(){
         this.quantMulta = 0;
-        livros = new Livro[QUANT_MAX_LIVROS];
+        this.livros = new ArrayList<>();
         contLivros = 0;
     }
 
-    public Usuario(String nome, String id){
+    public Usuario(String nome, String ID){
         this.nome = nome;
-        this.id = id;
+        this.ID = ID;
         this.quantMulta = 0;
-        livros = new Livro[QUANT_MAX_LIVROS];
+        this.livros = new ArrayList<>();
         contLivros = 0;
     }
 
     public int addLivro(Livro livro){
         if(contLivros < QUANT_MAX_LIVROS){
-            livros[contLivros] = livro;
+            livros.add(livro);
             contLivros++;
             return 1;
         }
@@ -33,8 +33,10 @@ public class Usuario{
 
     public int removeLivro(Livro livro){
         if(contLivros > 0){
-            for(int i=0; i<contLivros; i++){
+            for(int i=0; i < contLivros; i++){
                 if(livros[i].equals(livro)){
+                    livros.remove(i);
+                    contLivros--;
                     return 1;
                 }
             }
@@ -46,8 +48,8 @@ public class Usuario{
         this.nome = nome;
     }
 
-    public void setId(String id){
-        this.id = id;
+    public void setID(String ID){
+        this.ID = ID;
     }
 
     public void setQuantMulta(int quantMulta){
@@ -58,8 +60,8 @@ public class Usuario{
         return nome;
     }
 
-    public String getId(){
-        return id;
+    public String getID(){
+        return ID;
     }
 
     public int getQuantMulta(){
