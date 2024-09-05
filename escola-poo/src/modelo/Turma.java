@@ -70,6 +70,6 @@ public class Turma {
     }
     
     public void removerDisciplina(Disciplina disciplina) {
-        disciplina.remove(disciplina);
+        disciplinas.remove(disciplina);
     }
 }
