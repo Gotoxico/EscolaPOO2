@@ -1,6 +1,7 @@
+package modelo;
 public class BibliotecaEscolar extends Biblioteca{ 
 
-    @Override
+    //@Override
     public int addUsuario(Professor professor){
         if(contUsuarios < QUANT_MAX_USUARIOS){
             usuarios[contUsuarios] = professor;
@@ -10,7 +11,7 @@ public class BibliotecaEscolar extends Biblioteca{
         return 0;
     }
 
-    @Override
+    //@Override
     public int addUsuario(Aluno aluno){
         if(contUsuarios < QUANT_MAX_USUARIOS){
             usuarios[contUsuarios] = aluno;

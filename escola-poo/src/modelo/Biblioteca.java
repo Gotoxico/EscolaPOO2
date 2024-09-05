@@ -1,3 +1,4 @@
+package modelo;
 public /*abstract*/ class Biblioteca{
     protected Usuario[] usuarios;
     protected Livro[] livros;
@@ -46,7 +47,7 @@ public /*abstract*/ class Biblioteca{
     }
 
     public int devolucao(Livro livro, Usuario usuario){
-        
+       
     }
 }
 

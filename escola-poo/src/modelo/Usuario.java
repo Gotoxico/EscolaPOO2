@@ -1,4 +1,5 @@
-//Mudar o array para o formato ArrayList!!!
+
+package modelo;//Mudar o array para o formato ArrayList!!!
 
 public class Usuario{
     protected String nome;
