@@ -34,5 +34,13 @@ public class Trabalho extends Avaliacao{
     public void setPeso(float peso) {
         this.peso = peso;
     }
+
+    public float getNota() {
+        return nota;
+    }
+
+    public void setNota(float nota) {
+        this.nota = nota;
+    }
     
 }
