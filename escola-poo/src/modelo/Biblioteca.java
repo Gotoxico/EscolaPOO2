@@ -1,3 +1,5 @@
+package modelo;
+
 import java.util.ArrayList;
 
 public class Biblioteca{
@@ -9,33 +11,79 @@ public class Biblioteca{
         this.livros = new ArrayList<>();
     }
 
-    public int addUsuario(Usuario usuario){
+    public boolean addUsuario(Usuario usuario){
         usuarios.add(usuario);
-        return 1;
+        return true;
     }
 
-    public int addLivro(Livro livro){
+    public boolean addLivro(Livro livro){
         livros.add(livro);
-        return 1;
+        return true;
     }
 
-    public int emprestimo(Livro livro, Usuario usuario){
+    public boolean emprestimo(Livro livro, Usuario usuario){
+        Emprestimo emprestimo = new Emprestimo();
         if(usuario.quantMulta == 0){
             for(int i=0; i<livros.size(); i++){
-                if(livros[i].equals(livro) && livro.getEmprestado() == 0){
-                    usuario.addLivro(livro);
-                    livro.setEmprestado(1);
-                    return 1;
+                if(livros.get(i).equals(livro) && livro.getEmprestado() == false){
+                    if(emprestimo.calculaDataDevolucao() == null){ //nao pode emprestar no Domingo
+                        return false;
+                    }
+                    usuario.addLivro(livro, emprestimo);
+                    livro.setEmprestado(true);
+                    return true;
                 }
             }
         }
-        return 0;
+        return false;
     }
 
-    public int devolucao(Livro livro, Usuario usuario){
-        if(usuario.removeLivro(livro) == 1){
-            addLivro(livro);
-            livro.setEmprestado(0);
+    public boolean devolucao(Livro livro, Usuario usuario){
+        Emprestimo emprestimo = new emprestimo;
+        if(emprestimo.verificaSeEDomingo() == true){
+            return false;
+        }
+        if(usuario.removeLivro(livro) == true){
+            livro.setEmprestado(false);
+        }
+    }
+
+    //funcao para verificar diariamente se usuario deve ser multado 
+    public void verificaAddMultaDiariamente(){
+        Multa multa = new Multa();
+        ArrayList<Emprestimo> emprestimos = new ArrayList<>();
+        for(int i=0; i<usuarios.size(); i++){
+            emprestimos = usuarios.get(i).getEmprestimos();
+            //verificando se há algum emprestimo vencido no vetor emprestimos de cada usuario
+            for(int j=0; j<emprestimos.size(); j++){
+                if(emprestimos.get(j).verificaMulta() == true){
+                    multa.aplicaMulta();
+                    usuarios.get(i).addMulta(multa);
+                }
+            }
+        }
+    }
+
+    //funcao para verificar diariamente se usuario deve ter multa retiradas
+    public void verificaRemoveMultaDiariamente(){
+        ArrayList<Multa> multas = new ArrayList<>();
+        for(int i=0; i<usuarios.size(); i++){
+            if(usuarios.get(i).getQuantMulta > 0){
+                multas = usuarios.get(i).getMultas();
+                for(int j=0; j<multas.size(); j++){
+                    if(multas.get(j).removeMulta == true){
+                        usuarios.get(i).removeMulta(multas.get(j));
+                    }
+                }
+            }
+        }
+    }
+
+    public void imprimirCatalogoDeLivros(){
+        //System.out.println("CATALOGO: \n");
+        Collections.sort(livros);
+        for(Livro livro : livros){
+            System.out.println("-" + livro);
         }
     }
 }
