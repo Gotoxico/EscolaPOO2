@@ -1,22 +1,20 @@
 package modelo;
+import java.util.ArrayList;
 
-public class Aluno {
-    private String nome;
+public class Aluno extends Usuario{
     private String matricula;
     private String curso;
+    private ArrayList<String> provas;
+    private ArrayList<String> trabalhos;
+    private ArrayList<String> pontosExtras;
 
-    public Aluno(String nome, String matricula, String curso){
-        this.nome = nome;
+    public Aluno(String nome, String id, String matricula, String curso){
+        super(nome, id);
         this.matricula = matricula;
         this.curso = curso;
-    }
-
-    public String getNome(){
-        return nome;
-    }
-
-    public void setNome(String nome){
-        this.nome = nome;
+        this.provas = new ArrayList<>();
+        this.trabalhos = new ArrayList<>();
+        this.pontosExtras = new ArrayList<>();
     }
 
     public String getMatricula(){
@@ -35,9 +33,37 @@ public class Aluno {
         this.curso = curso;
     }
 
-    public void mostrarAluno(){
-        System.out.println("Nome: " + nome);
+    public ArrayList<String> getProvas(){
+        return provas;
+    }
+
+    public ArrayList<String> getTrabalhos(){
+        return trabalhos;
+    }
+
+    public ArrayList<String> getPontosExtras(){
+        return pontosExtras;
+    }
+
+    public void adicionarProva(String prova){
+        provas.add(prova);
+    }
+
+    public void adicionarTrabalho(String trabalho){
+        trabalhos.add(trabalho);
+    }
+
+    public void adicionarPontoExtra(String pontoExtra){
+        pontosExtras.add(pontoExtra);
+    }
+
+    public void exibirInfo(){
+        System.out.println("Nome: " + getNome());
+        System.out.println("ID: " + getId());
         System.out.println("Matricula: " + matricula);
         System.out.println("Curso: " + curso);
+        System.out.println("Provas: " + provas);
+        System.out.println("Trabalhos: " + trabalhos);
+        System.out.println("Pontos Extras: " + pontosExtras);
     }
 }
