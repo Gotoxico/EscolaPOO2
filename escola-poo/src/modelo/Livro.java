@@ -1,18 +1,20 @@
+package modelo;
+
 public class Livro{
     private String titulo;
     private String autor;
-    private int isbn;
-    private int emprestado;
+    private String isbn;
+    private boolean emprestado;
 
     public Livro(){
-        emprestado = 0;
+        emprestado = false;
     }
 
-    public Livro(String titulo, String autor, int isbn){
+    public Livro(String titulo, String autor, String isbn){
         this.titulo = titulo;
         this.autor = autor;
         this.isbn = isbn;
-        emprestado = 0;
+        emprestado = false;
     }
 
     public void setTitulo(String titulo){
@@ -23,11 +25,11 @@ public class Livro{
         this.autor = autor;
     }
 
-    public void setIsbn(int isbn){
+    public void setIsbn(String isbn){
         this.isbn = isbn;
     }
 
-    public void setEmprestado(int emprestado){
+    public void setEmprestado(boolean emprestado){
         this.emprestado = emprestado;
     }
 
@@ -39,11 +41,11 @@ public class Livro{
         return autor;
     }
 
-    public int getIsbn(){
+    public String getIsbn(){
         return isbn;
     }
 
-    public int getEmprestado(){
+    public boolean getEmprestado(){
         return emprestado;
     }
 }

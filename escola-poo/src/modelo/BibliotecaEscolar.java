@@ -1,14 +1,16 @@
+package modelo;
+
 public class BibliotecaEscolar extends Biblioteca{ 
 
     @Override
-    public int addUsuario(Professor professor){
+    public boolean addUsuario(Professor professor){
             usuarios.add(professor);
-            return 1;
+            return true;
     }
 
     @Override
-    public int addUsuario(Aluno aluno){
+    public boolean addUsuario(Aluno aluno){
             usuarios.add(aluno);
-            return 1;
+            return true;
     }
 }
