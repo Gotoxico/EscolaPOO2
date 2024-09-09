@@ -9,7 +9,7 @@ package modelo;
  * @author rodri
  */
 public class Avaliacao {
-    protected float peso;
+    protected float peso, nota;
 
     public Avaliacao() {
     }
@@ -24,6 +24,14 @@ public class Avaliacao {
 
     public void setPeso(float peso) {
         this.peso = peso;
+    }
+
+    public float getNota() {
+        return nota;
+    }
+
+    public void setNota(float nota) {
+        this.nota = nota;
     }
     
 }
