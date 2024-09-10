@@ -13,7 +13,7 @@ public class Emprestimo{
     }
 
     public boolean verificaSeEDomingo(){
-        if(diaEmprestimo.getDayOfWeek().equals(DayOfWeek.SUNDAY)){  
+        if(diaAtual.getDayOfWeek().equals(DayOfWeek.SUNDAY)){  
             return true;
         }
         return false;

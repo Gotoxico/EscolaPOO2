@@ -1,6 +1,7 @@
 package modelo;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Biblioteca{
     protected ArrayList<Usuario> usuarios;
@@ -39,19 +40,21 @@ public class Biblioteca{
     }
 
     public boolean devolucao(Livro livro, Usuario usuario){
-        Emprestimo emprestimo = new emprestimo;
+        Emprestimo emprestimo = new Emprestimo();
         if(emprestimo.verificaSeEDomingo() == true){
             return false;
         }
         if(usuario.removeLivro(livro) == true){
             livro.setEmprestado(false);
+            return true;
         }
+        return false;
     }
 
     //funcao para verificar diariamente se usuario deve ser multado 
     public void verificaAddMultaDiariamente(){
         Multa multa = new Multa();
-        ArrayList<Emprestimo> emprestimos = new ArrayList<>();
+        ArrayList<Emprestimo> emprestimos = new ArrayList();
         for(int i=0; i<usuarios.size(); i++){
             emprestimos = usuarios.get(i).getEmprestimos();
             //verificando se há algum emprestimo vencido no vetor emprestimos de cada usuario
@@ -66,12 +69,12 @@ public class Biblioteca{
 
     //funcao para verificar diariamente se usuario deve ter multa retiradas
     public void verificaRemoveMultaDiariamente(){
-        ArrayList<Multa> multas = new ArrayList<>();
+        ArrayList<Multa> multas = new ArrayList();
         for(int i=0; i<usuarios.size(); i++){
-            if(usuarios.get(i).getQuantMulta > 0){
+            if(usuarios.get(i).getQuantMulta() > 0){
                 multas = usuarios.get(i).getMultas();
                 for(int j=0; j<multas.size(); j++){
-                    if(multas.get(j).removeMulta == true){
+                    if(multas.get(j).removeMulta() == true){
                         usuarios.get(i).removeMulta(multas.get(j));
                     }
                 }
@@ -81,7 +84,7 @@ public class Biblioteca{
 
     public void imprimirCatalogoDeLivros(){
         //System.out.println("CATALOGO: \n");
-        Collections.sort(livros);
+        Collections.sort(livros); //????
         for(Livro livro : livros){
             System.out.println("-" + livro);
         }

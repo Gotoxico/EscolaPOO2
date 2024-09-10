@@ -44,7 +44,7 @@ public class Usuario{
             for(int i=0; i < contLivros; i++){
                 if(livros.get(i).equals(livro)){   //perguntar!!!
                     livros.remove(i);
-                    emprestimo.remove(i);
+                    emprestimos.remove(i);
                     contLivros--;
                     return true;
                 }
