@@ -4,7 +4,9 @@ public class AtividadeExtra{
 	protected double horasTotais;
 	protected String titulo;
 
-	public AtividadeExtra(){
+	public AtividadeExtra(double horasTotais, String titulo){
+		this.horasTotais = horasTotais;
+		this.titulo = titulo;
 	}
 
 	public String getTitulo(){
@@ -19,7 +21,7 @@ public class AtividadeExtra{
 		this.titulo = titulo;
 	}
 
-	public void setHorasTotais(String horasTotais){
+	public void setHorasTotais(double horasTotais){
 		this.horasTotais = horasTotais;
 	}
 }

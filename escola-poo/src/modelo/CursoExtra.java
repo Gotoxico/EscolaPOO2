@@ -4,7 +4,10 @@ public class CursoExtra extends AtividadeExtra{
 	private String professor;
 	private String descricao;
 
-	public CursoExtra(){
+	public CursoExtra(double horasTotais, String titulo, String professor, String descricao){
+		super(horasTotais, titulo);
+		this.professor = professor;
+		this.descricao = descricao;
 	}
 
 	public String getProfessor(){

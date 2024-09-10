@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sistemadegerenciamentoescolar;
+package modelo;
 import java.util.ArrayList;
 
 /**
@@ -70,6 +70,6 @@ public class Turma {
     }
     
     public void removerDisciplina(Disciplina disciplina) {
-        disciplina.remove(disciplina);
+        disciplinas.remove(disciplina);
     }
 }

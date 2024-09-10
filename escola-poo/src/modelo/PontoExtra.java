@@ -10,7 +10,7 @@ package modelo;
  */
 public class PontoExtra {
     protected String nomePontoExtra;
-    protected float valorMaximo;
+    protected float valorMaximo, valor;
 
     public PontoExtra() {
     }
@@ -34,6 +34,14 @@ public class PontoExtra {
 
     public void setValorMaximo(float valorMaximo) {
         this.valorMaximo = valorMaximo;
+    }
+
+    public float getValor() {
+        return valor;
+    }
+
+    public void setValor(float valor) {
+        this.valor = valor;
     }
     
 }

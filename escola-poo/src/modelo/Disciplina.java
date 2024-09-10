@@ -176,7 +176,7 @@ public class Disciplina {
     }
     
     public double mediaGeral() {
-        if (turmas > 0) {
+        if (turmas.size() > 0) {
             double media = 0;
 
             for(Turma i : turmas) {
@@ -192,11 +192,11 @@ public class Disciplina {
         }
     }
     
-    public void adicionarNota(Nota nota) {
+    public void adicionarNota(Notas nota) {
         notas.add(nota);
     }
     
-    public void removerNota(Nota nota) {
+    public void removerNota(Notas nota) {
         notas.remove(nota);
     }
     

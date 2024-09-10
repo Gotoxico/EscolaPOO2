@@ -12,5 +12,6 @@ public class BibliotecaEscolar extends Biblioteca{
     public boolean addUsuario(Aluno aluno){
             usuarios.add(aluno);
             return true;
+
     }
 }
