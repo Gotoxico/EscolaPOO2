@@ -1,5 +1,7 @@
 package controlador;
 
+import Horario.Horario;
+import java.util.ArrayList;
 import modelo.*;
 
 public class Escola{
@@ -8,6 +10,7 @@ public class Escola{
 	private ArrayList<Turma> turmas;
 	private ArrayList<Disciplina> disciplinas;
 	private BibliotecaEscolar biblioteca;
+        private Notas notas;
 
 	public Escola(){
 		this.alunos = new ArrayList<>();
@@ -15,6 +18,7 @@ public class Escola{
 		this.turmas = new ArrayList<>();
 		this.disciplinas = new ArrayList<>();
 		this.biblioteca = new Biblioteca();
+                this.notas = new Notas();
 	}
 
 	public Disciplina getDisciplinaNome(String nome){
@@ -188,6 +192,57 @@ public class Escola{
 			//aluno.addCursoExtra(temp);
 		}
 	}
-
-
+        
+        //Chamadas metodos classe gerenciadora Notas
+        
+        public void removerProvaDisciplina(String nomeDisciplina, String nomeProfessor, String nomeProva, String nomeTurma, float peso){
+            notas.removerProvaDisciplina(nomeDisciplina, nomeProfessor, nomeProva, nomeTurma, peso);
+        }
+        
+        public void removerTrabalhoDisciplina(String nomeDisciplina, String nomeProfessor, String nomeTrabalho, String nomeTurma, float peso){
+            notas.removerTrabalhoDisciplina(nomeDisciplina, nomeProfessor, nomeTrabalho, nomeTurma, peso);
+        }
+        
+        public void removerPontoExtraDisciplina(String nomeDisciplina, String nomeProfessor, String nomePontoExtra, String nomeTurma, float valorMaximo){
+            notas.removerPontoExtraDisciplina(nomeDisciplina, nomeProfessor, nomePontoExtra, nomeTurma, valorMaximo);
+        }
+        
+        public void adicionarProvaDisciplina(String nomeDisciplina, String nomeProfessor, String nomeProva, String nomeTurma, float peso){
+            notas.adicionarProvaDisciplina(nomeDisciplina, nomeProfessor, nomeProva, nomeTurma, peso);
+        }
+        
+        public void adicionarTrabalhoDisciplina(String nomeDisciplina, String nomeProfessor, String nomeTurma, String nomeTrabalho, float peso) {
+            notas.adicionarTrabalhoDisciplina(nomeDisciplina, nomeProfessor, nomeTurma, nomeTrabalho, peso);
+        }
+        
+        public void adicionarPontoExtraDisciplina(String nomeDisciplina, String nomeProfessor, String nomePontoExtra, String nomeTurma, float valorMaximo) {
+            notas.adicionarPontoExtraDisciplina(nomeDisciplina, nomeProfessor, nomePontoExtra, nomeTurma, valorMaximo);
+        }
+        
+        public void adicionarNotaProva(String nomeAluno, String nomeDisciplina, String nomeProfessor, String nomeProva, float notaProva, String nomeTurma) {
+            notas.adicionarNotaProva(nomeAluno, nomeDisciplina, nomeProfessor, nomeProva, notaProva, nomeTurma);
+        }
+        
+        public void adicionarNotaTrabalho(String nomeAluno, String nomeDisciplina, String nomeProfessor, String nomeTrabalho, float notaTrabalho, String nomeTurma) {
+            notas.adicionarNotaTrabalho(nomeAluno, nomeDisciplina, nomeProfessor, nomeTrabalho, notaTrabalho, nomeTurma);
+        }
+        
+        public void adicionarNotaPontoExtra(String nomeAluno, String nomeDisciplina, String nomeProfessor, String nomePontoExtra, String nomeTurma, float valor) {
+            notas.adicionarNotaPontoExtra(nomeAluno, nomeDisciplina, nomeProfessor, nomePontoExtra, nomeTurma, valor);
+        }
+        
+        public void removerNotaProva(String nomeAluno, String nomeDisciplina, String nomeProfessor, String nomeProva, float notaProva, String nomeTurma) {
+            notas.removerNotaProva(nomeAluno, nomeDisciplina, nomeProfessor, nomeProva, notaProva, nomeTurma);
+        }
+        
+        public void removerNotaTrabalho(String nomeAluno, String nomeDisciplina, String nomeProfessor, String nomeTrabalho, float notaTrabalho, String nomeTurma) {
+            notas.removerNotaTrabalho(nomeAluno, nomeDisciplina, nomeProfessor, nomeTrabalho, notaTrabalho, nomeTurma);
+        }
+        
+        public void removerNotaPontoExtra(String nomeAluno, String nomeDisciplina, String nomeProfessor, String nomePontoExtra, String nomeTurma, float valor) {
+            notas.removerNotaPontoExtra(nomeAluno, nomeDisciplina, nomeProfessor, nomePontoExtra, nomeTurma, valor);
+        }
+        
+        
+        
 }
