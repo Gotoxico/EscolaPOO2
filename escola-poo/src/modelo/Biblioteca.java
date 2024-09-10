@@ -1,11 +1,12 @@
 package modelo;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Collections;
 
 public class Biblioteca{
-    protected ArrayList<Usuario> usuarios;
-    protected ArrayList<Livro> livros;
+    protected List<Usuario> usuarios;
+    protected List<Livro> livros;
 
     public Biblioteca(){
         this.usuarios = new ArrayList<>();

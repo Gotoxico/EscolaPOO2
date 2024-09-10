@@ -54,11 +54,11 @@ public class Professor extends Usuario {
     }
 
     public String getID() {
-        return super.getId();
+        return super.getID();
     }
 
     public void setID(String ID) {
-        super.setId(ID);
+        super.setID(ID);
     }
 
     public void adicionarDisciplina(Disciplina d){

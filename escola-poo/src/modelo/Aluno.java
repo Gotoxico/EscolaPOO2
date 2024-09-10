@@ -7,14 +7,16 @@ public class Aluno extends Usuario{
     private ArrayList<Double>provas;
     private ArrayList<Double>trabalhos;
     private ArrayList<Double>pontosExtras;
+    private float media;
 
-    public Aluno(String nome, String id, String matricula, String curso){
+    public Aluno(String nome, String id, String matricula, String curso, float media){
         super(nome, id);
         this.matricula = matricula;
         this.curso = curso;
         this.provas = new ArrayList<>();
         this.trabalhos = new ArrayList<>();
         this.pontosExtras = new ArrayList<>();
+        this.media = media;
     }
 
     public String getMatricula(){
@@ -32,6 +34,16 @@ public class Aluno extends Usuario{
     public void setCurso(String curso){
         this.curso = curso;
     }
+
+    public float getMedia() {
+        return media;
+    }
+
+    public void setMedia(float media) {
+        this.media = media;
+    }
+    
+    
 
     public ArrayList<Double> getProvas(){
         return provas;
@@ -101,13 +113,13 @@ public class Aluno extends Usuario{
         }
 
         for(PontoExtra pontoExtra : disciplina.getPontosExtra()){
-            adicionarPontoExtra(pontoExtra.getNota());
+            adicionarPontoExtra(pontoExtra.getValor());
         }
     }
 
     public void exibirInfo(){
         System.out.println("Nome: " + getNome() + "\n" +
-            "ID: " + getId() + "\n" +
+            "ID: " + getID()+ "\n" +
             "Matricula: " + matricula + "\n" +
             "Curso: " + curso + "\n" +
             "Provas: " + provas + "\n" +

@@ -58,7 +58,7 @@ public class Escola{
 		Professor temp;
 		for(int i=0; i < this.professores.size(); i++){
 			temp = this.professores.get(i);
-			if(temp.getId().equals(idProfessor)){
+			if(temp.getID().equals(idProfessor)){
 				return temp;
 			}
 		}
@@ -108,19 +108,19 @@ public class Escola{
 		}
 	}
 
-	public void addHorarioTurma(Horario h, String idTurma){
+	public void addHorarioTurma(Horario h, String idTurma, Disciplina disciplina){
 		Turma turma = this.getTurmaId(idTurma);
 
 		if(turma != null){
-			//turma.addHorario(h);
-		}
+                    turma.setHorario(h);
+                }
 	}
 
 	public void removerHorarioTurma(Horario h, String idTurma){
 		Turma turma = this.getTurmaId(idTurma);
 
 		if(turma != null){
-			//turma.removerHorario(h);
+                     turma.setHorario(null);
 		}
 	}
 

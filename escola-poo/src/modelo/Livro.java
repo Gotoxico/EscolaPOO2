@@ -1,6 +1,6 @@
 package modelo;
 
-public class Livro{
+public class Livro implements Comparable<Livro>{
     private String titulo;
     private String autor;
     private String isbn;
@@ -47,5 +47,15 @@ public class Livro{
 
     public boolean getEmprestado(){
         return emprestado;
+    }
+    
+      @Override
+    public int compareTo(Livro outroLivro) {
+        return this.titulo.compareTo(outroLivro.getTitulo());
+    }
+
+    @Override
+    public String toString() {
+        return this.titulo + " - " + this.autor;
     }
 }
