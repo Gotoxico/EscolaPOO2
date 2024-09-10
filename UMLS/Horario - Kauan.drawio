@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36" version="24.7.10">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36" version="24.7.12">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
-    <mxGraphModel dx="913" dy="528" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1050" dy="557" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
@@ -31,12 +31,6 @@
         </mxCell>
         <mxCell id="zkfFHV4jXpPFQw0GAbJ--24" value="getDURACAO_AULA_MINUTOS() : int;&#xa;&#xa;getDURACAO_INTERVALO_MINUTOS() : int;&#xa;&#xa;getHORA_INICIO() : LocalTime;&#xa;&#xa;getHORA_FINAL() : LocalTime;&#xa;&#xa;getHORA_ALMOCO_INICIO() : LocalTime;&#xa;&#xa;getHORA_ALMOCO_FINAL() : LocalTime;&#xa;&#xa;getContadorGeralDeAulas() : int;&#xa;&#xa;inicializarHorario() : void;&#xa;&#xa;gerarPeriodosAula() : List&lt;Periodo&gt;;&#xa;&#xa;exibirHorario() : void;&#xa;&#xa;adicionarDisciplina(String dia, ArrayList&lt;Disciplina&gt; disciplinas) : boolean;&#xa;&#xa;adicionarDisciplina(Disciplina disciplina, Periodo periodo) : boolean;&#xa;&#xa;adicionarDisciplina(String dia, Disciplina disciplina, LocalTime inicio) : boolean;&#xa;&#xa;adicionarDisciplina(String dia, ArrayList&lt;Disciplina&gt; disciplinas, int posicao) : boolean;&#xa;&#xa;removerTodasDisciplinas(String dia) : boolean;&#xa;&#xa;removerDisciplinaDia(String dia, LocalTime inicio) : boolean;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="zkfFHV4jXpPFQw0GAbJ--17" vertex="1">
           <mxGeometry y="358" width="490" height="452" as="geometry" />
-        </mxCell>
-        <mxCell id="fEsJrAizU538k5NtxDDW-4" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1.013;entryY=0.42;entryDx=0;entryDy=0;entryPerimeter=0;fontSize=12;startSize=8;endSize=8;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="zkfFHV4jXpPFQw0GAbJ--18" target="zkfFHV4jXpPFQw0GAbJ--5">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="fEsJrAizU538k5NtxDDW-5" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.002;entryY=0.56;entryDx=0;entryDy=0;entryPerimeter=0;fontSize=12;startSize=8;endSize=8;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="zkfFHV4jXpPFQw0GAbJ--5" target="zkfFHV4jXpPFQw0GAbJ--18">
-          <mxGeometry relative="1" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
