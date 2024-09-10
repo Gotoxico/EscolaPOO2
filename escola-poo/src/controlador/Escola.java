@@ -17,7 +17,7 @@ public class Escola{
 		this.professores = new ArrayList<>();
 		this.turmas = new ArrayList<>();
 		this.disciplinas = new ArrayList<>();
-		this.biblioteca = new Biblioteca();
+		this.biblioteca = new BibliotecaEscolar();
                 this.notas = new Notas();
 	}
 
@@ -36,7 +36,7 @@ public class Escola{
 		Turma temp;
 		for(int i=0; i < this.turmas.size(); i++){
 			temp = this.turmas.get(i);
-			if(temp.getID.equals(idTurma)){
+			if(temp.getID().equals(idTurma)){
 				return temp;
 			}
 		}
@@ -47,7 +47,7 @@ public class Escola{
 		Aluno temp;
 		for(int i=0; i < this.alunos.size(); i++){
 			temp = this.alunos.get(i);
-			if(temp.getMatricula.equals(matricula)){
+			if(temp.getMatricula().equals(matricula)){
 				return temp;
 			}
 		}
@@ -58,7 +58,7 @@ public class Escola{
 		Professor temp;
 		for(int i=0; i < this.professores.size(); i++){
 			temp = this.professores.get(i);
-			if(temp.getID().equals(idProfessor)){
+			if(temp.getId().equals(idProfessor)){
 				return temp;
 			}
 		}
