@@ -94,4 +94,19 @@ public class Professor extends Usuario {
 	Notas n = new Notas();
 	n.adicionarNotaPontoExtra(nomeAluno, nomeDisciplina, this.nome, nomePontoExtra, nomeTurma, valor);
     }
+    
+    public void removerNotaProva(String nomeAluno, String nomeDisciplina, String nomeProva, float notaProva, String nomeTurma) {
+        Notas n = new Notas();
+        n.removerNotaProva(nomeAluno, nomeDisciplina, this.nome, nomeProva, notaProva, nomeTurma);
+    }
+    
+    public void removerNotaTrabalho(String nomeAluno, String nomeDisciplina, String nomeTrabalho, float notaTrabalho, String nomeTurma){
+        Notas n = new Notas();
+        n.removerNotaTrabalho(nomeAluno, nomeDisciplina, this.nome, nomeTrabalho, notaTrabalho, nomeTurma);
+    }
+    
+    public void removerNotaPontoExtra(String nomeAluno, String nomeDisciplina, String nomePontoExtra, String nomeTurma, float valor){
+        Notas n = new Notas();
+        n.removerNotaPontoExtra(nomeAluno, nomeDisciplina, this.nome, nomePontoExtra, nomeTurma, valor);
+    }
 }
