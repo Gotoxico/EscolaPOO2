@@ -5,6 +5,7 @@
  */
 package modelo;
 import java.util.ArrayList;
+import Horario.Horario;
 
 /**
  *
@@ -16,6 +17,7 @@ public class Turma {
     private int quantidadeVagas;
     private ArrayList<Aluno> alunos;
     private ArrayList<Disciplina> disciplinas;
+    private Horario horario;
     
     public void Turma(String nomeTurma, String ID, int quantidadeVagas){
         this.nomeTurma = nomeTurma;
@@ -72,4 +74,6 @@ public class Turma {
     public void removerDisciplina(Disciplina disciplina) {
         disciplinas.remove(disciplina);
     }
+    
+    
 }

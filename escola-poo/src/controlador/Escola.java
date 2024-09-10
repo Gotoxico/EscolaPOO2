@@ -58,7 +58,7 @@ public class Escola{
 		Professor temp;
 		for(int i=0; i < this.professores.size(); i++){
 			temp = this.professores.get(i);
-			if(temp.getId.equals(idProfessor)){
+			if(temp.getID().equals(idProfessor)){
 				return temp;
 			}
 		}
