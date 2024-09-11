@@ -20,7 +20,8 @@ public class Turma {
     private ArrayList<Aluno> alunos;
     private ArrayList<Disciplina> disciplinas;
     private Horario horario;
-    
+
+    //Construtor
     public void Turma(String nomeTurma, String ID, int quantidadeVagas){
         this.nomeTurma = nomeTurma;
         this.ID = ID;
@@ -29,7 +30,8 @@ public class Turma {
         this.disciplinas = new ArrayList<>();
         this.horario = horario;
     }
-    
+
+    //Métodos getters e setters
     public String getNomeTurma(){
         return nomeTurma;
     }
@@ -61,7 +63,16 @@ public class Turma {
     public void setAlunos(ArrayList<Aluno> alunos){
         this.alunos = alunos;
     }
-    
+
+    public Horario getHorario() {
+        return horario;
+    }
+
+    public void setHorario(Horario horario) {
+        this.horario = horario;
+    }
+
+    //Métodos relacionados à alunos
     public void adicionarAluno(Aluno aluno) {
         alunos.add(aluno);
     }
@@ -69,7 +80,8 @@ public class Turma {
     public void removerAluno(Aluno aluno) {
         alunos.remove(aluno);
     }
-    
+
+    //Métodos relacionados à disciplina
     public void adicionarDisciplinas(Disciplina disciplina) {
         disciplinas.add(disciplina);
     }
@@ -86,14 +98,6 @@ public class Turma {
         this.disciplinas = disciplinas;
     }
 
-    public Horario getHorario() {
-        return horario;
-    }
-
-    public void setHorario(Horario horario) {
-        this.horario = horario;
-    }
-    
     //Métodos relacionados à gerência de horário
     public int getDURACAO_AULA_MINUTOS() {
         return horario.getDURACAO_AULA_MINUTOS();
