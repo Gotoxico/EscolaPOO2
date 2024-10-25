@@ -147,7 +147,7 @@ public class Notas {
             Aluno a = getNomeAluno(t, nomeAluno);
             if(a != null){
                 if(getNomeProva(disciplina, nomeProva) != null){
-                    a.setNotaProva(nomeProva, notaProva);
+                    //a.setNotaProva(nomeProva, notaProva);
                 }
             }
         }
@@ -159,7 +159,7 @@ public class Notas {
             Aluno a = getNomeAluno(t, nomeAluno);
             if(a != null){
                 if(getNomeTrabalho(disciplina, nomeTrabalho) != null){
-                    a.setNotaTrabalho(nomeTrabalho, notaTrabalho);
+                    //a.setNotaTrabalho(nomeTrabalho, notaTrabalho);
                 }
             }
         }
@@ -171,7 +171,7 @@ public class Notas {
             Aluno a = getNomeAluno(t, nomeAluno);
             if(a != null){
                 if(getNomePontoExtra(disciplina, nomePontoExtra) != null){
-                    a.setNotaPontoExtra(nomePontoExtra, valor);
+                    //a.setNotaPontoExtra(nomePontoExtra, valor);
                 }
             }
         }
@@ -183,7 +183,7 @@ public class Notas {
             Aluno a = getNomeAluno(t, nomeAluno);
             if(a != null){
                 if(getNomeProva(disciplina, nomeProva) != null){
-                    a.setNotaProva(nomeProva, null);
+                    //a.setNotaProva(nomeProva, null);
                 }
             }
         }
@@ -195,7 +195,7 @@ public class Notas {
             Aluno a = getNomeAluno(t, nomeAluno);
             if(a != null){
                 if(getNomeTrabalho(disciplina, nomeTrabalho) != null){
-                    a.setNotaTrabalho(nomeTrabalho, null);
+                    //a.setNotaTrabalho(nomeTrabalho, null);
                 }
             }
         }
@@ -207,7 +207,7 @@ public class Notas {
             Aluno a = getNomeAluno(t, nomeAluno);
             if(a != null){
                 if(getNomePontoExtra(disciplina, nomePontoExtra) != null){
-                    a.setNotaPontoExtra(nomePontoExtra, null);
+                    //a.setNotaPontoExtra(nomePontoExtra, null);
                 }
             }
         }

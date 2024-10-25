@@ -31,6 +31,13 @@ public class Disciplina {
         this.unidadeEscolar = unidadeEscolar;
         this.anoEscolar = anoEscolar;
         cargaHoraria = 0;
+
+        this.notas = new ArrayList<>();
+        this.turmas = new ArrayList<>();
+        this.professores = new ArrayList<>();
+        this.provas = new ArrayList<>();
+        this.trabalhos = new ArrayList<>();
+        this.pontosExtra = new ArrayList<>();
     }
 
     public String getNome() {

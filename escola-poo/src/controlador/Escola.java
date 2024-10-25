@@ -2,6 +2,7 @@ package controlador;
 
 import Horario.Horario;
 import java.util.ArrayList;
+import java.util.UUID;
 import modelo.*;
 
 public class Escola{
@@ -21,6 +22,22 @@ public class Escola{
                 this.notas = new Notas();
 	}
 
+	public ArrayList<Turma> getTodasTurmas(){
+		return this.turmas;
+	}
+
+	public ArrayList<Aluno> getTodosAlunos(){
+		return this.alunos;
+	}
+
+	public ArrayList<Professor> getTodosProfessores(){
+		return this.professores;
+	}
+
+	public ArrayList<Disciplina> getTodasDisciplinas(){
+		return this.disciplinas;
+	}
+
 	public Disciplina getDisciplinaNome(String nome){
 		Disciplina temp;
 		for(int i=0; i < this.disciplinas.size(); i++){
@@ -30,6 +47,10 @@ public class Escola{
 			}
 		}
 		return null;
+	}
+
+	public BibliotecaEscolar getBiblioteca(){
+		return this.biblioteca;
 	}
 
 	public Turma getTurmaId(String idTurma){
@@ -65,37 +86,82 @@ public class Escola{
 		return null;
 	}
 
-	public void addAluno(Aluno a){
-		this.alunos.add(a);
+
+	public void addProfessor(String nome, String titulacao){
+		UUID id = UUID.randomUUID();
+		Logger logger = Logger.getInstance();
+
+		Professor novo = new Professor();
+
+		novo.setID(id.toString());
+		novo.setNome(nome);
+		novo.setTitulacao(titulacao);
+
+		this.professores.add(novo);
+		logger.gravaArquivo(String.format("Professor %s adicionado", nome), Logger.Level.INFO);
 	}
 
-	public void addProfessor(Professor p){
-		this.professores.add(p);
+	public void addDisciplina(String nome, String unidadeEscolar, String anoEscolar){
+		Logger logger = Logger.getInstance();
+
+		Disciplina nova = new Disciplina(nome, unidadeEscolar, anoEscolar);
+		this.disciplinas.add(nova);
+		logger.gravaArquivo(String.format("Disciplina %s para o ano escolar '%s' adicionada", nome, anoEscolar), Logger.Level.INFO);
 	}
 
-	public void addDisciplina(Disciplina d){
-		this.disciplinas.add(d);
+	public void addTurma(String nome, int quantidadeVagas){
+		UUID id = UUID.randomUUID();
+		Logger logger = Logger.getInstance();
+
+		Turma novo = new Turma(nome, id.toString(), quantidadeVagas);
+
+		logger.gravaArquivo(String.format("Turma %s adicionado", nome), Logger.Level.INFO);
+		this.turmas.add(novo);
 	}
 
-	public void addTurma(Turma t){
-		this.turmas.add(t);
+	public void addAlunoTurma(String nome, String idTurma){
+		UUID id = UUID.randomUUID();
+		UUID matricula = UUID.randomUUID();
+		Logger logger = Logger.getInstance();
+
+		Aluno novo = new Aluno(nome, id.toString(), matricula.toString(), "teste", 0.0f);
+
+		this.alunos.add(novo);
+
+		System.out.print("ID: "+idTurma+"\n");
+		Turma turma = this.getTurmaId(idTurma);
+
+		if(turma != null){
+			turma.adicionarAluno(novo);
+			logger.gravaArquivo(String.format("Aluno '%s' adicionado na turma de id '%s'", nome, idTurma), Logger.Level.INFO);
+		}else{
+			logger.gravaArquivo(String.format("Aluno '%s' não adicionado, turma de id '%s' inexistente", nome, idTurma), Logger.Level.ERROR);
+		}
 	}
 
-	public void addAlunoTurma(String matricula, String idTurma){
+	public void trocaAlunoTurma(String matricula, String idTurma){
 		Aluno aluno = this.getAlunoMatricula(matricula);
 		Turma turma = this.getTurmaId(idTurma);
+		Logger logger = Logger.getInstance();
 
 		if(aluno != null && turma != null){
 			turma.adicionarAluno(aluno);
+			logger.gravaArquivo(String.format("Aluno de matricula %s trocou para a turma de id '%s'", matricula, idTurma), Logger.Level.INFO);
+		}else{
+			logger.gravaArquivo(String.format("Aluno de matricula '%s' não trocou para a turma de id '%s'", matricula, idTurma), Logger.Level.ERROR);
 		}
 	}
 
 	public void addDisciplinaTurma(String nome, String idTurma){
 		Disciplina disciplina = this.getDisciplinaNome(nome);
 		Turma turma = this.getTurmaId(idTurma);
+		Logger logger = Logger.getInstance();
 
 		if(disciplina != null && turma != null){
 			turma.adicionarDisciplinas(disciplina);
+			logger.gravaArquivo(String.format("Disciplina %s adicionada à turma %s", nome, turma.getNomeTurma()), Logger.Level.INFO);
+		}else{
+			logger.gravaArquivo(String.format("Disciplina %s não adicionada à turma", nome, turma.getNomeTurma()), Logger.Level.ERROR);
 		}
 	}
 
@@ -124,8 +190,12 @@ public class Escola{
 		}
 	}
 
-	public void addLivroBiblioteca(Livro livro){
-		biblioteca.addLivro(livro);
+	public void addLivroBiblioteca(String titulo, String autor, String isbn){
+		Livro novo = new Livro(titulo, autor, isbn);
+		Logger logger = Logger.getInstance();
+
+		biblioteca.addLivro(novo);
+		logger.gravaArquivo(String.format("Livro '%s' de '%s' foi adicionado à biblioteca", titulo, autor), Logger.Level.INFO);
 	}
 
 	public void addProfessorBiblioteca(String idProfessor){
