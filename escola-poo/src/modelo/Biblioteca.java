@@ -3,14 +3,19 @@ package modelo;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Collections;
+import modelo.Output.OutputConsole;
+import modelo.Output.OutputFactory;
+import modelo.Output.OutputInterface;
 
 public class Biblioteca{
+    private OutputInterface output;
     protected List<Usuario> usuarios;
     protected List<Livro> livros;
 
-    public Biblioteca(){
+    public Biblioteca(String tipoOutput){
         this.usuarios = new ArrayList<>();
         this.livros = new ArrayList<>();
+        this.output = OutputFactory.getTipoOutput(tipoOutput);
     }
 
     public boolean addUsuario(Usuario usuario){
@@ -87,7 +92,9 @@ public class Biblioteca{
         //System.out.println("CATALOGO: \n");
         Collections.sort(livros); //????
         for(Livro livro : livros){
-            System.out.println("-" + livro);
+            if(output instanceof OutputConsole){
+                System.out.println("-" + livro);
+            }
         }
 
     }

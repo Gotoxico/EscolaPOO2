@@ -1,7 +1,11 @@
 package modelo;
 import java.util.ArrayList;
+import modelo.Output.OutputConsole;
+import modelo.Output.OutputFactory;
+import modelo.Output.OutputInterface;
 
 public class Aluno extends Usuario{
+    private OutputInterface output;
     private String matricula;
     private String curso;
     private ArrayList<Double>provas;
@@ -9,7 +13,7 @@ public class Aluno extends Usuario{
     private ArrayList<Double>pontosExtras;
     private float media;
 
-    public Aluno(String nome, String id, String matricula, String curso, float media){
+    public Aluno(String nome, String id, String matricula, String curso, float media, String tipoOutput){
         super(nome, id);
         this.matricula = matricula;
         this.curso = curso;
@@ -17,6 +21,7 @@ public class Aluno extends Usuario{
         this.trabalhos = new ArrayList<>();
         this.pontosExtras = new ArrayList<>();
         this.media = media;
+        this.output = OutputFactory.getTipoOutput(tipoOutput);
     }
 
     public String getMatricula(){
@@ -61,7 +66,9 @@ public class Aluno extends Usuario{
         if(nota >= 0 && nota <= 10){
             provas.add(nota);
         }else{
-            System.out.println("Nota invalida, ela deve estar entre 0 e 10");
+            if(output instanceof OutputConsole){
+                System.out.println("Nota invalida, ela deve estar entre 0 e 10");
+            }
         }
     }
 
@@ -69,7 +76,9 @@ public class Aluno extends Usuario{
         if(nota >= 0 && nota <= 10){
             trabalhos.add(nota);
         }else{
-            System.out.println("Nota de trabalho invalida, ela deve estar entre 0 e 10");
+            if(output instanceof OutputConsole){
+                System.out.println("Nota de trabalho invalida, ela deve estar entre 0 e 10");
+            }
         }
     }
 
@@ -77,7 +86,9 @@ public class Aluno extends Usuario{
         if(nota >= 0 && nota <= 10){
             pontosExtras.add(nota);
         }else{
-            System.out.println("Nota de ponto extra invalida, ela deve estar entre 0 e 10");
+            if(output instanceof OutputConsole){
+                System.out.println("Nota de ponto extra invalida, ela deve estar entre 0 e 10");
+            }
         }
     }
 
@@ -118,13 +129,15 @@ public class Aluno extends Usuario{
     }
 
     public void exibirInfo(){
-        System.out.println("Nome: " + getNome() + "\n" +
-            "ID: " + getID()+ "\n" +
-            "Matricula: " + matricula + "\n" +
-            "Curso: " + curso + "\n" +
-            "Provas: " + provas + "\n" +
-            "Trabalhos: " + trabalhos + "\n" +
-            "Pontos Extras: " + pontosExtras + "\n" +
-            "Média: " + calcularMedia());
+        if(output instanceof OutputConsole){
+            System.out.println("Nome: " + getNome() + "\n" +
+                "ID: " + getID()+ "\n" +
+                "Matricula: " + matricula + "\n" +
+                "Curso: " + curso + "\n" +
+                "Provas: " + provas + "\n" +
+                "Trabalhos: " + trabalhos + "\n" +
+                "Pontos Extras: " + pontosExtras + "\n" +
+                "Média: " + calcularMedia());
+        }
     }
 }
