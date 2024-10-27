@@ -85,6 +85,7 @@ public class Notas {
     }
 
     
+    
     //Metodos para remover e adicionar Provas, Trabalhos e PontosExtra
     public void removerProvaDisciplina(String nomeDisciplina, String nomeProfessor, String nomeProva, String nomeTurma, float peso){
         for (Disciplina disciplina : disciplinas){
@@ -146,8 +147,10 @@ public class Notas {
             Turma t = getNomeTurma(disciplina, nomeTurma);
             Aluno a = getNomeAluno(t, nomeAluno);
             if(a != null){
-                if(getNomeProva(disciplina, nomeProva) != null){
-                    a.setNotaProva(nomeProva, notaProva);
+                Prova prova = getNomeProva(disciplina, nomeProva);
+                if(prova != null){
+                    prova.setNota(notaProva);
+                    a.setNotaProva(prova);
                 }
             }
         }
@@ -158,8 +161,10 @@ public class Notas {
             Turma t = getNomeTurma(disciplina, nomeTurma);
             Aluno a = getNomeAluno(t, nomeAluno);
             if(a != null){
-                if(getNomeTrabalho(disciplina, nomeTrabalho) != null){
-                    a.setNotaTrabalho(nomeTrabalho, notaTrabalho);
+                Trabalho trabalho = getNomeTrabalho(disciplina, nomeTrabalho);
+                if(trabalho != null){
+                    trabalho.setNota(notaTrabalho);
+                    a.setNotaTrabalho(trabalho);
                 }
             }
         }
@@ -170,8 +175,10 @@ public class Notas {
             Turma t = getNomeTurma(disciplina, nomeTurma);
             Aluno a = getNomeAluno(t, nomeAluno);
             if(a != null){
-                if(getNomePontoExtra(disciplina, nomePontoExtra) != null){
-                    a.setNotaPontoExtra(nomePontoExtra, valor);
+                PontoExtra pontoExtra = getNomePontoExtra(disciplina, nomePontoExtra);
+                if(pontoExtra != null){
+                    pontoExtra.setValor(valor);
+                    a.setNotaPontoExtra(pontoExtra);
                 }
             }
         }
@@ -182,8 +189,9 @@ public class Notas {
             Turma t = getNomeTurma(disciplina, nomeTurma);
             Aluno a = getNomeAluno(t, nomeAluno);
             if(a != null){
-                if(getNomeProva(disciplina, nomeProva) != null){
-                    a.setNotaProva(nomeProva, null);
+                Prova prova = getNomeProva(disciplina, nomeProva);
+                if(prova != null){
+                    a.removerNotaProva(prova);
                 }
             }
         }
@@ -194,8 +202,9 @@ public class Notas {
             Turma t = getNomeTurma(disciplina, nomeTurma);
             Aluno a = getNomeAluno(t, nomeAluno);
             if(a != null){
-                if(getNomeTrabalho(disciplina, nomeTrabalho) != null){
-                    a.setNotaTrabalho(nomeTrabalho, null);
+                Trabalho trabalho = getNomeTrabalho(disciplina, nomeTrabalho);
+                if(trabalho != null){
+                    a.removerNotaTrabalho(trabalho);
                 }
             }
         }
@@ -206,8 +215,9 @@ public class Notas {
             Turma t = getNomeTurma(disciplina, nomeTurma);
             Aluno a = getNomeAluno(t, nomeAluno);
             if(a != null){
-                if(getNomePontoExtra(disciplina, nomePontoExtra) != null){
-                    a.setNotaPontoExtra(nomePontoExtra, null);
+                PontoExtra pontoExtra = getNomePontoExtra(disciplina, nomePontoExtra);
+                if(pontoExtra != null){
+                    a.removerNotaPontoExtra(pontoExtra);
                 }
             }
         }

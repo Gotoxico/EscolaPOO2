@@ -8,9 +8,9 @@ public class Aluno extends Usuario{
     private OutputInterface output;
     private String matricula;
     private String curso;
-    private ArrayList<Double>provas;
-    private ArrayList<Double>trabalhos;
-    private ArrayList<Double>pontosExtras;
+    private ArrayList<Prova>provas;
+    private ArrayList<Trabalho>trabalhos;
+    private ArrayList<PontoExtra>pontosExtras;
     private float media;
 
     public Aluno(String nome, String id, String matricula, String curso, float media, String tipoOutput){
@@ -48,21 +48,46 @@ public class Aluno extends Usuario{
         this.media = media;
     }
     
+    public void setNotaProva(Prova prova){
+        provas.add(prova);
+    }
+    
+    public void setNotaTrabalho(Trabalho trabalho){
+        trabalhos.add(trabalho);
+    }
+    
+    public void setNotaPontoExtra(PontoExtra pontoExtra){
+        pontosExtras.add(pontoExtra);
+    }
+    
+    public void removerNotaProva(Prova prova){
+        provas.remove(prova);
+    }
+    
+    public void removerNotaTrabalho(Trabalho trabalho){
+        trabalhos.remove(trabalho);
+    }
+    
+    public void removerNotaPontoExtra(PontoExtra pontoExtra){
+        pontosExtras.remove(pontoExtra);
+    }
+    
     
 
-    public ArrayList<Double> getProvas(){
+    public ArrayList<Prova> getProvas(){
         return provas;
     }
 
-    public ArrayList<Double> getTrabalhos(){
+    public ArrayList<Trabalho> getTrabalhos(){
         return trabalhos;
     }
 
-    public ArrayList<Double> getPontosExtras(){
+    public ArrayList<PontoExtra> getPontosExtras(){
         return pontosExtras;
     }
 
-    public void adicionarProva(double nota){
+    /*
+    public void adicionarProva(String nomeProva, double nota){
         if(nota >= 0 && nota <= 10){
             provas.add(nota);
         }else{
@@ -90,30 +115,31 @@ public class Aluno extends Usuario{
                 System.out.println("Nota de ponto extra invalida, ela deve estar entre 0 e 10");
             }
         }
-    }
+    }*/
 
     public double calcularMedia(){
         double totalNotas = 0;
         int quantidadeNotas = 0;
 
-        for(double nota : provas){
-            totalNotas += nota;
+        for(Prova prova : provas){
+            totalNotas += prova.getNota();
             quantidadeNotas++;
         }
 
-        for(double nota : trabalhos){
-            totalNotas += nota;
+        for(Trabalho trabalho : trabalhos){
+            totalNotas += trabalho.getNota();
             quantidadeNotas++;
         }
 
-        for(double nota : pontosExtras) {
-            totalNotas += nota;
+        for(PontoExtra pontoExtra : pontosExtras) {
+            totalNotas += pontoExtra.getValor();
             quantidadeNotas++;
         }
 
         return quantidadeNotas > 0 ? totalNotas / quantidadeNotas : 0.0;
     }
 
+    /*
     public void copiarNotasDisciplina(Disciplina disciplina){
         for(Prova prova : disciplina.getProvas()){
             adicionarProva(prova.getNota());
@@ -126,7 +152,7 @@ public class Aluno extends Usuario{
         for(PontoExtra pontoExtra : disciplina.getPontosExtra()){
             adicionarPontoExtra(pontoExtra.getValor());
         }
-    }
+    }*/
 
     public void exibirInfo(){
         if(output instanceof OutputConsole){
