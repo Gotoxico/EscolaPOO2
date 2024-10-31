@@ -8,11 +8,25 @@ import java.util.List;
 import java.util.Map;
 import modelo.Disciplina;
 /**
- *
+ * Classe que representa um horário de aulas
  * @author kauan
  */
 public class Horario {
     
+    /**
+     * Atributos da classe
+     * DURACAO_AULA_MINUTOS: duração de uma aula em minutos
+     * DURACAO_INTERVALO_MINUTOS: duração do intervalo entre aulas em minutos
+     * HORA_INICIO: horário de início das aulas
+     * HORA_FINAL: horário de fim das aulas
+     * HORA_ALMOCO_INICIO: horário de início do intervalo de almoço
+     * HORA_ALMOCO_FINAL: horário de fim do intervalo de almoço
+     * contadorGeralDeAulas: contador geral de aulas
+     * periodos: lista de períodos de aula
+     * horario: mapeamento dos dias da semana para suas aulas
+     * diasDaSemana: array de dias da semana
+     * 
+     */
     private static final int DURACAO_AULA_MINUTOS = 50;
     private static final int DURACAO_INTERVALO_MINUTOS = 15;
     private static final LocalTime HORA_INICIO = LocalTime.of(7, 0);
@@ -21,50 +35,81 @@ public class Horario {
     private static final LocalTime HORA_ALMOCO_FINAL = LocalTime.of(13,10);
     private int contadorGeralDeAulas =0;
     private ArrayList<Periodo> periodos;
-    private boolean intervalo = false;
-
-     // Mapeia os dias da semana para suas aulas
     private Map<String, List<Periodo>> horario;
     String[] diasDaSemana = {"Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira"};
 
+    /**
+     * Construtor da classe
+     * Inicializa o horário
+     */
     public Horario() {
         horario = new LinkedHashMap<>();
         inicializarHorario();
         
     }
 
+    //Getters e Setters
+
+    /**
+     * Retorna a duração de uma aula em minutos
+    * @return
+     */
     public static int getDURACAO_AULA_MINUTOS() {
         return DURACAO_AULA_MINUTOS;
     }
 
+    /**
+     * Retorna a duração do intervalo entre aulas em minutos
+     * @return
+     */
     public static int getDURACAO_INTERVALO_MINUTOS() {
         return DURACAO_INTERVALO_MINUTOS;
     }
 
+    /**
+     * Retorna o horário de início das aulas
+     * @return LocalTime
+     */
     public static LocalTime getHORA_INICIO() {
         return HORA_INICIO;
     }
 
+    /**
+     * Retorna o horário de fim das aulas
+     * @return LocalTime
+     */
     public static LocalTime getHORA_FINAL() {
         return HORA_FINAL;
     }
 
+    /**
+     * Retorna o horário de início do intervalo de almoço
+     * @return {@code LocalTime}
+     */
     public static LocalTime getHORA_ALMOCO_INICIO() {
         return HORA_ALMOCO_INICIO;
     }
 
+    /**
+     * Retorna o horário de fim do intervalo de almoço
+     * @return LocalTime
+     */
     public static LocalTime getHORA_ALMOCO_FINAL() {
         return HORA_ALMOCO_FINAL;
     }
 
+    /**
+     * Retorna o contador geral de aulas
+     * @return int
+     */
     public int getContadorGeralDeAulas() {
         return contadorGeralDeAulas;   
     }
     
-    
-    
-
-    // Inicializa o calendário para todos os dias da semana
+    /**
+     * Retorna a lista de períodos de aula
+     * @return ArrayList
+     */
     private void inicializarHorario() {
         
         for (String dia : diasDaSemana) {
@@ -72,7 +117,10 @@ public class Horario {
         }
     }
 
-    // Gera a lista de períodos para um dia
+    /**
+     * Retorna o mapeamento dos dias da semana para suas aulas
+     * @return {@link List}
+     */
     private List<Periodo> gerarPeriodosAula() {
         periodos = new ArrayList<>();
         LocalTime inicio = HORA_INICIO;
@@ -106,31 +154,21 @@ public class Horario {
         return periodos;
     }
 
-    // Exibe o calendário completo
-    public void exibirHorario() {
-        int conferidor = 0;
-        LocalTime horasAux = HORA_INICIO;
-        for (Map.Entry<String, List<Periodo>> entrada : horario.entrySet()) {
-            System.out.println(entrada.getKey() + ":");
-            for (Periodo periodo : entrada.getValue()) {
-               
-                
-                if(periodo.getDisciplina() == null){
-                    if(periodo.getHoraInicio() != horasAux){
-                        System.out.println("\tIntervalo\n\t" + periodo);
-                    }else System.out.println("\t" + periodo);
-                }
-                else{
-                    if(periodo.getHoraInicio() != horasAux){
-                        System.out.println("\tIntervalo\n\t" + periodo + periodo.getDisciplina().getNome());
-                    }else System.out.println("\t" + periodo + periodo.getDisciplina().getNome());
-                }
-                horasAux = periodo.getHoraFim();
-            }
-            horasAux = HORA_INICIO;
-        }
+    /**
+     * Retorna o HashMap dos dias da semana para suas aulas
+     * @return Map
+     */
+    public Map<String, List<Periodo>> getHorario() {
+        return horario;
     }
+
     
+    /**
+     * Adiciona uma disciplinas ao horário
+     * @param dia
+     * @param disciplina
+     * @return {@code true} se a disciplina foi adicionada, {@code false} caso contrário
+     */
     public boolean adicionarDisciplina(String dia, ArrayList<Disciplina> disciplinas){
         if(disciplinas.size() > contadorGeralDeAulas/5) return false;
         int i = 0;
@@ -146,18 +184,15 @@ public class Horario {
         return true;
     }
     
-    public boolean adicionarDisciplina(Disciplina disciplina, Periodo periodo){
-        if(periodo == null) return false;
-        if(disciplina == null) return false;
-        
-        for(int i = 0; i < contadorGeralDeAulas/5; i++){
-           if(this.periodos.get(i).equals(periodo)){
-               this.periodos.get(i).setDisciplina(disciplina);
-           }
-        }
-        return true;
-    }
+  
     
+    /**
+     * Adiciona uma disciplina ao horário
+     * @param dia
+     * @param disciplina
+     * @param inicio
+     * @return {@code true} se a disciplina foi adicionada, {@code false} caso contrário
+     */
     public boolean adicionarDisciplina(String dia, Disciplina disciplina, LocalTime inicio){
         if(inicio == null) return false;
         if(disciplina == null) return false;
@@ -175,6 +210,13 @@ public class Horario {
         return true;
     }
     
+    /**
+     * Adiciona uma disciplina ao horário
+     * @param dia
+     * @param disciplinas
+     * @param posicao
+     * @return {@code true} se a disciplina foi adicionada, {@code false} caso contrário
+     */
     public boolean adicionarDisciplina(String dia, ArrayList<Disciplina> disciplinas, int posicao){
         if(disciplinas.size()+ posicao-1 > contadorGeralDeAulas/5) return false;
         int i = 0, j = 0;
@@ -195,7 +237,12 @@ public class Horario {
         
         return true;
     }
-    
+
+    /**
+     * Remove todas as disciplinas de um dia
+     * @param dia
+     * @return {@code true} se as disciplinas foram removidas, {@code false} caso contrário
+     */
     public boolean removerTodasDisciplinas(String dia){
         for(Map.Entry<String, List<Periodo>> entrada : horario.entrySet()){
             if(entrada.getKey().equals(dia)){
@@ -210,6 +257,12 @@ public class Horario {
         return true;
     }
     
+    /**
+     * Remove uma disciplina de um dia
+     * @param dia
+     * @param disciplina
+     * @return {@code true} se a disciplina foi removida, {@code false} caso contrário
+     */
     public boolean removerDisciplinaDia(String dia, LocalTime inicio){
         for(Map.Entry<String, List<Periodo>> entrada: horario.entrySet()){
             if(entrada.getKey().equals(dia)){
@@ -222,7 +275,80 @@ public class Horario {
         }
         return true;
     }
+
+    /**
+     * ToString em forma de tabela os dias da semana, com as semanas sendo as colunas e os horários sendo as linhas (coluna 1 - segunda, coluna 2 - terça, etc)
+     * @return String
+     * 
+     */
     
+     @Override
+     public String toString() {
+         StringBuilder tabela = new StringBuilder();
+         int contador = 0;
+         // Cabeçalho da tabela com os dias da semana
+         tabela.append(String.format("%-18s", "     Horário"));
+         for (String dia : diasDaSemana) {
+             tabela.append(String.format("%-20s", dia));
+         }
+         tabela.append("\n");
+         
+         int maxPeriodos = 0;
+         for (List<Periodo> periodosDia : horario.values()) {
+             maxPeriodos = Math.max(maxPeriodos, periodosDia.size());
+         }
+         
+         for (int i = 0; i < maxPeriodos; i++) {
+             LocalTime horaInicio = null;
+             LocalTime horaFim = null;
+     
+             for (Map.Entry<String, List<Periodo>> entrada : horario.entrySet()) {
+                 List<Periodo> periodosDia = entrada.getValue();
+                 if (i < periodosDia.size()) {
+                     Periodo periodo = periodosDia.get(i);
+                     horaInicio = periodo.getHoraInicio();
+                     horaFim = periodo.getHoraFim();
+                     break;
+                 }
+             }
+             
+             if (horaInicio != null && horaFim != null) {
+                 tabela.append(String.format("%-18s", i+1 + ": " + horaInicio + " - " + horaFim));
+             } else {
+                 tabela.append(String.format("%-18s", ""));
+             }
+     
+             for (Map.Entry<String, List<Periodo>> entrada : horario.entrySet()) {
+                 List<Periodo> periodosDia = entrada.getValue();
+                 if (i < periodosDia.size()) {
+                     Periodo periodo = periodosDia.get(i);
+                     Disciplina disciplina = periodo.getDisciplina();
+                     if (disciplina != null) {
+                         tabela.append(String.format("%-20s", disciplina.getNome()));
+                     } else {
+                         tabela.append(String.format("%-20s", ""));
+                     }
+                 } else {
+                     tabela.append(String.format("%-20s", ""));
+                 }
+             }
+             tabela.append("\n");
+             contador++;
+            
+            if(contador == 3 && i < maxPeriodos-1){
+                tabela.append(String.format("%-18s", "     Intervalo"));
+                for (String dia : diasDaSemana) {
+                    tabela.append(String.format("%-20s", ""));
+                }
+                tabela.append("\n");
+                contador = 0;
+            }
+         }
+         
+         return tabela.toString();
+     }
+         
+
     
 }
 
