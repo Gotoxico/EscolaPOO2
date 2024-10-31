@@ -22,7 +22,7 @@ public class Turma {
     private Horario horario;
 
     //Construtor
-    public void Turma(String nomeTurma, String ID, int quantidadeVagas){
+    public Turma(String nomeTurma, String ID, int quantidadeVagas){
         this.nomeTurma = nomeTurma;
         this.ID = ID;
         this.quantidadeVagas = quantidadeVagas;
