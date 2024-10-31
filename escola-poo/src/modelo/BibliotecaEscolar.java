@@ -1,6 +1,10 @@
 package modelo;
 
-public class BibliotecaEscolar extends Biblioteca{ 
+public class BibliotecaEscolar extends Biblioteca{
+
+    public BibliotecaEscolar(String tipoOutput) {
+        super(tipoOutput);
+    }
 
     //@Override
     public boolean addUsuario(Professor professor){

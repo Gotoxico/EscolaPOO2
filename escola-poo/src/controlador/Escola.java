@@ -13,12 +13,12 @@ public class Escola{
 	private BibliotecaEscolar biblioteca;
         private Notas notas;
 
-	public Escola(){
+	public Escola(String tipoOutput){
 		this.alunos = new ArrayList<>();
 		this.professores = new ArrayList<>();
 		this.turmas = new ArrayList<>();
 		this.disciplinas = new ArrayList<>();
-		this.biblioteca = new BibliotecaEscolar();
+		this.biblioteca = new BibliotecaEscolar(tipoOutput);
                 this.notas = new Notas();
 	}
 

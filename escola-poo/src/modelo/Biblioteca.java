@@ -1,12 +1,11 @@
 package modelo;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Collections;
 
 public class Biblioteca{
-    protected List<Usuario> usuarios;
-    protected List<Livro> livros;
+    protected ArrayList<Usuario> usuarios;
+    protected ArrayList<Livro> livros;
 
     public Biblioteca(){
         this.usuarios = new ArrayList<>();
@@ -89,7 +88,22 @@ public class Biblioteca{
         for(Livro livro : livros){
             System.out.println("-" + livro);
         }
-
     }
 }
 
+
+
+/*
+    Fazer funcao para remover um usuario, deve excluir os emprestimos, conferir se retornou todos os livros
+ antes de ser desligado da biblioteca
+
+    //o usuário não será desligado até ter devolvido todos os livros, será barrado e notificado? 
+
+    Ordenar fora da funcao de printar (imprimir)  (usar um strategy) 
+ */
+
+// Implementar um PROXY!!!
+
+// Talvez aqui caiba um Observador para definir quando uma multa deve ser aplicada (Toda vez que o dia mudar deve-se verificar se o empéstimo está venceu)
+
+// Ordenar o vetor de livros usando o Strategy, fora da impressão
