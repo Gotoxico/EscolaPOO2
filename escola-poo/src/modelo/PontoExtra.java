@@ -6,7 +6,7 @@ package modelo;
 
 /**
  *
- * @author rodri
+ * @author rodrigo
  */
 public class PontoExtra {
     protected String nomePontoExtra;
