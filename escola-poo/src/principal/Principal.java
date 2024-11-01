@@ -9,93 +9,93 @@ import modelo.Output.OutputFactory;
 import modelo.Output.OutputInterface;
 
 public class Principal {
-        static String tipoOutput = "console";
-        static OutputInterface output = OutputFactory.getInstance().getTipoOutput(tipoOutput);
+	static String tipoOutput = "console";
+	static OutputInterface output = OutputFactory.getInstance().getTipoOutput(tipoOutput);
 
 	static Scanner sc = new Scanner(System.in);
 	static Escola controlador = new Escola(tipoOutput);
 
 	public static void menuPrincipal(){
-            if(output instanceof OutputConsole){
-                output.display("============ MENU ============");
-		output.display("1 - Cadastrar aluno");
-		output.display("2 - Cadastrar professor");
-		output.display("3 - Cadastrar disciplina");
-		output.display("4 - Cadastrar turma");
-		output.display("5 - Imprimir alunos");
-		output.display("6 - Imprimir turmas");
-		output.display("7 - Trocar aluno de turma");
-		output.display("8 - Imprimir professores");
-		output.display("9 - Imprimir disciplinas");
-		output.display("10 - Adicionar disciplina a uma turma");
-		output.display("11 - Cadastrar livro na biblioteca");
-		output.display("12 - Criar horário para uma turma");
-		output.display("==============================");
-		output.display("Selecione sua opção: ");                
-            }
+		if(output instanceof OutputConsole){
+			output.display("============ MENU ============");
+			output.display("1 - Cadastrar aluno");
+			output.display("2 - Cadastrar professor");
+			output.display("3 - Cadastrar disciplina");
+			output.display("4 - Cadastrar turma");
+			output.display("5 - Imprimir alunos");
+			output.display("6 - Imprimir turmas");
+			output.display("7 - Trocar aluno de turma");
+			output.display("8 - Imprimir professores");
+			output.display("9 - Imprimir disciplinas");
+			output.display("10 - Adicionar disciplina a uma turma");
+			output.display("11 - Cadastrar livro na biblioteca");
+			output.display("12 - Criar horário para uma turma");
+			output.display("==============================");
+			output.display("Selecione sua opção: ");                
+		}
 	}
 
 	public static void menuSelecionarTurma(ArrayList<Turma> turmas){
-            if(output instanceof OutputConsole){
-                output.display("====== Selecione a turma =====");
-		for(Turma t : turmas){
-			output.display(t.getID() + " - " + t.getNomeTurma());
+		if(output instanceof OutputConsole){
+			output.display("====== Selecione a turma =====");
+			for(Turma t : turmas){
+				output.display(t.getID() + " - " + t.getNomeTurma());
+			}
+			output.display("==============================");
+			output.display("Selecione sua opção: ");
 		}
-		output.display("==============================");
-		output.display("Selecione sua opção: ");
-            }
 	}
 
 	public static void menuSelecionarAluno(ArrayList<Aluno> alunos){
-            if(output instanceof OutputConsole){
-                output.display("====== Selecione o aluno =====");
-		for(Aluno a : alunos){
-			output.display(a.getNome() + " - " + a.getMatricula());
+		if(output instanceof OutputConsole){
+			output.display("====== Selecione o aluno =====");
+			for(Aluno a : alunos){
+				output.display(a.getNome() + " - " + a.getMatricula());
+			}
+			output.display("==============================");
+			output.display("Selecione sua opção: ");
 		}
-		output.display("==============================");
-		output.display("Selecione sua opção: ");
-            }
 	}
 
 	public static void menuAluno(){
-            if(output instanceof OutputConsole){
-                output.display("====== Página do aluno =====");
-		output.display("1 - Exibir meus dados");
-		output.display("2 - Exibir dados gerais das minhas disciplinas");
-		output.display("3 - Exibir detalhes de uma determinada disciplina");
-		output.display("4 - Exibir dados da minha turma");
-            }
+		if(output instanceof OutputConsole){
+			output.display("====== Página do aluno =====");
+			output.display("1 - Exibir meus dados");
+			output.display("2 - Exibir dados gerais das minhas disciplinas");
+			output.display("3 - Exibir detalhes de uma determinada disciplina");
+			output.display("4 - Exibir dados da minha turma");
+		}
 	}
 
 	public static void menuProfessor(){
-            int opc = 0;
-            if(output instanceof OutputConsole){
-                while(true){
-                    output.display("====== Página do professor =====");
-                    output.display("1 - Exibir meus dados");
-                    output.display("2 - Exibir dados gerais das minhas disciplinas");
-                    output.display("3 - Exibir detalhes de uma determinada disciplina");
-                    output.display("4 - Exibir dados da minha turma");
-                    output.display("5 - Atribuir nota de prova à um aluno");
-                    output.display("6 - Atribuir nota de trabalho à um aluno");
+		int opc = 0;
+		if(output instanceof OutputConsole){
+			while(true){
+				output.display("====== Página do professor =====");
+				output.display("1 - Exibir meus dados");
+				output.display("2 - Exibir dados gerais das minhas disciplinas");
+				output.display("3 - Exibir detalhes de uma determinada disciplina");
+				output.display("4 - Exibir dados da minha turma");
+				output.display("5 - Atribuir nota de prova à um aluno");
+				output.display("6 - Atribuir nota de trabalho à um aluno");
 
-                    output.display("Selecione sua opção: ");
+				output.display("Selecione sua opção: ");
 
-                    opc = sc.nextInt();
-                    sc.nextLine();
-                }
-            }
+				opc = sc.nextInt();
+				sc.nextLine();
+			}
+		}
 	}
 
 	public static void menuUsuarioBiblioteca(){
-            if(output instanceof OutputConsole){
-                output.display("====== Página da biblioteca =====");
-		output.display("1 - Catálogo de livros");
-		output.display("2 - Buscar livros pelo título");
-		output.display("3 - Buscar livros de um autor");
-		output.display("4 - Buscar livro pelo ISBN");
-		output.display("5 - Listar meus empréstimos");
-            }
+		if(output instanceof OutputConsole){
+			output.display("====== Página da biblioteca =====");
+			output.display("1 - Catálogo de livros");
+			output.display("2 - Buscar livros pelo título");
+			output.display("3 - Buscar livros de um autor");
+			output.display("4 - Buscar livro pelo ISBN");
+			output.display("5 - Listar meus empréstimos");
+		}
 	}
 
 	public static void menuAdminBiblioteca(){
@@ -104,30 +104,30 @@ public class Principal {
 		String autor = "";
 		String isbn = "";
 		BibliotecaEscolar biblioteca = controlador.getBiblioteca();
-                
-                if(output instanceof OutputConsole){
-                    while(true){
-			output.display("====== Página da biblioteca =====");
-			output.display("1 - Catálogo de livros");
-			output.display("2 - Buscar livros pelo título");
-			output.display("3 - Buscar livros de um autor");
-			output.display("4 - Buscar livro pelo ISBN");
-			output.display("5 - Fazer o empréstimo de um livro para um usuário");
-			output.display("6 - Fazer a devolução de um livro para um usuário");
-			output.display("7 - Relatório geral dos livros cadastrados");
-			output.display("8 - Cadastrar livro");
-			output.display("9 - Relatório de multas");
-			output.display("Selecione sua opção: ");
 
-			opc = sc.nextInt();
-			sc.nextLine();
+		if(output instanceof OutputConsole){
+			while(true){
+				output.display("====== Página da biblioteca =====");
+				output.display("1 - Catálogo de livros");
+				output.display("2 - Buscar livros pelo título");
+				output.display("3 - Buscar livros de um autor");
+				output.display("4 - Buscar livro pelo ISBN");
+				output.display("5 - Fazer o empréstimo de um livro para um usuário");
+				output.display("6 - Fazer a devolução de um livro para um usuário");
+				output.display("7 - Relatório geral dos livros cadastrados");
+				output.display("8 - Cadastrar livro");
+				output.display("9 - Relatório de multas");
+				output.display("Selecione sua opção: ");
 
-			switch (opc) {
-				case 1:
+				opc = sc.nextInt();
+				sc.nextLine();
+
+				switch (opc) {
+					case 1:
 					biblioteca.imprimirCatalogoDeLivros();
 					break;
-					
-				case 8:
+
+					case 8:
 					output.display("Digite o nome do livro: ");
 					titulo = sc.nextLine();
 
@@ -136,15 +136,15 @@ public class Principal {
 
 					output.display("Digite o isbn do livro: ");
 					isbn = sc.nextLine();
-					
+
 					controlador.addLivroBiblioteca(titulo, autor, isbn);
 					break;
 
+				}
 			}
-                    }
-                }
+		}
 
-		
+
 	}
 
 	public static void seed(){
@@ -210,17 +210,14 @@ public class Principal {
 		ArrayList<Professor> professores;
 		ArrayList<Disciplina> disciplinas;
 
-		controlador.addTurma("6A", 33);
-		controlador.addTurma("6B", 35);
-                
-                if(output instanceof OutputConsole){
-                    while(true){
-			menuPrincipal();
-			opc = sc.nextInt();
-			sc.nextLine();
+		if(output instanceof OutputConsole){
+			while(true){
+				menuPrincipal();
+				opc = sc.nextInt();
+				sc.nextLine();
 
-			switch(opc){
-				case 1:
+				switch(opc){
+					case 1:
 					menuSelecionarTurma(controlador.getTodasTurmas());
 
 					turmaId = sc.nextLine();
@@ -231,16 +228,16 @@ public class Principal {
 					controlador.addAlunoTurma(nome, turmaId);
 
 					break;
-				case 2:
+					case 2:
 					output.display("Digite o nome do novo professor: ");
 					nome = sc.nextLine();
-					
+
 					output.display("Digite a titulação do novo professor: ");
 					titulacao = sc.nextLine();
 
 					controlador.addProfessor(nome, titulacao);
 					break;
-				case 3:
+					case 3:
 					output.display("Digite o nome da nova disciplina: ");
 					nome = sc.nextLine();
 
@@ -252,7 +249,7 @@ public class Principal {
 
 					controlador.addDisciplina(nome, unidadeEscolar, anoEscolar);
 					break;
-				case 4:
+					case 4:
 					output.display("Digite o nome da nova turma: ");
 					nome = sc.nextLine();
 
@@ -261,7 +258,7 @@ public class Principal {
 					sc.nextLine();
 
 					controlador.addTurma(nome, qtd);
-				case 5:
+					case 5:
 					alunos = controlador.getTodosAlunos();
 					output.display("=========================");
 					for(Aluno a : alunos) {
@@ -271,7 +268,7 @@ public class Principal {
 						output.display("=========================");
 					}
 					break;
-				case 6:
+					case 6:
 					turmas = controlador.getTodasTurmas();
 					output.display("=========================");
 					for(Turma t : turmas) {
@@ -298,7 +295,7 @@ public class Principal {
 						output.display("=========================");
 					}
 					break;
-				case 7:
+					case 7:
 					menuSelecionarTurma(controlador.getTodasTurmas());
 
 					turmaId = sc.nextLine();
@@ -308,7 +305,7 @@ public class Principal {
 					alunoMatricula = sc.nextLine();
 					controlador.trocaAlunoTurma(alunoMatricula, turmaId);
 					break;
-				case 8:
+					case 8:
 					professores = controlador.getTodosProfessores();
 					output.display("=========================");
 					for(Professor p : professores) {
@@ -326,7 +323,7 @@ public class Principal {
 					}
 					break;
 
-				case 9:
+					case 9:
 					disciplinas = controlador.getTodasDisciplinas();
 					output.display("=========================");
 					for(Disciplina d : disciplinas) {
@@ -354,23 +351,23 @@ public class Principal {
 					}
 					break;
 
-				case 10:
+					case 10:
 					System.out.print("Digite o nome da disciplina: ");
 					nome = sc.nextLine();
 
 					turmas = controlador.getTodasTurmas();
 					menuSelecionarTurma(turmas);
 					turmaId = sc.nextLine();
-					
+
 					controlador.addDisciplinaTurma(nome, turmaId);
 					break;
 
-				case 11:
+					case 11:
 					output.display("Cadastrar livro na biblioteca");
+				}
 			}
-                    }
-                }
-		
+		}
+
 
 	}
 }

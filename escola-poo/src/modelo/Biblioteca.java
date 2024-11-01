@@ -6,8 +6,10 @@ import java.util.Collections;
 public class Biblioteca{
     protected ArrayList<Usuario> usuarios;
     protected ArrayList<Livro> livros;
+    protected String tipoOutput;
 
-    public Biblioteca(){
+    public Biblioteca(String tipoOutput){
+        this.tipoOutput = tipoOutput;
         this.usuarios = new ArrayList<>();
         this.livros = new ArrayList<>();
     }
