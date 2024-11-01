@@ -123,17 +123,12 @@ public class Turma {
         return horario.getHORA_ALMOCO_FINAL();
     }
     
-    public void exibirHorario() {
-        horario.exibirHorario();
-    }
+    
     
     public boolean adicionarDisciplinaHorario(String dia, ArrayList<Disciplina> disciplinas){
        return horario.adicionarDisciplina(dia, disciplinas);
     } 
     
-    public boolean adicionarDisciplinaHorario(Disciplina disciplina, Periodo periodo){
-        return horario.adicionarDisciplina(disciplina, periodo);
-    }
     
     public boolean adicionarDisciplinaHorario(String dia, Disciplina disciplina, LocalTime inicio){
         return horario.adicionarDisciplina(dia, disciplina, inicio);

@@ -7,7 +7,6 @@ public class Principal {
     public static void main(String[] args){
         Horario time = new Horario();
 
-        time.exibirHorario();
         
         Disciplina dis = new Disciplina("Mat", "123'", "terceiro", "Obj");
         
