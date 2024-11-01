@@ -130,10 +130,18 @@ public class Disciplina {
         return professores;
     }
 
+    /**
+     * 
+     * @param professores 
+     */
     public void setProfessores(ArrayList<Professor> professores) {
         this.professores = professores;
     }
 
+    /**
+     * 
+     * @return 
+     */
     public ArrayList<Prova> getProvas() {
         return provas;
     }

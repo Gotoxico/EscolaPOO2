@@ -12,6 +12,7 @@ public class Escola{
 	private ArrayList<Disciplina> disciplinas;
 	private BibliotecaEscolar biblioteca;
         private Notas notas;
+        private String tipoOutput;
 
 	public Escola(String tipoOutput){
 		this.alunos = new ArrayList<>();
@@ -20,6 +21,7 @@ public class Escola{
 		this.disciplinas = new ArrayList<>();
 		this.biblioteca = new BibliotecaEscolar(tipoOutput);
                 this.notas = new Notas();
+                this.tipoOutput = tipoOutput;
 	}
 
 	public ArrayList<Turma> getTodasTurmas(){
@@ -104,7 +106,7 @@ public class Escola{
 	public void addDisciplina(String nome, String unidadeEscolar, String anoEscolar){
 		Logger logger = Logger.getInstance();
 
-		Disciplina nova = new Disciplina(nome, unidadeEscolar, anoEscolar);
+		Disciplina nova = new Disciplina(nome, unidadeEscolar, anoEscolar, tipoOutput);
 		this.disciplinas.add(nova);
 		logger.gravaArquivo(String.format("Disciplina %s para o ano escolar '%s' adicionada", nome, anoEscolar), Logger.Level.INFO);
 	}
@@ -124,7 +126,7 @@ public class Escola{
 		UUID matricula = UUID.randomUUID();
 		Logger logger = Logger.getInstance();
 
-		Aluno novo = new Aluno(nome, id.toString(), matricula.toString(), "teste", 0.0f);
+		Aluno novo = new Aluno(nome, id.toString(), matricula.toString(), "teste", 0.0f, tipoOutput);
 
 		this.alunos.add(novo);
 
