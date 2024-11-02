@@ -99,4 +99,14 @@ public class Professor extends Usuario {
     public void adicionarNotaPontoExtra(String nomeAluno, String nomeDisciplina, String nomePontoExtra, String nomeTurma, float valor){
 	notas.adicionarNotaPontoExtra(nomeAluno, nomeDisciplina, this.nome, nomePontoExtra, nomeTurma, valor);
     }
+  
+    public float mediaProfessor(){
+        int totalDisciplinas = disciplinas.size();
+        float somaMedias = 0;
+        
+        for(Disciplina disciplina : disciplinas){
+            somaMedias += disciplina.mediaGeral();
+        }
+        return somaMedias/totalDisciplinas;
+    }
 }

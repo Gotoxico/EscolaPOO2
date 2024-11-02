@@ -317,6 +317,10 @@ public class Escola{
             notas.removerNotaPontoExtra(nomeAluno, nomeDisciplina, nomeProfessor, nomePontoExtra, nomeTurma, valor);
         }
         
+        public String relatorioProfessores(){
+            return RelatorioProfessores.relatorioProfessores(professores);
+        }
+        
         public void relatorioAlunosDisciplina(Disciplina d, int opcao){
             RelatorioAlunos.relatorio(d.getAlunos(), opcao);
         }
