@@ -1,9 +1,11 @@
 package modelo;
 
+import modelo.Output.OutputFactory;
+
 public class BibliotecaEscolar extends Biblioteca{
 
-    public BibliotecaEscolar(String tipoOutput) {
-        super(tipoOutput);
+    public BibliotecaEscolar(OutputFactory outputFactory, String tipoOutput) {
+        super(outputFactory, tipoOutput);
     }
 
     //@Override
