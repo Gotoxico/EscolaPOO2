@@ -22,7 +22,7 @@ public class Escola{
 		this.turmas = new ArrayList<>();
 		this.disciplinas = new ArrayList<>();
 		this.biblioteca = new BibliotecaEscolar(outputFactory, tipoOutput);
-                this.notas = new Notas();
+                this.notas = Notas.getInstance(disciplinas);
                 this.outputFactory = outputFactory;
                 this.tipoOutput = tipoOutput;
 	}
@@ -90,7 +90,6 @@ public class Escola{
 		}
 		return null;
 	}
-
 
 	public void addProfessor(String nome, String titulacao){
 		UUID id = UUID.randomUUID();
@@ -322,4 +321,7 @@ public class Escola{
             return RelatorioProfessores.relatorioProfessores(professores);
         }
         
+        public void relatorioAlunosDisciplina(Disciplina d, int opcao){
+            RelatorioAlunos.relatorio(d.getAlunos(), opcao);
+        }
 }
