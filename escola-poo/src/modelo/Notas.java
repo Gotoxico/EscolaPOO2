@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package modelo;
+import controlador.Escola;
 import java.util.ArrayList;
 
 /**
@@ -10,17 +11,20 @@ import java.util.ArrayList;
  * @author rodri
  */
 public class Notas {
+    private static Notas instance;
+    
+    public static Notas getInstance(ArrayList<Disciplina> disciplinas){
+        if(instance == null){
+            instance = new Notas(disciplinas);
+        }
+        return instance;
+    }
+    
+    protected Escola escola;
     protected ArrayList<Disciplina> disciplinas;
 
-    public Notas() {
-    }
-
     public Notas(ArrayList<Disciplina> disciplinas) {
-        this.disciplinas = disciplinas;
-    }
-
-    public ArrayList<Disciplina> getDisciplinas() {
-        return disciplinas;
+        disciplinas = disciplinas;
     }
     
     //Metodos para obter um objeto baseado em seu nome

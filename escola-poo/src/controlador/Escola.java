@@ -22,7 +22,7 @@ public class Escola{
 		this.turmas = new ArrayList<>();
 		this.disciplinas = new ArrayList<>();
 		this.biblioteca = new BibliotecaEscolar(outputFactory, tipoOutput);
-                this.notas = new Notas();
+                this.notas = Notas.getInstance(disciplinas);
                 this.outputFactory = outputFactory;
                 this.tipoOutput = tipoOutput;
 	}
@@ -317,7 +317,5 @@ public class Escola{
         public void removerNotaPontoExtra(String nomeAluno, String nomeDisciplina, String nomeProfessor, String nomePontoExtra, String nomeTurma, float valor) {
             notas.removerNotaPontoExtra(nomeAluno, nomeDisciplina, nomeProfessor, nomePontoExtra, nomeTurma, valor);
         }
-        
-        
         
 }
