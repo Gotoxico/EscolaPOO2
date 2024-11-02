@@ -91,7 +91,6 @@ public class Escola{
 		return null;
 	}
 
-
 	public void addProfessor(String nome, String titulacao){
 		UUID id = UUID.randomUUID();
 		Logger logger = Logger.getInstance();
@@ -318,4 +317,7 @@ public class Escola{
             notas.removerNotaPontoExtra(nomeAluno, nomeDisciplina, nomeProfessor, nomePontoExtra, nomeTurma, valor);
         }
         
+        public void relatorioAlunosDisciplina(Disciplina d, int opcao){
+            RelatorioAlunos.relatorio(d.getAlunos(), opcao);
+        }
 }
