@@ -21,7 +21,7 @@ public class Aluno extends Usuario{
         this.trabalhos = new ArrayList<>();
         this.pontosExtras = new ArrayList<>();
         this.media = media;
-        this.output = OutputFactory.getTipoOutput(tipoOutput);
+        this.output = OutputFactory.getInstance().getTipoOutput(tipoOutput);
     }
 
     public String getMatricula(){

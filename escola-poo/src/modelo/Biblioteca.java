@@ -11,7 +11,7 @@ public class Biblioteca{
     private final OutputInterface output;
 
     public Biblioteca(OutputFactory outputFactory, String tipoOutput){
-        this.output = outputFactory.getTipoOutput(tipoOutput);
+        this.output = OutputFactory.getInstance().getTipoOutput(tipoOutput);
         this.usuarios = new ArrayList<>();
         this.livros = new ArrayList<>();
     }

@@ -43,7 +43,7 @@ public class Disciplina {
         this.trabalhos = new ArrayList<>();
         this.pontosExtra = new ArrayList<>();
         
-        this.output = OutputFactory.getTipoOutput(tipoOutput);
+        this.output = OutputFactory.getInstance().getTipoOutput(tipoOutput);
     }
 
     public String getNome() {
