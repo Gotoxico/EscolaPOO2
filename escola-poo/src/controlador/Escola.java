@@ -1,8 +1,9 @@
 package controlador;
 
-import Horario.Horario;
 import java.util.ArrayList;
 import java.util.UUID;
+
+import horario.Horario;
 import modelo.*;
 import modelo.Output.OutputFactory;
 
@@ -321,7 +322,7 @@ public class Escola{
             return RelatorioProfessores.relatorioProfessores(professores);
         }
         
-        public void relatorioAlunosDisciplina(Disciplina d, int opcao){
-            RelatorioAlunos.relatorio(d.getAlunos(), opcao);
+        public void relatorioAlunosTurma(Turma t, int opcao){
+            RelatorioAlunos.relatorio(t.getAlunos(), opcao);
         }
 }

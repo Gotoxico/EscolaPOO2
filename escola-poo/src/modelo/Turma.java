@@ -5,9 +5,11 @@
  */
 package modelo;
 import java.util.ArrayList;
-import Horario.Horario;
+
+import horario.Horario;
+import horario.Periodo;
+
 import java.time.LocalTime;
-import Horario.Periodo;
 
 /**
  *
@@ -99,41 +101,36 @@ public class Turma {
     }
 
     //Métodos relacionados à gerência de horário
-    public int getDURACAO_AULA_MINUTOS() {
-        return horario.getDURACAO_AULA_MINUTOS();
+    public int getDuracaoAulaMinutos() {
+        return horario.getDuracaoAulaMinutos();
     }
     
-    public int getDURACAO_INTERVALO_MINUTOS() {
-        return horario.getDURACAO_INTERVALO_MINUTOS();
+    public int getDuracaoIntervaloMinutos() {
+        return horario.getDuracaoIntervaloMinutos();
     }
     
-    public LocalTime getHORA_INICIO() {
-        return horario.getHORA_ALMOCO_INICIO();
+    public LocalTime getHoraInicio() {
+        return horario.getHoraInicio();
     }
 
-    public LocalTime getHORA_FINAL() {
-        return horario.getHORA_FINAL();
+    public LocalTime getHoraFinal() {
+        return horario.getHoraFinal();
     }
     
-    public LocalTime getHORA_ALMOCO_INICIO() {
-        return horario.getHORA_ALMOCO_INICIO();
+    public LocalTime getHoraIntervaloInicio() {
+        return horario.getHoraAlmocoInicio();
     }
 
-    public LocalTime getHORA_ALMOCO_FINAL() {
-        return horario.getHORA_ALMOCO_FINAL();
+    public LocalTime getHoraIntervaloFinal() {
+        return horario.getHoraAlmocoFinal();
     }
     
-    public void exibirHorario() {
-        horario.exibirHorario();
-    }
+    
     
     public boolean adicionarDisciplinaHorario(String dia, ArrayList<Disciplina> disciplinas){
        return horario.adicionarDisciplina(dia, disciplinas);
     } 
     
-    public boolean adicionarDisciplinaHorario(Disciplina disciplina, Periodo periodo){
-        return horario.adicionarDisciplina(disciplina, periodo);
-    }
     
     public boolean adicionarDisciplinaHorario(String dia, Disciplina disciplina, LocalTime inicio){
         return horario.adicionarDisciplina(dia, disciplina, inicio);

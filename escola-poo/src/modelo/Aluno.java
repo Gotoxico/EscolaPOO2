@@ -3,8 +3,9 @@ import java.util.ArrayList;
 import modelo.Output.OutputConsole;
 import modelo.Output.OutputFactory;
 import modelo.Output.OutputInterface;
+import interfaces.media;
 
-public class Aluno extends Usuario{
+public class Aluno extends Usuario implements media{
     private final OutputInterface output;
     private String matricula;
     private String curso;
@@ -117,6 +118,7 @@ public class Aluno extends Usuario{
         }
     }*/
 
+    @Override
     public double calcularMedia(){
         double totalNotas = 0;
         int quantidadeNotas = 0;

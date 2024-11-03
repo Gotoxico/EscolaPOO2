@@ -109,7 +109,7 @@ public class Professor extends Usuario {
         float somaMedias = 0;
         
         for(Disciplina disciplina : disciplinas){
-            somaMedias += disciplina.mediaGeral();
+            somaMedias += disciplina.calcularMedia();
         }
         return somaMedias/totalDisciplinas;
     }

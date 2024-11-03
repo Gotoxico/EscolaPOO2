@@ -1,5 +1,5 @@
  
-package Horario;
+package horario;
 
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -14,25 +14,27 @@ import modelo.Disciplina;
 public class Horario {
     
     /**
-     * Atributos da classe
-     * DURACAO_AULA_MINUTOS: duração de uma aula em minutos
-     * DURACAO_INTERVALO_MINUTOS: duração do intervalo entre aulas em minutos
-     * HORA_INICIO: horário de início das aulas
-     * HORA_FINAL: horário de fim das aulas
-     * HORA_ALMOCO_INICIO: horário de início do intervalo de almoço
-     * HORA_ALMOCO_FINAL: horário de fim do intervalo de almoço
+     * ATRIBUTOS
+     * 
+     * duracaoAulaMinutos: duração de uma aula em minutos
+     * duracaoIntervaloMinutos: duração do intervalo entre aulas em minutos
+     * horaInicio: horário de início das aulas
+     * horaFinal: horário de fim das aulas
+     * horaAlmocoInicio: horário de início do intervalo de almoço
+     * horaAlmocoFinal: horário de fim do intervalo de almoço
      * contadorGeralDeAulas: contador geral de aulas
      * periodos: lista de períodos de aula
      * horario: mapeamento dos dias da semana para suas aulas
-     * diasDaSemana: array de dias da semana
+     * diasDaSemana: dias da semana
      * 
      */
-    private static final int DURACAO_AULA_MINUTOS = 50;
-    private static final int DURACAO_INTERVALO_MINUTOS = 15;
-    private static final LocalTime HORA_INICIO = LocalTime.of(7, 0);
-    private static final LocalTime HORA_FINAL = LocalTime.of(15, 40);
-    private static final LocalTime HORA_ALMOCO_INICIO = LocalTime.of(12,15);
-    private static final LocalTime HORA_ALMOCO_FINAL = LocalTime.of(13,10);
+      
+    private static final int duracaoAulaMinutos = 50;
+    private static final int duracaoIntervaloMinutos = 15;
+    private static final LocalTime horaInicio = LocalTime.of(7, 0);
+    private static final LocalTime horaFinal = LocalTime.of(15, 40);
+    private static final LocalTime horaAlmocoInicio = LocalTime.of(12,15);
+    private static final LocalTime horaAlmocoFinal = LocalTime.of(13,10);
     private int contadorGeralDeAulas =0;
     private ArrayList<Periodo> periodos;
     private Map<String, List<Periodo>> horario;
@@ -54,48 +56,48 @@ public class Horario {
      * Retorna a duração de uma aula em minutos
     * @return
      */
-    public static int getDURACAO_AULA_MINUTOS() {
-        return DURACAO_AULA_MINUTOS;
+    public int getDuracaoAulaMinutos() {
+        return duracaoAulaMinutos;
     }
 
     /**
      * Retorna a duração do intervalo entre aulas em minutos
      * @return
      */
-    public static int getDURACAO_INTERVALO_MINUTOS() {
-        return DURACAO_INTERVALO_MINUTOS;
+    public int getDuracaoIntervaloMinutos() {
+        return duracaoIntervaloMinutos;
     }
 
     /**
      * Retorna o horário de início das aulas
      * @return LocalTime
      */
-    public static LocalTime getHORA_INICIO() {
-        return HORA_INICIO;
+    public LocalTime getHoraInicio() {
+        return horaInicio;
     }
 
     /**
      * Retorna o horário de fim das aulas
      * @return LocalTime
      */
-    public static LocalTime getHORA_FINAL() {
-        return HORA_FINAL;
+    public LocalTime getHoraFinal() {
+        return horaFinal;
     }
 
     /**
      * Retorna o horário de início do intervalo de almoço
      * @return {@code LocalTime}
      */
-    public static LocalTime getHORA_ALMOCO_INICIO() {
-        return HORA_ALMOCO_INICIO;
+    public LocalTime getHoraAlmocoInicio() {
+        return horaAlmocoInicio;
     }
 
     /**
      * Retorna o horário de fim do intervalo de almoço
      * @return LocalTime
      */
-    public static LocalTime getHORA_ALMOCO_FINAL() {
-        return HORA_ALMOCO_FINAL;
+    public LocalTime getHoraAlmocoFinal() {
+        return horaAlmocoFinal;
     }
 
     /**
@@ -123,20 +125,20 @@ public class Horario {
      */
     private List<Periodo> gerarPeriodosAula() {
         periodos = new ArrayList<>();
-        LocalTime inicio = HORA_INICIO;
+        LocalTime inicio = horaInicio;
         int contadorAulas = 0;
-        while (inicio.isBefore(HORA_FINAL)) {
+        while (inicio.isBefore(horaFinal)) {
             
             //Se o horario de inicio seja o horário do almoço, deve-se pular para o fim desse intervalo
-            if((inicio.equals(HORA_ALMOCO_INICIO))){
-                inicio = HORA_ALMOCO_FINAL;
+            if((inicio.equals(horaAlmocoInicio))){
+                inicio = horaAlmocoFinal;
                 //contadorAulas = 0;
                 continue;
             }
 
             contadorAulas++;
-            LocalTime fim = inicio.plusMinutes(DURACAO_AULA_MINUTOS);
-            if (fim.isAfter(HORA_FINAL)) break;
+            LocalTime fim = inicio.plusMinutes(duracaoAulaMinutos);
+            if (fim.isAfter(horaFinal)) break;
             
             
                 periodos.add(new Periodo(inicio, fim));
@@ -144,8 +146,8 @@ public class Horario {
             inicio = fim;
             
             //Verificar se é hora do intervalo
-            if((inicio.isBefore(HORA_ALMOCO_INICIO)||(inicio.isAfter(HORA_ALMOCO_FINAL)))  && contadorAulas == 3){
-                inicio = inicio.plusMinutes(DURACAO_INTERVALO_MINUTOS);
+            if((inicio.isBefore(horaAlmocoInicio)||(inicio.isAfter(horaAlmocoFinal)))  && contadorAulas == 3){
+                inicio = inicio.plusMinutes(duracaoIntervaloMinutos);
                 contadorAulas = 0;
             }
             contadorGeralDeAulas++;
