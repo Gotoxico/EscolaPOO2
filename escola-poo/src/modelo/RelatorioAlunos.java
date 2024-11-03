@@ -10,7 +10,6 @@ public class RelatorioAlunos {
     public static String relatorio(ArrayList<Aluno> alunos, int opcao){
         float notaCorte = opcoes(opcao);
         StringBuilder relatorio = new StringBuilder();
-        
         for(Aluno aluno : alunos){
             relatorio.append(aluno.getNome())
                      .append(aluno.getMedia() >= notaCorte ? " Passaria\n" : " Não Passaria\n");

@@ -8,12 +8,13 @@ import java.util.ArrayList;
 import modelo.Output.OutputConsole;
 import modelo.Output.OutputFactory;
 import modelo.Output.OutputInterface;
+import interfaces.media;
 
 /**
  *
  * @author Daniel Servejeira
  */
-public class Disciplina {
+public class Disciplina implements media {
     private String nome;
     private String unidadeEscolar;
     private String anoEscolar;
@@ -130,6 +131,12 @@ public class Disciplina {
         return professores;
     }
 
+    @Override
+    public double calcularMedia(){
+        return mediaGeral();
+    }
+
+
     /**
      * 
      * @param professores 
@@ -181,6 +188,7 @@ public class Disciplina {
         output.display(calculoMedia);
     }
     
+    
     public double mediaTurma(Turma turma) {
     	if(turma.getAlunos().size() > 0) {
             double media = 0;
@@ -196,7 +204,7 @@ public class Disciplina {
     	}
     }
     
-    public double mediaGeral() {
+    private double mediaGeral() {
         if (turmas.size() > 0) {
             double media = 0;
 
