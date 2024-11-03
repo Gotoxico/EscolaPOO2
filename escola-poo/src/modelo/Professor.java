@@ -21,7 +21,7 @@ public class Professor extends Usuario {
         this.titulacao = titulacao;
         this.disciplinas = disciplinas;
         this.turmas = turmas;
-        this.notas = Notas.getInstance(disciplinas);
+        this.notas = notas;
     }
 
     public String getTitulacao(){
@@ -99,7 +99,11 @@ public class Professor extends Usuario {
     public void adicionarNotaPontoExtra(String nomeAluno, String nomeDisciplina, String nomePontoExtra, String nomeTurma, float valor){
 	notas.adicionarNotaPontoExtra(nomeAluno, nomeDisciplina, this.nome, nomePontoExtra, nomeTurma, valor);
     }
-  
+    
+    /**
+     * 
+     * @return 
+     */
     public float mediaProfessor(){
         int totalDisciplinas = disciplinas.size();
         float somaMedias = 0;
