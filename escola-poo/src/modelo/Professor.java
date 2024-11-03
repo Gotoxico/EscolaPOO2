@@ -6,19 +6,22 @@ public class Professor extends Usuario {
     private String titulacao;
     private ArrayList<Disciplina> disciplinas;
     private ArrayList<Turma> turmas;
+    private Notas notas;
 
     public Professor(){
         super();
         this.titulacao = "";
         this.disciplinas = new ArrayList<>();
         this.turmas = new ArrayList<>();
+        this.notas = null;
     }
 
-    public Professor(String nome, String ID, String titulacao, ArrayList<Disciplina> disciplinas, ArrayList<Turma> turmas){
+    public Professor(String nome, String ID, String titulacao, ArrayList<Disciplina> disciplinas, ArrayList<Turma> turmas, Notas notas){
         super(nome, ID);
         this.titulacao = titulacao;
         this.disciplinas = disciplinas;
         this.turmas = turmas;
+        this.notas = notas;
     }
 
     public String getTitulacao(){
@@ -61,37 +64,53 @@ public class Professor extends Usuario {
         super.setID(ID);
     }
 
+    public Notas getNotas() {
+        return notas;
+    }
+
+    public void setNotas(Notas notas) {
+        this.notas = notas;
+    }
+
     public void adicionarDisciplina(Disciplina d){
         this.disciplinas.add(d);
     }
 
     public void adicionarProvaDisciplina(String nomeDisciplina, String nomeProva, String nomeTurma, float peso){
-	Notas n = new Notas();
-	n.adicionarProvaDisciplina(nomeDisciplina, this.nome, nomeProva, nomeTurma, peso);
+	notas.adicionarProvaDisciplina(nomeDisciplina, this.nome, nomeProva, nomeTurma, peso);
     }
 
     public void adicionarTrabalhoDisciplina(String nomeDisciplina, String nomeTurma, String nomeTrabalho, float peso){
-	Notas n = new Notas();
-	n.adicionarTrabalhoDisciplina(nomeDisciplina, this.nome, nomeTurma, nomeTrabalho, peso);
+	notas.adicionarTrabalhoDisciplina(nomeDisciplina, this.nome, nomeTurma, nomeTrabalho, peso);
     }
 
     public void adicionarPontoExtraDisciplina(String nomeDisciplina, String nomePontoExtra, String nomeTurma, float valorMaximo){
-	Notas n = new Notas();
-	n.adicionarPontoExtraDisciplina(nomeDisciplina, this.nome, nomePontoExtra, nomeTurma, valorMaximo);
+	notas.adicionarPontoExtraDisciplina(nomeDisciplina, this.nome, nomePontoExtra, nomeTurma, valorMaximo);
     }
 
     public void adicionarNotaProva(String nomeAluno, String nomeDisciplina, String nomeProva, float notaProva, String nomeTurma){
-	Notas n = new Notas();
-	n.adicionarNotaProva(nomeAluno, nomeDisciplina, this.nome, nomeProva, notaProva, nomeTurma);
+	notas.adicionarNotaProva(nomeAluno, nomeDisciplina, this.nome, nomeProva, notaProva, nomeTurma);
     }
 
     public void adicionarNotaTrabalho(String nomeAluno, String nomeDisciplina, String nomeTrabalho, float notaTrabalho, String nomeTurma){
-	Notas n = new Notas();
-	n.adicionarNotaTrabalho(nomeAluno, nomeDisciplina, this.nome, nomeTrabalho, notaTrabalho, nomeTurma);
+	notas.adicionarNotaTrabalho(nomeAluno, nomeDisciplina, this.nome, nomeTrabalho, notaTrabalho, nomeTurma);
     }
 
     public void adicionarNotaPontoExtra(String nomeAluno, String nomeDisciplina, String nomePontoExtra, String nomeTurma, float valor){
-	Notas n = new Notas();
-	n.adicionarNotaPontoExtra(nomeAluno, nomeDisciplina, this.nome, nomePontoExtra, nomeTurma, valor);
+	notas.adicionarNotaPontoExtra(nomeAluno, nomeDisciplina, this.nome, nomePontoExtra, nomeTurma, valor);
+    }
+    
+    /**
+     * 
+     * @return 
+     */
+    public float mediaProfessor(){
+        int totalDisciplinas = disciplinas.size();
+        float somaMedias = 0;
+        
+        for(Disciplina disciplina : disciplinas){
+            somaMedias += disciplina.mediaGeral();
+        }
+        return somaMedias/totalDisciplinas;
     }
 }

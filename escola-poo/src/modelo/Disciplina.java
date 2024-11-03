@@ -14,7 +14,6 @@ import modelo.Output.OutputInterface;
  * @author Daniel Servejeira
  */
 public class Disciplina {
-    private OutputInterface output;
     private String nome;
     private String unidadeEscolar;
     private String anoEscolar;
@@ -29,8 +28,9 @@ public class Disciplina {
     private ArrayList<Prova> provas;
     private ArrayList<Trabalho> trabalhos;
     private ArrayList<PontoExtra> pontosExtra;
+    private final OutputInterface output;
     
-    public Disciplina(String nome, String unidadeEscolar, String anoEscolar, String tipoOutput) {
+    public Disciplina(OutputFactory outputFactory, String nome, String unidadeEscolar, String anoEscolar, String tipoOutput) {
         this.nome = nome;
         this.unidadeEscolar = unidadeEscolar;
         this.anoEscolar = anoEscolar;
@@ -42,8 +42,8 @@ public class Disciplina {
         this.provas = new ArrayList<>();
         this.trabalhos = new ArrayList<>();
         this.pontosExtra = new ArrayList<>();
-      
-        this.output = OutputFactory.getTipoOutput(tipoOutput);
+        
+        this.output = OutputFactory.getInstance().getTipoOutput(tipoOutput);
     }
 
     public String getNome() {
@@ -167,20 +167,18 @@ public class Disciplina {
     }
     
     public void exibirPlanoDeEnsino() {
-        if(output instanceof OutputConsole){
-            System.out.println("Plano de Ensino - Disciplina\n");
-            System.out.println("Unidade Escolar: " + unidadeEscolar);
-            System.out.println("Identificação: " + nome);
-            System.out.println("Carga Horária: " + cargaHoraria);
-            System.out.println("Ementa: ");
-            System.out.println(ementa);
-            System.out.println("Objetivos: ");
-            System.out.println(objetivos);
-            System.out.println("Metodologia do Ensino: ");
-            System.out.println(metodologia);
-            System.out.println("Cálculo da Média: ");
-            System.out.println(calculoMedia);
-        }
+        output.display("Plano de Ensino - Disciplina\n");
+        output.display("Unidade Escolar: " + unidadeEscolar);
+        output.display("Identificação: " + nome);
+        output.display("Carga Horária: " + cargaHoraria);
+        output.display("Ementa: ");
+        output.display(ementa);
+        output.display("Objetivos: ");
+        output.display(objetivos);
+        output.display("Metodologia do Ensino: ");
+        output.display(metodologia);
+        output.display("Cálculo da Média: ");
+        output.display(calculoMedia);
     }
     
     public double mediaTurma(Turma turma) {

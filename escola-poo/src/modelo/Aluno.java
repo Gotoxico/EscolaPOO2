@@ -5,7 +5,7 @@ import modelo.Output.OutputFactory;
 import modelo.Output.OutputInterface;
 
 public class Aluno extends Usuario{
-    private OutputInterface output;
+    private final OutputInterface output;
     private String matricula;
     private String curso;
     private ArrayList<Prova>provas;
@@ -13,7 +13,7 @@ public class Aluno extends Usuario{
     private ArrayList<PontoExtra>pontosExtras;
     private float media;
 
-    public Aluno(String nome, String id, String matricula, String curso, float media, String tipoOutput){
+    public Aluno(OutputFactory outputFactory, String nome, String id, String matricula, String curso, float media, String tipoOutput){
         super(nome, id);
         this.matricula = matricula;
         this.curso = curso;
@@ -21,7 +21,7 @@ public class Aluno extends Usuario{
         this.trabalhos = new ArrayList<>();
         this.pontosExtras = new ArrayList<>();
         this.media = media;
-        this.output = OutputFactory.getTipoOutput(tipoOutput);
+        this.output = OutputFactory.getInstance().getTipoOutput(tipoOutput);
     }
 
     public String getMatricula(){
@@ -154,16 +154,14 @@ public class Aluno extends Usuario{
         }
     }*/
 
-    public void exibirInfo(){
-        if(output instanceof OutputConsole){
-            System.out.println("Nome: " + getNome() + "\n" +
-                "ID: " + getID()+ "\n" +
-                "Matricula: " + matricula + "\n" +
-                "Curso: " + curso + "\n" +
-                "Provas: " + provas + "\n" +
-                "Trabalhos: " + trabalhos + "\n" +
-                "Pontos Extras: " + pontosExtras + "\n" +
-                "Média: " + calcularMedia());
-        }
+    public void exibirInfo(){ 
+        output.display("Nome: " + getNome() + "\n" +
+            "ID: " + getID()+ "\n" +
+            "Matricula: " + matricula + "\n" +
+            "Curso: " + curso + "\n" +
+            "Provas: " + provas + "\n" +
+            "Trabalhos: " + trabalhos + "\n" +
+            "Pontos Extras: " + pontosExtras + "\n" +
+            "Média: " + calcularMedia());
     }
 }

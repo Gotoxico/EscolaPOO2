@@ -4,6 +4,7 @@ import Horario.Horario;
 import java.util.ArrayList;
 import java.util.UUID;
 import modelo.*;
+import modelo.Output.OutputFactory;
 
 public class Escola{
 	private ArrayList<Aluno> alunos;
@@ -12,15 +13,17 @@ public class Escola{
 	private ArrayList<Disciplina> disciplinas;
 	private BibliotecaEscolar biblioteca;
         private Notas notas;
+        private final OutputFactory outputFactory;
         private String tipoOutput;
 
-	public Escola(String tipoOutput){
+	public Escola(OutputFactory outputFactory, String tipoOutput){
 		this.alunos = new ArrayList<>();
 		this.professores = new ArrayList<>();
 		this.turmas = new ArrayList<>();
 		this.disciplinas = new ArrayList<>();
-		this.biblioteca = new BibliotecaEscolar(tipoOutput);
-                this.notas = new Notas();
+		this.biblioteca = new BibliotecaEscolar(outputFactory, tipoOutput);
+                this.notas = Notas.getInstance(disciplinas);
+                this.outputFactory = outputFactory;
                 this.tipoOutput = tipoOutput;
 	}
 
@@ -88,7 +91,6 @@ public class Escola{
 		return null;
 	}
 
-
 	public void addProfessor(String nome, String titulacao){
 		UUID id = UUID.randomUUID();
 		Logger logger = Logger.getInstance();
@@ -106,7 +108,7 @@ public class Escola{
 	public void addDisciplina(String nome, String unidadeEscolar, String anoEscolar){
 		Logger logger = Logger.getInstance();
 
-		Disciplina nova = new Disciplina(nome, unidadeEscolar, anoEscolar, tipoOutput);
+		Disciplina nova = new Disciplina(outputFactory, nome, unidadeEscolar, anoEscolar, tipoOutput);
 		this.disciplinas.add(nova);
 		logger.gravaArquivo(String.format("Disciplina %s para o ano escolar '%s' adicionada", nome, anoEscolar), Logger.Level.INFO);
 	}
@@ -126,7 +128,7 @@ public class Escola{
 		UUID matricula = UUID.randomUUID();
 		Logger logger = Logger.getInstance();
 
-		Aluno novo = new Aluno(nome, id.toString(), matricula.toString(), "teste", 0.0f, tipoOutput);
+		Aluno novo = new Aluno(outputFactory, nome, id.toString(), matricula.toString(), "teste", 0.0f, tipoOutput);
 
 		this.alunos.add(novo);
 
@@ -315,6 +317,11 @@ public class Escola{
             notas.removerNotaPontoExtra(nomeAluno, nomeDisciplina, nomeProfessor, nomePontoExtra, nomeTurma, valor);
         }
         
+        public String relatorioProfessores(){
+            return RelatorioProfessores.relatorioProfessores(professores);
+        }
         
-        
+        public void relatorioAlunosDisciplina(Disciplina d, int opcao){
+            RelatorioAlunos.relatorio(d.getAlunos(), opcao);
+        }
 }
