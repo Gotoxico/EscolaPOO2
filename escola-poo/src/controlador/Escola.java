@@ -109,7 +109,7 @@ public class Escola{
 	public void addDisciplina(String nome, String unidadeEscolar, String anoEscolar){
 		Logger logger = Logger.getInstance();
 
-		Disciplina nova = new Disciplina(outputFactory, nome, unidadeEscolar, anoEscolar, tipoOutput);
+		Disciplina nova = new Disciplina(outputFactory, nome, unidadeEscolar, anoEscolar, tipoOutput, notas);
 		this.disciplinas.add(nova);
 		logger.gravaArquivo(String.format("Disciplina %s para o ano escolar '%s' adicionada", nome, anoEscolar), Logger.Level.INFO);
 	}
