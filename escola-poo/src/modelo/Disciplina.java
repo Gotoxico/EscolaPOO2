@@ -23,22 +23,21 @@ public class Disciplina implements media {
     private String metodologia;
     private String calculoMedia;
     private int cargaHoraria;
-    private Notas notas;
-    private ArrayList<Turma> turmas;
+    private Turma turma;
     private ArrayList<Professor> professores;
     private ArrayList<Prova> provas;
     private ArrayList<Trabalho> trabalhos;
     private ArrayList<PontoExtra> pontosExtra;
     private final OutputInterface output;
     
-    public Disciplina(OutputFactory outputFactory, String nome, String unidadeEscolar, String anoEscolar, String tipoOutput, Notas notas){
+    public Disciplina(OutputFactory outputFactory, String nome, String unidadeEscolar, String anoEscolar, 
+                        String tipoOutput, String nomeTurma, String IDTurma, int quantidadeVagas) {
         this.nome = nome;
         this.unidadeEscolar = unidadeEscolar;
         this.anoEscolar = anoEscolar;
+        this.turma = new Turma(nomeTurma, IDTurma, quantidadeVagas);
         cargaHoraria = 0;
         
-        this.notas = notas;
-        this.turmas = new ArrayList<>();
         this.professores = new ArrayList<>();
         this.provas = new ArrayList<>();
         this.trabalhos = new ArrayList<>();
@@ -111,12 +110,12 @@ public class Disciplina implements media {
         this.cargaHoraria = cargaHoraria;
     }
 
-    public ArrayList<Turma> getTurmas() {
-        return turmas;
+    public Turma getTurma() {
+        return turma;
     }
 
-    public void setTurmas(ArrayList<Turma> turmas) {
-        this.turmas = turmas;
+    public void setTurma(Turma turma) {
+        this.turma = turma;
     }
 
     public ArrayList<Professor> getProfessores() {
@@ -179,54 +178,24 @@ public class Disciplina implements media {
         output.display("Cálculo da Média: ");
         output.display(calculoMedia);
     }
-    
-    
-    public double mediaTurma(Turma turma) {
-    	if(turma.getAlunos().size() > 0) {
-            double media = 0;
 
-            for(Aluno aluno : turma.getAlunos()) {
-            	media+=aluno.getMedia();
-            }
-
-            return media/turma.getAlunos().size();
-    	}
-    	else {
-            return 0;
-    	}
-    }
     
     private double mediaGeral() {
-        if (turmas.size() > 0) {
+        if (turma.getAlunos().size() > 0) {
+            int i;
             double media = 0;
 
-            for(Turma i : turmas) {
-                media+=mediaTurma(i);
+            for(i = 0; i < turma.getAlunos().size(); i++) {
+                media+=turma.getAlunos().get(i).getMedia();
             }
 
-            media/=turmas.size();
+            media/=turma.getAlunos().size();
             
             return media;
         }
         else {
             return 0;
         }
-    }
-    
-    public void adicionarNota(Notas nota) {
-        notas.add(nota);
-    }
-    
-    public void removerNota(Notas nota) {
-        notas.remove(nota);
-    }
-    
-    public void adicionarTurma(Turma turma) {
-        turmas.add(turma);
-    }
-    
-    public void removerTurma(Turma turma) {
-        turmas.remove(turma);
     }
     
     public void adicionarProfessor(Professor professor) {
@@ -237,7 +206,8 @@ public class Disciplina implements media {
         professores.remove(professor);
     }
     
-    public void adicionarProva(Prova prova) {
+    public void adicionarProva(Prova prova, float nota) {
+        prova.setNota(nota);
         provas.add(prova);
     }
     
@@ -245,7 +215,8 @@ public class Disciplina implements media {
         provas.remove(prova);
     }
     
-    public void adicionarTrabalho(Trabalho trabalho) {
+    public void adicionarTrabalho(Trabalho trabalho, float nota) {
+        trabalho.setNota(nota);
         trabalhos.add(trabalho);
     }
     
@@ -253,7 +224,8 @@ public class Disciplina implements media {
         trabalhos.remove(trabalho);
     }
     
-    public void adicionarPontoExtra(PontoExtra pontoExtra) {
+    public void adicionarPontoExtra(PontoExtra pontoExtra, float valor) {
+        pontoExtra.setValor(valor);
         pontosExtra.add(pontoExtra);
     }
     
