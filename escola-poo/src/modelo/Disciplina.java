@@ -23,7 +23,7 @@ public class Disciplina implements media {
     private String metodologia;
     private String calculoMedia;
     private int cargaHoraria;
-    private ArrayList<Notas> notas;
+    private Notas notas;
     private ArrayList<Turma> turmas;
     private ArrayList<Professor> professores;
     private ArrayList<Prova> provas;
@@ -31,13 +31,13 @@ public class Disciplina implements media {
     private ArrayList<PontoExtra> pontosExtra;
     private final OutputInterface output;
     
-    public Disciplina(OutputFactory outputFactory, String nome, String unidadeEscolar, String anoEscolar, String tipoOutput) {
+    public Disciplina(OutputFactory outputFactory, String nome, String unidadeEscolar, String anoEscolar, String tipoOutput, Notas notas){
         this.nome = nome;
         this.unidadeEscolar = unidadeEscolar;
         this.anoEscolar = anoEscolar;
         cargaHoraria = 0;
-
-        this.notas = new ArrayList<>();
+        
+        this.notas = notas;
         this.turmas = new ArrayList<>();
         this.professores = new ArrayList<>();
         this.provas = new ArrayList<>();
@@ -109,14 +109,6 @@ public class Disciplina implements media {
 
     public void setCargaHoraria(int cargaHoraria) {
         this.cargaHoraria = cargaHoraria;
-    }
-
-    public ArrayList<Notas> getNotas() {
-        return notas;
-    }
-
-    public void setNotas(ArrayList<Notas> notas) {
-        this.notas = notas;
     }
 
     public ArrayList<Turma> getTurmas() {
