@@ -4,18 +4,22 @@
  */
 package modelo;
 
+import interfaces.Avaliacao;
+
 /**
  *
  * @author rodri
  */
-public class Trabalho extends Avaliacao{
-    protected String nomeTrabalho;
+public class Trabalho implements Avaliacao{
+    private String nomeTrabalho;
+    private float nota;
+    private float peso;
 
     public Trabalho() {
     }
 
     public Trabalho(String nomeTrabalho, float peso) {
-        super(peso);
+        this.peso = peso;
         this.nomeTrabalho = nomeTrabalho;
     }
 
@@ -41,6 +45,11 @@ public class Trabalho extends Avaliacao{
 
     public void setNota(float nota) {
         this.nota = nota;
+    }
+
+    @Override
+    public double calcularNota() {
+        return nota;
     }
     
 }
