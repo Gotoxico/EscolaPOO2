@@ -23,7 +23,6 @@ public class Disciplina implements media {
     private String metodologia;
     private String calculoMedia;
     private int cargaHoraria;
-    private Notas notas;
     private ArrayList<Turma> turmas;
     private ArrayList<Professor> professores;
     private ArrayList<Prova> provas;
@@ -37,7 +36,6 @@ public class Disciplina implements media {
         this.anoEscolar = anoEscolar;
         cargaHoraria = 0;
         
-        this.notas = notas;
         this.turmas = new ArrayList<>();
         this.professores = new ArrayList<>();
         this.provas = new ArrayList<>();
@@ -211,14 +209,6 @@ public class Disciplina implements media {
         else {
             return 0;
         }
-    }
-    
-    public void adicionarNota(Notas nota) {
-        notas.add(nota);
-    }
-    
-    public void removerNota(Notas nota) {
-        notas.remove(nota);
     }
     
     public void adicionarTurma(Turma turma) {
