@@ -95,6 +95,30 @@ public class Aluno extends Usuario implements media {
     public void setCurso(String curso) {
         this.curso = curso;
     }
+    
+    public void setNotaProva(Prova prova){
+        provas.add(prova);
+    }
+    
+    public void setNotaTrabalho(Trabalho trabalho){
+        trabalhos.add(trabalho);
+    }
+    
+    public void setNotaPontoExtra(PontoExtra pontoExtra){
+        pontosExtras.add(pontoExtra);
+    }
+    
+    public void removerNotaProva(Prova prova){
+        provas.remove(prova);
+    }
+    
+    public void removerNotaTrabalho(Trabalho trabalho){
+        trabalhos.remove(trabalho);
+    }
+    
+    public void removerNotaPontoExtra(PontoExtra pontoExtra){
+        pontosExtras.remove(pontoExtra);
+    }
 
     //Estratégia de cálculo de média
     public void setCalculoMediaStrategy(CalculoMediaStrategy calculoMediaStrategy) {
