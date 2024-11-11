@@ -325,4 +325,42 @@ public class Escola{
         public void relatorioAlunosTurma(Turma t, int opcao){
             RelatorioAlunos.relatorio(t.getAlunos(), opcao);
         }
+        
+        /**
+         * 
+         * @param nomeProfessor
+         * @param ID 
+         * 
+         * @Brief: Ao demitir um professor, será removido de todas as disciplinas que ministrava
+         */
+        public void demitirProfessor(String nomeProfessor, String ID){
+            for(Disciplina disciplina : disciplinas){
+                ArrayList<Professor> professoresDisciplina = disciplina.getProfessores();
+                for(Professor professor : professoresDisciplina){
+                    if(professor.getNome().equals(nomeProfessor) && professor.getID().equals(ID)){
+                        disciplina.removerProfessor(professor);
+                    }
+                }
+            }
+        }
+        
+        /**
+         * 
+         * @param nomeAluno
+         * @param ID 
+         * 
+         * @Brief: Ao expulsar um aluno, será removido da turma que pertencia
+         */
+        public void expulsarAluno(String nomeAluno, String ID){
+            for(Turma turma : turmas){
+                ArrayList<Aluno> alunosTurma = turma.getAlunos();
+                for(Aluno aluno : alunosTurma){
+                    if(aluno.getNome().equals(nomeAluno) && aluno.getID().equals(ID)){
+                        turma.removerAluno(aluno);
+                        return;
+                    }
+                }
+            }
+        }
+        
 }
