@@ -29,7 +29,7 @@ class MediaAritmeticaStrategy implements CalculoMediaStrategy {
             count++;
         }
         for (PontoExtra pontoExtra : pontosExtras) {
-            soma += pontoExtra.getNota();
+            soma += pontoExtra.getValor();
             count++;
         }
         return count > 0 ? soma / count : 0;
@@ -136,7 +136,7 @@ public class Aluno extends Usuario implements media {
     //Apresenta as informações do aluno
     //Usa output configurado
     public void mostrarAluno() {
-        output.exibirInfo("\nNome do aluno: " + getNome() +
+        output.display("\nNome do aluno: " + getNome() +
                           "\nCurso: " + curso +
                           "\nMatricula: " + matricula +
                           "\nCurso: " + curso + "\n" +
