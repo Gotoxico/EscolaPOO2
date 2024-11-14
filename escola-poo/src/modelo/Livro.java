@@ -1,20 +1,22 @@
 package modelo;
 
-public class Livro implements Comparable<Livro>{
+public class Livro{
     private String titulo;
     private String autor;
-    private String isbn;
+    private String ISBN;
     private boolean emprestado;
+    private String gênero;  //tanto gêneros como "Matemática", "Física", "História", "Computação", quanto "Terror", "Policial", "Romance", etc
 
     public Livro(){
         emprestado = false;
     }
 
-    public Livro(String titulo, String autor, String isbn){
+    public Livro(String titulo, String autor, String ISBN, String genero){
         this.titulo = titulo;
         this.autor = autor;
-        this.isbn = isbn;
+        this.ISBN = ISBN;
         emprestado = false;
+        this.genero = genero;
     }
 
     public void setTitulo(String titulo){
@@ -25,12 +27,16 @@ public class Livro implements Comparable<Livro>{
         this.autor = autor;
     }
 
-    public void setIsbn(String isbn){
-        this.isbn = isbn;
+    public void setISBN(String ISBN){
+        this.ISBN = ISBN;
     }
 
     public void setEmprestado(boolean emprestado){
         this.emprestado = emprestado;
+    }
+
+    public void setGenero(String genero){
+        this.genero = genero;
     }
 
     public String getTitulo(){
@@ -41,21 +47,15 @@ public class Livro implements Comparable<Livro>{
         return autor;
     }
 
-    public String getIsbn(){
-        return isbn;
+    public String getISBN(){
+        return ISBN;
     }
 
     public boolean getEmprestado(){
         return emprestado;
     }
-    
-      @Override
-    public int compareTo(Livro outroLivro) {
-        return this.titulo.compareTo(outroLivro.getTitulo());
-    }
 
-    @Override
-    public String toString() {
-        return this.titulo + " - " + this.autor;
+    public String getGenero(){
+        return genero;
     }
 }

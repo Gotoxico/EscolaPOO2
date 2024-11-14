@@ -9,19 +9,12 @@ public class Emprestimo{
     private LocalDate diaAtual;
     
     public Emprestimo(){
-
+        
     }
 
-    public boolean verificaSeEDomingo(){
-        if(diaAtual.getDayOfWeek().equals(DayOfWeek.SUNDAY)){  
-            return true;
-        }
-        return false;
-    }
-
-    //suponhamos que o usuário tem um prazo de 10 dias para devolver o livro
+    //o usuário tem um prazo de 10 dias para devolver o livro
     public LocalDate calculaDataDevolucao(){
-        if(verificaSeEDomingo() == true){  //nao pode devolver no domingo
+        if(VerificaSeEDomingo.verificaSeEDomingo() == true){  //nao pode devolver no domingo
             return null;
         }
         this.diaEmprestimo = LocalDate.now();
@@ -48,13 +41,6 @@ public class Emprestimo{
             return false;
         }
         return true;
-    }
-
-    public String imprimeDatas(){
-        String datas = "Data do Emprestimo: " + diaEmprestimo.getDayOfMonth() + "/" 
-        + diaEmprestimo.getMonth() + "/" + diaEmprestimo.getYear() + "\nDia da Devolucao: " 
-        + diaDevolucao.getDayOfMonth() + "/" + diaDevolucao.getMonth() + "/" + diaDevolucao.getYear() + "\n";
-        return datas;
     }
 
 }

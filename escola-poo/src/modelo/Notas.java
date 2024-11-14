@@ -24,7 +24,7 @@ public class Notas {
     protected ArrayList<Disciplina> disciplinas;
 
     public Notas(ArrayList<Disciplina> disciplinas) {
-        disciplinas = disciplinas;
+        this.disciplinas = disciplinas;
     }
     
     //Metodos para obter um objeto baseado em seu nome

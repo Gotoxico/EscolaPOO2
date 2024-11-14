@@ -37,7 +37,6 @@ public class Disciplina implements media {
         this.anoEscolar = anoEscolar;
         this.turma = new Turma(nomeTurma, IDTurma, quantidadeVagas);
         cargaHoraria = 0;
-        
         this.professores = new ArrayList<>();
         this.provas = new ArrayList<>();
         this.trabalhos = new ArrayList<>();
@@ -197,7 +196,7 @@ public class Disciplina implements media {
             return 0;
         }
     }
-    
+
     public void adicionarProfessor(Professor professor) {
         professores.add(professor);
     }

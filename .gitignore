@@ -1,1 +1,8 @@
 /escola-poo/build/
+
+# Arquivos de configuração de IDEs
+**/nbproject/private/
+**/nbproject/private/*
+
+# Arquivos de configuração que armazenam caminhos locais
+**/nbproject/private/project-private.xml

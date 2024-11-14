@@ -4,18 +4,22 @@
  */
 package modelo;
 
+import interfaces.Avaliacao;
+
 /**
  *
  * @author rodri
  */
-public class Prova extends Avaliacao{
-    protected String nomeProva;
+public class Prova implements Avaliacao{
+    private String nomeProva;
+    private float nota;
+    private float peso;
 
     public Prova() {
     }
 
     public Prova(String nomeProva, float peso) {
-        super(peso);
+        this.peso = peso;
         this.nomeProva = nomeProva;
     }
 
@@ -41,6 +45,11 @@ public class Prova extends Avaliacao{
 
     public void setNota(float nota) {
         this.nota = nota;
+    }
+
+    @Override
+    public double calcularNota() {
+        return nota;
     }
     
 }

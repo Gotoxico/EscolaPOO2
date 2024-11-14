@@ -1,23 +1,21 @@
 package modelo;
 
-import modelo.Output.OutputFactory;
+import java.util.ArrayList;
 
-public class BibliotecaEscolar extends Biblioteca{
+public class BibliotecaEscolar extends Biblioteca{ 
 
-    public BibliotecaEscolar(OutputFactory outputFactory, String tipoOutput) {
-        super(outputFactory, tipoOutput);
-    }
+        public ArrayList<LivroDidatico> recomendacoes(String disciplina){     //gera um array que será impresso no Console com as indicações de livros de acordo com uma disciplina
+                ArrayList<LivroDidatico> recomendacoes =  new ArrayList();  
+                for(Livro livro : livros){
+                        if(livro instanceof LivroDidatico){
+                                if(livro.getDisciplina().equals(disciplina)){
+                                        recomendacoes.add(livro);
+                                }
+                        }
+                }
+                return recomendacoes;       
+        }
 
-    //@Override
-    public boolean addUsuario(Professor professor){
-            usuarios.add(professor);
-            return true;
-    }
 
-    //@Override
-    public boolean addUsuario(Aluno aluno){
-            usuarios.add(aluno);
-            return true;
-
-    }
 }
+

@@ -12,7 +12,7 @@ public class RelatorioAlunos {
         StringBuilder relatorio = new StringBuilder();
         for(Aluno aluno : alunos){
             relatorio.append(aluno.getNome())
-                     .append(aluno.getMedia() >= notaCorte ? " Passaria\n" : " Não Passaria\n");
+                     .append(aluno.calcularMedia()>= notaCorte ? " Passaria\n" : " Não Passaria\n");
         }
         
         return relatorio.toString();

@@ -1,13 +1,13 @@
 package modelo;
-import java.util.ArrayList;
 
+import java.util.ArrayList;
 
 public class Usuario{
     protected String nome;
     protected String ID;
     protected int quantMulta;
     protected ArrayList<Livro> livros;
-    protected static final int QUANT_MAX_LIVROS = 10; //suponhamos que o máximo que um usuário pode emprestar de livros ao mesmo tempo é 10  
+    protected static final int QUANT_MAX_LIVROS = 10; //o máximo que um usuário pode emprestar de livros ao mesmo tempo é 10  
     protected int contLivros;
     protected ArrayList<Multa> multas;
     protected ArrayList<Emprestimo> emprestimos;
@@ -43,12 +43,21 @@ public class Usuario{
     public boolean removeLivro(Livro livro){
         if(contLivros > 0){
             for(int i=0; i < contLivros; i++){
-                if(livros.get(i).equals(livro)){   //perguntar!!!
+                if(livros.get(i).equals(livro)){   
                     livros.remove(i);
                     emprestimos.remove(i);
                     contLivros--;
                     return true;
                 }
+            }
+        }
+        return false;
+    }
+
+    public boolean buscaLivro(Livro livro){
+        for(int i=0; i<contLivros; i++){
+            if(livros.get(i).equals(livro)){
+                return true;
             }
         }
         return false;
@@ -81,6 +90,10 @@ public class Usuario{
 
     public int getQuantMulta(){
         return quantMulta;
+    }
+
+    public int getContLivros(){
+        return contLivros;
     }
 
     public ArrayList<Livro> getLivros(){
