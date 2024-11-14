@@ -7,16 +7,10 @@ public class Multa{
     private LocalDate diaAtual;
     private LocalDate inicioMulta;
     private LocalDate fimMulta;
+    private Livro livro;    //Livro que não foi devolvido no prazo
 
     public Multa(){
 
-    }
-
-    public boolean verificaSeEDomingo(){
-        if(diaAtual.getDayOfWeek().equals(DayOfWeek.SUNDAY)){  
-            return true;
-        }
-        return false;
     }
 
     public LocalDate getDiaAtual(){
@@ -31,18 +25,26 @@ public class Multa{
         return fimMulta;
     }
 
+    public Livro getLivro(){
+        return livro;
+    }
+
     // a multa durará 10 dias
-    public void aplicaMulta(){
+    public void aplicaMulta(Livro livro){
+        this.livro = livro;
         diaAtual = LocalDate.now();
-        this.inicioMulta = diaAtual;
-        this.fimMulta = diaAtual.plusDays(10);
+        inicioMulta = diaAtual;
+        fimMulta = diaAtual.plusDays(10);
     }
 
     //se retornar true a multa deve ser removida
-    public boolean removeMulta(){
+    public boolean removeMulta(Usuario usuario){
         diaAtual = LocalDate.now();
-        if(diaAtual.compareTo(fimMulta) >= 0){
+        if(diaAtual.compareTo(fimMulta) >= 0 && usuario.buscaLivro(livro) == false){
             return true;
+        }
+        if(diaAtual.compareTo(fimMulta) >= 0 && usuario.buscaLivro(livro) == true){     //acabou a multa porém o livro ainda não foi devolvido, portanto reaplica multa
+            fimMulta = diaAtual.plusDays(10); 
         }
         return false;
     }
