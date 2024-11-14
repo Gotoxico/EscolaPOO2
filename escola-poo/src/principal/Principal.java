@@ -1,12 +1,16 @@
 package principal;
 
 import controlador.Escola;
-import java.util.Scanner;
 import java.util.ArrayList;
-import modelo.*;
-import modelo.Output.OutputConsole;
+import java.util.Scanner;
+import modelo.Aluno;
+import modelo.BibliotecaEscolar;
+import modelo.Disciplina;
 import modelo.Output.OutputFactory;
 import modelo.Output.OutputInterface;
+import modelo.Professor;
+import modelo.Turma;
+
 
 public class Principal {
 	static String tipoOutput = "console";

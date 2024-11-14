@@ -1,4 +1,4 @@
-package interface;
+package interfaces;
 //Classe Aluno: Classe base com atributos como matricula, curso.
 import java.util.ArrayList;
 import modelo.Prova;

@@ -1,6 +1,6 @@
 package modelo;
 //Classe Aluno: Classe base com atributos como matricula, curso.
-import interface.ObservadorDesempenho;
+import interfaces.ObservadorDesempenho;
 //Padrão de Projeto: Observador
 //Enxerga as outras classes e notifica mudança de estado ("Big Brother").
 // Implementação de um observador que monitora e notifica o desempenho do aluno

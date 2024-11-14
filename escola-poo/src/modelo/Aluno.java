@@ -5,8 +5,8 @@ import modelo.Output.OutputConsole;
 import modelo.Output.OutputFactory;
 import modelo.Output.OutputInterface;
 import interfaces.media;
-import interface.CalculoMediaStrategy;
-import interface.ObservadorDesempenho;
+import interfaces.CalculoMediaStrategy;
+import interfaces.ObservadorDesempenho;
 
 public class Aluno extends Usuario {
     private final OutputInterface output;

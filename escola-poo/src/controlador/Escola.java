@@ -129,7 +129,7 @@ public class Escola{
 		UUID matricula = UUID.randomUUID();
 		Logger logger = Logger.getInstance();
 
-		Aluno novo = new Aluno(outputFactory, nome, id.toString(), matricula.toString(), "teste", 0.0f, tipoOutput);
+		Aluno novo = new Aluno(outputFactory, nome, id.toString(), matricula.toString(), "teste", tipoOutput);
 
 		this.alunos.add(novo);
 

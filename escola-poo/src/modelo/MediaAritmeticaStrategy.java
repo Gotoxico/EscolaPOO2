@@ -1,6 +1,6 @@
 package modelo;
 //Classe Aluno: Classe base com atributos como matricula, curso.
-import interface.CalculoMediaStrategy;
+import interfaces.CalculoMediaStrategy;
 import java.util.ArrayList;
 //Implementação da média aritmética como uma estratégia
 public class MediaAritmeticaStrategy implements CalculoMediaStrategy {

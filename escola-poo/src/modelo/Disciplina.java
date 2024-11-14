@@ -184,7 +184,7 @@ public class Disciplina implements media {
             double media = 0;
 
             for(Aluno aluno : turma.getAlunos()) {
-            	media+=aluno.getMedia();
+            	media+=aluno.calcularMedia();
             }
 
             return media/turma.getAlunos().size();
