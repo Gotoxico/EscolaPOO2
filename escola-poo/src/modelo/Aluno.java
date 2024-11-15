@@ -17,6 +17,7 @@ public class Aluno extends Usuario {
     private ArrayList<PontoExtra> pontosExtras;
     private CalculoMediaStrategy calculoMediaStrategy;
     private ObservadorDesempenho monitor;
+    private ArrayList<AtividadeExtra> atividadesExtrasCurriculares;
 
     //Construtor da classe Aluno que recebe uma fábrica de saída, dados do aluno e tipo de saída
     //Fábrica pra criação de tipos de saída
@@ -30,6 +31,7 @@ public class Aluno extends Usuario {
         this.output = outputFactory.getTipoOutput(tipoOutput); //Tipo de saída desejada
         this.calculoMediaStrategy = new MediaAritmeticaStrategy(); //Estratégia padrão
         this.monitor = new DesempenhoMonitor(); //Inicializa o monitor de desempenho
+        this.atividadesExtrasCurriculares = new ArrayList<>();
     }
 
     //Encapsulamento para matrícula e curso
@@ -83,6 +85,14 @@ public class Aluno extends Usuario {
         float media = calculoMediaStrategy.calcularMedia(provas, trabalhos, pontosExtras);
         monitor.notificarDesempenho(getNome(), media);
         return media;
+    }
+
+    /**
+     * Adiciona uma atividade extra ao aluno
+     * @param atividadeExtra
+     */
+    public void addAtividadeExtra(AtividadeExtra atividadeExtra) {
+        atividadesExtrasCurriculares.add(atividadeExtra);
     }
 
     //Apresenta as informações do aluno

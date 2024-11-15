@@ -12,7 +12,7 @@ public class IniciacaoCientifica extends AtividadeExtra{
 		return this.orientador;
 	}
 
-	public void setOrientador(){
+	public void setOrientador(Professor orientador){
 		this.orientador = orientador;
 	}
 }

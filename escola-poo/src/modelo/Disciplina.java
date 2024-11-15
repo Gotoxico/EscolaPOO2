@@ -231,4 +231,8 @@ public class Disciplina implements media {
     public void removerPontoExtra(PontoExtra pontoExtra) {
         pontosExtra.remove(pontoExtra);
     }
+
+    public void removerTrabalhos(){
+        trabalhos.clear();
+    }
 }

@@ -247,26 +247,19 @@ public class Escola{
 	}
 	*/
 
-	public void addIniciacaoCientificaAluno(String matricula, IniciacaoCientifica ic){
+	/**
+	 * Método para adicionar uma atividade extra curricular a um aluno
+	 * @param matricula 
+	 * @param ic
+	 * 
+	 */
+	public void addAtividadeExtraCurricular(String matricula, AtividadeExtra ic){
 		Aluno temp = this.getAlunoMatricula(matricula);
 		if(temp != null){
-			//aluno.addIniciacaoCientifica(temp);
+			temp.addAtividadeExtra(ic);
 		}
 	}
 
-	public void addPalestraAluno(String matricula, Palestra p){
-		Aluno temp = this.getAlunoMatricula(matricula);
-		if(temp != null){
-			//aluno.addPalestra(temp);
-		}
-	}
-	
-	public void addCursoExtraAluno(String matricula, CursoExtra ce){
-		Aluno temp = this.getAlunoMatricula(matricula);
-		if(temp != null){
-			//aluno.addCursoExtra(temp);
-		}
-	}
         
         //Chamadas metodos classe gerenciadora Notas
         
@@ -274,9 +267,29 @@ public class Escola{
             notas.removerProvaDisciplina(nomeDisciplina, nomeProfessor, nomeProva, nomeTurma, peso);
         }
         
+		/**
+		 * Método para remover um trabalho de uma disciplina	
+		 * @param nomeDisciplina
+		 * @param nomeProfessor
+		 * @param nomeTrabalho
+		 * @param nomeTurma
+		 * @param peso
+		 */
         public void removerTrabalhoDisciplina(String nomeDisciplina, String nomeProfessor, String nomeTrabalho, String nomeTurma, float peso){
             notas.removerTrabalhoDisciplina(nomeDisciplina, nomeProfessor, nomeTrabalho, nomeTurma, peso);
         }
+
+		/**
+		 * Método para remover todos os trabalhos de uma disciplina
+		 * @param nomeDisciplina
+		 * @param nomeProfessor
+		 * @param nomeTurma
+		 */
+		public void removerTodosTrabalhosDisciplina(String nomeDisciplina, String nomeProfessor, String nomeTurma){
+			notas.removerTrabalhos(nomeDisciplina, nomeProfessor, nomeTurma);
+		}
+		 
+
         
         public void removerPontoExtraDisciplina(String nomeDisciplina, String nomeProfessor, String nomePontoExtra, String nomeTurma, float valorMaximo){
             notas.removerPontoExtraDisciplina(nomeDisciplina, nomeProfessor, nomePontoExtra, nomeTurma, valorMaximo);
@@ -290,6 +303,14 @@ public class Escola{
             notas.adicionarTrabalhoDisciplina(nomeDisciplina, nomeProfessor, nomeTurma, nomeTrabalho, peso);
         }
         
+		/**
+		 * Método para adicionar um ponto extra a uma disciplina
+		 * @param nomeDisciplina
+		 * @param nomeProfessor
+		 * @param nomePontoExtra
+		 * @param nomeTurma
+		 * @param valorMaximo
+		 */
         public void adicionarPontoExtraDisciplina(String nomeDisciplina, String nomeProfessor, String nomePontoExtra, String nomeTurma, float valorMaximo) {
             notas.adicionarPontoExtraDisciplina(nomeDisciplina, nomeProfessor, nomePontoExtra, nomeTurma, valorMaximo);
         }
@@ -362,5 +383,7 @@ public class Escola{
                 }
             }
         }
+
+		public void addPontoExtraAluno( 
         
 }
