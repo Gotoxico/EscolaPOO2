@@ -185,7 +185,7 @@ public class Disciplina implements media {
             double media = 0;
 
             for(i = 0; i < turma.getAlunos().size(); i++) {
-                media+=turma.getAlunos().get(i).getMedia();
+                media+=turma.getAlunos().get(i).calcularMedia();
             }
 
             media/=turma.getAlunos().size();
@@ -205,8 +205,7 @@ public class Disciplina implements media {
         professores.remove(professor);
     }
     
-    public void adicionarProva(Prova prova, float nota) {
-        prova.setNota(nota);
+    public void adicionarProva(Prova prova) {
         provas.add(prova);
     }
     
@@ -214,8 +213,7 @@ public class Disciplina implements media {
         provas.remove(prova);
     }
     
-    public void adicionarTrabalho(Trabalho trabalho, float nota) {
-        trabalho.setNota(nota);
+    public void adicionarTrabalho(Trabalho trabalho) {
         trabalhos.add(trabalho);
     }
     
@@ -223,8 +221,7 @@ public class Disciplina implements media {
         trabalhos.remove(trabalho);
     }
     
-    public void adicionarPontoExtra(PontoExtra pontoExtra, float valor) {
-        pontoExtra.setValor(valor);
+    public void adicionarPontoExtra(PontoExtra pontoExtra) {
         pontosExtra.add(pontoExtra);
     }
     

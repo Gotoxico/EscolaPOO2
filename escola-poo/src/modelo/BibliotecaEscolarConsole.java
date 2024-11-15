@@ -5,7 +5,7 @@ import java.time.LocalDate;
 
 public class BibliotecaEscolarConsole{    //classe com funções de impressão relacionada apenas às classes de Biblioteca
 
-    public void imprimeDatasEmprestimo(Empresimo emprestimo){
+    public void imprimeDatasEmprestimo(Emprestimo emprestimo){
         LocalDate diaEmprestimo = emprestimo.getDiaEmprestimo();
         LocalDate diaDevolucao = emprestimo.getDiaDevolucao();
         System.out.println("Data do Emprestimo: " + diaEmprestimo.getDayOfMonth() + "/" 
