@@ -114,12 +114,12 @@ public class Biblioteca{
 
     //funcao para verificar diariamente se usuario deve ter multa retiradas
     public void verificaRemoveMultaDiariamente(){
-        ArrayList<Multa> multas = new ArrayList();
+        ArrayList<Multa> multas = new ArrayList<>();
         for(int i=0; i<usuarios.size(); i++){
             if(usuarios.get(i).getQuantMulta() > 0){
                 multas = usuarios.get(i).getMultas();
                 for(int j=0; j<multas.size(); j++){
-                    if(multas.get(j).removeMulta() == true){
+                    if(multas.get(j).removeMulta(usuarios.get(i)) == true){
                         usuarios.get(i).removeMulta(multas.get(j));
                     }
                 }
@@ -128,7 +128,8 @@ public class Biblioteca{
     }
 
     public void ordenaLivrosOrdemAlfabetica(){
-        Collections.sort(livros);
+        Collections.sort(livros, (Livro l1, Livro l2) -> l1.getTitulo()
+                .compareToIgnoreCase(l2.getTitulo()));
     }
 
     public ArrayList<Livro> getLivros(){
@@ -136,6 +137,6 @@ public class Biblioteca{
     }
 
     public ArrayList<Usuario> getUsuarios(){
-        return usuario;
+        return usuarios;
     } 
 }

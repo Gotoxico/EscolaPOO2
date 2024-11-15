@@ -8,8 +8,8 @@ public class BibliotecaEscolar extends Biblioteca{
                 ArrayList<LivroDidatico> recomendacoes =  new ArrayList();  
                 for(Livro livro : livros){
                         if(livro instanceof LivroDidatico){
-                                if(livro.getDisciplina().equals(disciplina)){
-                                        recomendacoes.add(livro);
+                                if(((LivroDidatico)livro).getDisciplina().equals(disciplina)){
+                                        recomendacoes.add((LivroDidatico)livro);
                                 }
                         }
                 }

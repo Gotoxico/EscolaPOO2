@@ -39,6 +39,15 @@ public class Escola{
 	public ArrayList<Professor> getTodosProfessores(){
 		return this.professores;
 	}
+        
+        public ArrayList<Professor> getProfessoresDisciplina(String nomeDisciplina){
+            Disciplina d = getDisciplinaNome(nomeDisciplina);
+            
+            if(d == null)
+                return null;
+            
+            return d.getProfessores();
+        }
 
 	public ArrayList<Disciplina> getTodasDisciplinas(){
 		return this.disciplinas;
@@ -179,7 +188,7 @@ public class Escola{
 		}
 	}
 
-	public void addHorarioTurma(Horario h, String idTurma, Disciplina disciplina){
+	public void addHorarioTurma(Horario h, String idTurma){
 		Turma turma = this.getTurmaId(idTurma);
 
 		if(turma != null){
@@ -295,7 +304,7 @@ public class Escola{
             notas.removerPontoExtraDisciplina(nomeDisciplina, nomeProfessor, nomePontoExtra, nomeTurma, valorMaximo);
         }
         
-        public void adicionarProvaDisciplina(String nomeDisciplina, String nomeProfessor, String nomeProva, String nomeTurma, float peso){
+        public void adicionarProvaDisciplina(String nomeDisciplina, String nomeProfessor, String nomeTurma, String nomeProva,  float peso){
             notas.adicionarProvaDisciplina(nomeDisciplina, nomeProfessor, nomeProva, nomeTurma, peso);
         }
         
