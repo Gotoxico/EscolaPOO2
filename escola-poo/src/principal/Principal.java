@@ -10,9 +10,17 @@ import modelo.Output.OutputFactory;
 import modelo.Output.OutputInterface;
 import modelo.Professor;
 import modelo.Turma;
+import modelo.Prova;
+import modelo.Palestra;
+import modelo.IniciacaoCientifica;
+import modelo.AtividadeExtra;
+import modelo.CursoExtra;	
+import modelo.AtividadeExtraCurricular;
 
 public class Principal {
 	static String tipoOutput = "console";
+
+
 	static OutputInterface output = OutputFactory.getInstance().getTipoOutput(tipoOutput);
 
 	static Scanner sc = new Scanner(System.in);
@@ -80,7 +88,92 @@ public class Principal {
 					controlador.addTurma(nome, tamanho);
 					break;
 
+				case 5:
+					output.display("Digite o nome da disciplina: ");
+					disciplinaId = sc.nextLine();
+					turmaId = menuSelecionarTurma(controlador.getTodasTurmas());
+					controlador.addDisciplinaTurma(disciplinaId, turmaId);
+					break;
+
 				//Cadastrar provas, trabalhos, pontoExtra, atividades extra curriculares, horarioTurma
+				//adicionando pontos extras
+
+				case 9:
+					output.display("====== Cadastrar Ponto Extra =====");
+					output.display("Digite o nome da Disciplina: ");
+					disciplinaId = sc.nextLine();
+
+					output.display("Digite o nome do professor: ");
+					String nomeProfessor = sc.nextLine();
+
+					output.display("Digite o nome do Ponto Extra: ");
+					String tituloPonto = sc.nextLine();
+
+					output.display("Digite o nome da Turma: ");
+					turmaId = sc.nextLine();
+
+					output.display("Digite o valor máximo do Ponto Extra: ");
+					float valorMaximo = sc.nextFloat();
+					output.display("==================================");
+
+					controlador.adicionarPontoExtraDisciplina(disciplinaId, nomeProfessor, tituloPonto, turmaId, valorMaximo);
+
+					break;
+
+				case 10:
+					output.display("\n\n====== Cadastrar Atividades Extra Curriculares =====");
+					output.display("1 - Palestra");
+					output.display("2 - Curso Extra");
+					output.display("3 - Iniciação Científica");
+					output.display("0 - Voltar");
+					output.display("==============================");
+					output.display("Selecione sua opção: ");
+					int opcAtividade = sc.nextInt();
+
+					output.display("\nDigite a matricula do Aluno: ");
+					matricula = sc.nextLine();
+
+					output.display("Digite o titulo da atividade: ");
+					String tituloAtividade = sc.nextLine();
+
+					output.display("Digite as horas totais da atividade: ");
+					double horasTotais = sc.nextDouble();
+
+					AtividadeExtra ic = null;
+
+					
+					switch(opcAtividade){
+						case 1:
+							output.display("Digite o nome do palestrante: ");
+							String palestrante = sc.nextLine();
+							output.display("Digite a descrição da palestra: ");
+							String descricao = sc.nextLine();
+							ic = new Palestra(horasTotais, tituloAtividade, palestrante, descricao);
+
+							break;
+
+						case 2:
+							output.display("Digite o nome do professor: ");
+							String professor = sc.nextLine();
+							output.display("Digite a descrição do curso extra: ");
+							String descricaoCurso = sc.nextLine();
+							ic = new CursoExtra(horasTotais, tituloAtividade, professor, descricaoCurso);
+							break;
+
+						case 3:
+							output.display("Digite o Id do professor orientador: ");
+							String Idorientador = sc.nextLine();
+							Professor orientador = controlador.getProfessorId(Idorientador);
+							ic = new IniciacaoCientifica(horasTotais, tituloAtividade, orientador);
+							break;
+
+						case 0:
+							return;
+					}
+
+					controlador.addAtividadeExtraCurricular(matricula, ic);
+					break;
+				
 
 				case 0:
 					return;
@@ -152,6 +245,50 @@ public class Principal {
 					break;
 
 				//Cadastrar provas, trabalhos, pontoExtra, atividades extra curriculares, horarioTurma
+				
+				//Removendo Trabalhos
+				case 8:
+					output.display("====== Remover Trabalhos =====");
+					output.display("Digite o nome da disciplina: ");
+					disciplinaId = sc.nextLine();
+
+					output.display("Digite o nome do professor: ");
+					String nomeProfessor = sc.nextLine();
+
+					output.display("Digite o nome da turma: ");
+					turmaId = sc.nextLine();
+
+					output.display("\n\n1 - Remover um trabalho");
+					output.display("2 - Remover todos os trabalhos");
+					output.display("0 - Voltar");
+					output.display("==============================");
+					output.display("Selecione sua opção: ");
+					int opcTrabalho = sc.nextInt();
+
+					switch(opcTrabalho){
+						case 1:
+							/// //////////////////////////////////////
+							////////////////REAVALIAAR
+							/// //////////////////////////////////////
+
+							output.display("Digite o nome do trabalho: ");
+							String nomeTrabalho = sc.nextLine();
+
+							output.display("Digite o peso do Trabalho na nota: ");
+							float peso = sc.nextFloat();
+
+							controlador.removerTrabalhoDisciplina(disciplinaId, nomeProfessor,nomeTrabalho,turmaId, peso);
+							break;
+
+						case 2:
+							controlador.removerTodosTrabalhosDisciplina(disciplinaId, nomeProfessor, turmaId);
+							break;
+
+						case 0:
+							return;
+					}
+					
+					break;
 
 				case 0:
 					return;
@@ -225,6 +362,42 @@ public class Principal {
 				}
 				break;
 
+			case 7:
+				// Imprimir Dados Professor
+				output.display("=========================");
+				output.display("Digite o ID do professor: ");
+				String idProfessor = sc.nextLine();
+
+				Professor prof = controlador.getProfessorId(idProfessor);
+				output.display("Nome: " + prof.getNome());
+				output.display("Titulação: " + prof.getTitulacao());
+				output.display("Turmas: ");
+				for(Turma t : prof.getTurmas()){
+					output.display("\nNome: " + t.getNomeTurma());
+				}
+	
+				output.display("\n=========================");
+				break;
+
+			case 9:
+				// Imprimir Dados Prova
+				output.display("=========================");
+				output.display("Digite o nome da disciplina: ");
+				String nomeDisciplina = sc.nextLine();
+
+				Disciplina disciplina = controlador.getDisciplinaNome(nomeDisciplina);
+				ArrayList<Prova> provas = disciplina.getProvas();
+				for(Prova p : provas){
+					output.display("Nome: " + p.getNomeProva());
+					output.display("Peso: " + p.getPeso());
+					output.display("Nota: " + p.getNota());
+				}
+				output.display("=========================");
+				break;
+
+				
+
+
 			case 0:
 				return;
 		}
@@ -271,6 +444,7 @@ public class Principal {
 			String nome = "";
 			String titulacao = "";
 			String unidadeEscolar = "";
+			String disciplinaId = "";
 			String anoEscolar = "";
 			int qtd = 0;
 
@@ -320,14 +494,11 @@ public class Principal {
 						break;
 					
 					case 5:
-						alunos = controlador.getTodosAlunos();
-						output.display("=========================");
-						for(Aluno a : alunos) {
-							output.display("ID: " + a.getID());
-							output.display("Matricula: " + a.getMatricula());
-							output.display("Nome: " + a.getNome());
-							output.display("=========================");
-						}
+						output.display("Digite o nome da disciplina: ");
+						disciplinaId = sc.nextLine();
+						turmaId = menuSelecionarTurma(controlador.getTodasTurmas());
+						controlador.addDisciplinaTurma(disciplinaId, turmaId);
+						
 						break;
 					
 					case 6:

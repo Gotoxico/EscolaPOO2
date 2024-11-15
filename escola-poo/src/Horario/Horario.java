@@ -349,7 +349,11 @@ public class Horario {
          
          return tabela.toString();
      }
-         
+
+     //Outra função de exibir todos os horarios com println
+     
+
+    
 
     
 }
