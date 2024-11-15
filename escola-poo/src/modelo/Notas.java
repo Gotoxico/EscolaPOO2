@@ -40,11 +40,9 @@ public class Notas {
     
     //////REVISAR///////
     public Turma getNomeTurma(Disciplina disciplina, String nomeTurma){
-        ArrayList<Turma> turmas = disciplina.getTurmas();
-        for(Turma turma : turmas){
-            if(turma.getNomeTurma().equals(nomeTurma)){
-                return turma;
-            }
+        Turma turma = disciplina.getTurma();
+        if(turma.getNomeTurma().equals(nomeTurma)){
+            return turma;
         }
         return null;
     }
