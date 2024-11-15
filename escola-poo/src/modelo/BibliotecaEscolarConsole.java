@@ -2,10 +2,11 @@ package modelo;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class BibliotecaEscolarConsole{    //classe com funções de impressão relacionada apenas às classes de Biblioteca
 
-    public void imprimeDatasEmprestimo(Empresimo emprestimo){
+    public void imprimeDatasEmprestimo(Emprestimo emprestimo){
         LocalDate diaEmprestimo = emprestimo.getDiaEmprestimo();
         LocalDate diaDevolucao = emprestimo.getDiaDevolucao();
         System.out.println("Data do Emprestimo: " + diaEmprestimo.getDayOfMonth() + "/" 
@@ -22,31 +23,29 @@ public class BibliotecaEscolarConsole{    //classe com funções de impressão r
     }
 
     public void imprimirCatalogoDeLivros(Biblioteca biblioteca){
-        ArrayList<Livro> livros = ArrayList();
-        livros = bibliotca.getLivros();
-        bibliotca.ordenaLivrosOrdemAlfabetica();
-        System.out.pritnln("\nCATÁLOGO: \n"); 
+        ArrayList<Livro> livros = biblioteca.getLivros();
+        biblioteca.ordenaLivrosOrdemAlfabetica();
+        System.out.println("\nCATÁLOGO: \n"); 
         for(Livro livro : livros){
-            System.out.println("--" + imprimirInformacoesLivroSemParametros(livro));
+            imprimirInformacoesLivroSemParametros(livro);
         }
     }
 
     public void imprimirLivrosDeGeneroEspecifico(Biblioteca biblioteca, String genero){
-        ArrayList<Livro> livros = ArrayList();
-        livros = bibliotca.getLivros();
-        bibliotca.ordenaLivrosOrdemAlfabetica();
+        ArrayList<Livro> livros = biblioteca.getLivros();
+        biblioteca.ordenaLivrosOrdemAlfabetica();
         System.out.println("\nLIVROS DE " + genero.toUpperCase() + ":\n");
         for(Livro livro : livros){
             if(livro.getGenero().equals(genero)){
-                System.out.println("--" + imprimirInformacoesLivroSemParametros(livro));
+                imprimirInformacoesLivroSemParametros(livro);
             }
         }
     }
 
-    public void imprimirRecomenadacoes(BibliotecaEscolar bibliotca){
-        ArrayList<LivroDidatico> recomendacoes = bibliotca.recomendacoes();
+    public void imprimirRecomenadacoes(BibliotecaEscolar biblioteca, String disciplina){
+        ArrayList<LivroDidatico> recomendacoes = biblioteca.recomendacoes(disciplina);
         for(LivroDidatico livro : recomendacoes){
-            System.out.println("--" + imprimirInformacoesLivroSemParametros(livro));
+            imprimirInformacoesLivroSemParametros(livro);
         }
     }
 
