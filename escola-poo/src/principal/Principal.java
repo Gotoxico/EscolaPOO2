@@ -1114,7 +1114,8 @@ public class Principal {
                     break;
 
                 case 7:
-                    
+                    //Não mexer
+                    menuAdicionarNotaParaTurma();
                     break;
 
                 case 8:
