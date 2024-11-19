@@ -1087,31 +1087,6 @@ public class Principal {
                     //Não mexer
                     menuAdicionarNotaParaAluno();
                     break;
-                    
-                case 6:
-                    turmas = controlador.getTodasTurmas();
-                    output.display("=========================");
-                    for(Turma t : turmas) {
-                    alunos = t.getAlunos();
-                        disciplinas = t.getDisciplinas();
-                        output.display("ID: " + t.getID());
-                        output.display("Nome: " + t.getNomeTurma());
-                        output.display("QTD vagas: " + t.getQuantidadeVagas());
-                        output.display("Alunos da turma:");
-                        output.display("-------------------------");
-                    for(Aluno a : alunos){
-                            output.display("Nome: " + a.getNome());
-                            output.display("-------------------------");
-                        }
-                        output.display("Disciplinas da turma:");
-                        output.display("-------------------------");
-                        for(Disciplina d : disciplinas){
-                            output.display("Nome: " + d.getNome());
-                            output.display("-------------------------");
-                        }
-                        output.display("=========================");
-                    }
-                    break;
 
                 case 7:
                     //Não mexer
@@ -1326,38 +1301,39 @@ public class Principal {
         controlador.addTurma("9B", 26);
 
         //Gerando 30 livros para simular um banco de dados
-        controlador.addLivroBiblioteca("Dom Casmurro", "Machado de Assis", "978-8525054182");
-        controlador.addLivroBiblioteca("O Pequeno Príncipe", "Antoine de Saint-Exupéry", "978-8535931962");
-        controlador.addLivroBiblioteca("1984", "George Orwell", "978-8535930859");
-        controlador.addLivroBiblioteca("A Moreninha", "Joaquim Manuel de Macedo", "978-8575030211");
-        controlador.addLivroBiblioteca("O Alquimista", "Paulo Coelho", "978-8580417994");
-        controlador.addLivroBiblioteca("Cem Anos de Solidão", "Gabriel García Márquez", "978-8535932396");
-        controlador.addLivroBiblioteca("Moby Dick", "Herman Melville", "978-8535924698");
-        controlador.addLivroBiblioteca("A Revolução dos Bichos", "George Orwell", "978-8573022861");
-        controlador.addLivroBiblioteca("O Senhor dos Anéis", "J.R.R. Tolkien", "978-8576607164");
-        controlador.addLivroBiblioteca("Harry Potter e a Pedra Filosofal", "J.K. Rowling", "978-8532530191");
-        controlador.addLivroBiblioteca("A Metamorfose", "Franz Kafka", "978-8535923981");
-        controlador.addLivroBiblioteca("O Cortiço", "Aluísio Azevedo", "978-8535923165");
-        controlador.addLivroBiblioteca("A Cabana", "William P. Young", "978-8573025135");
-        controlador.addLivroBiblioteca("Orgulho e Preconceito", "Jane Austen", "978-8532511794");
-        controlador.addLivroBiblioteca("O Morro dos Ventos Uivantes", "Emily Brontë", "978-8573024794");
-        controlador.addLivroBiblioteca("Fahrenheit 451", "Ray Bradbury", "978-8535926852");
-        controlador.addLivroBiblioteca("O Guarani", "José de Alencar", "978-8525054090");
-        controlador.addLivroBiblioteca("O Primo Basílio", "José Maria de Eça de Queirós", "978-8525065607");
-        controlador.addLivroBiblioteca("Iracema", "José de Alencar", "978-8525052430");
-        controlador.addLivroBiblioteca("O Filho de Mil Homens", "Valter Hugo Mãe", "978-8535925688");
-        controlador.addLivroBiblioteca("A Menina que Roubava Livros", "Markus Zusak", "978-8580570569");
-        controlador.addLivroBiblioteca("O Lobo da Estepe", "Hermann Hesse", "978-8573026415");
-        controlador.addLivroBiblioteca("Os Miseráveis", "Victor Hugo", "978-8535925680");
-        controlador.addLivroBiblioteca("A Ilha do Tesouro", "Robert Louis Stevenson", "978-8535911768");
-        controlador.addLivroBiblioteca("A Dama das Camélias", "Alexandre Dumas Filho", "978-8576351611");
-        controlador.addLivroBiblioteca("O Processo", "Franz Kafka", "978-8575028811");
-        controlador.addLivroBiblioteca("A Peste", "Albert Camus", "978-8535923945");
-        controlador.addLivroBiblioteca("O Sol é Para Todos", "Harper Lee", "978-8535922528");
-        controlador.addLivroBiblioteca("O Fim da Eternidade", "Isaac Asimov", "978-8535923181");
-        controlador.addLivroBiblioteca("O Nome da Rosa", "Umberto Eco", "978-8535923150");
-        controlador.addLivroBiblioteca("A Cor Púrpura", "Alice Walker", "978-8535923853");
-        controlador.addLivroBiblioteca("O Livro dos Espíritos", "Allan Kardec", "978-8573023148");
+        controlador.addLivroBiblioteca("Dom Casmurro", "Machado de Assis", "978-8525054182", "Romance");
+        controlador.addLivroBiblioteca("O Pequeno Príncipe", "Antoine de Saint-Exupéry", "978-8535931962", "Infantil");
+        controlador.addLivroBiblioteca("1984", "George Orwell", "978-8535930859", "Distopia");
+        controlador.addLivroBiblioteca("A Moreninha", "Joaquim Manuel de Macedo", "978-8575030211", "Romance");
+        controlador.addLivroBiblioteca("O Alquimista", "Paulo Coelho", "978-8580417994", "Ficção");
+        controlador.addLivroBiblioteca("Cem Anos de Solidão", "Gabriel García Márquez", "978-8535932396", "Realismo Mágico");
+        controlador.addLivroBiblioteca("Moby Dick", "Herman Melville", "978-8535924698", "Aventura");
+        controlador.addLivroBiblioteca("A Revolução dos Bichos", "George Orwell", "978-8573022861", "Satírica");
+        controlador.addLivroBiblioteca("O Senhor dos Anéis", "J.R.R. Tolkien", "978-8576607164", "Fantasia");
+        controlador.addLivroBiblioteca("Harry Potter e a Pedra Filosofal", "J.K. Rowling", "978-8532530191", "Fantasia");
+        controlador.addLivroBiblioteca("A Metamorfose", "Franz Kafka", "978-8535923981", "Ficção");
+        controlador.addLivroBiblioteca("O Cortiço", "Aluísio Azevedo", "978-8535923165", "Naturalismo");
+        controlador.addLivroBiblioteca("A Cabana", "William P. Young", "978-8573025135", "Ficção");
+        controlador.addLivroBiblioteca("Orgulho e Preconceito", "Jane Austen", "978-8532511794", "Romance");
+        controlador.addLivroBiblioteca("O Morro dos Ventos Uivantes", "Emily Brontë", "978-8573024794", "Romance");
+        controlador.addLivroBiblioteca("Fahrenheit 451", "Ray Bradbury", "978-8535926852", "Distopia");
+        controlador.addLivroBiblioteca("O Guarani", "José de Alencar", "978-8525054090", "Romance");
+        controlador.addLivroBiblioteca("O Primo Basílio", "José Maria de Eça de Queirós", "978-8525065607", "Romance");
+        controlador.addLivroBiblioteca("Iracema", "José de Alencar", "978-8525052430", "Romance");
+        controlador.addLivroBiblioteca("O Filho de Mil Homens", "Valter Hugo Mãe", "978-8535925688", "Ficção");
+        controlador.addLivroBiblioteca("A Menina que Roubava Livros", "Markus Zusak", "978-8580570569", "Ficção");
+        controlador.addLivroBiblioteca("O Lobo da Estepe", "Hermann Hesse", "978-8573026415", "Ficção");
+        controlador.addLivroBiblioteca("Os Miseráveis", "Victor Hugo", "978-8535925680", "Romance");
+        controlador.addLivroBiblioteca("A Ilha do Tesouro", "Robert Louis Stevenson", "978-8535911768", "Aventura");
+        controlador.addLivroBiblioteca("A Dama das Camélias", "Alexandre Dumas Filho", "978-8576351611", "Romance");
+        controlador.addLivroBiblioteca("O Processo", "Franz Kafka", "978-8575028811", "Ficção");
+        controlador.addLivroBiblioteca("A Peste", "Albert Camus", "978-8535923945", "Ficção");
+        controlador.addLivroBiblioteca("O Sol é Para Todos", "Harper Lee", "978-8535922528", "Ficção");
+        controlador.addLivroBiblioteca("O Fim da Eternidade", "Isaac Asimov", "978-8535923181", "Ficção Científica");
+        controlador.addLivroBiblioteca("O Nome da Rosa", "Umberto Eco", "978-8535923150", "Mistério");
+        controlador.addLivroBiblioteca("A Cor Púrpura", "Alice Walker", "978-8535923853", "Ficção");
+        controlador.addLivroBiblioteca("O Livro dos Espíritos", "Allan Kardec", "978-8573023148", "Religião");
+       
     }
 
     public static void main(String[] args){

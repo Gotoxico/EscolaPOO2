@@ -127,7 +127,7 @@ public class Escola{
 		UUID id = UUID.randomUUID();
 		Logger logger = Logger.getInstance();
 
-		Turma novo = new Turma(nome, id.toString(), quantidadeVagas);
+		Turma novo = new Turma(nome, id.toString(), quantidadeVagas, null);
 
 		logger.gravaArquivo(String.format("Turma %s adicionado", nome), Logger.Level.INFO);
 		this.turmas.add(novo);
@@ -204,8 +204,8 @@ public class Escola{
 		}
 	}
 
-	public void addLivroBiblioteca(String titulo, String autor, String isbn){
-		Livro novo = new Livro(titulo, autor, isbn);
+	public void addLivroBiblioteca(String titulo, String autor, String isbn, String genero){
+		Livro novo = new Livro(titulo, autor, isbn, genero);
 		Logger logger = Logger.getInstance();
 
 		biblioteca.addLivro(novo);
@@ -392,7 +392,5 @@ public class Escola{
                 }
             }
         }
-
-		public void addPontoExtraAluno( 
         
 }
