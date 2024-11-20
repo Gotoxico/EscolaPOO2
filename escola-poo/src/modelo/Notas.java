@@ -38,12 +38,11 @@ public class Notas {
         return null;
     }
     
+    //////REVISAR///////
     public Turma getNomeTurma(Disciplina disciplina, String nomeTurma){
-        ArrayList<Turma> turmas = disciplina.getTurmas();
-        for(Turma turma : turmas){
-            if(turma.getNomeTurma().equals(nomeTurma)){
-                return turma;
-            }
+        Turma turma = disciplina.getTurma();
+        if(turma.getNomeTurma().equals(nomeTurma)){
+            return turma;
         }
         return null;
     }
@@ -225,6 +224,16 @@ public class Notas {
                 }
             }
         }
+    }
+
+    public void removerTrabalhos(String nomeDisciplina, String nomeProfessor, String nomeTurma) {
+        for (Disciplina disciplina : disciplinas){
+            if(disciplina.getNome().equals(nomeDisciplina) && getNomeProfessor(disciplina, nomeProfessor) != null && getNomeTurma(disciplina, nomeTurma) != null){
+                disciplina.removerTrabalhos();
+            }
+            
+        }
+        
     }
     
 }

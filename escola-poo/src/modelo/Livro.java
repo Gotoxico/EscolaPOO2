@@ -4,8 +4,8 @@ public class Livro{
     private String titulo;
     private String autor;
     private String ISBN;
-    private boolean emprestado;
-    private String gênero;  //tanto gêneros como "Matemática", "Física", "História", "Computação", quanto "Terror", "Policial", "Romance", etc
+    protected boolean emprestado;
+    private String genero;  //tanto gêneros como "Matemática", "Física", "História", "Computação", quanto "Terror", "Policial", "Romance", etc
 
     public Livro(){
         emprestado = false;

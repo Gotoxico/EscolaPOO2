@@ -251,4 +251,8 @@ public class Disciplina implements media {
 
         return string;
     }
+  
+    public void removerTrabalhos(){
+        trabalhos.clear();
+    }
 }
