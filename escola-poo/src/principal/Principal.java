@@ -4,6 +4,7 @@ import controlador.Escola;
 import horario.Horario;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import modelo.Aluno;
 import modelo.BibliotecaEscolar;
@@ -23,6 +24,7 @@ import modelo.RelatorioProfessores;
 import modelo.Trabalho;
 
 public class Principal {
+			
     static String tipoOutput = "console";
 
 
@@ -397,6 +399,12 @@ public class Principal {
                     Integer tamanho = sc.nextInt();
                     controlador.addTurma(nome, tamanho);
                     break;
+                    
+                case 6:
+					output.display("Digite o ID da turma: ");
+					turmaId = sc.nextLine();
+					controlador.removerHorarioTurma(turmaId);
+					break;
 
                 //Cadastrar provas, trabalhos, pontoExtra, atividades extra curriculares, horarioTurma
 
@@ -411,7 +419,6 @@ public class Principal {
 
                 case 0:
                     return;
-
             }
         }
     }
@@ -646,6 +653,29 @@ public class Principal {
                     relatorioTrabalho(t);
                 }
                 break;
+            case 13:
+				ArrayList<Turma> turmasHorario = controlador.getTodasTurmas();
+				output.display("Digite o ID da turma: ");
+				String turmaId = sc.nextLine();
+				
+				for(Turma t : turmasHorario){
+					if(t.getID().equals(turmaId)){
+						output.display("====== Horário da Turma =====");
+						output.display("ID: " + t.getID());
+						output.display("Nome: " + t.getNomeTurma());
+						output.display("Horário: \n" + t.getHorario().toString());
+						output.display("=========================");
+					}
+				}
+				output.display("0 - Voltar");
+				output.display("==============================");
+				int opcHorario = sc.nextInt();
+				sc.nextLine();
+				if(opcHorario == 0){
+					break;
+				}
+				break;
+                
             case 0:
                 return;
         }

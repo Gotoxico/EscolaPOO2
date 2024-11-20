@@ -118,7 +118,7 @@ public class Escola{
 	public void addDisciplina(String nome, String unidadeEscolar, String anoEscolar){
 		Logger logger = Logger.getInstance();
 
-		Disciplina nova = new Disciplina(outputFactory, nome, unidadeEscolar, anoEscolar, tipoOutput, notas);
+		Disciplina nova = new Disciplina(outputFactory, nome, unidadeEscolar, anoEscolar, tipoOutput);
 		this.disciplinas.add(nova);
 		logger.gravaArquivo(String.format("Disciplina %s para o ano escolar '%s' adicionada", nome, anoEscolar), Logger.Level.INFO);
 	}
@@ -188,19 +188,43 @@ public class Escola{
 		}
 	}
 
+	public void removerTurma(String idTurma) {
+		Logger logger = Logger.getInstance();
+		int i;
+
+		for(Turma turma : turmas) {
+			if(turma.getID().equals(idTurma)) {
+				i=0;
+
+				while(!turma.getDisciplinas().isEmpty()) {
+					turma.removerDisciplina(turma.getDisciplinas().get(i));
+					i++;
+				}
+				
+				turma.setAlunos(null);
+				turma.getHorario().removerTudo();
+				turmas.remove(turma);
+				logger.gravaArquivo(String.format("Turma %s removida", turma.getNomeTurma()), Logger.Level.INFO);
+
+				break;
+			}
+		}
+	}
+
 	public void addHorarioTurma(Horario h, String idTurma){
 		Turma turma = this.getTurmaId(idTurma);
 
 		if(turma != null){
-                    turma.setHorario(h);
-                }
+			turma.setHorario(h);
+		}
 	}
 
-	public void removerHorarioTurma(Horario h, String idTurma){
+	public void removerHorarioTurma(String idTurma){
 		Turma turma = this.getTurmaId(idTurma);
 
 		if(turma != null){
-                     turma.setHorario(null);
+			turma.getHorario().removerTudo();
+            turma.setHorario(null);
 		}
 	}
 
@@ -369,6 +393,7 @@ public class Escola{
                 for(Professor professor : professoresDisciplina){
                     if(professor.getNome().equals(nomeProfessor) && professor.getID().equals(ID)){
                         disciplina.removerProfessor(professor);
+						professores.remove(professor);
                     }
                 }
             }
@@ -392,5 +417,29 @@ public class Escola{
                 }
             }
         }
+
+		public void addNotasProvaTurma(Turma turma, Disciplina disciplina, String nomeProva, float nota, float peso){
+			int i=0;
+			for(Aluno aluno : turma.getAlunos()){
+				notas.adicionarNotaProva(aluno.getNome(), disciplina.getNome(), disciplina.getProfessores().get(i).getNome(), nomeProva, nota, turma.getNomeTurma());
+				i++;
+			}
+		}
+
+		public void addNotasTrabalhoTurma(Turma turma, Disciplina disciplina, String nomeTrabalho, float nota, float peso){
+			int i=0;
+			for(Aluno aluno : turma.getAlunos()){
+				notas.adicionarNotaTrabalho(aluno.getNome(), disciplina.getNome(), disciplina.getProfessores().get(i).getNome(), nomeTrabalho, nota, turma.getNomeTurma());
+				i++;
+			}
+		}
+
+		public void addNotasPontoExtraTurma(Turma turma, Disciplina disciplina, String nomePontoExtra, float valor){
+			int i=0;
+			for(Aluno aluno : turma.getAlunos()){
+				notas.adicionarNotaPontoExtra(aluno.getNome(), disciplina.getNome(), disciplina.getProfessores().get(i).getNome(), nomePontoExtra, turma.getNomeTurma(), valor);
+				i++;
+			}
+		}
         
 }
