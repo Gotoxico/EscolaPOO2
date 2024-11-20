@@ -22,7 +22,7 @@ public class Escola{
 		this.professores = new ArrayList<>();
 		this.turmas = new ArrayList<>();
 		this.disciplinas = new ArrayList<>();
-		this.biblioteca = new BibliotecaEscolar(outputFactory, tipoOutput);
+		this.biblioteca = new BibliotecaEscolar();
                 this.notas = Notas.getInstance(disciplinas);
                 this.outputFactory = outputFactory;
                 this.tipoOutput = tipoOutput;
@@ -118,11 +118,11 @@ public class Escola{
 	public void addDisciplina(String nome, String unidadeEscolar, String anoEscolar){
 		Logger logger = Logger.getInstance();
 
-		Disciplina nova = new Disciplina(outputFactory, nome, unidadeEscolar, anoEscolar, tipoOutput);
+		Disciplina nova = new Disciplina(outputFactory, nome, unidadeEscolar, anoEscolar, tipoOutput, null);
 		this.disciplinas.add(nova);
 		logger.gravaArquivo(String.format("Disciplina %s para o ano escolar '%s' adicionada", nome, anoEscolar), Logger.Level.INFO);
 	}
-
+        
 	public void addTurma(String nome, int quantidadeVagas){
 		UUID id = UUID.randomUUID();
 		Logger logger = Logger.getInstance();

@@ -269,7 +269,11 @@ public class Principal {
             switch(opc){
                 case 1:
                     dia = escolherDiaSemana();
+                    sc.nextLine();
+                    
                     horario = escolherHoraDoDia();
+                    sc.nextLine();
+                    
                     nomeDisciplina = menuSelecionarDisciplina(t.getDisciplinas());
 
                     disciplina = controlador.getDisciplinaNome(nomeDisciplina);
@@ -301,7 +305,7 @@ public class Principal {
         
         int opc = 0;
         
-        while(opc < 1 && opc > horarios.length){
+        while(opc < 1 || opc > horarios.length){
             for(int cont=1; cont < horarios.length; cont++){
                 int pos = cont - 1;
                 System.out.println(String.format("%d - %s", cont, horarios[pos].toString()));
@@ -325,7 +329,7 @@ public class Principal {
         
         int opc = 0;
         
-        while(opc < 1 && opc > diasDaSemana.length){
+        while(opc < 1 || opc > diasDaSemana.length){
             for(int cont=1; cont < diasDaSemana.length; cont++){
                 int pos = cont - 1;
                 System.out.println(String.format("%d - %s", cont, diasDaSemana[pos]));
@@ -1263,19 +1267,19 @@ public class Principal {
                 case 2:
                     output.display("Digite o título do livro: ");
                     titulo = sc.nextLine();
-                    bibliotecaConsole.buscarLivroPorTitulo(biblioteca, titulo);
+                    //bibliotecaConsole.buscarLivroPorTitulo(biblioteca, titulo);
                     break;
 
                 case 3:
                     output.display("Digite o autor do livro: ");
                     autor = sc.nextLine();
-                    biblioteca.buscarLivroPorAutor(autor);
+                    //biblioteca.buscarLivroPorAutor(autor);
                     break;
 
                 case 4:
                     output.display("Digite o ISBN do livro: ");
                     isbn = sc.nextLine();
-                    biblioteca.buscarLivroPorISBN(isbn);
+                    //biblioteca.buscarLivroPorISBN(isbn);
                     break;
 
                 case 5:
@@ -1283,7 +1287,7 @@ public class Principal {
                     String usuarioId = sc.nextLine();
                     output.display("Digite o ISBN do livro: ");
                     isbn = sc.nextLine();
-                    biblioteca.fazerEmprestimo(usuarioId, isbn);
+                    //biblioteca.fazerEmprestimo(usuarioId, isbn);
                     break;
 
                 case 6:
@@ -1291,11 +1295,11 @@ public class Principal {
                     usuarioId = sc.nextLine();
                     output.display("Digite o ISBN do livro: ");
                     isbn = sc.nextLine();
-                    biblioteca.fazerDevolucao(usuarioId, isbn);
+                    //biblioteca.fazerDevolucao(usuarioId, isbn);
                     break;
 
                 case 7:
-                    biblioteca.relatorioGeralLivros();
+                    //biblioteca.relatorioGeralLivros();
                     break;
 
                 case 8:
@@ -1308,11 +1312,11 @@ public class Principal {
                     output.display("Digite o isbn do livro: ");
                     isbn = sc.nextLine();
 
-                    controlador.addLivroBiblioteca(titulo, autor, isbn);
+                    //controlador.addLivroBiblioteca(titulo, autor, isbn);
                     break;
 
                 case 9:
-                    biblioteca.relatorioMultas();
+                    //biblioteca.relatorioMultas();
                     break;
 
             }
