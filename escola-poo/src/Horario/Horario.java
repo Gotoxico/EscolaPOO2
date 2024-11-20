@@ -1,6 +1,7 @@
  
 package horario;
 
+import modelo.Turma;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -258,6 +259,22 @@ public class Horario {
         
         return true;
     }
+
+    /**
+     * Remove todas as disciplinas de todos os dias
+     * @return {@code true} se as disciplinas foram removidas, {@code false} caso contrário
+     */
+    public boolean removerTudo(){
+        for(Map.Entry<String, List<Periodo>> entrada : horario.entrySet()){
+            for(Periodo per : entrada.getValue()){
+                if(per.getDisciplina() != null){
+                    per.setDisciplina(null);
+                }
+            }
+        }
+        
+        return true;
+    }
     
     /**
      * Remove uma disciplina de um dia
@@ -349,8 +366,8 @@ public class Horario {
          
          return tabela.toString();
      }
-         
 
+     
     
 }
 

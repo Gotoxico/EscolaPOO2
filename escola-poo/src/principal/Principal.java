@@ -2,6 +2,7 @@ package principal;
 
 import controlador.Escola;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import modelo.Aluno;
 import modelo.BibliotecaEscolar;
@@ -98,6 +99,7 @@ public class Principal {
 		String disciplinaId = "";
 		String unidadeEscolar = "";
 		String anoEscolar = "";
+		String professorID = "";
 
 		while(true){
 			output.display("====== Remoção =====");
@@ -126,29 +128,31 @@ public class Principal {
 					break;
 
 				case 2:
-					output.display("Digite o nome do novo professor: ");
+					output.display("Digite o nome do professor: ");
 					nome = sc.nextLine();
-					output.display("Digite a titulação do novo professor: ");
-					titulacao = sc.nextLine();
-					controlador.addProfessor(nome, titulacao);
+					output.display("Digite o ID do professor: ");
+					professorID = sc.nextLine();
+					controlador.demitirProfessor(nome, professorID);
 					break;
 
 				case 3:
-					output.display("Digite o nome da nova disciplina: ");
+					output.display("Digite o nome da disciplina: ");
 					nome = sc.nextLine();
-					output.display("Digite a unidade escolar: ");
-					unidadeEscolar = sc.nextLine();
-					output.display("Digite o ano escolar da disciplina: ");
-					anoEscolar = sc.nextLine();
-					controlador.addDisciplina(nome, unidadeEscolar, anoEscolar);
+					output.display("Digite o ID da turma: ");
+					turmaId = sc.nextLine();
+					controlador.removerDisciplinaTurma(nome, turmaId);
 					break;
 
 				case 4:
-					output.display("Digite o nome da nova turma: ");
-					nome = sc.nextLine();
-					output.display("Digite tamanho da nova turma: ");
-					Integer tamanho = sc.nextInt();
-					controlador.addTurma(nome, tamanho);
+					output.display("Digite o ID da turma: ");
+					turmaId = sc.nextLine();
+					controlador.removerTurma(turmaId);
+					break;
+
+				case 6:
+					output.display("Digite o ID da turma: ");
+					turmaId = sc.nextLine();
+					controlador.removerHorarioTurma(turmaId);
 					break;
 
 				//Cadastrar provas, trabalhos, pontoExtra, atividades extra curriculares, horarioTurma
@@ -222,6 +226,29 @@ public class Principal {
 					output.display("Unidade Escolar: " + d.getUnidadeEscolar());
 					output.display("Ano Escolar: " + d.getAnoEscolar());
 					output.display("=========================");
+				}
+				break;
+
+			case 13:
+				ArrayList<Turma> turmasHorario = controlador.getTodasTurmas();
+				output.display("Digite o ID da turma: ");
+				String turmaId = sc.nextLine();
+				
+				for(Turma t : turmasHorario){
+					if(t.getID().equals(turmaId)){
+						output.display("====== Horário da Turma =====");
+						output.display("ID: " + t.getID());
+						output.display("Nome: " + t.getNomeTurma());
+						output.display("Horário: \n" + t.getHorario().toString());
+						output.display("=========================");
+					}
+				}
+				output.display("0 - Voltar");
+				output.display("==============================");
+				int opcHorario = sc.nextInt();
+				sc.nextLine();
+				if(opcHorario == 0){
+					break;
 				}
 				break;
 
@@ -356,11 +383,57 @@ public class Principal {
 						break;
 					
 					case 7:
-						menuSelecionarTurma(controlador.getTodasTurmas());
+						output.display("Digite o ID da turma: ");
 						turmaId = sc.nextLine();
-						menuSelecionarAluno(controlador.getTodosAlunos());
-						alunoMatricula = sc.nextLine();
-						controlador.trocaAlunoTurma(alunoMatricula, turmaId);
+						Turma turma = controlador.getTurmaId(turmaId);
+
+						output.display("Digite o nome da disciplina: ");
+						String nomeDisciplina = sc.nextLine();
+						Disciplina disciplina = controlador.getDisciplinaNome(nomeDisciplina);
+
+						output.display("Digite a atividade:\n" +
+										"1 - Prova\n" +
+										"2 - Trabalho\n" +
+										"3 - Ponto Extra");
+						int atividade = sc.nextInt();
+
+						if (turma != null && disciplina != null && atividade >= 1 && atividade <= 3) {
+							float nota;
+
+							for(Aluno a : alunos) {
+								output.display("Aluno " + a.getNome());
+
+								if(atividade == 1){
+									output.display("Digite o nome da prova: ");
+									String nomeProva = sc.nextLine();
+									output.display("Digite a nota da prova: ");
+									nota = sc.nextFloat();
+									output.display("Digite o peso da prova: ");
+									float peso = sc.nextFloat();
+
+									controlador.addNotasProvaTurma(turma, disciplina, nomeProva, nota, peso);
+								} else if(atividade == 2){
+									output.display("Digite o nome do trabalho: ");
+									String nomeTrabalho = sc.nextLine();
+									output.display("Digite a nota do trabalho: ");
+									nota = sc.nextFloat();
+									output.display("Digite o peso do trabalho: ");
+									float peso = sc.nextFloat();
+
+									controlador.addNotasTrabalhoTurma(turma, disciplina, nomeTrabalho, nota, peso);
+								} else if(atividade == 3){
+									output.display("Digite o nome do ponto extra: ");
+									String nomePontoExtra = sc.nextLine();
+									output.display("Digite a nota do ponto extra: ");
+									nota = sc.nextFloat();
+
+									controlador.addNotasPontoExtraTurma(turma, disciplina, nomePontoExtra, nota);
+								}
+							}
+							output.display("Notas adicionadas a todos os alunos da turma " + turmaId);
+						} else {
+							output.display("Turma não encontrada.");
+						}
 						break;
 					
 					case 8:
