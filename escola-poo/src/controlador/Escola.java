@@ -7,6 +7,10 @@ import horario.Horario;
 import modelo.*;
 import modelo.Output.OutputFactory;
 
+/**
+ * Classe principal que representa uma escola, contendo métodos para gerenciar alunos, professores, turmas, disciplinas e a biblioteca
+ */
+
 public class Escola{
 	private ArrayList<Aluno> alunos;
 	private ArrayList<Professor> professores;
@@ -17,6 +21,11 @@ public class Escola{
         private final OutputFactory outputFactory;
         private String tipoOutput;
 
+        /**
+        * Construtor da classe escola
+        * @Parameter outputFactory Fábrica de saída para gerenciar o formato de exportação de dados
+        * @Parameter tipoOutput Tipo de saída a ser utilizada
+        */
 	public Escola(OutputFactory outputFactory, String tipoOutput){
 		this.alunos = new ArrayList<>();
 		this.professores = new ArrayList<>();
@@ -28,18 +37,35 @@ public class Escola{
                 this.tipoOutput = tipoOutput;
 	}
 
+        /**
+        * Obtem todas as turmas da escola
+        * @Return Lista de todas as turmas cadastradas na escola
+        */
 	public ArrayList<Turma> getTodasTurmas(){
 		return this.turmas;
 	}
 
+        /**
+        * Obtem todos os alunos da escola
+        * @Return Lista de todos os alunos matriculados na escola
+        */
 	public ArrayList<Aluno> getTodosAlunos(){
 		return this.alunos;
 	}
-
+        
+        /**
+        * Obtem todos os professores da escola
+        * @Return Lista de todos os professores cadastrados na escola
+        */
 	public ArrayList<Professor> getTodosProfessores(){
 		return this.professores;
 	}
         
+        /**
+        * Obtem a lista de professores associados a uma disciplina específica
+        * @Parameter nomeDisciplina Nome da disciplina desejada
+        * @Return Lista de professores da disciplina, ou `null` se a disciplina não existir
+        */
         public ArrayList<Professor> getProfessoresDisciplina(String nomeDisciplina){
             Disciplina d = getDisciplinaNome(nomeDisciplina);
             
@@ -48,11 +74,20 @@ public class Escola{
             
             return d.getProfessores();
         }
-
+        
+        /**
+        * Obtem todas as disciplinas oferecidas pela escola
+        * @Return Lista de todas as disciplinas cadastradas
+        */
 	public ArrayList<Disciplina> getTodasDisciplinas(){
 		return this.disciplinas;
 	}
 
+        /**
+        * Busca uma disciplina pelo nome
+        * @Parameter nome Nome da disciplina
+        * @Return Objeto Disciplina correspondente, ou `null` se não for encontrada
+        */
 	public Disciplina getDisciplinaNome(String nome){
 		Disciplina temp;
 		for(int i=0; i < this.disciplinas.size(); i++){
@@ -64,10 +99,19 @@ public class Escola{
 		return null;
 	}
 
+        /**
+        * Obtem a biblioteca associada à escola
+        * @Return Objeto da biblioteca escolar
+        */
 	public BibliotecaEscolar getBiblioteca(){
 		return this.biblioteca;
 	}
 
+        /**
+        * Retorna uma turma pelo ID
+        * @Parameter: idTurma ID da turma a ser buscada
+        * @Return: A turma correspondente ao ID, ou null se não encontrada
+        */
 	public Turma getTurmaId(String idTurma){
 		Turma temp;
 		for(int i=0; i < this.turmas.size(); i++){
@@ -79,6 +123,11 @@ public class Escola{
 		return null;
 	}
 
+        /**
+        * Retorna um aluno pela matrícula
+        * @Parameter: matricula - Matrícula do aluno a ser buscado
+        * @Return: O aluno correspondente à matrícula, ou null se não encontrado
+        */
 	public Aluno getAlunoMatricula(String matricula){
 		Aluno temp;
 		for(int i=0; i < this.alunos.size(); i++){
@@ -90,6 +139,11 @@ public class Escola{
 		return null;
 	}
 
+        /**
+        * Retorna um professor pelo ID
+        * @Parameter: idProfessor - ID do professor a ser buscado
+        * @Return: O professor correspondente ao ID, ou null se não encontrado
+        */
 	public Professor getProfessorId(String idProfessor){
 		Professor temp;
 		for(int i=0; i < this.professores.size(); i++){
@@ -101,6 +155,11 @@ public class Escola{
 		return null;
 	}
 
+        /**
+        * Adiciona um novo professor na lista de professores
+        * @Parameter: nome - Nome do professor
+        * @Parameter: titulacao - Titulação do professor
+        */
 	public void addProfessor(String nome, String titulacao){
 		UUID id = UUID.randomUUID();
 		Logger logger = Logger.getInstance();
@@ -115,6 +174,12 @@ public class Escola{
 		logger.gravaArquivo(String.format("Professor %s adicionado", nome), Logger.Level.INFO);
 	}
 
+        /**
+        * Adiciona uma nova disciplina na lista de disciplinas
+        * @Parameter: nome - Nome da disciplina
+        * @Parameter: unidadeEscolar - Unidade escolar da disciplina
+        * @Parameter: anoEscolar - Ano escolar da disciplina
+        */
 	public void addDisciplina(String nome, String unidadeEscolar, String anoEscolar){
 		Logger logger = Logger.getInstance();
 
@@ -123,6 +188,11 @@ public class Escola{
 		logger.gravaArquivo(String.format("Disciplina %s para o ano escolar '%s' adicionada", nome, anoEscolar), Logger.Level.INFO);
 	}
         
+        /**
+        * Adiciona uma nova turma na lista de turmas
+        * @Parameter: nome - Nome da turma
+        * @Parameter: quantidadeVagas - Quantidade de vagas disponíveis na turma
+        */
 	public void addTurma(String nome, int quantidadeVagas){
 		UUID id = UUID.randomUUID();
 		Logger logger = Logger.getInstance();
@@ -132,7 +202,12 @@ public class Escola{
 		logger.gravaArquivo(String.format("Turma %s adicionado", nome), Logger.Level.INFO);
 		this.turmas.add(novo);
 	}
-
+        
+        /**
+        * Adiciona um aluno a uma turma específica
+        * @Parameter: nome - Nome do aluno
+        * @Parameter: idTurma - ID da turma onde o aluno será adicionado
+        */
 	public void addAlunoTurma(String nome, String idTurma){
 		UUID id = UUID.randomUUID();
 		UUID matricula = UUID.randomUUID();
@@ -153,6 +228,11 @@ public class Escola{
 		}
 	}
 
+        /**
+        * Troca um aluno de uma turma para outra
+        * @Parameter: matricula - Matrícula do aluno
+        * @Parameter: idTurma - ID da nova turma
+        */
 	public void trocaAlunoTurma(String matricula, String idTurma){
 		Aluno aluno = this.getAlunoMatricula(matricula);
 		Turma turma = this.getTurmaId(idTurma);
@@ -166,6 +246,11 @@ public class Escola{
 		}
 	}
 
+        /**
+        * Adiciona uma disciplina a uma turma
+        * @Parameter: nome - Nome da disciplina
+        * @Parameter: idTurma - ID da turma onde a disciplina será adicionada
+        */
 	public void addDisciplinaTurma(String nome, String idTurma){
 		Disciplina disciplina = this.getDisciplinaNome(nome);
 		Turma turma = this.getTurmaId(idTurma);
@@ -179,6 +264,11 @@ public class Escola{
 		}
 	}
 
+        /**
+        * Remove uma disciplina de uma turma
+        * @Parameter: nome - Nome da disciplina
+        * @Parameter: idTurma - ID da turma de onde a disciplina será removida
+        */
 	public void removerDisciplinaTurma(String nome, String idTurma){
 		Disciplina disciplina = this.getDisciplinaNome(nome);
 		Turma turma = this.getTurmaId(idTurma);
@@ -188,6 +278,10 @@ public class Escola{
 		}
 	}
 
+        /**
+        * Remove uma turma da lista de turmas
+        * @Parameter: idTurma - ID da turma a ser removida
+        */
 	public void removerTurma(String idTurma) {
 		Logger logger = Logger.getInstance();
 		int i;
@@ -210,7 +304,12 @@ public class Escola{
 			}
 		}
 	}
-
+        
+        /**
+        * Adiciona um horário a uma turma
+        * @Parameter: h - Objeto de horário
+        * @Parameter: idTurma - ID da turma onde o horário será associado
+        */
 	public void addHorarioTurma(Horario h, String idTurma){
 		Turma turma = this.getTurmaId(idTurma);
 
@@ -219,6 +318,10 @@ public class Escola{
 		}
 	}
 
+        /**
+        * Remove o horário de uma turma
+        * @Parameter: idTurma - ID da turma de onde o horário será removido
+        */
 	public void removerHorarioTurma(String idTurma){
 		Turma turma = this.getTurmaId(idTurma);
 
@@ -227,7 +330,14 @@ public class Escola{
             turma.setHorario(null);
 		}
 	}
-
+        
+        /**
+        * Adiciona um novo livro na biblioteca
+        * @Parameter: titulo - Título do livro
+        * @Parameter: autor - Autor do livro
+        * @Parameter: isbn - ISBN do livro
+        * @Parameter: genero - Gênero do livro
+        */
 	public void addLivroBiblioteca(String titulo, String autor, String isbn, String genero){
 		Livro novo = new Livro(titulo, autor, isbn, genero);
 		Logger logger = Logger.getInstance();
@@ -236,6 +346,10 @@ public class Escola{
 		logger.gravaArquivo(String.format("Livro '%s' de '%s' foi adicionado à biblioteca", titulo, autor), Logger.Level.INFO);
 	}
 
+        /**
+        * Adiciona um professor como usuário da biblioteca
+        * @Parameter: idProfessor - ID do professor
+        */
 	public void addProfessorBiblioteca(String idProfessor){
 		Professor temp = this.getProfessorId(idProfessor);
 		if(temp != null){
@@ -243,6 +357,10 @@ public class Escola{
 		}
 	}
 
+        /**
+        * Adiciona um aluno como usuário da biblioteca
+        * @Parameter: matricula - Matrícula do aluno
+        */
 	public void addAlunoBiblioteca(String matricula){
 		Aluno temp = this.getAlunoMatricula(matricula);
 		if(temp != null){
@@ -282,8 +400,8 @@ public class Escola{
 
 	/**
 	 * Método para adicionar uma atividade extra curricular a um aluno
-	 * @param matricula 
-	 * @param ic
+	 * @Parameter: matricula - String da matricula do aluno
+	 * @Parameter: ic - Atividade extra
 	 * 
 	 */
 	public void addAtividadeExtraCurricular(String matricula, AtividadeExtra ic){
@@ -292,7 +410,6 @@ public class Escola{
 			temp.addAtividadeExtra(ic);
 		}
 	}
-
         
         //Chamadas metodos classe gerenciadora Notas
         
@@ -302,11 +419,11 @@ public class Escola{
         
 		/**
 		 * Método para remover um trabalho de uma disciplina	
-		 * @param nomeDisciplina
-		 * @param nomeProfessor
-		 * @param nomeTrabalho
-		 * @param nomeTurma
-		 * @param peso
+		 * @Parameter: nomeDisciplina - Nome da disciplina
+		 * @Parameter: nomeProfessor - Nome do professor
+		 * @Parameter: nomeTrabalho - Nome do trabalho
+		 * @Parameter: nomeTurma - Nome da turma
+		 * @Parameter: peso - Peso da nota
 		 */
         public void removerTrabalhoDisciplina(String nomeDisciplina, String nomeProfessor, String nomeTrabalho, String nomeTurma, float peso){
             notas.removerTrabalhoDisciplina(nomeDisciplina, nomeProfessor, nomeTrabalho, nomeTurma, peso);
@@ -314,9 +431,9 @@ public class Escola{
 
 		/**
 		 * Método para remover todos os trabalhos de uma disciplina
-		 * @param nomeDisciplina
-		 * @param nomeProfessor
-		 * @param nomeTurma
+		 * @Parameter: nomeDisciplina - Nome da disciplina
+		 * @Parameter: nomeProfessor - Nome do professor
+		 * @Parameter: nomeTurma - Nome da turma
 		 */
 		public void removerTodosTrabalhosDisciplina(String nomeDisciplina, String nomeProfessor, String nomeTurma){
 			notas.removerTrabalhos(nomeDisciplina, nomeProfessor, nomeTurma);
@@ -338,11 +455,11 @@ public class Escola{
         
 		/**
 		 * Método para adicionar um ponto extra a uma disciplina
-		 * @param nomeDisciplina
-		 * @param nomeProfessor
-		 * @param nomePontoExtra
-		 * @param nomeTurma
-		 * @param valorMaximo
+		 * @Parameter: nomeDisciplina - Nome da disciplina
+		 * @Parameter: nomeProfessor - Nome do professor
+		 * @Parameter: nomePontoExtra - Ponto extra
+		 * @Parameter: nomeTurma - Nome da turma
+		 * @Parameter: valorMaximo - Valor extra máximo 
 		 */
         public void adicionarPontoExtraDisciplina(String nomeDisciplina, String nomeProfessor, String nomePontoExtra, String nomeTurma, float valorMaximo) {
             notas.adicionarPontoExtraDisciplina(nomeDisciplina, nomeProfessor, nomePontoExtra, nomeTurma, valorMaximo);
@@ -381,11 +498,10 @@ public class Escola{
         }
         
         /**
+         * Ao demitir um professor, será removido de todas as disciplinas que ministrava
+         * @Parameter: nomeProfessor - Nome do professor
+         * @Parameter: ID - Id do usuario
          * 
-         * @param nomeProfessor
-         * @param ID 
-         * 
-         * @Brief: Ao demitir um professor, será removido de todas as disciplinas que ministrava
          */
         public void demitirProfessor(String nomeProfessor, String ID){
             for(Disciplina disciplina : disciplinas){
@@ -400,11 +516,10 @@ public class Escola{
         }
         
         /**
+         * Ao expulsar um aluno, será removido da turma que pertencia
+         * @Parameter: nomeAluno - Nome aluno
+         * @Parameter: ID - Id do aluno
          * 
-         * @param nomeAluno
-         * @param ID 
-         * 
-         * @Brief: Ao expulsar um aluno, será removido da turma que pertencia
          */
         public void expulsarAluno(String nomeAluno, String ID){
             for(Turma turma : turmas){

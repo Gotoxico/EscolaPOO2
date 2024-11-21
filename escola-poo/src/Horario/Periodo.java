@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Map;
 import modelo.Disciplina;
 
-  // Classe interna para representar um período de aula
+  //Classe interna para representar um período de aula
 
 public  class Periodo {
     /**
@@ -31,10 +31,10 @@ public  class Periodo {
     private Disciplina disciplina;
 
     /**
-     * Construtor da classe
-     * @param horaInicio
-     * @param horaFim
-     * @param disciplina
+     * @Brief: Construtor da classe
+     * @Parameter: horaInicio
+     * @Parameter: horaFim
+     * @Parameter: disciplina
      */
     public Periodo(LocalTime horaInicio, LocalTime horaFim, Disciplina disciplina) {
         this.horaInicio = horaInicio;
@@ -43,9 +43,9 @@ public  class Periodo {
     }
 
     /**
-     * Construtor da classe 2
-     * @param horaInicio
-     * @param horaFim
+     * Brief: Construtor da classe 2
+     * @Parameter: horaInicio
+     * @Parameter: horaFim
      */
     public Periodo(LocalTime horaInicio, LocalTime horaFim) {
         this.horaInicio = horaInicio;
@@ -55,7 +55,7 @@ public  class Periodo {
     /**
      * Getters e Setters
      * 
-     * Retorna a disciplina associada ao período
+     * Brief: Retorna a disciplina associada ao período
      * @return 
      */
     public Disciplina getDisciplina() {
@@ -63,7 +63,7 @@ public  class Periodo {
     }
 
     /**
-     * Retorna o horário de início do período
+     * Brief: Retorna o horário de início do período
      * @return
      */
     public LocalTime getHoraInicio() {
@@ -71,15 +71,15 @@ public  class Periodo {
     }
 
     /**
-     * Retorna o horário de fim do período
-     * @param horaInicio
+     * Brief: Retorna o horário de fim do período
+     * @Parameter: horaInicio
      */
     public void setHoraInicio(LocalTime horaInicio) {
         this.horaInicio = horaInicio;
     }
 
     /**
-     * Retorna o horário de fim do período
+     * Brief: Retorna o horário de fim do período
      * @return
      */
     public LocalTime getHoraFim() {
@@ -87,23 +87,23 @@ public  class Periodo {
     }
 
     /**
-     * Define o horário de fim do período
-     * @param horaFim
+     * Brief: Define o horário de fim do período
+     * @Parameter: horaFim
      */
     public void setHoraFim(LocalTime horaFim) {
         this.horaFim = horaFim;
     }
 
     /**
-     * Define a disciplina associada ao período
-     * @param disciplina
+     * Brief: Define a disciplina associada ao período
+     * @Parameter: disciplina
      */
     public void setDisciplina(Disciplina disciplina) {
         this.disciplina = disciplina;
     }
     
     /**
-     * Méto de override para imprimir o período
+     * Brief: Método de override para imprimir o período
      */
         @Override
         public String toString() {
