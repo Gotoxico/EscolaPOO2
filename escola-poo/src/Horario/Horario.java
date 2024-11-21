@@ -7,6 +7,8 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import modelo.Disciplina;
+import modelo.Professor;
+
 /**
  * Classe que representa um horário de aulas
  * @author kauan
@@ -210,6 +212,8 @@ public class Horario {
         }
         
         return true;
+
+
     }
     
     /**
@@ -258,7 +262,85 @@ public class Horario {
         
         return true;
     }
-    
+
+    /**
+     * Adiciona um professor a um dia e horário
+     * @param dia
+     * @param inicio
+     * @param professor
+     * @return {@code true} se o professor foi adicionado, {@code false} caso contrário
+     */
+    public boolean adicionarProfessor(String dia, LocalTime inicio,Professor professor){
+        for(Map.Entry<String, List<Periodo>> entrada : horario.entrySet()){
+            if(entrada.getKey().equals(dia)){
+                for(Periodo per : entrada.getValue()){
+                    if(per.getHoraInicio().equals(inicio)){
+                        per.setProfessor(professor);
+                    }
+                }
+            }
+        }
+        return true;
+    }
+
+    /**
+     * Adiciona um professor a uma disciplina em um dia
+     * @param dia
+     * @param disciplina
+     * @param professor
+     * @return {@code true} se o professor foi adicionado, {@code false} caso contrário
+     */
+    public boolean adicionarProfessorDisciplina(String dia, Disciplina disciplina, Professor professor){
+        for(Map.Entry<String, List<Periodo>> entrada : horario.entrySet()){
+            if(entrada.getKey().equals(dia)){
+                for(Periodo per : entrada.getValue()){
+                    if(per.getDisciplina().equals(disciplina)){
+                        per.setProfessor(professor);
+                    }
+                }
+            }
+        }
+        return true;
+    }
+
+    /**
+     * Retorna o professor de uma disciplina em um dia
+     * @param dia
+     * @param disciplina
+     * @return {@link Professor}
+     */
+    public Professor getProfessorDisciplina(String dia, Disciplina disciplina){
+        for(Map.Entry<String, List<Periodo>> entrada : horario.entrySet()){
+            if(entrada.getKey().equals(dia)){
+                for(Periodo per : entrada.getValue()){
+                    if(per.getDisciplina().equals(disciplina)){
+                        return per.getProfessor();
+                    }
+                }
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Retorna o professor de um dia e horário
+     * @param dia
+     * @param inicio
+     * @return {@link Professor}
+     */
+    public Professor getProfessor(String dia, LocalTime inicio){
+        for(Map.Entry<String, List<Periodo>> entrada : horario.entrySet()){
+            if(entrada.getKey().equals(dia)){
+                for(Periodo per : entrada.getValue()){
+                    if(per.getHoraInicio().equals(inicio)){
+                        return per.getProfessor();
+                    }
+                }
+            }
+        }
+        return null;
+    }
+
     /**
      * Remove uma disciplina de um dia
      * @param dia

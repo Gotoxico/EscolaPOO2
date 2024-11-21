@@ -2,8 +2,8 @@ package controlador;
 
 import java.util.ArrayList;
 import java.util.UUID;
-
-import horario.Horario;
+import java.time.LocalTime;
+import horario.*;
 import modelo.*;
 import modelo.Output.OutputFactory;
 
@@ -12,6 +12,7 @@ public class Escola{
 	private ArrayList<Professor> professores;
 	private ArrayList<Turma> turmas;
 	private ArrayList<Disciplina> disciplinas;
+	private ArrayList<Horario> horarios;
 	private BibliotecaEscolar biblioteca;
         private Notas notas;
         private final OutputFactory outputFactory;
@@ -22,6 +23,7 @@ public class Escola{
 		this.professores = new ArrayList<>();
 		this.turmas = new ArrayList<>();
 		this.disciplinas = new ArrayList<>();
+		this.horarios = new ArrayList<>();
 		this.biblioteca = new BibliotecaEscolar(outputFactory, tipoOutput);
                 this.notas = Notas.getInstance(disciplinas);
                 this.outputFactory = outputFactory;
@@ -48,6 +50,13 @@ public class Escola{
             
             return d.getProfessores();
         }
+
+	public ArrayList<Disciplina> getDisciplinasTurma(String turmaId){
+		Turma t = getTurmaId(turmaId);
+
+		return t.getDisciplinas();
+
+	}
 
 	public ArrayList<Disciplina> getTodasDisciplinas(){
 		return this.disciplinas;
@@ -90,6 +99,26 @@ public class Escola{
 		return null;
 	}
 
+	public void definirProfessorDeisciplinaTurma(String turmaId, String nomeDisciplina, String professorId){
+		Turma t = getTurmaId(turmaId);
+		Professor p = getProfessorId(professorId);
+		Disciplina d = getDisciplinaNome(nomeDisciplina);
+		Logger logger = Logger.getInstance();
+
+		if(t != null && d != null && p != null){
+			t.definirProfessorDisciplina(d, p);
+			logger.gravaArquivo(String.format("Disciplina '%s' atribuída para o professor '%s', na Turma '%s' ", professorId, nomeDisciplina, turmaId), Logger.Level.INFO);
+		}else{
+			logger.gravaArquivo(String.format("Falha na atribuição de Disciplinas na turma '%s", turmaId), Logger.Level.ERROR);
+		}
+	}
+
+	public Horario getHorarioTurmaId(String turmaId){
+		Turma t = getTurmaId(turmaId);
+		Horario h = t.getHorario();
+		return h;
+	}
+
 	public Professor getProfessorId(String idProfessor){
 		Professor temp;
 		for(int i=0; i < this.professores.size(); i++){
@@ -129,6 +158,7 @@ public class Escola{
 
 		Turma novo = new Turma(nome, id.toString(), quantidadeVagas);
 
+		this.horarios.add(novo.getHorario());
 		logger.gravaArquivo(String.format("Turma %s adicionado", nome), Logger.Level.INFO);
 		this.turmas.add(novo);
 	}
@@ -173,6 +203,7 @@ public class Escola{
 
 		if(disciplina != null && turma != null){
 			turma.adicionarDisciplinas(disciplina);
+
 			logger.gravaArquivo(String.format("Disciplina %s adicionada à turma %s", nome, turma.getNomeTurma()), Logger.Level.INFO);
 		}else{
 			logger.gravaArquivo(String.format("Disciplina %s não adicionada à turma", nome, turma.getNomeTurma()), Logger.Level.ERROR);
@@ -188,12 +219,31 @@ public class Escola{
 		}
 	}
 
+	public String exibirHorario(String turmaId){}
+	
+	public void addDisciplinaHorarioTurma(String dia, LocalTime inicio, String turmaId, String nomeDisciplina){
+		Turma t = getTurmaId(turmaId);
+		Disciplina d = getDisciplinaNome(nomeDisciplina);
+		Professor p = t.getProfessorDisciplina(d);
+		Logger logger = Logger.getInstance();
+
+		if(t != null && d != null && p != null){
+			Horario h = t.getHorario();
+			h.adicionarDisciplina(dia, d, inicio);
+			h.adicionarProfessorDisciplina(dia, d, p);
+			logger.gravaArquivo(String.format("Nova Disciplina '%s' lecionada pelo professor '%s' adicionada com sucesso no Horário da turma '%s'", nomeDisciplina, p.getNome(), turmaId ), Logger.Level.INFO);
+		}else{
+			logger.gravaArquivo(String.format("Falha ao adicionar Horário na turma '%s", turmaId), Logger.Level.ERROR);
+		}
+	}
+
 	public void addHorarioTurma(Horario h, String idTurma){
 		Turma turma = this.getTurmaId(idTurma);
 
 		if(turma != null){
                     turma.setHorario(h);
-                }
+        }
+		this.horarios.add(h);
 	}
 
 	public void removerHorarioTurma(Horario h, String idTurma){

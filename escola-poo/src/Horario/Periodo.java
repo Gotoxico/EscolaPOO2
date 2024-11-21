@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import modelo.Disciplina;
+import modelo.*;
 
   // Classe interna para representar um período de aula
 
@@ -29,6 +29,7 @@ public  class Periodo {
     private LocalTime horaInicio;
     private LocalTime horaFim;
     private Disciplina disciplina;
+    private Professor professor;
 
     /**
      * Construtor da classe
@@ -36,10 +37,11 @@ public  class Periodo {
      * @param horaFim
      * @param disciplina
      */
-    public Periodo(LocalTime horaInicio, LocalTime horaFim, Disciplina disciplina) {
+    public Periodo(LocalTime horaInicio, LocalTime horaFim, Disciplina disciplina, Professor professor) {
         this.horaInicio = horaInicio;
         this.horaFim = horaFim;
         this.disciplina = disciplina;
+        this.professor = professor;
     }
 
     /**
@@ -103,10 +105,29 @@ public  class Periodo {
     }
     
     /**
+     * Retorna o professor associado ao período
+     * @return 
+     */
+    public Professor getProfessor() {
+        return professor;
+    }
+
+    /**
+     * Função para adicionar um professor ao perídio
+     * @param professor 
+     * 
+     */
+    public void setProfessor(Professor professor) {
+        this.professor = professor;
+    }
+
+    /**
      * Méto de override para imprimir o período
      */
         @Override
         public String toString() {
             return horaInicio + " - " + horaFim + ": ";
         }
+
+    
 }
