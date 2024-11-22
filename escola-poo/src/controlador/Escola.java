@@ -63,6 +63,11 @@ public class Escola{
     public ArrayList<Professor> getTodosProfessores(){
         return this.professores;
     }
+    
+    public ArrayList<PontoExtra> getPontosExtrasDisciplina(String nomeDisciplina){
+        Disciplina d = this.getDisciplinaNome(nomeDisciplina);
+        return d.getPontosExtra();
+    }
         
   /**
   * Obtem a lista de professores associados a uma disciplina específica
@@ -494,7 +499,7 @@ public class Escola{
     public void removerProvaDisciplina(String nomeDisciplina, String nomeProfessor, String nomeProva, String nomeTurma, float peso){
         notas.removerProvaDisciplina(nomeDisciplina, nomeProfessor, nomeProva, nomeTurma, peso);
     }
-        
+       
     /**
      * Método para remover um trabalho de uma disciplina    
      * @Parameter: nomeDisciplina - Nome da disciplina
@@ -516,11 +521,18 @@ public class Escola{
     public void removerTodosTrabalhosDisciplina(String nomeDisciplina, String nomeProfessor, String nomeTurma){
         notas.removerTrabalhos(nomeDisciplina, nomeProfessor, nomeTurma);
     }
+    
+    public void removerAtividadeExtraCurricular(String matricula, AtividadeExtra ic){
+        Aluno temp = this.getAlunoMatricula(matricula);
+        if(temp != null){
+            temp.removerAtividadeExtra(ic);
+        }
+    }
          
 
         
-    public void removerPontoExtraDisciplina(String nomeDisciplina, String nomeProfessor, String nomePontoExtra, String nomeTurma, float valorMaximo){
-        notas.removerPontoExtraDisciplina(nomeDisciplina, nomeProfessor, nomePontoExtra, nomeTurma, valorMaximo);
+    public void removerPontoExtraDisciplina(String nomeDisciplina, String nomeProfessor, String nomePontoExtra, String nomeTurma){
+        notas.removerPontoExtraDisciplina(nomeDisciplina, nomeProfessor, nomePontoExtra, nomeTurma);
     }
         
     public void adicionarProvaDisciplina(String nomeDisciplina, String nomeProfessor, String nomeTurma, String nomeProva,  float peso){

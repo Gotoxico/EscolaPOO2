@@ -50,6 +50,10 @@ public class Aluno extends Usuario {
     public void setCurso(String curso) {
         this.curso = curso;
     }
+    
+    public ArrayList<AtividadeExtra> getAtividadesExtra(){
+        return atividadesExtrasCurriculares;
+    }
 
     public void setNotaProva(Prova prova) {
         provas.add(prova);
@@ -93,6 +97,10 @@ public class Aluno extends Usuario {
      */
     public void addAtividadeExtra(AtividadeExtra atividadeExtra) {
         atividadesExtrasCurriculares.add(atividadeExtra);
+    }
+    
+    public void removerAtividadeExtra(AtividadeExtra atividadeExtra) {
+        atividadesExtrasCurriculares.remove(atividadeExtra);
     }
 
     //Apresenta as informações do aluno
