@@ -451,6 +451,20 @@ public class Principal {
                     valorMax = sc.nextFloat();
                     controlador.removerPontoExtraDisciplina(disciplinaId, nomePonto, nomePonto, nomeTurma, valorMax);
                     break;
+                    
+                case 10:
+                    output.display("Digite a matricula do aluno: ");
+                    matricula = sc.nextLine();
+                    Aluno temp = controlador.getAlunoMatricula(matricula);
+                    int i = 1;
+                    for(AtividadeExtra a : temp.getAtividadesExtra()){
+                        output.display(i + ") " + a.getTitulo());
+                    }
+                    output.display("Selecione o número a atividade do aluno: ");
+                    int num = sc.nextInt();
+                    num--;
+                    AtividadeExtra atividade = temp.getAtividadesExtra().get(num);
+                    controlador.removerAtividadeExtraCurricular(matricula, atividade);
 
                 case 0:
                     return;

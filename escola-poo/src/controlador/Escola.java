@@ -496,6 +496,13 @@ public class Escola{
     public void removerTodosTrabalhosDisciplina(String nomeDisciplina, String nomeProfessor, String nomeTurma){
         notas.removerTrabalhos(nomeDisciplina, nomeProfessor, nomeTurma);
     }
+    
+    public void removerAtividadeExtraCurricular(String matricula, AtividadeExtra ic){
+        Aluno temp = this.getAlunoMatricula(matricula);
+        if(temp != null){
+            temp.removerAtividadeExtra(ic);
+        }
+    }
          
 
         
