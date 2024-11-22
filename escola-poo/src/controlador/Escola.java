@@ -181,9 +181,9 @@ public class Escola{
         logger.gravaArquivo(String.format("Professor %s adicionado", nome), Logger.Level.INFO);
     }
 
-    public void atribuirProfessorDisciplina(String nomeDisciplina, String nomeProfessor){
+    public void atribuirProfessorDisciplina(String nomeDisciplina, String professorId){
         Disciplina disciplina = getDisciplinaNome(nomeDisciplina);
-        Professor professor = getProfessorId(nomeProfessor);
+        Professor professor = getProfessorId(professorId);
         Logger logger = Logger.getInstance();
         if(professor == null){
             System.out.println("Professor não encontrado");
@@ -194,7 +194,7 @@ public class Escola{
 
         if(disciplina != null && professor != null){
             disciplina.adicionarProfessor(professor);
-            logger.gravaArquivo(String.format("Professor %s atribuído à disciplina %s", nomeProfessor, nomeDisciplina), Logger.Level.INFO);
+            logger.gravaArquivo(String.format("Professor %s atribuído à disciplina %s", professorId, nomeDisciplina), Logger.Level.INFO);
         }else{
             logger.gravaArquivo(String.format("Falha na atribuição de professor à disciplina %s", nomeDisciplina), Logger.Level.ERROR);
         }
@@ -346,7 +346,7 @@ public class Escola{
 
         if(t != null && d != null && p != null){
             t.definirProfessorDisciplina(d, p);
-            logger.gravaArquivo(String.format("Disciplina '%s' atribuída para o professor '%s', na Turma '%s' ", professorId, nomeDisciplina, turmaId), Logger.Level.INFO);
+            logger.gravaArquivo(String.format("Disciplina '%s' atribuída para o professor '%s', na Turma '%s' ", nomeDisciplina, professorId, turmaId), Logger.Level.INFO);
         }else{
             logger.gravaArquivo(String.format("Falha na atribuição de Disciplinas na turma '%s", turmaId), Logger.Level.ERROR);
         }

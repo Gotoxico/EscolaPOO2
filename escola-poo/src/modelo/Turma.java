@@ -157,6 +157,7 @@ public class Turma {
     }
 
     public Professor getProfessorDisciplina(Disciplina d){
+        System.out.println(professores);
         return professores.get(d);
     }
 }

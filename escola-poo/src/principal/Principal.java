@@ -253,13 +253,17 @@ public class Principal {
             output.display(String.format("Selecionando Professor da disciplina '%s':", d.getNome()));
             professorId = menuSelecionarProfessor(d.getProfessores());
 
-            controlador.definirProfessorDisciplinaTurma(turmaId, turmaId, professorId);
+            controlador.definirProfessorDisciplinaTurma(turmaId, d.getNome(), professorId);
         }
 
     }
 
     public static void menuCriarHorario(String turmaId) {
-
+        if(controlador.getTurmaId(turmaId) == null){
+            output.display("Turma inexistente");
+            return;
+        }
+        
         String dia = "";
         String nomeDisciplina = "";
         LocalTime horario = null;
@@ -1177,7 +1181,7 @@ public class Principal {
                 case 12:
                     professorId = menuSelecionarProfessor(controlador.getTodosProfessores());
                     disciplinaId = menuSelecionarDisciplina(controlador.getTodasDisciplinas());
-                    controlador.atribuirProfessorDisciplina(professorId, disciplinaId);
+                    controlador.atribuirProfessorDisciplina(disciplinaId, professorId);
                     break;
 
                 case 13:
@@ -1364,6 +1368,26 @@ public class Principal {
         controlador.addDisciplina("Português", "Escola Estadual", "6º ano");
         controlador.addDisciplina("História", "Escola Estadual", "6º ano");
         controlador.addDisciplina("Geografia", "Escola Estadual", "6º ano");
+        
+        int cont=0;
+        ArrayList<Professor> professores = controlador.getTodosProfessores();
+        for(Professor p : professores){
+            switch(cont % 4){
+                case 0:
+                    controlador.atribuirProfessorDisciplina("Matemática", p.getID());
+                    break;
+                case 1:
+                    controlador.atribuirProfessorDisciplina("Português", p.getID());
+                    break;
+                case 2:
+                    controlador.atribuirProfessorDisciplina("História", p.getID());
+                    break;
+                case 3:
+                    controlador.atribuirProfessorDisciplina("Geografia", p.getID());
+                    break;
+            }
+            cont++;
+        }
         
 
         // Gerando 30 livros para simular um banco de dados
