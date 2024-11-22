@@ -308,7 +308,7 @@ public class Principal {
         int opc = 0;
 
         while (opc < 1 || opc > horarios.length) {
-            for (int cont = 1; cont < horarios.length; cont++) {
+            for (int cont = 1; cont <= horarios.length; cont++) {
                 int pos = cont - 1;
                 System.out.println(String.format("%d - %s", cont, horarios[pos].toString()));
             }
@@ -316,6 +316,7 @@ public class Principal {
             output.display("Escolha o horário: ");
             opc = sc.nextInt();
         }
+        sc.nextLine();
 
         return horarios[opc - 1];
     }
@@ -332,7 +333,7 @@ public class Principal {
         int opc = 0;
 
         while (opc < 1 || opc > diasDaSemana.length) {
-            for (int cont = 1; cont < diasDaSemana.length; cont++) {
+            for (int cont = 1; cont <= diasDaSemana.length; cont++) {
                 int pos = cont - 1;
                 System.out.println(String.format("%d - %s", cont, diasDaSemana[pos]));
             }
@@ -340,6 +341,7 @@ public class Principal {
             output.display("Escolha o dia da semana: ");
             opc = sc.nextInt();
         }
+        sc.nextLine();
 
         return diasDaSemana[opc - 1];
     }
@@ -1071,6 +1073,7 @@ public class Principal {
         String disciplinaId = "";
         String anoEscolar = "";
         int qtd = 0;
+        String professorId = "";
 
         ArrayList<Aluno> alunos;
         ArrayList<Turma> turmas;
@@ -1090,6 +1093,7 @@ public class Principal {
             output.display("9 - Relatório Média das Médias Professor");
             output.display("10 - Acessar biblioteca");
             output.display("11 - Atribuir Professores a Disciplinas de uma Turma");
+            output.display("12 - Atribuir professor a uma disciplina");   
             output.display("0 - Sair");
             output.display("==============================");
             output.display("Selecione sua opção: ");
@@ -1171,12 +1175,17 @@ public class Principal {
                     break;
 
                 case 12:
-                    output.display("Criar horário para uma turma");
+                    professorId = menuSelecionarProfessor(controlador.getTodosProfessores());
+                    disciplinaId = menuSelecionarDisciplina(controlador.getTodasDisciplinas());
+                    controlador.atribuirProfessorDisciplina(professorId, disciplinaId);
                     break;
 
                 case 13:
                     menuAdminBiblioteca();
                     break;
+                
+                case 0:
+                    return;
             }
         }
     }
@@ -1221,6 +1230,7 @@ public class Principal {
 
         output.display("==============================");
         output.display("Selecione sua opção: ");
+        
         professorId = sc.nextLine();
 
         return professorId;
@@ -1341,6 +1351,20 @@ public class Principal {
         controlador.addTurma("8B", 31);
         controlador.addTurma("9A", 27);
         controlador.addTurma("9B", 26);
+
+        // Gerando professores para testes
+        controlador.addProfessor("João", "Doutorado");
+        controlador.addProfessor("Maria", "Mestrado");
+        controlador.addProfessor("José", "Doutorado");
+        controlador.addProfessor("Ana", "Mestrado");
+        controlador.addProfessor("Carlos", "Doutorado");
+
+        //Gerando disciplinas para testes (nome, unidade escolar, ano escolar)
+        controlador.addDisciplina("Matemática", "Escola Estadual", "6º ano");
+        controlador.addDisciplina("Português", "Escola Estadual", "6º ano");
+        controlador.addDisciplina("História", "Escola Estadual", "6º ano");
+        controlador.addDisciplina("Geografia", "Escola Estadual", "6º ano");
+        
 
         // Gerando 30 livros para simular um banco de dados
         controlador.addLivroBiblioteca("Dom Casmurro", "Machado de Assis", "978-8525054182", "Romance");

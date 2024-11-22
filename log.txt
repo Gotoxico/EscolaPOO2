@@ -78,3 +78,613 @@ INFO [3 de nov. de 2024 01:40:43] Livro 'O Fim da Eternidade' de 'Isaac Asimov' 
 INFO [3 de nov. de 2024 01:40:43] Livro 'O Nome da Rosa' de 'Umberto Eco' foi adicionado à biblioteca
 INFO [3 de nov. de 2024 01:40:43] Livro 'A Cor Púrpura' de 'Alice Walker' foi adicionado à biblioteca
 INFO [3 de nov. de 2024 01:40:43] Livro 'O Livro dos Espíritos' de 'Allan Kardec' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:41:08] Turma 6A adicionado
+INFO [22 de nov. de 2024 16:41:08] Turma 6B adicionado
+INFO [22 de nov. de 2024 16:41:08] Turma 7A adicionado
+INFO [22 de nov. de 2024 16:41:08] Turma 7B adicionado
+INFO [22 de nov. de 2024 16:41:08] Turma 8A adicionado
+INFO [22 de nov. de 2024 16:41:08] Turma 8B adicionado
+INFO [22 de nov. de 2024 16:41:08] Turma 9A adicionado
+INFO [22 de nov. de 2024 16:41:08] Turma 9B adicionado
+INFO [22 de nov. de 2024 16:41:08] Livro 'Dom Casmurro' de 'Machado de Assis' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:41:08] Livro 'O Pequeno Príncipe' de 'Antoine de Saint-Exupéry' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:41:08] Livro '1984' de 'George Orwell' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:41:08] Livro 'A Moreninha' de 'Joaquim Manuel de Macedo' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:41:08] Livro 'O Alquimista' de 'Paulo Coelho' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:41:08] Livro 'Cem Anos de Solidão' de 'Gabriel García Márquez' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:41:08] Livro 'Moby Dick' de 'Herman Melville' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:41:08] Livro 'A Revolução dos Bichos' de 'George Orwell' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:41:08] Livro 'O Senhor dos Anéis' de 'J.R.R. Tolkien' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:41:08] Livro 'Harry Potter e a Pedra Filosofal' de 'J.K. Rowling' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:41:08] Livro 'A Metamorfose' de 'Franz Kafka' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:41:08] Livro 'O Cortiço' de 'Aluísio Azevedo' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:41:08] Livro 'A Cabana' de 'William P. Young' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:41:08] Livro 'Orgulho e Preconceito' de 'Jane Austen' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:41:08] Livro 'O Morro dos Ventos Uivantes' de 'Emily Brontë' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:41:08] Livro 'Fahrenheit 451' de 'Ray Bradbury' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:41:08] Livro 'O Guarani' de 'José de Alencar' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:41:08] Livro 'O Primo Basílio' de 'José Maria de Eça de Queirós' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:41:08] Livro 'Iracema' de 'José de Alencar' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:41:08] Livro 'O Filho de Mil Homens' de 'Valter Hugo Mãe' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:41:08] Livro 'A Menina que Roubava Livros' de 'Markus Zusak' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:41:08] Livro 'O Lobo da Estepe' de 'Hermann Hesse' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:41:08] Livro 'Os Miseráveis' de 'Victor Hugo' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:41:08] Livro 'A Ilha do Tesouro' de 'Robert Louis Stevenson' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:41:08] Livro 'A Dama das Camélias' de 'Alexandre Dumas Filho' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:41:08] Livro 'O Processo' de 'Franz Kafka' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:41:08] Livro 'A Peste' de 'Albert Camus' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:41:08] Livro 'O Sol é Para Todos' de 'Harper Lee' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:41:08] Livro 'O Fim da Eternidade' de 'Isaac Asimov' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:41:08] Livro 'O Nome da Rosa' de 'Umberto Eco' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:41:08] Livro 'A Cor Púrpura' de 'Alice Walker' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:41:08] Livro 'O Livro dos Espíritos' de 'Allan Kardec' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:41:49] Disciplina Matem tica para o ano escolar '2024' adicionada
+INFO [22 de nov. de 2024 16:42:05] Disciplina F sica para o ano escolar '2024' adicionada
+INFO [22 de nov. de 2024 16:42:55] Disciplina F sica adicionada à turma 6A
+ERROR [22 de nov. de 2024 16:43:31] Disciplina Matemtica não adicionada à turma
+ERROR [22 de nov. de 2024 16:44:22] Falha ao adicionar Horário na turma 'e6b28725-ec8e-4e01-a489-d42beaab99d7
+ERROR [22 de nov. de 2024 16:44:35] Falha ao adicionar Horário na turma 'e6b28725-ec8e-4e01-a489-d42beaab99d7
+ERROR [22 de nov. de 2024 16:45:29] Disciplina Qu mica não adicionada à turma
+ERROR [22 de nov. de 2024 16:46:13] Disciplina Qu mica não adicionada à turma
+INFO [22 de nov. de 2024 16:46:24] Disciplina Qu mica para o ano escolar '2014' adicionada
+INFO [22 de nov. de 2024 16:46:36] Disciplina Qu mica adicionada à turma 6A
+INFO [22 de nov. de 2024 16:48:52] Turma 6A adicionado
+INFO [22 de nov. de 2024 16:48:52] Turma 6B adicionado
+INFO [22 de nov. de 2024 16:48:52] Turma 7A adicionado
+INFO [22 de nov. de 2024 16:48:52] Turma 7B adicionado
+INFO [22 de nov. de 2024 16:48:52] Turma 8A adicionado
+INFO [22 de nov. de 2024 16:48:52] Turma 8B adicionado
+INFO [22 de nov. de 2024 16:48:52] Turma 9A adicionado
+INFO [22 de nov. de 2024 16:48:52] Turma 9B adicionado
+INFO [22 de nov. de 2024 16:48:52] Livro 'Dom Casmurro' de 'Machado de Assis' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:48:52] Livro 'O Pequeno Príncipe' de 'Antoine de Saint-Exupéry' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:48:52] Livro '1984' de 'George Orwell' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:48:52] Livro 'A Moreninha' de 'Joaquim Manuel de Macedo' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:48:52] Livro 'O Alquimista' de 'Paulo Coelho' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:48:52] Livro 'Cem Anos de Solidão' de 'Gabriel García Márquez' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:48:52] Livro 'Moby Dick' de 'Herman Melville' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:48:52] Livro 'A Revolução dos Bichos' de 'George Orwell' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:48:52] Livro 'O Senhor dos Anéis' de 'J.R.R. Tolkien' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:48:52] Livro 'Harry Potter e a Pedra Filosofal' de 'J.K. Rowling' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:48:52] Livro 'A Metamorfose' de 'Franz Kafka' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:48:52] Livro 'O Cortiço' de 'Aluísio Azevedo' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:48:52] Livro 'A Cabana' de 'William P. Young' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:48:52] Livro 'Orgulho e Preconceito' de 'Jane Austen' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:48:52] Livro 'O Morro dos Ventos Uivantes' de 'Emily Brontë' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:48:52] Livro 'Fahrenheit 451' de 'Ray Bradbury' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:48:52] Livro 'O Guarani' de 'José de Alencar' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:48:52] Livro 'O Primo Basílio' de 'José Maria de Eça de Queirós' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:48:52] Livro 'Iracema' de 'José de Alencar' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:48:52] Livro 'O Filho de Mil Homens' de 'Valter Hugo Mãe' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:48:52] Livro 'A Menina que Roubava Livros' de 'Markus Zusak' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:48:52] Livro 'O Lobo da Estepe' de 'Hermann Hesse' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:48:52] Livro 'Os Miseráveis' de 'Victor Hugo' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:48:52] Livro 'A Ilha do Tesouro' de 'Robert Louis Stevenson' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:48:52] Livro 'A Dama das Camélias' de 'Alexandre Dumas Filho' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:48:52] Livro 'O Processo' de 'Franz Kafka' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:48:52] Livro 'A Peste' de 'Albert Camus' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:48:52] Livro 'O Sol é Para Todos' de 'Harper Lee' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:48:52] Livro 'O Fim da Eternidade' de 'Isaac Asimov' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:48:52] Livro 'O Nome da Rosa' de 'Umberto Eco' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:48:52] Livro 'A Cor Púrpura' de 'Alice Walker' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:48:52] Livro 'O Livro dos Espíritos' de 'Allan Kardec' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:49:00] Disciplina Matematica para o ano escolar '123' adicionada
+INFO [22 de nov. de 2024 16:49:13] Turma 6A adicionado
+INFO [22 de nov. de 2024 16:49:13] Turma 6B adicionado
+INFO [22 de nov. de 2024 16:49:13] Turma 7A adicionado
+INFO [22 de nov. de 2024 16:49:13] Turma 7B adicionado
+INFO [22 de nov. de 2024 16:49:13] Turma 8A adicionado
+INFO [22 de nov. de 2024 16:49:13] Turma 8B adicionado
+INFO [22 de nov. de 2024 16:49:13] Turma 9A adicionado
+INFO [22 de nov. de 2024 16:49:13] Turma 9B adicionado
+INFO [22 de nov. de 2024 16:49:13] Livro 'Dom Casmurro' de 'Machado de Assis' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:49:13] Livro 'O Pequeno Príncipe' de 'Antoine de Saint-Exupéry' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:49:13] Livro '1984' de 'George Orwell' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:49:13] Livro 'A Moreninha' de 'Joaquim Manuel de Macedo' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:49:13] Livro 'O Alquimista' de 'Paulo Coelho' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:49:13] Livro 'Cem Anos de Solidão' de 'Gabriel García Márquez' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:49:13] Livro 'Moby Dick' de 'Herman Melville' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:49:13] Livro 'A Revolução dos Bichos' de 'George Orwell' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:49:13] Livro 'O Senhor dos Anéis' de 'J.R.R. Tolkien' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:49:13] Livro 'Harry Potter e a Pedra Filosofal' de 'J.K. Rowling' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:49:13] Livro 'A Metamorfose' de 'Franz Kafka' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:49:13] Livro 'O Cortiço' de 'Aluísio Azevedo' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:49:13] Livro 'A Cabana' de 'William P. Young' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:49:13] Livro 'Orgulho e Preconceito' de 'Jane Austen' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:49:13] Livro 'O Morro dos Ventos Uivantes' de 'Emily Brontë' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:49:13] Livro 'Fahrenheit 451' de 'Ray Bradbury' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:49:13] Livro 'O Guarani' de 'José de Alencar' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:49:13] Livro 'O Primo Basílio' de 'José Maria de Eça de Queirós' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:49:13] Livro 'Iracema' de 'José de Alencar' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:49:13] Livro 'O Filho de Mil Homens' de 'Valter Hugo Mãe' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:49:13] Livro 'A Menina que Roubava Livros' de 'Markus Zusak' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:49:13] Livro 'O Lobo da Estepe' de 'Hermann Hesse' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:49:13] Livro 'Os Miseráveis' de 'Victor Hugo' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:49:13] Livro 'A Ilha do Tesouro' de 'Robert Louis Stevenson' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:49:13] Livro 'A Dama das Camélias' de 'Alexandre Dumas Filho' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:49:13] Livro 'O Processo' de 'Franz Kafka' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:49:13] Livro 'A Peste' de 'Albert Camus' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:49:13] Livro 'O Sol é Para Todos' de 'Harper Lee' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:49:13] Livro 'O Fim da Eternidade' de 'Isaac Asimov' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:49:13] Livro 'O Nome da Rosa' de 'Umberto Eco' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:49:13] Livro 'A Cor Púrpura' de 'Alice Walker' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:49:13] Livro 'O Livro dos Espíritos' de 'Allan Kardec' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:49:21] Disciplina Matematica para o ano escolar '123' adicionada
+INFO [22 de nov. de 2024 16:49:27] Disciplina Quimica para o ano escolar '123' adicionada
+INFO [22 de nov. de 2024 16:49:42] Disciplina Matematica adicionada à turma 6A
+INFO [22 de nov. de 2024 16:49:51] Disciplina Quimica adicionada à turma 6A
+ERROR [22 de nov. de 2024 16:50:10] Falha ao adicionar Horário na turma 'df2d5e67-a5fe-4e0a-ad6f-43a28f9f2b22
+ERROR [22 de nov. de 2024 16:51:03] Falha ao adicionar Horário na turma 'df2d5e67-a5fe-4e0a-ad6f-43a28f9f2b22
+ERROR [22 de nov. de 2024 16:51:16] Falha ao adicionar Horário na turma 'df2d5e67-a5fe-4e0a-ad6f-43a28f9f2b22
+INFO [22 de nov. de 2024 16:52:32] Turma 6A adicionado
+INFO [22 de nov. de 2024 16:52:32] Turma 6B adicionado
+INFO [22 de nov. de 2024 16:52:32] Turma 7A adicionado
+INFO [22 de nov. de 2024 16:52:32] Turma 7B adicionado
+INFO [22 de nov. de 2024 16:52:32] Turma 8A adicionado
+INFO [22 de nov. de 2024 16:52:32] Turma 8B adicionado
+INFO [22 de nov. de 2024 16:52:32] Turma 9A adicionado
+INFO [22 de nov. de 2024 16:52:32] Turma 9B adicionado
+INFO [22 de nov. de 2024 16:52:32] Livro 'Dom Casmurro' de 'Machado de Assis' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:52:32] Livro 'O Pequeno Príncipe' de 'Antoine de Saint-Exupéry' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:52:32] Livro '1984' de 'George Orwell' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:52:32] Livro 'A Moreninha' de 'Joaquim Manuel de Macedo' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:52:32] Livro 'O Alquimista' de 'Paulo Coelho' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:52:32] Livro 'Cem Anos de Solidão' de 'Gabriel García Márquez' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:52:32] Livro 'Moby Dick' de 'Herman Melville' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:52:32] Livro 'A Revolução dos Bichos' de 'George Orwell' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:52:32] Livro 'O Senhor dos Anéis' de 'J.R.R. Tolkien' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:52:32] Livro 'Harry Potter e a Pedra Filosofal' de 'J.K. Rowling' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:52:32] Livro 'A Metamorfose' de 'Franz Kafka' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:52:32] Livro 'O Cortiço' de 'Aluísio Azevedo' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:52:32] Livro 'A Cabana' de 'William P. Young' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:52:32] Livro 'Orgulho e Preconceito' de 'Jane Austen' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:52:32] Livro 'O Morro dos Ventos Uivantes' de 'Emily Brontë' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:52:32] Livro 'Fahrenheit 451' de 'Ray Bradbury' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:52:32] Livro 'O Guarani' de 'José de Alencar' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:52:32] Livro 'O Primo Basílio' de 'José Maria de Eça de Queirós' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:52:32] Livro 'Iracema' de 'José de Alencar' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:52:32] Livro 'O Filho de Mil Homens' de 'Valter Hugo Mãe' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:52:32] Livro 'A Menina que Roubava Livros' de 'Markus Zusak' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:52:32] Livro 'O Lobo da Estepe' de 'Hermann Hesse' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:52:32] Livro 'Os Miseráveis' de 'Victor Hugo' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:52:32] Livro 'A Ilha do Tesouro' de 'Robert Louis Stevenson' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:52:32] Livro 'A Dama das Camélias' de 'Alexandre Dumas Filho' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:52:32] Livro 'O Processo' de 'Franz Kafka' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:52:32] Livro 'A Peste' de 'Albert Camus' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:52:32] Livro 'O Sol é Para Todos' de 'Harper Lee' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:52:32] Livro 'O Fim da Eternidade' de 'Isaac Asimov' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:52:32] Livro 'O Nome da Rosa' de 'Umberto Eco' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:52:32] Livro 'A Cor Púrpura' de 'Alice Walker' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:52:32] Livro 'O Livro dos Espíritos' de 'Allan Kardec' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 16:53:16] Professor Gabriel adicionado
+INFO [22 de nov. de 2024 17:01:57] Turma 6A adicionado
+INFO [22 de nov. de 2024 17:01:57] Turma 6B adicionado
+INFO [22 de nov. de 2024 17:01:57] Turma 7A adicionado
+INFO [22 de nov. de 2024 17:01:57] Turma 7B adicionado
+INFO [22 de nov. de 2024 17:01:57] Turma 8A adicionado
+INFO [22 de nov. de 2024 17:01:57] Turma 8B adicionado
+INFO [22 de nov. de 2024 17:01:57] Turma 9A adicionado
+INFO [22 de nov. de 2024 17:01:57] Turma 9B adicionado
+INFO [22 de nov. de 2024 17:01:57] Livro 'Dom Casmurro' de 'Machado de Assis' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:01:57] Livro 'O Pequeno Príncipe' de 'Antoine de Saint-Exupéry' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:01:57] Livro '1984' de 'George Orwell' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:01:57] Livro 'A Moreninha' de 'Joaquim Manuel de Macedo' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:01:57] Livro 'O Alquimista' de 'Paulo Coelho' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:01:57] Livro 'Cem Anos de Solidão' de 'Gabriel García Márquez' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:01:57] Livro 'Moby Dick' de 'Herman Melville' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:01:57] Livro 'A Revolução dos Bichos' de 'George Orwell' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:01:57] Livro 'O Senhor dos Anéis' de 'J.R.R. Tolkien' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:01:57] Livro 'Harry Potter e a Pedra Filosofal' de 'J.K. Rowling' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:01:57] Livro 'A Metamorfose' de 'Franz Kafka' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:01:57] Livro 'O Cortiço' de 'Aluísio Azevedo' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:01:57] Livro 'A Cabana' de 'William P. Young' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:01:57] Livro 'Orgulho e Preconceito' de 'Jane Austen' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:01:57] Livro 'O Morro dos Ventos Uivantes' de 'Emily Brontë' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:01:57] Livro 'Fahrenheit 451' de 'Ray Bradbury' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:01:57] Livro 'O Guarani' de 'José de Alencar' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:01:57] Livro 'O Primo Basílio' de 'José Maria de Eça de Queirós' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:01:57] Livro 'Iracema' de 'José de Alencar' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:01:57] Livro 'O Filho de Mil Homens' de 'Valter Hugo Mãe' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:01:57] Livro 'A Menina que Roubava Livros' de 'Markus Zusak' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:01:57] Livro 'O Lobo da Estepe' de 'Hermann Hesse' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:01:57] Livro 'Os Miseráveis' de 'Victor Hugo' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:01:57] Livro 'A Ilha do Tesouro' de 'Robert Louis Stevenson' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:01:57] Livro 'A Dama das Camélias' de 'Alexandre Dumas Filho' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:01:57] Livro 'O Processo' de 'Franz Kafka' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:01:57] Livro 'A Peste' de 'Albert Camus' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:01:57] Livro 'O Sol é Para Todos' de 'Harper Lee' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:01:57] Livro 'O Fim da Eternidade' de 'Isaac Asimov' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:01:57] Livro 'O Nome da Rosa' de 'Umberto Eco' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:01:57] Livro 'A Cor Púrpura' de 'Alice Walker' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:01:57] Livro 'O Livro dos Espíritos' de 'Allan Kardec' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:02:52] Disciplina Matematica para o ano escolar '2021' adicionada
+ERROR [22 de nov. de 2024 17:03:21] Falha na atribuição de professor à disciplina f4d437a8-a8d7-4f89-932f-435b5fb9b46f
+INFO [22 de nov. de 2024 17:04:34] Disciplina Matematica adicionada à turma 6A
+INFO [22 de nov. de 2024 17:06:24] Turma 6A adicionado
+INFO [22 de nov. de 2024 17:06:24] Turma 6B adicionado
+INFO [22 de nov. de 2024 17:06:24] Turma 7A adicionado
+INFO [22 de nov. de 2024 17:06:24] Turma 7B adicionado
+INFO [22 de nov. de 2024 17:06:24] Turma 8A adicionado
+INFO [22 de nov. de 2024 17:06:24] Turma 8B adicionado
+INFO [22 de nov. de 2024 17:06:24] Turma 9A adicionado
+INFO [22 de nov. de 2024 17:06:24] Turma 9B adicionado
+INFO [22 de nov. de 2024 17:06:24] Livro 'Dom Casmurro' de 'Machado de Assis' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:06:24] Livro 'O Pequeno Príncipe' de 'Antoine de Saint-Exupéry' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:06:24] Livro '1984' de 'George Orwell' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:06:24] Livro 'A Moreninha' de 'Joaquim Manuel de Macedo' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:06:24] Livro 'O Alquimista' de 'Paulo Coelho' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:06:24] Livro 'Cem Anos de Solidão' de 'Gabriel García Márquez' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:06:24] Livro 'Moby Dick' de 'Herman Melville' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:06:24] Livro 'A Revolução dos Bichos' de 'George Orwell' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:06:24] Livro 'O Senhor dos Anéis' de 'J.R.R. Tolkien' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:06:24] Livro 'Harry Potter e a Pedra Filosofal' de 'J.K. Rowling' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:06:24] Livro 'A Metamorfose' de 'Franz Kafka' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:06:24] Livro 'O Cortiço' de 'Aluísio Azevedo' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:06:24] Livro 'A Cabana' de 'William P. Young' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:06:24] Livro 'Orgulho e Preconceito' de 'Jane Austen' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:06:24] Livro 'O Morro dos Ventos Uivantes' de 'Emily Brontë' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:06:24] Livro 'Fahrenheit 451' de 'Ray Bradbury' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:06:24] Livro 'O Guarani' de 'José de Alencar' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:06:24] Livro 'O Primo Basílio' de 'José Maria de Eça de Queirós' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:06:24] Livro 'Iracema' de 'José de Alencar' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:06:24] Livro 'O Filho de Mil Homens' de 'Valter Hugo Mãe' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:06:24] Livro 'A Menina que Roubava Livros' de 'Markus Zusak' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:06:24] Livro 'O Lobo da Estepe' de 'Hermann Hesse' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:06:24] Livro 'Os Miseráveis' de 'Victor Hugo' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:06:24] Livro 'A Ilha do Tesouro' de 'Robert Louis Stevenson' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:06:24] Livro 'A Dama das Camélias' de 'Alexandre Dumas Filho' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:06:24] Livro 'O Processo' de 'Franz Kafka' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:06:24] Livro 'A Peste' de 'Albert Camus' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:06:24] Livro 'O Sol é Para Todos' de 'Harper Lee' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:06:24] Livro 'O Fim da Eternidade' de 'Isaac Asimov' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:06:24] Livro 'O Nome da Rosa' de 'Umberto Eco' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:06:24] Livro 'A Cor Púrpura' de 'Alice Walker' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:06:24] Livro 'O Livro dos Espíritos' de 'Allan Kardec' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:08:34] Turma 6A adicionado
+INFO [22 de nov. de 2024 17:08:34] Turma 6B adicionado
+INFO [22 de nov. de 2024 17:08:34] Turma 7A adicionado
+INFO [22 de nov. de 2024 17:08:34] Turma 7B adicionado
+INFO [22 de nov. de 2024 17:08:34] Turma 8A adicionado
+INFO [22 de nov. de 2024 17:08:34] Turma 8B adicionado
+INFO [22 de nov. de 2024 17:08:34] Turma 9A adicionado
+INFO [22 de nov. de 2024 17:08:34] Turma 9B adicionado
+INFO [22 de nov. de 2024 17:08:34] Professor João adicionado
+INFO [22 de nov. de 2024 17:08:34] Professor Maria adicionado
+INFO [22 de nov. de 2024 17:08:34] Professor José adicionado
+INFO [22 de nov. de 2024 17:08:34] Professor Ana adicionado
+INFO [22 de nov. de 2024 17:08:34] Professor Carlos adicionado
+INFO [22 de nov. de 2024 17:08:34] Disciplina Matemática para o ano escolar '6º ano' adicionada
+INFO [22 de nov. de 2024 17:08:34] Disciplina Português para o ano escolar '6º ano' adicionada
+INFO [22 de nov. de 2024 17:08:34] Disciplina História para o ano escolar '6º ano' adicionada
+INFO [22 de nov. de 2024 17:08:34] Disciplina Geografia para o ano escolar '6º ano' adicionada
+INFO [22 de nov. de 2024 17:08:34] Livro 'Dom Casmurro' de 'Machado de Assis' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:08:34] Livro 'O Pequeno Príncipe' de 'Antoine de Saint-Exupéry' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:08:34] Livro '1984' de 'George Orwell' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:08:34] Livro 'A Moreninha' de 'Joaquim Manuel de Macedo' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:08:34] Livro 'O Alquimista' de 'Paulo Coelho' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:08:34] Livro 'Cem Anos de Solidão' de 'Gabriel García Márquez' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:08:34] Livro 'Moby Dick' de 'Herman Melville' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:08:34] Livro 'A Revolução dos Bichos' de 'George Orwell' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:08:34] Livro 'O Senhor dos Anéis' de 'J.R.R. Tolkien' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:08:34] Livro 'Harry Potter e a Pedra Filosofal' de 'J.K. Rowling' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:08:34] Livro 'A Metamorfose' de 'Franz Kafka' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:08:34] Livro 'O Cortiço' de 'Aluísio Azevedo' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:08:34] Livro 'A Cabana' de 'William P. Young' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:08:34] Livro 'Orgulho e Preconceito' de 'Jane Austen' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:08:34] Livro 'O Morro dos Ventos Uivantes' de 'Emily Brontë' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:08:34] Livro 'Fahrenheit 451' de 'Ray Bradbury' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:08:34] Livro 'O Guarani' de 'José de Alencar' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:08:34] Livro 'O Primo Basílio' de 'José Maria de Eça de Queirós' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:08:34] Livro 'Iracema' de 'José de Alencar' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:08:34] Livro 'O Filho de Mil Homens' de 'Valter Hugo Mãe' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:08:34] Livro 'A Menina que Roubava Livros' de 'Markus Zusak' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:08:34] Livro 'O Lobo da Estepe' de 'Hermann Hesse' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:08:34] Livro 'Os Miseráveis' de 'Victor Hugo' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:08:34] Livro 'A Ilha do Tesouro' de 'Robert Louis Stevenson' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:08:34] Livro 'A Dama das Camélias' de 'Alexandre Dumas Filho' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:08:34] Livro 'O Processo' de 'Franz Kafka' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:08:34] Livro 'A Peste' de 'Albert Camus' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:08:34] Livro 'O Sol é Para Todos' de 'Harper Lee' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:08:34] Livro 'O Fim da Eternidade' de 'Isaac Asimov' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:08:34] Livro 'O Nome da Rosa' de 'Umberto Eco' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:08:34] Livro 'A Cor Púrpura' de 'Alice Walker' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:08:34] Livro 'O Livro dos Espíritos' de 'Allan Kardec' foi adicionado à biblioteca
+ERROR [22 de nov. de 2024 17:09:11] Falha na atribuição de professor à disciplina 96b1dd8a-08ce-4789-87d3-5b8ab3ad3738
+ERROR [22 de nov. de 2024 17:10:02] Disciplina Matem tica não adicionada à turma
+INFO [22 de nov. de 2024 17:23:28] Turma 6A adicionado
+INFO [22 de nov. de 2024 17:23:28] Turma 6B adicionado
+INFO [22 de nov. de 2024 17:23:28] Turma 7A adicionado
+INFO [22 de nov. de 2024 17:23:28] Turma 7B adicionado
+INFO [22 de nov. de 2024 17:23:28] Turma 8A adicionado
+INFO [22 de nov. de 2024 17:23:28] Turma 8B adicionado
+INFO [22 de nov. de 2024 17:23:28] Turma 9A adicionado
+INFO [22 de nov. de 2024 17:23:28] Turma 9B adicionado
+INFO [22 de nov. de 2024 17:23:28] Professor João adicionado
+INFO [22 de nov. de 2024 17:23:28] Professor Maria adicionado
+INFO [22 de nov. de 2024 17:23:28] Professor José adicionado
+INFO [22 de nov. de 2024 17:23:28] Professor Ana adicionado
+INFO [22 de nov. de 2024 17:23:28] Professor Carlos adicionado
+INFO [22 de nov. de 2024 17:23:28] Disciplina Matemática para o ano escolar '6º ano' adicionada
+INFO [22 de nov. de 2024 17:23:28] Disciplina Português para o ano escolar '6º ano' adicionada
+INFO [22 de nov. de 2024 17:23:28] Disciplina História para o ano escolar '6º ano' adicionada
+INFO [22 de nov. de 2024 17:23:28] Disciplina Geografia para o ano escolar '6º ano' adicionada
+INFO [22 de nov. de 2024 17:23:28] Livro 'Dom Casmurro' de 'Machado de Assis' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:23:28] Livro 'O Pequeno Príncipe' de 'Antoine de Saint-Exupéry' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:23:28] Livro '1984' de 'George Orwell' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:23:28] Livro 'A Moreninha' de 'Joaquim Manuel de Macedo' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:23:28] Livro 'O Alquimista' de 'Paulo Coelho' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:23:28] Livro 'Cem Anos de Solidão' de 'Gabriel García Márquez' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:23:28] Livro 'Moby Dick' de 'Herman Melville' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:23:28] Livro 'A Revolução dos Bichos' de 'George Orwell' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:23:28] Livro 'O Senhor dos Anéis' de 'J.R.R. Tolkien' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:23:28] Livro 'Harry Potter e a Pedra Filosofal' de 'J.K. Rowling' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:23:28] Livro 'A Metamorfose' de 'Franz Kafka' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:23:28] Livro 'O Cortiço' de 'Aluísio Azevedo' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:23:28] Livro 'A Cabana' de 'William P. Young' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:23:28] Livro 'Orgulho e Preconceito' de 'Jane Austen' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:23:28] Livro 'O Morro dos Ventos Uivantes' de 'Emily Brontë' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:23:28] Livro 'Fahrenheit 451' de 'Ray Bradbury' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:23:28] Livro 'O Guarani' de 'José de Alencar' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:23:28] Livro 'O Primo Basílio' de 'José Maria de Eça de Queirós' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:23:28] Livro 'Iracema' de 'José de Alencar' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:23:28] Livro 'O Filho de Mil Homens' de 'Valter Hugo Mãe' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:23:28] Livro 'A Menina que Roubava Livros' de 'Markus Zusak' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:23:28] Livro 'O Lobo da Estepe' de 'Hermann Hesse' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:23:28] Livro 'Os Miseráveis' de 'Victor Hugo' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:23:28] Livro 'A Ilha do Tesouro' de 'Robert Louis Stevenson' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:23:28] Livro 'A Dama das Camélias' de 'Alexandre Dumas Filho' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:23:28] Livro 'O Processo' de 'Franz Kafka' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:23:28] Livro 'A Peste' de 'Albert Camus' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:23:28] Livro 'O Sol é Para Todos' de 'Harper Lee' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:23:28] Livro 'O Fim da Eternidade' de 'Isaac Asimov' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:23:28] Livro 'O Nome da Rosa' de 'Umberto Eco' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:23:28] Livro 'A Cor Púrpura' de 'Alice Walker' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:23:28] Livro 'O Livro dos Espíritos' de 'Allan Kardec' foi adicionado à biblioteca
+ERROR [22 de nov. de 2024 17:24:08] Falha na atribuição de professor à disciplina 5dcbb9c1-7163-4713-8bc3-9b8c53c6afec
+INFO [22 de nov. de 2024 17:26:28] Turma 6A adicionado
+INFO [22 de nov. de 2024 17:26:28] Turma 6B adicionado
+INFO [22 de nov. de 2024 17:26:28] Turma 7A adicionado
+INFO [22 de nov. de 2024 17:26:28] Turma 7B adicionado
+INFO [22 de nov. de 2024 17:26:28] Turma 8A adicionado
+INFO [22 de nov. de 2024 17:26:28] Turma 8B adicionado
+INFO [22 de nov. de 2024 17:26:28] Turma 9A adicionado
+INFO [22 de nov. de 2024 17:26:28] Turma 9B adicionado
+INFO [22 de nov. de 2024 17:26:28] Professor João adicionado
+INFO [22 de nov. de 2024 17:26:28] Professor Maria adicionado
+INFO [22 de nov. de 2024 17:26:28] Professor José adicionado
+INFO [22 de nov. de 2024 17:26:28] Professor Ana adicionado
+INFO [22 de nov. de 2024 17:26:28] Professor Carlos adicionado
+INFO [22 de nov. de 2024 17:26:28] Disciplina Matemática para o ano escolar '6º ano' adicionada
+INFO [22 de nov. de 2024 17:26:28] Disciplina Português para o ano escolar '6º ano' adicionada
+INFO [22 de nov. de 2024 17:26:28] Disciplina História para o ano escolar '6º ano' adicionada
+INFO [22 de nov. de 2024 17:26:28] Disciplina Geografia para o ano escolar '6º ano' adicionada
+INFO [22 de nov. de 2024 17:26:28] Livro 'Dom Casmurro' de 'Machado de Assis' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:28] Livro 'O Pequeno Príncipe' de 'Antoine de Saint-Exupéry' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:28] Livro '1984' de 'George Orwell' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:28] Livro 'A Moreninha' de 'Joaquim Manuel de Macedo' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:28] Livro 'O Alquimista' de 'Paulo Coelho' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:28] Livro 'Cem Anos de Solidão' de 'Gabriel García Márquez' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:28] Livro 'Moby Dick' de 'Herman Melville' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:28] Livro 'A Revolução dos Bichos' de 'George Orwell' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:28] Livro 'O Senhor dos Anéis' de 'J.R.R. Tolkien' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:28] Livro 'Harry Potter e a Pedra Filosofal' de 'J.K. Rowling' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:28] Livro 'A Metamorfose' de 'Franz Kafka' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:28] Livro 'O Cortiço' de 'Aluísio Azevedo' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:28] Livro 'A Cabana' de 'William P. Young' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:28] Livro 'Orgulho e Preconceito' de 'Jane Austen' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:28] Livro 'O Morro dos Ventos Uivantes' de 'Emily Brontë' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:28] Livro 'Fahrenheit 451' de 'Ray Bradbury' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:28] Livro 'O Guarani' de 'José de Alencar' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:28] Livro 'O Primo Basílio' de 'José Maria de Eça de Queirós' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:28] Livro 'Iracema' de 'José de Alencar' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:28] Livro 'O Filho de Mil Homens' de 'Valter Hugo Mãe' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:28] Livro 'A Menina que Roubava Livros' de 'Markus Zusak' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:28] Livro 'O Lobo da Estepe' de 'Hermann Hesse' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:28] Livro 'Os Miseráveis' de 'Victor Hugo' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:28] Livro 'A Ilha do Tesouro' de 'Robert Louis Stevenson' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:28] Livro 'A Dama das Camélias' de 'Alexandre Dumas Filho' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:28] Livro 'O Processo' de 'Franz Kafka' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:28] Livro 'A Peste' de 'Albert Camus' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:28] Livro 'O Sol é Para Todos' de 'Harper Lee' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:28] Livro 'O Fim da Eternidade' de 'Isaac Asimov' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:28] Livro 'O Nome da Rosa' de 'Umberto Eco' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:28] Livro 'A Cor Púrpura' de 'Alice Walker' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:28] Livro 'O Livro dos Espíritos' de 'Allan Kardec' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:37] Turma 6A adicionado
+INFO [22 de nov. de 2024 17:26:37] Turma 6B adicionado
+INFO [22 de nov. de 2024 17:26:37] Turma 7A adicionado
+INFO [22 de nov. de 2024 17:26:37] Turma 7B adicionado
+INFO [22 de nov. de 2024 17:26:37] Turma 8A adicionado
+INFO [22 de nov. de 2024 17:26:37] Turma 8B adicionado
+INFO [22 de nov. de 2024 17:26:37] Turma 9A adicionado
+INFO [22 de nov. de 2024 17:26:37] Turma 9B adicionado
+INFO [22 de nov. de 2024 17:26:37] Professor João adicionado
+INFO [22 de nov. de 2024 17:26:37] Professor Maria adicionado
+INFO [22 de nov. de 2024 17:26:37] Professor José adicionado
+INFO [22 de nov. de 2024 17:26:37] Professor Ana adicionado
+INFO [22 de nov. de 2024 17:26:37] Professor Carlos adicionado
+INFO [22 de nov. de 2024 17:26:37] Disciplina Matemática para o ano escolar '6º ano' adicionada
+INFO [22 de nov. de 2024 17:26:37] Disciplina Português para o ano escolar '6º ano' adicionada
+INFO [22 de nov. de 2024 17:26:37] Disciplina História para o ano escolar '6º ano' adicionada
+INFO [22 de nov. de 2024 17:26:37] Disciplina Geografia para o ano escolar '6º ano' adicionada
+INFO [22 de nov. de 2024 17:26:37] Livro 'Dom Casmurro' de 'Machado de Assis' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:37] Livro 'O Pequeno Príncipe' de 'Antoine de Saint-Exupéry' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:37] Livro '1984' de 'George Orwell' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:37] Livro 'A Moreninha' de 'Joaquim Manuel de Macedo' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:37] Livro 'O Alquimista' de 'Paulo Coelho' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:37] Livro 'Cem Anos de Solidão' de 'Gabriel García Márquez' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:37] Livro 'Moby Dick' de 'Herman Melville' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:37] Livro 'A Revolução dos Bichos' de 'George Orwell' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:37] Livro 'O Senhor dos Anéis' de 'J.R.R. Tolkien' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:37] Livro 'Harry Potter e a Pedra Filosofal' de 'J.K. Rowling' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:37] Livro 'A Metamorfose' de 'Franz Kafka' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:37] Livro 'O Cortiço' de 'Aluísio Azevedo' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:37] Livro 'A Cabana' de 'William P. Young' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:37] Livro 'Orgulho e Preconceito' de 'Jane Austen' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:37] Livro 'O Morro dos Ventos Uivantes' de 'Emily Brontë' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:37] Livro 'Fahrenheit 451' de 'Ray Bradbury' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:37] Livro 'O Guarani' de 'José de Alencar' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:37] Livro 'O Primo Basílio' de 'José Maria de Eça de Queirós' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:37] Livro 'Iracema' de 'José de Alencar' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:37] Livro 'O Filho de Mil Homens' de 'Valter Hugo Mãe' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:37] Livro 'A Menina que Roubava Livros' de 'Markus Zusak' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:37] Livro 'O Lobo da Estepe' de 'Hermann Hesse' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:37] Livro 'Os Miseráveis' de 'Victor Hugo' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:37] Livro 'A Ilha do Tesouro' de 'Robert Louis Stevenson' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:37] Livro 'A Dama das Camélias' de 'Alexandre Dumas Filho' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:37] Livro 'O Processo' de 'Franz Kafka' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:37] Livro 'A Peste' de 'Albert Camus' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:37] Livro 'O Sol é Para Todos' de 'Harper Lee' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:37] Livro 'O Fim da Eternidade' de 'Isaac Asimov' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:37] Livro 'O Nome da Rosa' de 'Umberto Eco' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:37] Livro 'A Cor Púrpura' de 'Alice Walker' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:26:37] Livro 'O Livro dos Espíritos' de 'Allan Kardec' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:25] Turma 6A adicionado
+INFO [22 de nov. de 2024 17:29:25] Turma 6B adicionado
+INFO [22 de nov. de 2024 17:29:25] Turma 7A adicionado
+INFO [22 de nov. de 2024 17:29:25] Turma 7B adicionado
+INFO [22 de nov. de 2024 17:29:25] Turma 8A adicionado
+INFO [22 de nov. de 2024 17:29:25] Turma 8B adicionado
+INFO [22 de nov. de 2024 17:29:25] Turma 9A adicionado
+INFO [22 de nov. de 2024 17:29:25] Turma 9B adicionado
+INFO [22 de nov. de 2024 17:29:25] Professor João adicionado
+INFO [22 de nov. de 2024 17:29:25] Professor Maria adicionado
+INFO [22 de nov. de 2024 17:29:25] Professor José adicionado
+INFO [22 de nov. de 2024 17:29:25] Professor Ana adicionado
+INFO [22 de nov. de 2024 17:29:25] Professor Carlos adicionado
+INFO [22 de nov. de 2024 17:29:25] Disciplina Matemática para o ano escolar '6º ano' adicionada
+INFO [22 de nov. de 2024 17:29:25] Disciplina Português para o ano escolar '6º ano' adicionada
+INFO [22 de nov. de 2024 17:29:25] Disciplina História para o ano escolar '6º ano' adicionada
+INFO [22 de nov. de 2024 17:29:25] Disciplina Geografia para o ano escolar '6º ano' adicionada
+INFO [22 de nov. de 2024 17:29:25] Livro 'Dom Casmurro' de 'Machado de Assis' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:25] Livro 'O Pequeno Príncipe' de 'Antoine de Saint-Exupéry' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:25] Livro '1984' de 'George Orwell' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:25] Livro 'A Moreninha' de 'Joaquim Manuel de Macedo' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:25] Livro 'O Alquimista' de 'Paulo Coelho' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:25] Livro 'Cem Anos de Solidão' de 'Gabriel García Márquez' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:25] Livro 'Moby Dick' de 'Herman Melville' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:25] Livro 'A Revolução dos Bichos' de 'George Orwell' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:25] Livro 'O Senhor dos Anéis' de 'J.R.R. Tolkien' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:25] Livro 'Harry Potter e a Pedra Filosofal' de 'J.K. Rowling' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:25] Livro 'A Metamorfose' de 'Franz Kafka' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:25] Livro 'O Cortiço' de 'Aluísio Azevedo' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:25] Livro 'A Cabana' de 'William P. Young' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:25] Livro 'Orgulho e Preconceito' de 'Jane Austen' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:25] Livro 'O Morro dos Ventos Uivantes' de 'Emily Brontë' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:25] Livro 'Fahrenheit 451' de 'Ray Bradbury' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:25] Livro 'O Guarani' de 'José de Alencar' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:25] Livro 'O Primo Basílio' de 'José Maria de Eça de Queirós' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:25] Livro 'Iracema' de 'José de Alencar' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:25] Livro 'O Filho de Mil Homens' de 'Valter Hugo Mãe' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:25] Livro 'A Menina que Roubava Livros' de 'Markus Zusak' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:25] Livro 'O Lobo da Estepe' de 'Hermann Hesse' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:25] Livro 'Os Miseráveis' de 'Victor Hugo' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:25] Livro 'A Ilha do Tesouro' de 'Robert Louis Stevenson' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:25] Livro 'A Dama das Camélias' de 'Alexandre Dumas Filho' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:25] Livro 'O Processo' de 'Franz Kafka' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:25] Livro 'A Peste' de 'Albert Camus' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:25] Livro 'O Sol é Para Todos' de 'Harper Lee' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:25] Livro 'O Fim da Eternidade' de 'Isaac Asimov' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:25] Livro 'O Nome da Rosa' de 'Umberto Eco' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:25] Livro 'A Cor Púrpura' de 'Alice Walker' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:25] Livro 'O Livro dos Espíritos' de 'Allan Kardec' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:28] Turma 6A adicionado
+INFO [22 de nov. de 2024 17:29:28] Turma 6B adicionado
+INFO [22 de nov. de 2024 17:29:28] Turma 7A adicionado
+INFO [22 de nov. de 2024 17:29:28] Turma 7B adicionado
+INFO [22 de nov. de 2024 17:29:28] Turma 8A adicionado
+INFO [22 de nov. de 2024 17:29:28] Turma 8B adicionado
+INFO [22 de nov. de 2024 17:29:28] Turma 9A adicionado
+INFO [22 de nov. de 2024 17:29:28] Turma 9B adicionado
+INFO [22 de nov. de 2024 17:29:28] Professor João adicionado
+INFO [22 de nov. de 2024 17:29:28] Professor Maria adicionado
+INFO [22 de nov. de 2024 17:29:28] Professor José adicionado
+INFO [22 de nov. de 2024 17:29:28] Professor Ana adicionado
+INFO [22 de nov. de 2024 17:29:28] Professor Carlos adicionado
+INFO [22 de nov. de 2024 17:29:28] Disciplina Matemática para o ano escolar '6º ano' adicionada
+INFO [22 de nov. de 2024 17:29:28] Disciplina Português para o ano escolar '6º ano' adicionada
+INFO [22 de nov. de 2024 17:29:28] Disciplina História para o ano escolar '6º ano' adicionada
+INFO [22 de nov. de 2024 17:29:28] Disciplina Geografia para o ano escolar '6º ano' adicionada
+INFO [22 de nov. de 2024 17:29:28] Livro 'Dom Casmurro' de 'Machado de Assis' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:28] Livro 'O Pequeno Príncipe' de 'Antoine de Saint-Exupéry' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:28] Livro '1984' de 'George Orwell' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:28] Livro 'A Moreninha' de 'Joaquim Manuel de Macedo' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:28] Livro 'O Alquimista' de 'Paulo Coelho' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:28] Livro 'Cem Anos de Solidão' de 'Gabriel García Márquez' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:28] Livro 'Moby Dick' de 'Herman Melville' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:28] Livro 'A Revolução dos Bichos' de 'George Orwell' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:28] Livro 'O Senhor dos Anéis' de 'J.R.R. Tolkien' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:28] Livro 'Harry Potter e a Pedra Filosofal' de 'J.K. Rowling' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:28] Livro 'A Metamorfose' de 'Franz Kafka' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:28] Livro 'O Cortiço' de 'Aluísio Azevedo' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:28] Livro 'A Cabana' de 'William P. Young' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:28] Livro 'Orgulho e Preconceito' de 'Jane Austen' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:28] Livro 'O Morro dos Ventos Uivantes' de 'Emily Brontë' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:28] Livro 'Fahrenheit 451' de 'Ray Bradbury' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:28] Livro 'O Guarani' de 'José de Alencar' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:28] Livro 'O Primo Basílio' de 'José Maria de Eça de Queirós' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:28] Livro 'Iracema' de 'José de Alencar' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:28] Livro 'O Filho de Mil Homens' de 'Valter Hugo Mãe' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:28] Livro 'A Menina que Roubava Livros' de 'Markus Zusak' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:28] Livro 'O Lobo da Estepe' de 'Hermann Hesse' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:28] Livro 'Os Miseráveis' de 'Victor Hugo' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:28] Livro 'A Ilha do Tesouro' de 'Robert Louis Stevenson' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:28] Livro 'A Dama das Camélias' de 'Alexandre Dumas Filho' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:28] Livro 'O Processo' de 'Franz Kafka' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:28] Livro 'A Peste' de 'Albert Camus' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:28] Livro 'O Sol é Para Todos' de 'Harper Lee' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:28] Livro 'O Fim da Eternidade' de 'Isaac Asimov' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:28] Livro 'O Nome da Rosa' de 'Umberto Eco' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:28] Livro 'A Cor Púrpura' de 'Alice Walker' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:29:28] Livro 'O Livro dos Espíritos' de 'Allan Kardec' foi adicionado à biblioteca
+ERROR [22 de nov. de 2024 17:29:44] Falha na atribuição de professor à disciplina 04c85075-3b43-4bfb-8ba9-88faac6920be
+ERROR [22 de nov. de 2024 17:30:23] Falha na atribuição de professor à disciplina 04c85075-3b43-4bfb-8ba9-88faac6920be
+INFO [22 de nov. de 2024 17:35:15] Turma 6A adicionado
+INFO [22 de nov. de 2024 17:35:15] Turma 6B adicionado
+INFO [22 de nov. de 2024 17:35:15] Turma 7A adicionado
+INFO [22 de nov. de 2024 17:35:15] Turma 7B adicionado
+INFO [22 de nov. de 2024 17:35:15] Turma 8A adicionado
+INFO [22 de nov. de 2024 17:35:15] Turma 8B adicionado
+INFO [22 de nov. de 2024 17:35:15] Turma 9A adicionado
+INFO [22 de nov. de 2024 17:35:15] Turma 9B adicionado
+INFO [22 de nov. de 2024 17:35:15] Professor João adicionado
+INFO [22 de nov. de 2024 17:35:15] Professor Maria adicionado
+INFO [22 de nov. de 2024 17:35:15] Professor José adicionado
+INFO [22 de nov. de 2024 17:35:15] Professor Ana adicionado
+INFO [22 de nov. de 2024 17:35:15] Professor Carlos adicionado
+INFO [22 de nov. de 2024 17:35:15] Disciplina Matemática para o ano escolar '6º ano' adicionada
+INFO [22 de nov. de 2024 17:35:15] Disciplina Português para o ano escolar '6º ano' adicionada
+INFO [22 de nov. de 2024 17:35:15] Disciplina História para o ano escolar '6º ano' adicionada
+INFO [22 de nov. de 2024 17:35:15] Disciplina Geografia para o ano escolar '6º ano' adicionada
+INFO [22 de nov. de 2024 17:35:15] Livro 'Dom Casmurro' de 'Machado de Assis' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:35:15] Livro 'O Pequeno Príncipe' de 'Antoine de Saint-Exupéry' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:35:15] Livro '1984' de 'George Orwell' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:35:15] Livro 'A Moreninha' de 'Joaquim Manuel de Macedo' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:35:15] Livro 'O Alquimista' de 'Paulo Coelho' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:35:15] Livro 'Cem Anos de Solidão' de 'Gabriel García Márquez' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:35:15] Livro 'Moby Dick' de 'Herman Melville' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:35:15] Livro 'A Revolução dos Bichos' de 'George Orwell' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:35:15] Livro 'O Senhor dos Anéis' de 'J.R.R. Tolkien' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:35:15] Livro 'Harry Potter e a Pedra Filosofal' de 'J.K. Rowling' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:35:15] Livro 'A Metamorfose' de 'Franz Kafka' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:35:15] Livro 'O Cortiço' de 'Aluísio Azevedo' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:35:15] Livro 'A Cabana' de 'William P. Young' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:35:15] Livro 'Orgulho e Preconceito' de 'Jane Austen' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:35:15] Livro 'O Morro dos Ventos Uivantes' de 'Emily Brontë' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:35:15] Livro 'Fahrenheit 451' de 'Ray Bradbury' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:35:15] Livro 'O Guarani' de 'José de Alencar' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:35:15] Livro 'O Primo Basílio' de 'José Maria de Eça de Queirós' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:35:15] Livro 'Iracema' de 'José de Alencar' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:35:15] Livro 'O Filho de Mil Homens' de 'Valter Hugo Mãe' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:35:15] Livro 'A Menina que Roubava Livros' de 'Markus Zusak' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:35:15] Livro 'O Lobo da Estepe' de 'Hermann Hesse' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:35:15] Livro 'Os Miseráveis' de 'Victor Hugo' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:35:15] Livro 'A Ilha do Tesouro' de 'Robert Louis Stevenson' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:35:15] Livro 'A Dama das Camélias' de 'Alexandre Dumas Filho' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:35:15] Livro 'O Processo' de 'Franz Kafka' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:35:15] Livro 'A Peste' de 'Albert Camus' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:35:15] Livro 'O Sol é Para Todos' de 'Harper Lee' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:35:15] Livro 'O Fim da Eternidade' de 'Isaac Asimov' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:35:15] Livro 'O Nome da Rosa' de 'Umberto Eco' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:35:15] Livro 'A Cor Púrpura' de 'Alice Walker' foi adicionado à biblioteca
+INFO [22 de nov. de 2024 17:35:15] Livro 'O Livro dos Espíritos' de 'Allan Kardec' foi adicionado à biblioteca

@@ -153,11 +153,10 @@ public class Escola{
     * @Return: O professor correspondente ao ID, ou null se não encontrado
     */
     public Professor getProfessorId(String idProfessor){
-        Professor temp;
-        for(int i=0; i < this.professores.size(); i++){
-            temp = this.professores.get(i);
-            if(temp.getID().equals(idProfessor)){
-                return temp;
+        
+        for(Professor professor : professores){
+            if(professor.getID().equals(idProfessor)){
+                return professor;
             }
         }
         return null;
@@ -181,6 +180,26 @@ public class Escola{
         this.professores.add(novo);
         logger.gravaArquivo(String.format("Professor %s adicionado", nome), Logger.Level.INFO);
     }
+
+    public void atribuirProfessorDisciplina(String nomeDisciplina, String nomeProfessor){
+        Disciplina disciplina = getDisciplinaNome(nomeDisciplina);
+        Professor professor = getProfessorId(nomeProfessor);
+        Logger logger = Logger.getInstance();
+        if(professor == null){
+            System.out.println("Professor não encontrado");
+        } 
+        if(disciplina == null){
+            System.out.println("Disciplina não encontrada");
+        }
+
+        if(disciplina != null && professor != null){
+            disciplina.adicionarProfessor(professor);
+            logger.gravaArquivo(String.format("Professor %s atribuído à disciplina %s", nomeProfessor, nomeDisciplina), Logger.Level.INFO);
+        }else{
+            logger.gravaArquivo(String.format("Falha na atribuição de professor à disciplina %s", nomeDisciplina), Logger.Level.ERROR);
+        }
+    }
+
 
     /**
     * Adiciona uma nova disciplina na lista de disciplinas
@@ -235,6 +254,7 @@ public class Escola{
             logger.gravaArquivo(String.format("Aluno '%s' não adicionado, turma de id '%s' inexistente", nome, idTurma), Logger.Level.ERROR);
         }
     }
+
 
     /**
     * Troca um aluno de uma turma para outra
