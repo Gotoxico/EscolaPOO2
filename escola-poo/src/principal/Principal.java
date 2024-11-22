@@ -18,23 +18,22 @@ import modelo.Prova;
 import modelo.Palestra;
 import modelo.IniciacaoCientifica;
 import modelo.AtividadeExtra;
-import modelo.CursoExtra;	
+import modelo.CursoExtra;
 import modelo.AtividadeExtraCurricular;
 import modelo.BibliotecaEscolarConsole;
 import modelo.RelatorioProfessores;
 import modelo.Trabalho;
 
 public class Principal {
-			
-    static String tipoOutput = "console";
 
+    static String tipoOutput = "console";
 
     static OutputInterface output = OutputFactory.getInstance().getTipoOutput(tipoOutput);
 
     static Scanner sc = new Scanner(System.in);
     static Escola controlador = new Escola(OutputFactory.getInstance(), tipoOutput);
 
-    public static void menuCadastro(){
+    public static void menuCadastro() {
         int opc = 0;
         String nome = "";
         String matricula = "";
@@ -53,7 +52,7 @@ public class Principal {
         Disciplina d = null;
         Horario h = null;
 
-        while(true){
+        while (true) {
             output.display("====== Cadastro =====");
             output.display("1 - Cadastrar aluno");
             output.display("2 - Cadastrar professor");
@@ -71,7 +70,7 @@ public class Principal {
             opc = sc.nextInt();
             sc.nextLine();
 
-            switch(opc){
+            switch (opc) {
                 case 1:
                     output.display("Digite o nome do novo aluno: ");
                     nome = sc.nextLine();
@@ -113,13 +112,14 @@ public class Principal {
                     break;
                 case 6:
                     turmaId = menuSelecionarTurma(controlador.getTodasTurmas());
-                    
+
                     menuCriarHorario(turmaId);
-                    
+
                     break;
 
-                //Cadastrar provas, trabalhos, pontoExtra, atividades extra curriculares, horarioTurma
-                //adicionando pontos extras
+                // Cadastrar provas, trabalhos, pontoExtra, atividades extra curriculares,
+                // horarioTurma
+                // adicionando pontos extras
                 case 7:
                     disciplinaId = menuSelecionarDisciplina(controlador.getTodasDisciplinas());
 
@@ -158,7 +158,6 @@ public class Principal {
                     controlador.adicionarTrabalhoDisciplina(disciplinaId, p.getNome(), t.getNomeTurma(), nome, peso);
                     break;
 
-
                 case 9:
                     output.display("====== Cadastrar Ponto Extra =====");
                     output.display("Digite o nome da Disciplina: ");
@@ -177,7 +176,8 @@ public class Principal {
                     float valorMaximo = sc.nextFloat();
                     output.display("==================================");
 
-                    controlador.adicionarPontoExtraDisciplina(disciplinaId, nomeProfessor, tituloPonto, turmaId, valorMaximo);
+                    controlador.adicionarPontoExtraDisciplina(disciplinaId, nomeProfessor, tituloPonto, turmaId,
+                            valorMaximo);
 
                     break;
 
@@ -202,8 +202,7 @@ public class Principal {
 
                     AtividadeExtra ic = null;
 
-
-                    switch(opcAtividade){
+                    switch (opcAtividade) {
                         case 1:
                             output.display("Digite o nome do palestrante: ");
                             String palestrante = sc.nextLine();
@@ -235,48 +234,48 @@ public class Principal {
                     controlador.addAtividadeExtraCurricular(matricula, ic);
                     break;
 
-
-            case 0:
-                return;
+                case 0:
+                    return;
 
             }
         }
     }
-    public static void relatorioHorario(Horario h){
+
+    public static void relatorioHorario(Horario h) {
         output.display(h.toString());
     }
 
-    public static void menuSelecionarProfessorDisciplinaTurma(String turmaId){
+    public static void menuSelecionarProfessorDisciplinaTurma(String turmaId) {
         ArrayList<Disciplina> disciplinasTurma = controlador.getDisciplinasTurma(turmaId);
         String professorId;
 
-        for(Disciplina d : disciplinasTurma){
+        for (Disciplina d : disciplinasTurma) {
             output.display(String.format("Selecionando Professor da disciplina '%s':", d.getNome()));
             professorId = menuSelecionarProfessor(d.getProfessores());
-            
-            controlador.definirProfessorDeisciplinaTurma(turmaId, turmaId, professorId);
+
+            controlador.definirProfessorDisciplinaTurma(turmaId, turmaId, professorId);
         }
 
     }
-    public static void menuCriarHorario(String turmaId){
-        
+
+    public static void menuCriarHorario(String turmaId) {
+
         String dia = "";
         String nomeDisciplina = "";
         LocalTime horario = null;
         int opc = 0;
-        
-        
+
         Disciplina disciplina = null;
-        
-        do{
+
+        do {
             relatorioHorario(controlador.getHorarioTurmaId(turmaId));
 
             output.display("1 - Editar horário");
             output.display("0 - Sair");
             output.display("Escolha sua opção: ");
             opc = sc.nextInt();
-            
-            switch(opc){
+
+            switch (opc) {
                 case 1:
                     dia = escolherDiaSemana();
                     horario = escolherHoraDoDia();
@@ -287,65 +286,65 @@ public class Principal {
                     break;
                 case 0:
                     break;
-            }    
-        }while(opc != 0);
+            }
+        } while (opc != 0);
     }
-  
-    public static LocalTime escolherHoraDoDia(){
+
+    public static LocalTime escolherHoraDoDia() {
         LocalTime[] horarios = {
-            LocalTime.of(7, 0),
-            LocalTime.of(7, 50),
-            LocalTime.of(8, 40),
-            
-            LocalTime.of(9, 45),
-            LocalTime.of(10, 35),
-            LocalTime.of(11, 25),
-            
-            LocalTime.of(13, 10),
-            LocalTime.of(14, 0),
-            LocalTime.of(14, 50)       
+                LocalTime.of(7, 0),
+                LocalTime.of(7, 50),
+                LocalTime.of(8, 40),
+
+                LocalTime.of(9, 45),
+                LocalTime.of(10, 35),
+                LocalTime.of(11, 25),
+
+                LocalTime.of(13, 10),
+                LocalTime.of(14, 0),
+                LocalTime.of(14, 50)
         };
-        
+
         int opc = 0;
-        
-        while(opc < 1 || opc > horarios.length){
-            for(int cont=1; cont < horarios.length; cont++){
+
+        while (opc < 1 || opc > horarios.length) {
+            for (int cont = 1; cont < horarios.length; cont++) {
                 int pos = cont - 1;
                 System.out.println(String.format("%d - %s", cont, horarios[pos].toString()));
-            }     
-            
+            }
+
             output.display("Escolha o horário: ");
             opc = sc.nextInt();
         }
-        
-        return horarios[opc-1];
+
+        return horarios[opc - 1];
     }
-    
-    public static String escolherDiaSemana(){
+
+    public static String escolherDiaSemana() {
         String[] diasDaSemana = {
-            "Segunda-feira",
-            "Terça-feira",
-            "Quarta-feira",
-            "Quinta-feira",
-            "Sexta-feira"
+                "Segunda-feira",
+                "Terça-feira",
+                "Quarta-feira",
+                "Quinta-feira",
+                "Sexta-feira"
         };
-        
+
         int opc = 0;
-        
-        while(opc < 1 || opc > diasDaSemana.length){
-            for(int cont=1; cont < diasDaSemana.length; cont++){
+
+        while (opc < 1 || opc > diasDaSemana.length) {
+            for (int cont = 1; cont < diasDaSemana.length; cont++) {
                 int pos = cont - 1;
                 System.out.println(String.format("%d - %s", cont, diasDaSemana[pos]));
-            }     
-            
+            }
+
             output.display("Escolha o dia da semana: ");
             opc = sc.nextInt();
         }
-        
-        return diasDaSemana[opc-1];
+
+        return diasDaSemana[opc - 1];
     }
 
-    public static void menuRemover(){
+    public static void menuRemover() {
         int opc = 0;
         String nome = "";
         String matricula = "";
@@ -355,7 +354,7 @@ public class Principal {
         String unidadeEscolar = "";
         String anoEscolar = "";
 
-        while(true){
+        while (true) {
             output.display("====== Remoção =====");
             output.display("1 - Expulsar aluno");
             output.display("2 - Demitir professor");
@@ -373,7 +372,7 @@ public class Principal {
             opc = sc.nextInt();
             sc.nextLine();
 
-            switch(opc){
+            switch (opc) {
                 case 1:
                     output.display("Digite o nome do novo aluno: ");
                     nome = sc.nextLine();
@@ -406,20 +405,21 @@ public class Principal {
                     Integer tamanho = sc.nextInt();
                     controlador.addTurma(nome, tamanho);
                     break;
-                    
-                case 6:
-					output.display("Digite o ID da turma: ");
-					turmaId = sc.nextLine();
-					controlador.removerHorarioTurma(turmaId);
-					break;
 
-                //Cadastrar provas, trabalhos, pontoExtra, atividades extra curriculares, horarioTurma
+                case 6:
+                    output.display("Digite o ID da turma: ");
+                    turmaId = sc.nextLine();
+                    controlador.removerHorarioTurma(turmaId);
+                    break;
+
+                // Cadastrar provas, trabalhos, pontoExtra, atividades extra curriculares,
+                // horarioTurma
 
                 case 7:
                     menuRemoverProvas();
                     break;
 
-                //Removendo Trabalhos
+                // Removendo Trabalhos
                 case 8:
                     menuRemoverTrabalhos();
                     break;
@@ -430,7 +430,7 @@ public class Principal {
         }
     }
 
-    public static void menuRemoverTrabalhos(){
+    public static void menuRemoverTrabalhos() {
         String nomeDisciplina = "";
         String turmaId = "";
         String professorId = "";
@@ -455,10 +455,10 @@ public class Principal {
         output.display("Selecione sua opção: ");
         int opcTrabalho = sc.nextInt();
 
-        switch(opcTrabalho){
+        switch (opcTrabalho) {
             case 1:
                 /// //////////////////////////////////////
-                ////////////////REAVALIAAR
+                //////////////// REAVALIAAR
                 /// //////////////////////////////////////
 
                 output.display("Digite o nome do trabalho: ");
@@ -467,7 +467,8 @@ public class Principal {
                 output.display("Digite o peso do Trabalho na nota: ");
                 float peso = sc.nextFloat();
 
-                controlador.removerTrabalhoDisciplina(nomeDisciplina, p.getNome(), nomeTrabalho, t.getNomeTurma(), peso);
+                controlador.removerTrabalhoDisciplina(nomeDisciplina, p.getNome(), nomeTrabalho, t.getNomeTurma(),
+                        peso);
                 break;
 
             case 2:
@@ -479,7 +480,7 @@ public class Principal {
         }
     }
 
-    public static void menuRemoverProvas(){
+    public static void menuRemoverProvas() {
         String nomeDisciplina = "";
         String turmaId = "";
         String professorId = "";
@@ -504,10 +505,10 @@ public class Principal {
         output.display("Selecione sua opção: ");
         int opcTrabalho = sc.nextInt();
 
-        switch(opcTrabalho){
+        switch (opcTrabalho) {
             case 1:
                 /// //////////////////////////////////////
-                ////////////////REAVALIAAR
+                //////////////// REAVALIAAR
                 /// //////////////////////////////////////
 
                 output.display("Digite o nome da prova: ");
@@ -527,15 +528,15 @@ public class Principal {
                 return;
         }
     }
-    public static void menuImprimir(){
+
+    public static void menuImprimir() {
         String matricula = "";
         String idProfessor = "";
         String nomeDisciplina = "";
-        
-        
+
         Disciplina disciplina = null;
         Professor prof = null;
-        
+
         ArrayList<Aluno> alunos = null;
         ArrayList<Turma> turmas = null;
         ArrayList<Professor> professores = null;
@@ -543,7 +544,6 @@ public class Principal {
         ArrayList<Prova> provas = null;
         ArrayList<Trabalho> trabalhos = null;
 
-        
         output.display("====== Impressão =====");
         output.display("1 - Imprimir alunos");
         output.display("2 - Imprimir turmas");
@@ -565,11 +565,11 @@ public class Principal {
         int opc = sc.nextInt();
         sc.nextLine();
 
-        switch(opc){
+        switch (opc) {
             case 1:
                 alunos = controlador.getTodosAlunos();
                 output.display("=========================");
-                for(Aluno a : alunos) {
+                for (Aluno a : alunos) {
                     output.display("ID: " + a.getID());
                     output.display("Matricula: " + a.getMatricula());
                     output.display("Nome: " + a.getNome());
@@ -580,7 +580,7 @@ public class Principal {
             case 2:
                 turmas = controlador.getTodasTurmas();
                 output.display("=========================");
-                for(Turma t : turmas) {
+                for (Turma t : turmas) {
                     output.display("ID: " + t.getID());
                     output.display("Nome: " + t.getNomeTurma());
                     output.display("QTD vagas: " + t.getQuantidadeVagas());
@@ -591,17 +591,17 @@ public class Principal {
             case 3:
                 professores = controlador.getTodosProfessores();
                 output.display("=========================");
-                for(Professor p : professores) {
+                for (Professor p : professores) {
                     output.display("ID: " + p.getID());
                     output.display("Nome: " + p.getNome());
                     output.display("=========================");
                 }
                 break;
 
-            case 4:   
+            case 4:
                 disciplinas = controlador.getTodasDisciplinas();
                 output.display("=========================");
-                for(Disciplina d : disciplinas) {
+                for (Disciplina d : disciplinas) {
                     output.display("Nome: " + d.getNome());
                     output.display("Unidade Escolar: " + d.getUnidadeEscolar());
                     output.display("Ano Escolar: " + d.getAnoEscolar());
@@ -610,7 +610,7 @@ public class Principal {
                 break;
             case 5:
                 matricula = menuSelecionarAluno(controlador.getTodosAlunos());
-                
+
                 relatorioAluno(controlador.getAlunoMatricula(matricula));
                 break;
 
@@ -620,11 +620,11 @@ public class Principal {
                 idProfessor = menuSelecionarProfessor(controlador.getTodosProfessores());
 
                 prof = controlador.getProfessorId(idProfessor);
-                
+
                 output.display("Nome: " + prof.getNome());
                 output.display("Titulação: " + prof.getTitulacao());
                 output.display("Turmas: ");
-                for(Turma t : prof.getTurmas()){
+                for (Turma t : prof.getTurmas()) {
                     output.display("\nNome: " + t.getNomeTurma());
                 }
 
@@ -632,7 +632,7 @@ public class Principal {
                 break;
             case 8:
                 nomeDisciplina = menuSelecionarDisciplina(controlador.getTodasDisciplinas());
-                
+
                 relatorioDisciplina(controlador.getDisciplinaNome(nomeDisciplina));
 
             case 9:
@@ -642,8 +642,8 @@ public class Principal {
 
                 disciplina = controlador.getDisciplinaNome(nomeDisciplina);
                 provas = disciplina.getProvas();
-                
-                for(Prova p : provas){
+
+                for (Prova p : provas) {
                     output.display("Nome: " + p.getNomeProva());
                     output.display("Peso: " + p.getPeso());
                     output.display("Nota: " + p.getNota());
@@ -652,74 +652,74 @@ public class Principal {
                 break;
             case 10:
                 nomeDisciplina = menuSelecionarDisciplina(controlador.getTodasDisciplinas());
-                
+
                 disciplina = controlador.getDisciplinaNome(nomeDisciplina);
                 trabalhos = disciplina.getTrabalhos();
-                
-                for(Trabalho t : trabalhos){
+
+                for (Trabalho t : trabalhos) {
                     relatorioTrabalho(t);
                 }
                 break;
             case 13:
-				ArrayList<Turma> turmasHorario = controlador.getTodasTurmas();
-				output.display("Digite o ID da turma: ");
-				String turmaId = sc.nextLine();
-				
-				for(Turma t : turmasHorario){
-					if(t.getID().equals(turmaId)){
-						output.display("====== Horário da Turma =====");
-						output.display("ID: " + t.getID());
-						output.display("Nome: " + t.getNomeTurma());
-						output.display("Horário: \n" + t.getHorario().toString());
-						output.display("=========================");
-					}
-				}
-				output.display("0 - Voltar");
-				output.display("==============================");
-				int opcHorario = sc.nextInt();
-				sc.nextLine();
-				if(opcHorario == 0){
-					break;
-				}
-				break;
-                
+                ArrayList<Turma> turmasHorario = controlador.getTodasTurmas();
+                output.display("Digite o ID da turma: ");
+                String turmaId = sc.nextLine();
+
+                for (Turma t : turmasHorario) {
+                    if (t.getID().equals(turmaId)) {
+                        output.display("====== Horário da Turma =====");
+                        output.display("ID: " + t.getID());
+                        output.display("Nome: " + t.getNomeTurma());
+                        output.display("Horário: \n" + t.getHorario().toString());
+                        output.display("=========================");
+                    }
+                }
+                output.display("0 - Voltar");
+                output.display("==============================");
+                int opcHorario = sc.nextInt();
+                sc.nextLine();
+                if (opcHorario == 0) {
+                    break;
+                }
+                break;
+
             case 0:
                 return;
         }
     }
 
-    public static void relatorioTrabalho(Trabalho t){
-        if(t == null){
+    public static void relatorioTrabalho(Trabalho t) {
+        if (t == null) {
             output.display("Trabalho inexistente");
             return;
         }
-        
+
         output.display("============= Trabalho ==============");
         output.display(String.format("Nome: %s", t.getNomeTrabalho()));
         output.display(String.format("Peso: %.2f", t.getPeso()));
         output.display(String.format("Nota: %s", t.getNota()));
         output.display("=====================================");
     }
-    
-    public static void relatorioAluno(Aluno a){
-        if(a == null){
+
+    public static void relatorioAluno(Aluno a) {
+        if (a == null) {
             output.display("Aluno inexistente");
             return;
         }
-        
+
         output.display("=============== Aluno ===============");
         output.display(String.format("Matrícula: %s", a.getMatricula()));
         output.display(String.format("Nome: %s", a.getNome()));
         output.display(String.format("Média: %.2f", a.calcularMedia()));
         output.display("=====================================");
     }
-    
-    public static void relatorioDisciplina(Disciplina d){
-        if(d == null){
+
+    public static void relatorioDisciplina(Disciplina d) {
+        if (d == null) {
             output.display("Disciplina inexistente");
             return;
         }
-        
+
         output.display("============= Disciplina ============");
         output.display(String.format("Nome: %s", d.getNome()));
         output.display(String.format("Ano Escolar: %s", d.getAnoEscolar()));
@@ -733,7 +733,7 @@ public class Principal {
         output.display("=====================================");
     }
 
-    public static void menuAdicionarNotaParaAluno(){
+    public static void menuAdicionarNotaParaAluno() {
         int opc;
         String nomeTurma = "";
         String IdTurma = "";
@@ -744,8 +744,8 @@ public class Principal {
         String IdProfessor = "";
         String nomeAvalicao = "";
         float notaAvaliacao;
-        
-        while(true){
+
+        while (true) {
             output.display("======Adicionar Notas Para Aluno======");
             output.display("1 - Adicionar Nota para prova");
             output.display("2 - Adicionar Nota para trabalho");
@@ -755,57 +755,58 @@ public class Principal {
             output.display("Selecione sua opção: ");
             opc = sc.nextInt();
             sc.nextLine();
-            
-            switch(opc){
+
+            switch (opc) {
                 case 1:
                     ArrayList<Turma> turmas = controlador.getTodasTurmas();
                     IdTurma = menuSelecionarTurma(turmas);
-                    
-                    for(Turma turma : turmas){
-                        if(turma.getID().equals(IdTurma)){
+
+                    for (Turma turma : turmas) {
+                        if (turma.getID().equals(IdTurma)) {
                             nomeTurma = turma.getNomeTurma();
 
                             ArrayList<Aluno> alunos = turma.getAlunos();
                             matriculaAluno = menuSelecionarAluno(alunos);
 
-                            for(Aluno aluno : alunos){
-                                if(aluno.getMatricula().equals(matriculaAluno)){
+                            for (Aluno aluno : alunos) {
+                                if (aluno.getMatricula().equals(matriculaAluno)) {
                                     nomeAluno = aluno.getNome();
                                 }
                             }
-                            
+
                             ArrayList<Disciplina> disciplinas = turma.getDisciplinas();
                             nomeDisciplina = menuSelecionarDisciplina(disciplinas);
-                            
-                            for(Disciplina disciplina : disciplinas){
-                                if(disciplina.getNome().equals(nomeDisciplina)){
+
+                            for (Disciplina disciplina : disciplinas) {
+                                if (disciplina.getNome().equals(nomeDisciplina)) {
                                     ArrayList<Professor> professores = disciplina.getProfessores();
                                     IdProfessor = menuSelecionarProfessor(professores);
 
-                                    for(Professor professor : professores){
-                                        if(professor.getID().equals(IdProfessor)){
+                                    for (Professor professor : professores) {
+                                        if (professor.getID().equals(IdProfessor)) {
                                             nomeProfessor = professor.getNome();
                                         }
                                     }
-                                    
+
                                     ArrayList<Prova> provas = disciplina.getProvas();
-                                    for(Prova prova : provas){
+                                    for (Prova prova : provas) {
                                         output.display(prova.getNomeProva());
                                     }
                                     output.display("Digite nome Prova: ");
                                     nomeAvalicao = sc.nextLine();
-                                    
+
                                     output.display("Digite nota Prova: ");
                                     notaAvaliacao = sc.nextInt();
-                                    
-                                    controlador.adicionarNotaProva(nomeAluno, nomeDisciplina, nomeProfessor, nomeAvalicao, notaAvaliacao, nomeTurma);
-                            
+
+                                    controlador.adicionarNotaProva(nomeAluno, nomeDisciplina, nomeProfessor,
+                                            nomeAvalicao, notaAvaliacao, nomeTurma);
+
                                 }
-                            }                            
+                            }
                         }
                     }
-                break;
-                    
+                    break;
+
                 case 2:
                     ArrayList<Turma> turmasTrabalho = controlador.getTodasTurmas();
                     IdTurma = menuSelecionarTurma(turmasTrabalho);
@@ -847,12 +848,13 @@ public class Principal {
                                     output.display("Digite nota Trabalho: ");
                                     notaAvaliacao = sc.nextInt();
 
-                                    controlador.adicionarNotaTrabalho(nomeAluno, nomeDisciplina, nomeProfessor, nomeAvalicao, notaAvaliacao, nomeTurma);
+                                    controlador.adicionarNotaTrabalho(nomeAluno, nomeDisciplina, nomeProfessor,
+                                            nomeAvalicao, notaAvaliacao, nomeTurma);
                                 }
                             }
                         }
                     }
-                break;
+                    break;
 
                 case 3:
                     ArrayList<Turma> turmasPontoExtra = controlador.getTodasTurmas();
@@ -891,13 +893,13 @@ public class Principal {
                                     output.display("Digite valor Ponto Extra: ");
                                     notaAvaliacao = sc.nextInt();
 
-                                    controlador.adicionarNotaPontoExtra(nomeAluno, nomeDisciplina, nomeProfessor, nomeAvalicao, nomeTurma, notaAvaliacao);
+                                    controlador.adicionarNotaPontoExtra(nomeAluno, nomeDisciplina, nomeProfessor,
+                                            nomeAvalicao, nomeTurma, notaAvaliacao);
                                 }
                             }
                         }
                     }
-                break;
-                    
+                    break;
 
                 case 0:
                     return;
@@ -905,7 +907,7 @@ public class Principal {
         }
     }
 
-    public static void menuAdicionarNotaParaTurma(){
+    public static void menuAdicionarNotaParaTurma() {
         int opc;
         String nomeTurma = "";
         String IdTurma = "";
@@ -916,8 +918,8 @@ public class Principal {
         String IdProfessor = "";
         String nomeAvalicao = "";
         float notaAvaliacao;
-        
-        while(true){
+
+        while (true) {
             output.display("======Adicionar Notas Para Turma======");
             output.display("1 - Adicionar Notas de prova");
             output.display("2 - Adicionar Notas de trabalho");
@@ -927,49 +929,50 @@ public class Principal {
             output.display("Selecione sua opção: ");
             opc = sc.nextInt();
             sc.nextLine();
-            
-            switch(opc){
+
+            switch (opc) {
                 case 1:
                     ArrayList<Turma> turmas = controlador.getTodasTurmas();
                     IdTurma = menuSelecionarTurma(turmas);
-                    
-                    for(Turma turma : turmas){
-                        if(turma.getID().equals(IdTurma)){
+
+                    for (Turma turma : turmas) {
+                        if (turma.getID().equals(IdTurma)) {
                             nomeTurma = turma.getNomeTurma();
-                            
+
                             ArrayList<Disciplina> disciplinas = turma.getDisciplinas();
                             nomeDisciplina = menuSelecionarDisciplina(disciplinas);
-                            
-                            for(Disciplina disciplina : disciplinas){
-                                if(disciplina.getNome().equals(nomeDisciplina)){
+
+                            for (Disciplina disciplina : disciplinas) {
+                                if (disciplina.getNome().equals(nomeDisciplina)) {
                                     ArrayList<Professor> professores = disciplina.getProfessores();
                                     IdProfessor = menuSelecionarProfessor(professores);
 
-                                    for(Professor professor : professores){
-                                        if(professor.getID().equals(IdProfessor)){
+                                    for (Professor professor : professores) {
+                                        if (professor.getID().equals(IdProfessor)) {
                                             nomeProfessor = professor.getNome();
                                         }
                                     }
-                                    
+
                                     ArrayList<Prova> provas = disciplina.getProvas();
-                                    for(Prova prova : provas){
+                                    for (Prova prova : provas) {
                                         output.display(prova.getNomeProva());
                                     }
                                     output.display("Digite nome Prova: ");
                                     nomeAvalicao = sc.nextLine();
                                 }
                             }
-                            
+
                             ArrayList<Aluno> alunos = turma.getAlunos();
-                            for(Aluno aluno : alunos){
+                            for (Aluno aluno : alunos) {
                                 output.display("Digite nota Prova aluno " + aluno.getNome() + ": ");
                                 notaAvaliacao = sc.nextInt();
-                                controlador.adicionarNotaProva(aluno.getNome(), nomeDisciplina, nomeProfessor, nomeTurma, notaAvaliacao, nomeTurma);
+                                controlador.adicionarNotaProva(aluno.getNome(), nomeDisciplina, nomeProfessor,
+                                        nomeTurma, notaAvaliacao, nomeTurma);
                             }
-                            
+
                         }
                     }
-                break;
+                    break;
 
                 case 2:
                     ArrayList<Turma> turmasTrabalho = controlador.getTodasTurmas();
@@ -1006,7 +1009,8 @@ public class Principal {
                             for (Aluno aluno : alunos) {
                                 output.display("Digite nota Trabalho aluno " + aluno.getNome() + ": ");
                                 notaAvaliacao = sc.nextInt();
-                                controlador.adicionarNotaTrabalho(aluno.getNome(), nomeDisciplina, nomeProfessor, nomeAvalicao, notaAvaliacao, nomeTurma);
+                                controlador.adicionarNotaTrabalho(aluno.getNome(), nomeDisciplina, nomeProfessor,
+                                        nomeAvalicao, notaAvaliacao, nomeTurma);
                             }
                         }
                     }
@@ -1043,7 +1047,8 @@ public class Principal {
                             for (Aluno aluno : alunos) {
                                 output.display("Digite valor Ponto Extra aluno " + aluno.getNome() + ": ");
                                 notaAvaliacao = sc.nextInt();
-                                controlador.adicionarNotaPontoExtra(aluno.getNome(), nomeDisciplina, nomeProfessor, nomeAvalicao, nomeTurma, notaAvaliacao);
+                                controlador.adicionarNotaPontoExtra(aluno.getNome(), nomeDisciplina, nomeProfessor,
+                                        nomeAvalicao, nomeTurma, notaAvaliacao);
                             }
                         }
                     }
@@ -1055,10 +1060,9 @@ public class Principal {
         }
     }
 
-    public static void menuPrincipal(){
+    public static void menuPrincipal() {
 
-
-        int opc=0;
+        int opc = 0;
         String turmaId = "";
         String alunoMatricula = "";
         String nome = "";
@@ -1073,7 +1077,7 @@ public class Principal {
         ArrayList<Professor> professores;
         ArrayList<Disciplina> disciplinas;
 
-        while(true){
+        while (true) {
             output.display("============ MENU ============");
             output.display("1 - Cadastrar ");
             output.display("2 - Remover");
@@ -1088,11 +1092,11 @@ public class Principal {
             output.display("11 - Atribuir Professores a Disciplinas de uma Turma");
             output.display("0 - Sair");
             output.display("==============================");
-            output.display("Selecione sua opção: ");            
+            output.display("Selecione sua opção: ");
             opc = sc.nextInt();
-        sc.nextLine();
+            sc.nextLine();
 
-            switch(opc){
+            switch (opc) {
                 case 1:
                     menuCadastro();
                     break;
@@ -1122,25 +1126,25 @@ public class Principal {
                     break;
 
                 case 6:
-                    //Não mexer
+                    // Não mexer
                     menuAdicionarNotaParaAluno();
                     break;
 
                 case 7:
-                    //Não mexer
+                    // Não mexer
                     menuAdicionarNotaParaTurma();
                     break;
 
                 case 8:
                     professores = controlador.getTodosProfessores();
                     output.display("=========================");
-                    for(Professor p : professores) {
+                    for (Professor p : professores) {
                         output.display("ID: " + p.getID());
                         output.display("Nome: " + p.getNome());
-                    turmas = p.getTurmas();
+                        turmas = p.getTurmas();
                         output.display("Turmas: ");
                         output.display("-------------------------");
-                    for(Turma t : turmas){
+                        for (Turma t : turmas) {
                             output.display("Nome: " + t.getNomeTurma());
                             output.display("-------------------------");
                         }
@@ -1174,14 +1178,14 @@ public class Principal {
                     menuAdminBiblioteca();
                     break;
             }
-        }    	
+        }
     }
 
-    public static String menuSelecionarTurma(ArrayList<Turma> turmas){
+    public static String menuSelecionarTurma(ArrayList<Turma> turmas) {
         String turmaId = "";
         output.display("====== Selecione a turma =====");
 
-        for(Turma t : turmas){
+        for (Turma t : turmas) {
             output.display(t.getID() + " - " + t.getNomeTurma());
         }
 
@@ -1192,12 +1196,12 @@ public class Principal {
         return turmaId;
     }
 
-    public static String menuSelecionarAluno(ArrayList<Aluno> alunos){	
+    public static String menuSelecionarAluno(ArrayList<Aluno> alunos) {
         String alunoMatricula = "";
         output.display("====== Selecione o aluno =====");
 
-        for(Aluno a : alunos){
-            output.display(a.getMatricula()+ " - " + a.getNome());
+        for (Aluno a : alunos) {
+            output.display(a.getMatricula() + " - " + a.getNome());
         }
 
         output.display("==============================");
@@ -1207,12 +1211,12 @@ public class Principal {
         return alunoMatricula;
     }
 
-    public static String menuSelecionarProfessor(ArrayList<Professor> professores){	
+    public static String menuSelecionarProfessor(ArrayList<Professor> professores) {
         String professorId = "";
         output.display("====== Selecione o professor =====");
 
-        for(Professor p : professores){
-            output.display(p.getID()+ " - " + p.getNome());
+        for (Professor p : professores) {
+            output.display(p.getID() + " - " + p.getNome());
         }
 
         output.display("==============================");
@@ -1222,11 +1226,11 @@ public class Principal {
         return professorId;
     }
 
-    public static String menuSelecionarDisciplina(ArrayList<Disciplina> disciplinas){	
+    public static String menuSelecionarDisciplina(ArrayList<Disciplina> disciplinas) {
         String nomeDisciplina = "";
         output.display("====== Selecione a disciplina =====");
 
-        for(Disciplina d : disciplinas){
+        for (Disciplina d : disciplinas) {
             output.display(d.getNome());
         }
 
@@ -1237,7 +1241,7 @@ public class Principal {
         return nomeDisciplina;
     }
 
-    public static void menuAdminBiblioteca(){
+    public static void menuAdminBiblioteca() {
         int opc = 0;
         String titulo = "";
         String autor = "";
@@ -1245,8 +1249,7 @@ public class Principal {
         BibliotecaEscolar biblioteca = controlador.getBiblioteca();
         BibliotecaEscolarConsole bibliotecaConsole = new BibliotecaEscolarConsole();
 
-
-        while(true){
+        while (true) {
             output.display("====== Página da biblioteca =====");
             output.display("1 - Catálogo de livros");
             output.display("2 - Buscar livros pelo título");
@@ -1272,19 +1275,19 @@ public class Principal {
                 case 2:
                     output.display("Digite o título do livro: ");
                     titulo = sc.nextLine();
-                    //bibliotecaConsole.buscarLivroPorTitulo(biblioteca, titulo);
+                    // bibliotecaConsole.buscarLivroPorTitulo(biblioteca, titulo);
                     break;
 
                 case 3:
                     output.display("Digite o autor do livro: ");
                     autor = sc.nextLine();
-                    //biblioteca.buscarLivroPorAutor(autor);
+                    // biblioteca.buscarLivroPorAutor(autor);
                     break;
 
                 case 4:
                     output.display("Digite o ISBN do livro: ");
                     isbn = sc.nextLine();
-                    //biblioteca.buscarLivroPorISBN(isbn);
+                    // biblioteca.buscarLivroPorISBN(isbn);
                     break;
 
                 case 5:
@@ -1292,7 +1295,7 @@ public class Principal {
                     String usuarioId = sc.nextLine();
                     output.display("Digite o ISBN do livro: ");
                     isbn = sc.nextLine();
-                    //biblioteca.fazerEmprestimo(usuarioId, isbn);
+                    // biblioteca.fazerEmprestimo(usuarioId, isbn);
                     break;
 
                 case 6:
@@ -1300,11 +1303,11 @@ public class Principal {
                     usuarioId = sc.nextLine();
                     output.display("Digite o ISBN do livro: ");
                     isbn = sc.nextLine();
-                    //biblioteca.fazerDevolucao(usuarioId, isbn);
+                    // biblioteca.fazerDevolucao(usuarioId, isbn);
                     break;
 
                 case 7:
-                    //biblioteca.relatorioGeralLivros();
+                    // biblioteca.relatorioGeralLivros();
                     break;
 
                 case 8:
@@ -1317,19 +1320,19 @@ public class Principal {
                     output.display("Digite o isbn do livro: ");
                     isbn = sc.nextLine();
 
-                    //controlador.addLivroBiblioteca(titulo, autor, isbn);
+                    // controlador.addLivroBiblioteca(titulo, autor, isbn);
                     break;
 
                 case 9:
-                    //biblioteca.relatorioMultas();
+                    // biblioteca.relatorioMultas();
                     break;
 
             }
         }
     }
 
-    public static void seed(){
-        //Gerando turmas para testes
+    public static void seed() {
+        // Gerando turmas para testes
         controlador.addTurma("6A", 33);
         controlador.addTurma("6B", 30);
         controlador.addTurma("7A", 28);
@@ -1339,17 +1342,19 @@ public class Principal {
         controlador.addTurma("9A", 27);
         controlador.addTurma("9B", 26);
 
-        //Gerando 30 livros para simular um banco de dados
+        // Gerando 30 livros para simular um banco de dados
         controlador.addLivroBiblioteca("Dom Casmurro", "Machado de Assis", "978-8525054182", "Romance");
         controlador.addLivroBiblioteca("O Pequeno Príncipe", "Antoine de Saint-Exupéry", "978-8535931962", "Infantil");
         controlador.addLivroBiblioteca("1984", "George Orwell", "978-8535930859", "Distopia");
         controlador.addLivroBiblioteca("A Moreninha", "Joaquim Manuel de Macedo", "978-8575030211", "Romance");
         controlador.addLivroBiblioteca("O Alquimista", "Paulo Coelho", "978-8580417994", "Ficção");
-        controlador.addLivroBiblioteca("Cem Anos de Solidão", "Gabriel García Márquez", "978-8535932396", "Realismo Mágico");
+        controlador.addLivroBiblioteca("Cem Anos de Solidão", "Gabriel García Márquez", "978-8535932396",
+                "Realismo Mágico");
         controlador.addLivroBiblioteca("Moby Dick", "Herman Melville", "978-8535924698", "Aventura");
         controlador.addLivroBiblioteca("A Revolução dos Bichos", "George Orwell", "978-8573022861", "Satírica");
         controlador.addLivroBiblioteca("O Senhor dos Anéis", "J.R.R. Tolkien", "978-8576607164", "Fantasia");
-        controlador.addLivroBiblioteca("Harry Potter e a Pedra Filosofal", "J.K. Rowling", "978-8532530191", "Fantasia");
+        controlador.addLivroBiblioteca("Harry Potter e a Pedra Filosofal", "J.K. Rowling", "978-8532530191",
+                "Fantasia");
         controlador.addLivroBiblioteca("A Metamorfose", "Franz Kafka", "978-8535923981", "Ficção");
         controlador.addLivroBiblioteca("O Cortiço", "Aluísio Azevedo", "978-8535923165", "Naturalismo");
         controlador.addLivroBiblioteca("A Cabana", "William P. Young", "978-8573025135", "Ficção");
@@ -1372,10 +1377,10 @@ public class Principal {
         controlador.addLivroBiblioteca("O Nome da Rosa", "Umberto Eco", "978-8535923150", "Mistério");
         controlador.addLivroBiblioteca("A Cor Púrpura", "Alice Walker", "978-8535923853", "Ficção");
         controlador.addLivroBiblioteca("O Livro dos Espíritos", "Allan Kardec", "978-8573023148", "Religião");
-       
+
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         seed();
         menuPrincipal();
 
