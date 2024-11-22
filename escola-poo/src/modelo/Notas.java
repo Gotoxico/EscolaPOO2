@@ -108,7 +108,7 @@ public class Notas {
         }
     }
     
-    public void removerPontoExtraDisciplina(String nomeDisciplina, String nomeProfessor, String nomePontoExtra, String nomeTurma, float valorMaximo){
+    public void removerPontoExtraDisciplina(String nomeDisciplina, String nomeProfessor, String nomePontoExtra, String nomeTurma){
         for(Disciplina disciplina : disciplinas){
             if(disciplina.getNome().equals(nomeDisciplina) && getNomeProfessor(disciplina, nomeProfessor) != null && getNomeTurma(disciplina, nomeTurma) != null){
                 PontoExtra pe = getNomePontoExtra(disciplina, nomePontoExtra);

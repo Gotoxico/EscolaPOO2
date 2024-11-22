@@ -21,6 +21,7 @@ import modelo.AtividadeExtra;
 import modelo.CursoExtra;
 import modelo.AtividadeExtraCurricular;
 import modelo.BibliotecaEscolarConsole;
+import modelo.PontoExtra;
 import modelo.RelatorioProfessores;
 import modelo.Trabalho;
 
@@ -347,17 +348,17 @@ public class Principal {
     public static void menuRemover() {
         int opc = 0;
         String nome = "";
+        String matriculaAluno = "";
         String nomeDisc = "";
         String nomePonto = "";
         String nomeTurma = "";
-        String idAluno = "";
         String matricula = "";
         String turmaId = "";
         String titulacao = "";
         String disciplinaId = "";
         String unidadeEscolar = "";
         String anoEscolar = "";
-        float valorMax = 0f;
+        String profId = "";
 
         while (true) {
             output.display("====== Remoção =====");
@@ -379,12 +380,9 @@ public class Principal {
 
             switch (opc) {
                 case 1:
-                    // Vai pedir o ID mesmo?
-                    output.display("Digite o ID do aluno para ser expulso: ");
-                    idAluno = sc.nextLine();
-                    output.display("Digite o nome do aluno para ser expulso: ");
-                    nome = sc.nextLine();
-                    controlador.addAlunoTurma(nome, idAluno);
+                    matricula = menuSelecionarAluno(controlador.getTodosAlunos());
+                    Aluno aTemp = controlador.getAlunoMatricula(matricula);
+                    controlador.expulsarAluno(aTemp.getNome(), aTemp.getID());
                     break;
 
                 case 2:
@@ -414,8 +412,7 @@ public class Principal {
                     break;
                 
                 case 5:
-                    output.display("Digite o nome da disciplina: ");
-                    nome = sc.nextLine();
+                    nomeDisc = menuSelecionarDisciplina(controlador.getTodasDisciplinas());
                     turmaId = menuSelecionarTurma(controlador.getTodasTurmas());
                     controlador.removerDisciplinaTurma(nome, turmaId);
                     break;
@@ -439,31 +436,19 @@ public class Principal {
                     break;
                     
                 case 9:
-                    output.display("Digite o nome da disciplina: ");
-                    nomeDisc = sc.nextLine();
-                    output.display("Digite o nome do professor: ");
-                    nome = sc.nextLine();
-                    output.display("Digite o nome do ponto extra: ");
-                    nomePonto = sc.nextLine();
-                    output.display("Digite o nome da turma: ");
-                    nomeTurma = sc.nextLine();
-                    output.display("Digite o valor maximo: ");
-                    valorMax = sc.nextFloat();
-                    controlador.removerPontoExtraDisciplina(disciplinaId, nomePonto, nomePonto, nomeTurma, valorMax);
+                    nomeDisc = menuSelecionarDisciplina(controlador.getTodasDisciplinas());
+                    profId = menuSelecionarProfessor(controlador.getTodosProfessores());
+                    nome = controlador.getProfessorId(profId).getNome();
+                    nomePonto = menuSelecionarPontoExtra(controlador.getPontosExtrasDisciplina(nomeDisc));
+                    turmaId = menuSelecionarTurma(controlador.getTodasTurmas());
+                    nomeTurma = controlador.getTurmaId(turmaId).getNomeTurma();
+                    controlador.removerPontoExtraDisciplina(nomeDisc, nome, nomePonto, nomeTurma);
                     break;
                     
                 case 10:
-                    output.display("Digite a matricula do aluno: ");
-                    matricula = sc.nextLine();
+                    matricula = menuSelecionarAluno(controlador.getTodosAlunos());
                     Aluno temp = controlador.getAlunoMatricula(matricula);
-                    int i = 1;
-                    for(AtividadeExtra a : temp.getAtividadesExtra()){
-                        output.display(i + ") " + a.getTitulo());
-                    }
-                    output.display("Selecione o número a atividade do aluno: ");
-                    int num = sc.nextInt();
-                    num--;
-                    AtividadeExtra atividade = temp.getAtividadesExtra().get(num);
+                    AtividadeExtra atividade = menuSelecionarAtividadeExtra(temp);
                     controlador.removerAtividadeExtraCurricular(matricula, atividade);
 
                 case 0:
@@ -1160,8 +1145,7 @@ public class Principal {
                     break;
 
                 case 5:
-                    output.display("Digite o nome da disciplina: ");
-                    disciplinaId = sc.nextLine();
+                    disciplinaId = menuSelecionarDisciplina(controlador.getTodasDisciplinas());
                     turmaId = menuSelecionarTurma(controlador.getTodasTurmas());
                     controlador.addDisciplinaTurma(disciplinaId, turmaId);
 
@@ -1281,6 +1265,37 @@ public class Principal {
         nomeDisciplina = sc.nextLine();
 
         return nomeDisciplina;
+    }
+    
+    public static String menuSelecionarPontoExtra(ArrayList<PontoExtra> pontosExtras){
+        String nomePonto = "";
+        output.display("====== Selecione o ponto extra ======");
+        
+        for(PontoExtra p : pontosExtras){
+            output.display(p.getNomePontoExtra());
+        }
+        
+        output.display("==============================");
+        output.display("Digite o nome do ponto extra: ");
+        nomePonto = sc.nextLine();
+
+        return nomePonto;
+    }
+    
+    public static AtividadeExtra menuSelecionarAtividadeExtra(Aluno a){
+        int i = 1;
+        output.display("====== Selecione a atividade extra ======");
+        
+        for(AtividadeExtra atividade : a.getAtividadesExtra()){
+            output.display(i + " - " + atividade.getTitulo());
+        }
+        
+        output.display("==============================");
+        output.display("Selecione o número a atividade do aluno: ");
+        int num = sc.nextInt();
+        num--;
+        
+        return a.getAtividadesExtra().get(num);
     }
 
     public static void menuAdminBiblioteca() {
