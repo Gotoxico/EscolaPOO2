@@ -1,3 +1,4 @@
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -14,9 +15,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import modelo.*;
+import modelo.Disciplina;
 
-  // Classe interna para representar um período de aula
+  //Classe interna para representar um período de aula
 
 public  class Periodo {
     /**
@@ -30,12 +31,13 @@ public  class Periodo {
     private LocalTime horaFim;
     private Disciplina disciplina;
     private Professor professor;
-
+    
     /**
-     * Construtor da classe
-     * @param horaInicio
-     * @param horaFim
-     * @param disciplina
+     * @Brief: Construtor da classe
+     * @Parameter: horaInicio
+     * @Parameter: horaFim
+     * @Parameter: disciplina
+     * @Parameter: professor
      */
     public Periodo(LocalTime horaInicio, LocalTime horaFim, Disciplina disciplina, Professor professor) {
         this.horaInicio = horaInicio;
@@ -45,9 +47,9 @@ public  class Periodo {
     }
 
     /**
-     * Construtor da classe 2
-     * @param horaInicio
-     * @param horaFim
+     * Brief: Construtor da classe 2
+     * @Parameter: horaInicio
+     * @Parameter: horaFim
      */
     public Periodo(LocalTime horaInicio, LocalTime horaFim) {
         this.horaInicio = horaInicio;
@@ -57,7 +59,7 @@ public  class Periodo {
     /**
      * Getters e Setters
      * 
-     * Retorna a disciplina associada ao período
+     * Brief: Retorna a disciplina associada ao período
      * @return 
      */
     public Disciplina getDisciplina() {
@@ -65,7 +67,7 @@ public  class Periodo {
     }
 
     /**
-     * Retorna o horário de início do período
+     * Brief: Retorna o horário de início do período
      * @return
      */
     public LocalTime getHoraInicio() {
@@ -73,15 +75,15 @@ public  class Periodo {
     }
 
     /**
-     * Retorna o horário de fim do período
-     * @param horaInicio
+     * Brief: Retorna o horário de fim do período
+     * @Parameter: horaInicio
      */
     public void setHoraInicio(LocalTime horaInicio) {
         this.horaInicio = horaInicio;
     }
 
     /**
-     * Retorna o horário de fim do período
+     * Brief: Retorna o horário de fim do período
      * @return
      */
     public LocalTime getHoraFim() {
@@ -89,21 +91,22 @@ public  class Periodo {
     }
 
     /**
-     * Define o horário de fim do período
-     * @param horaFim
+     * Brief: Define o horário de fim do período
+     * @Parameter: horaFim
      */
     public void setHoraFim(LocalTime horaFim) {
         this.horaFim = horaFim;
     }
 
     /**
-     * Define a disciplina associada ao período
-     * @param disciplina
+     * Brief: Define a disciplina associada ao período
+     * @Parameter: disciplina
      */
     public void setDisciplina(Disciplina disciplina) {
         this.disciplina = disciplina;
     }
     
+      
     /**
      * Retorna o professor associado ao período
      * @return 
@@ -121,13 +124,15 @@ public  class Periodo {
         this.professor = professor;
     }
 
+ 
+    
+    
     /**
-     * Méto de override para imprimir o período
+     * Brief: Método de override para retornar os dados do período
      */
         @Override
         public String toString() {
             return horaInicio + " - " + horaFim + ": ";
         }
-
-    
 }
+

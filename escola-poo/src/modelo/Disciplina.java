@@ -4,7 +4,12 @@
  */
 package modelo;
 
+import horario.Horario;
+import horario.Periodo;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 import modelo.Output.OutputConsole;
 import modelo.Output.OutputFactory;
 import modelo.Output.OutputInterface;
@@ -30,12 +35,11 @@ public class Disciplina implements media {
     private ArrayList<PontoExtra> pontosExtra;
     private final OutputInterface output;
     
-    public Disciplina(OutputFactory outputFactory, String nome, String unidadeEscolar, String anoEscolar, 
-                        String tipoOutput, String nomeTurma, String IDTurma, int quantidadeVagas) {
+    public Disciplina(OutputFactory outputFactory, String nome, String unidadeEscolar, String anoEscolar, String tipoOutput, Turma turma) {
         this.nome = nome;
         this.unidadeEscolar = unidadeEscolar;
         this.anoEscolar = anoEscolar;
-        this.turma = new Turma(nomeTurma, IDTurma, quantidadeVagas);
+        this.turma = turma;
         cargaHoraria = 0;
         this.professores = new ArrayList<>();
         this.provas = new ArrayList<>();
@@ -229,6 +233,25 @@ public class Disciplina implements media {
         pontosExtra.remove(pontoExtra);
     }
 
+    public String exibirHorario(Horario horario) {
+        Map<String, List<Periodo>> horarios = horario.getHorario();
+        String string = "";
+
+        for(Map.Entry<String, List<Periodo>> entrada : horarios.entrySet()) {
+            string += entrada.getKey() + "\n";
+
+            for(Periodo per : entrada.getValue()) {
+                if(per.getDisciplina().getNome().equals(this.nome)) {
+                    string += per + "\n";          
+                }
+            }
+
+            string += "\n";
+        }
+
+        return string;
+    }
+  
     public void removerTrabalhos(){
         trabalhos.clear();
     }

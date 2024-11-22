@@ -1,14 +1,13 @@
- 
+
 package horario;
 
+import modelo.Turma;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import modelo.Disciplina;
-import modelo.Professor;
-
 /**
  * Classe que representa um horário de aulas
  * @author kauan
@@ -212,8 +211,6 @@ public class Horario {
         }
         
         return true;
-
-
     }
     
     /**
@@ -263,6 +260,42 @@ public class Horario {
         return true;
     }
 
+    /**
+     * Remove todas as disciplinas de todos os dias
+     * @return {@code true} se as disciplinas foram removidas, {@code false} caso contrário
+     */
+    public boolean removerTudo(){
+        for(Map.Entry<String, List<Periodo>> entrada : horario.entrySet()){
+            for(Periodo per : entrada.getValue()){
+                if(per.getDisciplina() != null){
+                    per.setDisciplina(null);
+                }
+            }
+        }
+        
+        return true;
+    }
+    
+    /**
+     * Remove uma disciplina de um dia
+     * @param dia
+     * @param disciplina
+     * @return {@code true} se a disciplina foi removida, {@code false} caso contrário
+     */
+    public boolean removerDisciplinaDia(String dia, LocalTime inicio){
+        for(Map.Entry<String, List<Periodo>> entrada: horario.entrySet()){
+            if(entrada.getKey().equals(dia)){
+                for(Periodo per : entrada.getValue()){
+                    if(per.getHoraInicio().equals(inicio)){
+                        per.setDisciplina(null);
+                    }
+                }
+            }
+        }
+        return true;
+    }
+    
+    
     /**
      * Adiciona um professor a um dia e horário
      * @param dia
@@ -341,24 +374,6 @@ public class Horario {
         return null;
     }
 
-    /**
-     * Remove uma disciplina de um dia
-     * @param dia
-     * @param disciplina
-     * @return {@code true} se a disciplina foi removida, {@code false} caso contrário
-     */
-    public boolean removerDisciplinaDia(String dia, LocalTime inicio){
-        for(Map.Entry<String, List<Periodo>> entrada: horario.entrySet()){
-            if(entrada.getKey().equals(dia)){
-                for(Periodo per : entrada.getValue()){
-                    if(per.getHoraInicio().equals(inicio)){
-                        per.setDisciplina(null);
-                    }
-                }
-            }
-        }
-        return true;
-    }
 
     /**
      * ToString em forma de tabela os dias da semana, com as semanas sendo as colunas e os horários sendo as linhas (coluna 1 - segunda, coluna 2 - terça, etc)
@@ -432,12 +447,5 @@ public class Horario {
          return tabela.toString();
      }
 
-     //Outra função de exibir todos os horarios com println
-     
-
-    
-
-    
+     //Outra função de exibir todos os horarios com println 
 }
-
-

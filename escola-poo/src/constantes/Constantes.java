@@ -1,5 +1,10 @@
 package constantes;
 
+/**
+ * Classe Constantes armazena as notas de avaliação de algumas universidades públicas e privadas
+ * As notas são representadas por floats e são utilizadas para fins de comparação
+ */
+
 public class Constantes {
     // Universidades Públicas
     public static final float USP = 9.2f;
