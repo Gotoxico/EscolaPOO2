@@ -1,3 +1,4 @@
+
 package principal;
 
 import controlador.Escola;
@@ -113,9 +114,8 @@ public class Principal {
                 case 6:
                     turmaId = menuSelecionarTurma(controlador.getTodasTurmas());
                     
-                    h = menuCriarHorario(controlador.getTurmaId(turmaId));
+                    menuCriarHorario(turmaId);
                     
-                    controlador.addHorarioTurma(h, turmaId);
                     break;
 
                 //Cadastrar provas, trabalhos, pontoExtra, atividades extra curriculares, horarioTurma
@@ -242,14 +242,23 @@ public class Principal {
             }
         }
     }
-    
-    public static Horario menuCriarHorario(Turma t){
-        if(t == null){
-            output.display("Turma inexistente");
-            return null;
+    public static void relatorioHorario(Horario h){
+        output.display(h.toString());
+    }
+
+    public static void menuSelecionarProfessorDisciplinaTurma(String turmaId){
+        ArrayList<Disciplina> disciplinasTurma = controlador.getDisciplinasTurma(turmaId);
+        String professorId;
+
+        for(Disciplina d : disciplinasTurma){
+            output.display(String.format("Selecionando Professor da disciplina '%s':", d.getNome()));
+            professorId = menuSelecionarProfessor(d.getProfessores());
+            
+            controlador.definirProfessorDeisciplinaTurma(turmaId, turmaId, professorId);
         }
-        
-        Horario h = new Horario();
+
+    }
+    public static void menuCriarHorario(String turmaId){
         
         String dia = "";
         String nomeDisciplina = "";
@@ -260,7 +269,8 @@ public class Principal {
         Disciplina disciplina = null;
         
         do{
-            output.display(h.toString());
+            relatorioHorario(controlador.getHorarioTurmaId(turmaId));
+
             output.display("1 - Editar horário");
             output.display("0 - Sair");
             output.display("Escolha sua opção: ");
@@ -269,25 +279,18 @@ public class Principal {
             switch(opc){
                 case 1:
                     dia = escolherDiaSemana();
-                    sc.nextLine();
-                    
                     horario = escolherHoraDoDia();
-                    sc.nextLine();
-                    
-                    nomeDisciplina = menuSelecionarDisciplina(t.getDisciplinas());
-
+                    nomeDisciplina = menuSelecionarDisciplina(controlador.getDisciplinasTurma(turmaId));
                     disciplina = controlador.getDisciplinaNome(nomeDisciplina);
 
-                    h.adicionarDisciplina(dia, disciplina, horario);
+                    controlador.addDisciplinaHorarioTurma(dia, horario, turmaId, nomeDisciplina);
                     break;
                 case 0:
                     break;
             }    
         }while(opc != 0);
-        
-        return h;
     }
-    
+  
     public static LocalTime escolherHoraDoDia(){
         LocalTime[] horarios = {
             LocalTime.of(7, 0),
@@ -1082,6 +1085,7 @@ public class Principal {
             output.display("8 - Relatório Universidade");
             output.display("9 - Relatório Média das Médias Professor");
             output.display("10 - Acessar biblioteca");
+            output.display("11 - Atribuir Professores a Disciplinas de uma Turma");
             output.display("0 - Sair");
             output.display("==============================");
             output.display("Selecione sua opção: ");            
@@ -1158,7 +1162,8 @@ public class Principal {
                     break;
 
                 case 11:
-                    output.display("Cadastrar livro na biblioteca");
+                    turmaId = menuSelecionarTurma(controlador.getTodasTurmas());
+                    menuSelecionarProfessorDisciplinaTurma(turmaId);
                     break;
 
                 case 12:

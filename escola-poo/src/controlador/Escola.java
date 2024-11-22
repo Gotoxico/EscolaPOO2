@@ -17,32 +17,36 @@ public class Escola{
 	private ArrayList<Turma> turmas;
 	private ArrayList<Disciplina> disciplinas;
 	private BibliotecaEscolar biblioteca;
-        private Notas notas;
-        private final OutputFactory outputFactory;
-        private String tipoOutput;
+    private ArrayList<Horario> horarios;
+    private Notas notas;
+    private final OutputFactory outputFactory;
+    private String tipoOutput;
 
-        /**
-        * Construtor da classe escola
-        * @Parameter outputFactory Fábrica de saída para gerenciar o formato de exportação de dados
-        * @Parameter tipoOutput Tipo de saída a ser utilizada
-        */
+  /**
+  * Construtor da classe escola
+  * @Parameter outputFactory Fábrica de saída para gerenciar o formato de exportação de dados
+  * @Parameter tipoOutput Tipo de saída a ser utilizada
+  */
 	public Escola(OutputFactory outputFactory, String tipoOutput){
-		this.alunos = new ArrayList<>();
-		this.professores = new ArrayList<>();
-		this.turmas = new ArrayList<>();
-		this.disciplinas = new ArrayList<>();
-		this.biblioteca = new BibliotecaEscolar();
-                this.notas = Notas.getInstance(disciplinas);
-                this.outputFactory = outputFactory;
-                this.tipoOutput = tipoOutput;
+       this.alunos = new ArrayList<>();
+       this.professores = new ArrayList<>();
+       this.turmas = new ArrayList<>();
+       this.disciplinas = new ArrayList<>();
+       this.biblioteca = new BibliotecaEscolar();
+       this.notas = Notas.getInstance(disciplinas);
+       this.outputFactory = outputFactory;
+       this.tipoOutput = tipoOutput;
+       this.horarios = new ArrayList<>();
+
+        
 	}
 
-        /**
-        * Obtem todas as turmas da escola
-        * @Return Lista de todas as turmas cadastradas na escola
-        */
+  /**
+  * Obtem todas as turmas da escola
+  * @Return Lista de todas as turmas cadastradas na escola
+  */
 	public ArrayList<Turma> getTodasTurmas(){
-		return this.turmas;
+		  return this.turmas;
 	}
 
         /**
@@ -50,7 +54,7 @@ public class Escola{
         * @Return Lista de todos os alunos matriculados na escola
         */
 	public ArrayList<Aluno> getTodosAlunos(){
-		return this.alunos;
+		  return this.alunos;
 	}
         
         /**
@@ -58,27 +62,27 @@ public class Escola{
         * @Return Lista de todos os professores cadastrados na escola
         */
 	public ArrayList<Professor> getTodosProfessores(){
-		return this.professores;
+		  return this.professores;
 	}
         
-        /**
-        * Obtem a lista de professores associados a uma disciplina específica
-        * @Parameter nomeDisciplina Nome da disciplina desejada
-        * @Return Lista de professores da disciplina, ou `null` se a disciplina não existir
-        */
-        public ArrayList<Professor> getProfessoresDisciplina(String nomeDisciplina){
-            Disciplina d = getDisciplinaNome(nomeDisciplina);
-            
-            if(d == null)
-                return null;
-            
-            return d.getProfessores();
-        }
+  /**
+  * Obtem a lista de professores associados a uma disciplina específica
+  * @Parameter nomeDisciplina Nome da disciplina desejada
+  * @Return Lista de professores da disciplina, ou `null` se a disciplina não existir
+  */
+  public ArrayList<Professor> getProfessoresDisciplina(String nomeDisciplina){
+      Disciplina d = getDisciplinaNome(nomeDisciplina);
+
+      if(d == null)
+          return null;
+
+      return d.getProfessores();
+  }
         
-        /**
-        * Obtem todas as disciplinas oferecidas pela escola
-        * @Return Lista de todas as disciplinas cadastradas
-        */
+  /**
+  * Obtem todas as disciplinas oferecidas pela escola
+  * @Return Lista de todas as disciplinas cadastradas
+  */
 	public ArrayList<Disciplina> getTodasDisciplinas(){
 		return this.disciplinas;
 	}
@@ -316,6 +320,54 @@ public class Escola{
 		if(turma != null){
 			turma.setHorario(h);
 		}
+	}
+    
+    
+	public void definirProfessorDisciplinaTurma(String turmaId, String nomeDisciplina, String professorId){
+		Turma t = getTurmaId(turmaId);
+		Professor p = getProfessorId(professorId);
+		Disciplina d = getDisciplinaNome(nomeDisciplina);
+		Logger logger = Logger.getInstance();
+
+		if(t != null && d != null && p != null){
+			t.definirProfessorDisciplina(d, p);
+			logger.gravaArquivo(String.format("Disciplina '%s' atribuída para o professor '%s', na Turma '%s' ", professorId, nomeDisciplina, turmaId), Logger.Level.INFO);
+		}else{
+			logger.gravaArquivo(String.format("Falha na atribuição de Disciplinas na turma '%s", turmaId), Logger.Level.ERROR);
+		}
+	}
+    
+    public Horario getHorarioTurmaId(String turmaId){
+		Turma t = getTurmaId(turmaId);
+		Horario h = t.getHorario();
+		return h;
+	}
+
+
+	
+	public void addDisciplinaHorarioTurma(String dia, LocalTime inicio, String turmaId, String nomeDisciplina){
+		Turma t = getTurmaId(turmaId);
+		Disciplina d = getDisciplinaNome(nomeDisciplina);
+		Professor p = t.getProfessorDisciplina(d);
+		Logger logger = Logger.getInstance();
+
+		if(t != null && d != null && p != null){
+			Horario h = t.getHorario();
+			h.adicionarDisciplina(dia, d, inicio);
+			h.adicionarProfessorDisciplina(dia, d, p);
+			logger.gravaArquivo(String.format("Nova Disciplina '%s' lecionada pelo professor '%s' adicionada com sucesso no Horário da turma '%s'", nomeDisciplina, p.getNome(), turmaId ), Logger.Level.INFO);
+		}else{
+			logger.gravaArquivo(String.format("Falha ao adicionar Horário na turma '%s", turmaId), Logger.Level.ERROR);
+		}
+	}
+
+	public void addHorarioTurma(Horario h, String idTurma){
+		Turma turma = this.getTurmaId(idTurma);
+
+		if(turma != null){
+                    turma.setHorario(h);
+        }
+		this.horarios.add(h);
 	}
 
         /**
@@ -558,3 +610,4 @@ public class Escola{
 		}
         
 }
+

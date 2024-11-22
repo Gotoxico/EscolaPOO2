@@ -7,9 +7,12 @@ package modelo;
 import java.util.ArrayList;
 
 import horario.Horario;
+import modelo.Professor;
 import horario.Periodo;
 
 import java.time.LocalTime;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 /**
  *
@@ -22,15 +25,16 @@ public class Turma {
     private ArrayList<Aluno> alunos;
     private ArrayList<Disciplina> disciplinas;
     private Horario horario;
-
+    private Map<Disciplina, Professor> professores;
     //Construtor
-    public Turma(String nomeTurma, String ID, int quantidadeVagas, Horario horario) {
+    public Turma(String nomeTurma, String ID, int quantidadeVagas) {
         this.nomeTurma = nomeTurma;
         this.ID = ID;
         this.quantidadeVagas = quantidadeVagas;
         this.alunos = new ArrayList<>();
         this.disciplinas = new ArrayList<>();
-        this.horario = horario;
+        this.horario = new Horario();
+        this.professores = new LinkedHashMap<>();
     }
 
     //Métodos getters e setters
@@ -146,5 +150,13 @@ public class Turma {
     
     public boolean removerDisciplinaDiaHorario(String dia, LocalTime inicio){
         return horario.removerDisciplinaDia(dia, inicio);
+    }
+
+    public void definirProfessorDisciplina(Disciplina d, Professor p){
+        professores.put(d, p);
+    }
+
+    public Professor getProfessorDisciplina(Disciplina d){
+        return professores.get(d);
     }
 }

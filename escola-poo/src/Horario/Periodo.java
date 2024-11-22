@@ -1,3 +1,4 @@
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -29,17 +30,20 @@ public  class Periodo {
     private LocalTime horaInicio;
     private LocalTime horaFim;
     private Disciplina disciplina;
-
+    private Professor professor;
+    
     /**
      * @Brief: Construtor da classe
      * @Parameter: horaInicio
      * @Parameter: horaFim
      * @Parameter: disciplina
+     * @Parameter: professor
      */
-    public Periodo(LocalTime horaInicio, LocalTime horaFim, Disciplina disciplina) {
+    public Periodo(LocalTime horaInicio, LocalTime horaFim, Disciplina disciplina, Professor professor) {
         this.horaInicio = horaInicio;
         this.horaFim = horaFim;
         this.disciplina = disciplina;
+        this.professor = professor;
     }
 
     /**
@@ -102,11 +106,33 @@ public  class Periodo {
         this.disciplina = disciplina;
     }
     
+      
     /**
-     * Brief: Método de override para imprimir o período
+     * Retorna o professor associado ao período
+     * @return 
+     */
+    public Professor getProfessor() {
+        return professor;
+    }
+
+    /**
+     * Função para adicionar um professor ao perídio
+     * @param professor 
+     * 
+     */
+    public void setProfessor(Professor professor) {
+        this.professor = professor;
+    }
+
+ 
+    
+    
+    /**
+     * Brief: Método de override para retornar os dados do período
      */
         @Override
         public String toString() {
             return horaInicio + " - " + horaFim + ": ";
         }
 }
+
