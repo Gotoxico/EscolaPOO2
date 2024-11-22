@@ -347,12 +347,17 @@ public class Principal {
     public static void menuRemover() {
         int opc = 0;
         String nome = "";
+        String nomeDisc = "";
+        String nomePonto = "";
+        String nomeTurma = "";
+        String idAluno = "";
         String matricula = "";
         String turmaId = "";
         String titulacao = "";
         String disciplinaId = "";
         String unidadeEscolar = "";
         String anoEscolar = "";
+        float valorMax = 0f;
 
         while (true) {
             output.display("====== Remoção =====");
@@ -374,10 +379,12 @@ public class Principal {
 
             switch (opc) {
                 case 1:
-                    output.display("Digite o nome do novo aluno: ");
+                    // Vai pedir o ID mesmo?
+                    output.display("Digite o ID do aluno para ser expulso: ");
+                    idAluno = sc.nextLine();
+                    output.display("Digite o nome do aluno para ser expulso: ");
                     nome = sc.nextLine();
-                    turmaId = menuSelecionarTurma(controlador.getTodasTurmas());
-                    controlador.addAlunoTurma(nome, turmaId);
+                    controlador.addAlunoTurma(nome, idAluno);
                     break;
 
                 case 2:
@@ -405,6 +412,13 @@ public class Principal {
                     Integer tamanho = sc.nextInt();
                     controlador.addTurma(nome, tamanho);
                     break;
+                
+                case 5:
+                    output.display("Digite o nome da disciplina: ");
+                    nome = sc.nextLine();
+                    turmaId = menuSelecionarTurma(controlador.getTodasTurmas());
+                    controlador.removerDisciplinaTurma(nome, turmaId);
+                    break;
 
                 case 6:
                     output.display("Digite o ID da turma: ");
@@ -422,6 +436,20 @@ public class Principal {
                 // Removendo Trabalhos
                 case 8:
                     menuRemoverTrabalhos();
+                    break;
+                    
+                case 9:
+                    output.display("Digite o nome da disciplina: ");
+                    nomeDisc = sc.nextLine();
+                    output.display("Digite o nome do professor: ");
+                    nome = sc.nextLine();
+                    output.display("Digite o nome do ponto extra: ");
+                    nomePonto = sc.nextLine();
+                    output.display("Digite o nome da turma: ");
+                    nomeTurma = sc.nextLine();
+                    output.display("Digite o valor maximo: ");
+                    valorMax = sc.nextFloat();
+                    controlador.removerPontoExtraDisciplina(disciplinaId, nomePonto, nomePonto, nomeTurma, valorMax);
                     break;
 
                 case 0:

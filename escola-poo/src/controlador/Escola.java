@@ -474,7 +474,7 @@ public class Escola{
     public void removerProvaDisciplina(String nomeDisciplina, String nomeProfessor, String nomeProva, String nomeTurma, float peso){
         notas.removerProvaDisciplina(nomeDisciplina, nomeProfessor, nomeProva, nomeTurma, peso);
     }
-        
+       
     /**
      * Método para remover um trabalho de uma disciplina    
      * @Parameter: nomeDisciplina - Nome da disciplina
