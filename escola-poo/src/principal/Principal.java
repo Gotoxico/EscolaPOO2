@@ -645,13 +645,12 @@ public class Principal {
                 break;
 
             case 6:
-                String NomeTurma = menuSelecionarTurma(controlador.getTodasTurmas());
-                Turma t = controlador.getTurmaId(NomeTurma);
-
+                String nomeTurma = menuSelecionarTurma(controlador.getTodasTurmas());
+                Turma turma = controlador.getTurmaId(nomeTurma);
                 output.display("=========================");
-                output.display("Nome: " + t.getNomeTurma());
-                output.display("ID: " + t.getID());
-                output.display("Quantidade de Vagas: " + t.getQuantidadeVagas());
+                output.display("Nome: " + turma.getNomeTurma());
+                output.display("ID: " + turma.getID());
+                output.display("Quantidade de Vagas: " + turma.getQuantidadeVagas());
                 output.display("=========================");
                 break;
 
