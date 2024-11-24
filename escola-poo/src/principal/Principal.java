@@ -572,6 +572,7 @@ public class Principal {
         ArrayList<Disciplina> disciplinas = null;
         ArrayList<Prova> provas = null;
         ArrayList<Trabalho> trabalhos = null;
+        ArrayList<PontoExtra> pontosExtra = null;
 
         output.display("====== Impressão =====");
         output.display("1 - Imprimir alunos");
@@ -643,6 +644,17 @@ public class Principal {
                 relatorioAluno(controlador.getAlunoMatricula(matricula));
                 break;
 
+            case 6:
+                String NomeTurma = menuSelecionarTurma(controlador.getTodasTurmas());
+                Turma t = controlador.getTurmaId(NomeTurma);
+
+                output.display("=========================");
+                output.display("Nome: " + t.getNomeTurma());
+                output.display("ID: " + t.getID());
+                output.display("Quantidade de Vagas: " + t.getQuantidadeVagas());
+                output.display("=========================");
+                break;
+
             case 7:
                 // Imprimir Dados Professor
                 output.display("=========================");
@@ -689,27 +701,42 @@ public class Principal {
                     relatorioTrabalho(t);
                 }
                 break;
+
+            case 11:
+                nomeDisciplina = menuSelecionarDisciplina(controlador.getTodasDisciplinas());
+
+                disciplina = controlador.getDisciplinaNome(nomeDisciplina);
+                pontosExtra = disciplina.getPontosExtra();
+
+                for (PontoExtra pExtra : pontosExtra) {
+                    relatorioPontoExtra(pExtra);
+                }
+                break;
+
             case 13:
                 ArrayList<Turma> turmasHorario = controlador.getTodasTurmas();
-                output.display("Digite o ID da turma: ");
-                String turmaId = sc.nextLine();
+                String turmaId;
+                int opcHorario = 1;
 
-                for (Turma t : turmasHorario) {
-                    if (t.getID().equals(turmaId)) {
-                        output.display("====== Horário da Turma =====");
-                        output.display("ID: " + t.getID());
-                        output.display("Nome: " + t.getNomeTurma());
-                        output.display("Horário: \n" + t.getHorario().toString());
-                        output.display("=========================");
+                while(opcHorario != 0) {
+                    output.display("Digite o ID da turma: ");
+                    turmaId = sc.nextLine();
+
+                    for (Turma t : turmasHorario) {
+                        if (t.getID().equals(turmaId)) {
+                            output.display("====== Horário da Turma =====");
+                            output.display("ID: " + t.getID());
+                            output.display("Nome: " + t.getNomeTurma());
+                            output.display("Horário: \n" + t.getHorario().toString());
+                            output.display("=========================");
+                        }
                     }
+                    output.display("0 - Voltar");
+                    output.display("==============================");
+                    opcHorario = sc.nextInt();
+                    sc.nextLine();
                 }
-                output.display("0 - Voltar");
-                output.display("==============================");
-                int opcHorario = sc.nextInt();
-                sc.nextLine();
-                if (opcHorario == 0) {
-                    break;
-                }
+                
                 break;
 
             case 0:
@@ -727,6 +754,19 @@ public class Principal {
         output.display(String.format("Nome: %s", t.getNomeTrabalho()));
         output.display(String.format("Peso: %.2f", t.getPeso()));
         output.display(String.format("Nota: %s", t.getNota()));
+        output.display("=====================================");
+    }
+
+    public static void relatorioPontoExtra(PontoExtra pontoExtra) {
+        if (pontoExtra == null) {
+            output.display("Ponto Extra inexistente");
+            return;
+        }
+
+        output.display("============= Trabalho ==============");
+        output.display(String.format("Nome: %s", pontoExtra.getNomePontoExtra()));
+        output.display(String.format("Valor: %.2f", pontoExtra.getValor()));
+        output.display(String.format("Valor Máximo: %s", pontoExtra.getValorMaximo()));
         output.display("=====================================");
     }
 
