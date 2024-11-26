@@ -554,35 +554,97 @@ public class Escola{
     public void adicionarPontoExtraDisciplina(String nomeDisciplina, String nomeProfessor, String nomePontoExtra, String nomeTurma, float valorMaximo) {
         notas.adicionarPontoExtraDisciplina(nomeDisciplina, nomeProfessor, nomePontoExtra, nomeTurma, valorMaximo);
     }
-        
+    
+    /**
+    * @Brief: Adiciona a nota de uma prova para um aluno
+    * @Parameter: nomeAluno Nome do aluno
+    * @Parameter: nomeDisciplina Nome da disciplina
+    * @Parameter: nomeProfessor Nome do professor
+    * @Parameter: nomeProva Nome da prova
+    * @Parameter: notaProva Nota da prova
+    * @Parameter: nomeTurma Nome da turma
+    */
     public void adicionarNotaProva(String nomeAluno, String nomeDisciplina, String nomeProfessor, String nomeProva, float notaProva, String nomeTurma) {
         notas.adicionarNotaProva(nomeAluno, nomeDisciplina, nomeProfessor, nomeProva, notaProva, nomeTurma);
     }
     
+    /**
+    * @Brief: Adiciona a nota de um trabalho para um aluno
+    * @Parameter: nomeAluno Nome do aluno
+    * @Parameter: nomeDisciplina Nome da disciplina
+    * @Parameter: nomeProfessor Nome do professor
+    * @Parameter: nomeTrabalho Nome do trabalho
+    * @Parameter: notaTrabalho Nota do trabalho
+    * @Parameter: nomeTurma Nome da turma
+    */
     public void adicionarNotaTrabalho(String nomeAluno, String nomeDisciplina, String nomeProfessor, String nomeTrabalho, float notaTrabalho, String nomeTurma) {
         notas.adicionarNotaTrabalho(nomeAluno, nomeDisciplina, nomeProfessor, nomeTrabalho, notaTrabalho, nomeTurma);
     }
     
+    /**
+    * @Brief: Adiciona uma nota de ponto extra para um aluno 
+    * @Parameter: nomeAluno Nome do aluno
+    * @Parameter: nomeDisciplina Nome da disciplina
+    * @Parameter: nomeProfessor Nome do professor
+    * @Parameter: nomePontoExtra Nome do ponto extra
+    * @Parameter: nomeTurma Nome da turma
+    * @Parameter: valor Valor do ponto extra
+    */
     public void adicionarNotaPontoExtra(String nomeAluno, String nomeDisciplina, String nomeProfessor, String nomePontoExtra, String nomeTurma, float valor) {
         notas.adicionarNotaPontoExtra(nomeAluno, nomeDisciplina, nomeProfessor, nomePontoExtra, nomeTurma, valor);
     }
     
+    /**
+    * @Brief: Remove a nota de uma prova de um aluno
+    * @Parameter: nomeAluno Nome do aluno
+    * @Parameter: nomeDisciplina Nome da disciplina
+    * @Parameter: nomeProfessor Nome do professor
+    * @Parameter: nomeProva Nome da prova
+    * @Parameter: notaProva Nota da prova
+    * @Parameter: nomeTurma Nome da turma
+    */
     public void removerNotaProva(String nomeAluno, String nomeDisciplina, String nomeProfessor, String nomeProva, float notaProva, String nomeTurma) {
         notas.removerNotaProva(nomeAluno, nomeDisciplina, nomeProfessor, nomeProva, notaProva, nomeTurma);
     }
     
+    /**
+    * @Brief: Remove a nota de um trabalho de um aluno
+    * @Parameter: nomeAluno Nome do aluno
+    * @Parameter: nomeDisciplina Nome da disciplina
+    * @Parameter: nomeProfessor Nome do professor
+    * @Parameter: nomeTrabalho Nome do trabalho
+    * @Parameter: notaTrabalho Nota do trabalho
+    * @Parameter: nomeTurma Nome da turma
+    */
     public void removerNotaTrabalho(String nomeAluno, String nomeDisciplina, String nomeProfessor, String nomeTrabalho, float notaTrabalho, String nomeTurma) {
         notas.removerNotaTrabalho(nomeAluno, nomeDisciplina, nomeProfessor, nomeTrabalho, notaTrabalho, nomeTurma);
     }
-    
+    /**
+    * @Brief: Remove uma nota de ponto extra de um aluno
+    * @Parameter: nomeAluno Nome do aluno
+    * @Parameter: nomeDisciplina Nome da disciplina
+    * @Parameter: nomeProfessor Nome do professor
+    * @Parameter: nomePontoExtra Nome do ponto extra
+    * @Parameter: nomeTurma Nome da turma
+    * @Parameter: valor Valor do ponto extra
+    */
     public void removerNotaPontoExtra(String nomeAluno, String nomeDisciplina, String nomeProfessor, String nomePontoExtra, String nomeTurma, float valor) {
         notas.removerNotaPontoExtra(nomeAluno, nomeDisciplina, nomeProfessor, nomePontoExtra, nomeTurma, valor);
     }
     
+    /**
+    * @Brief: Gera um relatorio com informações sobre os professores
+    * @Return: Relatorio dos professores 
+    */
     public String relatorioProfessores(){
         return RelatorioProfessores.relatorioProfessores(professores);
     }
     
+    /**
+    * @Brief: Gera um relatório com informações dos alunos de uma turma
+    * @Parameter: t Objeto da turma
+    * @Parameter: opcao Opção de exibição do relatório
+    */
     public void relatorioAlunosTurma(Turma t, int opcao){
         RelatorioAlunos.relatorio(t.getAlunos(), opcao);
     }
@@ -591,7 +653,6 @@ public class Escola{
      * Ao demitir um professor, será removido de todas as disciplinas que ministrava
      * @Parameter: nomeProfessor - Nome do professor
      * @Parameter: ID - Id do usuario
-     * 
      */
     public void demitirProfessor(String nomeProfessor, String ID){
         for(Disciplina disciplina : disciplinas){
@@ -609,7 +670,6 @@ public class Escola{
      * Ao expulsar um aluno, será removido da turma que pertencia
      * @Parameter: nomeAluno - Nome aluno
      * @Parameter: ID - Id do aluno
-     * 
      */
     public void expulsarAluno(String nomeAluno, String ID){
         for(Turma turma : turmas){
@@ -623,6 +683,14 @@ public class Escola{
         }
     }
 
+    /**
+    * @Brief: Adiciona as notas de uma prova para todos os alunos de uma turma
+    * @Parameter: turma Objeto representando a turma
+    * @Parameter: disciplina Disciplina associada a prova
+    * @Parameter: nomeProva Nome da prova
+    * @Parameter: nota Nota atribuída à prova
+    * @Parameter: peso Peso da prova
+    */
     public void addNotasProvaTurma(Turma turma, Disciplina disciplina, String nomeProva, float nota, float peso){
         int i=0;
         for(Aluno aluno : turma.getAlunos()){
@@ -631,6 +699,14 @@ public class Escola{
         }
     }
 
+    /**
+    * @Brief: Adiciona as notas de um trabalho para todos os alunos de uma turma
+    * @Parameter: turma Objeto representando a turma
+    * @Parameter: disciplina Disciplina associada ao trabalho
+    * @Parameter: nomeTrabalho Nome do trabalho
+    * @Parameter: nota Nota atribuída ao trabalho
+    * @Parameter: peso Peso do trabalho
+    */
     public void addNotasTrabalhoTurma(Turma turma, Disciplina disciplina, String nomeTrabalho, float nota, float peso){
         int i=0;
         for(Aluno aluno : turma.getAlunos()){
@@ -639,6 +715,13 @@ public class Escola{
         }
     }
 
+    /**
+    * @Brief: Adiciona notas de ponto extra para todos os alunos de uma turma
+    * @Parameter: turma Objeto representando a turma
+    * @Parameter: disciplina Disciplina associada ao ponto extra
+    * @Parameter: nomePontoExtra Nome do ponto extra
+    * @Parameter: valor Valor do ponto extra
+    */
     public void addNotasPontoExtraTurma(Turma turma, Disciplina disciplina, String nomePontoExtra, float valor){
         int i=0;
         for(Aluno aluno : turma.getAlunos()){
