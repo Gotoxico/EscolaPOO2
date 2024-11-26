@@ -1,7 +1,7 @@
 package modelo;
 
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.*;
 
 public class Biblioteca{
     protected ArrayList<Usuario> usuarios;
@@ -22,10 +22,10 @@ public class Biblioteca{
         return true;
     }
 
-    public boolean buscaLivro(Livro livro){
+    public boolean buscarLivroPorAutor(String autor){
         if(livros.isEmpty() == false){
             for(int i=0; i<livros.size(); i++){
-                if(livros.get(i).equals(livro)){
+                if(livros.get(i).getAutor().equals(autor)){
                     return true;
                 }
             }
@@ -33,7 +33,29 @@ public class Biblioteca{
         return false;
     }
 
-    public boolean buscaUsuario(Usuario usuario){
+    public boolean buscarLivroPorTitulo(String titulo){
+        if(livros.isEmpty() == false){
+            for(int i=0; i<livros.size(); i++){
+                if(livros.get(i).getTitulo().equals(titulo)){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public boolean buscarLivroPorISBN(String ISBN){
+        if(livros.isEmpty() == false){
+            for(int i=0; i<livros.size(); i++){
+                if(livros.get(i).getISBN().equals(ISBN)){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public boolean buscarUsuario(Usuario usuario){
         if(usuarios.isEmpty() == false){
             for(int i=0; i<usuarios.size(); i++){
                 if(usuarios.get(i).equals(usuario)){
@@ -44,7 +66,7 @@ public class Biblioteca{
         return false;
     }
 
-    public boolean removeUsuario(Usuario usuario){
+    public boolean removerUsuario(Usuario usuario){
         if(usuario.getContLivros() == 0){   //usuário não precisa devolver nenhum livro então pode ser removido
             for(int i=0; i<usuarios.size(); i++){   //preciso achar o índice da posição do usuário no vetor
                 if(usuarios.get(i).equals(usuario)){
@@ -56,9 +78,9 @@ public class Biblioteca{
         return false;
     }
 
-    public boolean removeLivro(Livro livro){         
+    public boolean removerLivro(Livro livro){         
         for(int i=0; i<livros.size(); i++){
-            if(livros.get(i).equals(livro)){
+            if(livros.get(i).equals(livro) && livro.getEmprestado() == false){
                 livros.remove(i);
                 return true;
             }
@@ -66,7 +88,7 @@ public class Biblioteca{
         return false;
     }
 
-    public boolean emprestimo(Livro livro, Usuario usuario){
+    public boolean fazerEmprestimo(Livro livro, Usuario usuario){
         Emprestimo emprestimo = new Emprestimo();
         if(usuario.getQuantMulta() == 0){
             for(int i=0; i<livros.size(); i++){
@@ -83,7 +105,7 @@ public class Biblioteca{
         return false;
     }
 
-    public boolean devolucao(Livro livro, Usuario usuario){
+    public boolean fazerDevolucao(Livro livro, Usuario usuario){
         if(VerificaSeEDomingo.verificaSeEDomingo() == true){    // nao pode devolver no Domingo
             return false;
         }
@@ -95,10 +117,10 @@ public class Biblioteca{
     }
 
     //funcao para verificar diariamente se usuario deve ser multado 
-    public void verificaAddMultaDiariamente(){
+    public void verificarAddMultaDiariamente(){
         Multa multa = new Multa();
-        ArrayList<Emprestimo> emprestimos = new ArrayList();
-        ArrayList<Livro> livros = new ArrayList();
+        ArrayList<Emprestimo> emprestimos = new ArrayList<>();
+        ArrayList<Livro> livros = new ArrayList<>();
         for(int i=0; i<usuarios.size(); i++){
             emprestimos = usuarios.get(i).getEmprestimos();
             livros = usuarios.get(i).getLivros();
@@ -113,13 +135,13 @@ public class Biblioteca{
     }
 
     //funcao para verificar diariamente se usuario deve ter multa retiradas
-    public void verificaRemoveMultaDiariamente(){
-        ArrayList<Multa> multas = new ArrayList();
+    public void verificarRemoveMultaDiariamente(){
+        ArrayList<Multa> multas = new ArrayList<>();
         for(int i=0; i<usuarios.size(); i++){
             if(usuarios.get(i).getQuantMulta() > 0){
                 multas = usuarios.get(i).getMultas();
                 for(int j=0; j<multas.size(); j++){
-                    if(multas.get(j).removeMulta() == true){
+                    if(multas.get(j).removeMulta(usuarios.get(i)) == true){
                         usuarios.get(i).removeMulta(multas.get(j));
                     }
                 }
@@ -128,7 +150,8 @@ public class Biblioteca{
     }
 
     public void ordenaLivrosOrdemAlfabetica(){
-        Collections.sort(livros);
+        LivroComparator comparator = new LivroComparator();
+        Collections.sort(livros, comparator);
     }
 
     public ArrayList<Livro> getLivros(){
@@ -136,6 +159,6 @@ public class Biblioteca{
     }
 
     public ArrayList<Usuario> getUsuarios(){
-        return usuario;
+        return usuarios;
     } 
 }

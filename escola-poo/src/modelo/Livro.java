@@ -1,11 +1,11 @@
 package modelo;
 
 public class Livro{
-    private String titulo;
-    private String autor;
-    private String ISBN;
-    private boolean emprestado;
-    private String gênero;  //tanto gêneros como "Matemática", "Física", "História", "Computação", quanto "Terror", "Policial", "Romance", etc
+    protected String titulo;
+    protected String autor;
+    protected String ISBN;
+    protected boolean emprestado;
+    protected String genero;  //tanto gêneros como "Matemática", "Física", "História", "Computação", quanto "Terror", "Policial", "Romance", etc
 
     public Livro(){
         emprestado = false;
