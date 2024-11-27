@@ -71,7 +71,6 @@ public class RelatorioAlunos {
                 // Unimar
                 return Constantes.UNIMAR;
         }
-        // Nem precisa disso, mas o NETBEANS obrigou a usar
         return 0f;
     }
 }

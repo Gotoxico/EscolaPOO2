@@ -27,6 +27,7 @@ import modelo.Livro;
 import modelo.LivroDidatico;
 import modelo.Emprestimo;
 import modelo.Multa;
+import modelo.RelatorioAlunos;
 import modelo.Usuario;
 
 public class Principal {
@@ -90,8 +91,8 @@ public class Principal {
                     output.display("Digite o nome do professor: ");
                     nome = sc.nextLine();
                     output.display("Digite o ID do professor: ");
-                    professorID = sc.nextLine();
-                    controlador.demitirProfessor(nome, professorID);
+                    professorId = sc.nextLine();
+                    controlador.demitirProfessor(nome, professorId);
                     break;
 
                 case 3:
@@ -1262,7 +1263,8 @@ public class Principal {
                     break;
 
                 case 8:
-                    
+                    int universidade = menuSelecionarUniversidade();
+                    output.display(RelatorioAlunos.relatorio(controlador.getTodosAlunos(), universidade));
                     break;
 
                 case 9:
@@ -1308,6 +1310,33 @@ public class Principal {
 
         turmaId = sc.nextLine();
         return turmaId;
+    }
+    
+    /**
+     * @Brief: Exibe o menu para selecionar uma universidade
+     * @Return: O indice da universidade escolhida
+     */
+    public static int menuSelecionarUniversidade(){
+        int universidade;
+        
+        output.display("====== Selecione a Universidade ======");
+        output.display("1 - USP");
+        output.display("2 - UNICAMP");
+        output.display("3 - UFRJ");
+        output.display("4 - UNIFESP");
+        output.display("5 - UNESP");
+        output.display("6 - UFMG");
+        output.display("7 - UFRGS");
+        output.display("8 - UFSC");
+        output.display("9 - PUC");
+        output.display("10 - Mackenzie");
+        output.display("11 - FGV");
+        output.display("12 - UNOESTE");
+        output.display("13 - UNIMAR");
+        output.display("Selecione sua opção: ");
+        
+        universidade = sc.nextInt();
+        return universidade;
     }
 
     /**
