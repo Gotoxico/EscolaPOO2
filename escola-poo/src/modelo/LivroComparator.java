@@ -1,5 +1,8 @@
 package modelo;
 
+/**
+ * @Brief: Classe que implementa Comparator e define como os Livros deverão ser comparados
+ */
 import java.util.Comparator;
 
 public class LivroComparator implements Comparator<Livro> {
