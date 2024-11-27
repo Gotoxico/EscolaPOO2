@@ -453,6 +453,25 @@ public class Escola{
     }
 
     /**
+    * Remove um aluno da biblioteca
+    * @Parameter: matricula - String da matrícula do aluno
+    */
+    public void removerAlunoBiblioteca(String matricula){
+        Aluno temp = this.getAlunoMatricula(matricula);
+        if(temp != null){
+            bibliotecaConsole.removerUsuario(biblioteca, temp);
+        }
+    }
+
+    /**
+    * Remove um livro da biblioteca
+    * @Parameter: livro - Livro que se deseja remover
+    */
+    public void removerAlunoBiblioteca(Livro livro){
+        bibliotecaConsole.removerLivro(biblioteca, livro);
+    }
+
+    /**
     * Faz um emprestimo em nome de um aluno 
     * @Parameter: livro - Livro que se deseja emprestar
     * @Parameter: matricula - String da matrícula do aluno
@@ -499,7 +518,75 @@ public class Escola{
             bibliotecaConsole.fazerDevolucao(biblioteca, temp, livro);
         }
     }
+
+    /**
+    * Faz a busca de um livro por autor 
+    * @Parameter: autor - String do autor do livro que se deseja buscar
+    */
+    public void buscarLivroPorAutor(String autor){
+        bibliotecaConsole.buscarLivroPorAutor(biblioteca, autor);
+    }
+
+    /**
+    * Faz a busca de um livro por titulo 
+    * @Parameter: titulo - String do titulo do livro que se deseja buscar
+    */
+    public void buscarLivroPorTitulo(String titulo){
+        bibliotecaConsole.buscarLivroPorTitulo(biblioteca, titulo);
+    }
     
+    /**
+    * Faz a busca de um livro por isbn 
+    * @Parameter: isbn - String do isbn do livro que se deseja buscar
+    */
+    public void buscarLivroPorISBN(String isbn){
+        bibliotecaConsole.buscarLivroPorAutor(biblioteca, isbn);
+    }
+
+    /**
+    * Faz a busca de um usuario por ID 
+    * @Parameter: usuarioId - String do ID do usuario que se deseja buscar
+    */
+    public void buscarUsuario(String usuarioId){
+        bibliotecaConsole.buscarUsuario(biblioteca, usuarioId);
+    }
+
+    /**
+    * Imprime o catálogo de livros da Biblioteca
+    */
+    public void imprimirCatalogoDeLivros(){
+        bibliotecaConsole(biblioteca);
+    }
+
+    /**
+    * Faz o relatório geral dos livros de Biblioteca Escolar
+    */
+    public void relatorioGeralLivros(){
+        bibliotecaConsole.relatorioGeralLivros(biblioteca);
+    }
+
+    /**
+    * Faz o relatório geral dos usuarios multados e de suas multas 
+    */
+    public void relatorioMultas(){
+        bibliotecaConsole.relatorioMultas(biblioteca);
+    }
+
+    /**
+    * Imprime recomendações de livros baseados em uma disciplina
+    * @Parameter: disciplina - String de uma disciplina 
+    */
+    public void imprimirRecomenadacoes(String disciplina){
+        bibliotecaConsole.imprimirRecomenadacoes(biblioteca, disciplina);
+    }
+
+    /**
+    * Imprime livros de um genero específico
+    * @Parameter: genero - String de um genero de livro 
+    */
+    public void imprimirLivrosDeGeneroEspecifico(String genero){
+        bibliotecaConsole.imprimirLivrosDeGeneroEspecifico(biblioteca, genero);
+    }
 
     /**
      * Método para adicionar uma atividade extra curricular a um aluno
