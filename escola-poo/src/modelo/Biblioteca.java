@@ -46,6 +46,8 @@ public class Biblioteca{
                 return livros.get(i);
             }
         }
+        
+        return null;
     }
 
     /**

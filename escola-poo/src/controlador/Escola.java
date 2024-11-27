@@ -167,6 +167,27 @@ public class Escola{
         }
         return null;
     }
+    
+    /**
+    * Retorna um usuário(Aluno ou Professor) pelo ID
+    * @Parameter: usuarioId - ID do usuário a ser buscado
+    * @Return: O usuário correspondente ao ID, ou null se não encontrado
+    */
+    public Usuario getUsuarioId(String usuarioId){
+        for(Professor professor : professores){
+            if(professor.getID().equals(usuarioId)){
+                return professor;
+            }
+        }
+        
+        for(Aluno aluno : alunos){
+            if(aluno.getID().equals(usuarioId)){
+                return aluno;
+            }
+        }
+        
+        return null;
+    }
 
     /**
     * Adiciona um novo professor na lista de professores
