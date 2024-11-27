@@ -36,6 +36,19 @@ public class Biblioteca{
     }
 
     /**
+     * @Brief: Retorna um livro buscado
+     * @Parameter: isbn String do livro a ser buscado
+     * @Return: livro Livro buscado
+     */
+    public Livro retornaLivro(String isbn){
+        for(int i=0; i<livros.size(); i++){
+            if(livros.get(i).getISBN().equals(isbn)){
+                return livro;
+            }
+        }
+    }
+
+    /**
      * @Brief: Busca um livro na biblioteca pelo autor
      * @Parameter: autor Objeto do tipo String do livro a ser buscado
      * @Return: True se o livro foi encontrado, false se não for
