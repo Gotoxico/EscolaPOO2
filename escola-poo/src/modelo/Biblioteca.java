@@ -1,7 +1,7 @@
 package modelo;
 
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.*;
 
 public class Biblioteca{
     protected ArrayList<Usuario> usuarios;
@@ -36,14 +36,46 @@ public class Biblioteca{
     }
 
     /**
-     * @Brief: Busca um livro na biblioteca
-     * @Parameter: livro Livro a ser buscado
-     * @Return: True se o livro foi encontrado
+     * @Brief: Busca um livro na biblioteca pelo autor
+     * @Parameter: autor Objeto do tipo String do livro a ser buscado
+     * @Return: True se o livro foi encontrado, false se não for
      */
-    public boolean buscaLivro(Livro livro){
+    public boolean buscarLivroPorAutor(String autor){
         if(livros.isEmpty() == false){
             for(int i=0; i<livros.size(); i++){
-                if(livros.get(i).equals(livro)){
+                if(livros.get(i).getAutor().equals(autor)){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
+     * @Brief: Busca um livro na biblioteca pelo titulo
+     * @Parameter: titulo Objeto do tipo String do livro a ser buscado
+     * @Return: True se o livro foi encontrado, false se não for
+     */
+    public boolean buscarLivroPorTitulo(String titulo){
+        if(livros.isEmpty() == false){
+            for(int i=0; i<livros.size(); i++){
+                if(livros.get(i).getTitulo().equals(titulo)){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
+     * @Brief: Busca um livro na biblioteca pelo ISBN
+     * @Parameter: ISBN Objeto do tipo String do livro a ser buscado
+     * @Return: True se o livro foi encontrado, false se não for
+     */
+    public boolean buscarLivroPorISBN(String ISBN){
+        if(livros.isEmpty() == false){
+            for(int i=0; i<livros.size(); i++){
+                if(livros.get(i).getISBN().equals(ISBN)){
                     return true;
                 }
             }
@@ -53,13 +85,13 @@ public class Biblioteca{
 
     /**
      * @Brief: Busca um usuário na biblioteca
-     * @Parameter: usuario Usuário a ser buscado
-     * @Return: True se o usuário foi encontrado
+     * @Parameter: usuarioId Objeto do tipo String do usuário a ser buscado
+     * @Return: True se o usuário foi encontrado, false se não for
      */
-    public boolean buscaUsuario(Usuario usuario){
+    public boolean buscarUsuario(String usuarioId){
         if(usuarios.isEmpty() == false){
             for(int i=0; i<usuarios.size(); i++){
-                if(usuarios.get(i).equals(usuario)){
+                if(usuarios.get(i).getID().equals(usuarioId)){
                     return true;
                 }
             }
@@ -72,7 +104,7 @@ public class Biblioteca{
      * @Parameter: usuario Usuário a ser removido
      * @Return: True se o usuário foi removido com sucesso
      */
-    public boolean removeUsuario(Usuario usuario){
+    public boolean removerUsuario(Usuario usuario){
         if(usuario.getContLivros() == 0){   //usuário não precisa devolver nenhum livro então pode ser removido
             for(int i=0; i<usuarios.size(); i++){   //preciso achar o índice da posição do usuário no vetor
                 if(usuarios.get(i).equals(usuario)){
@@ -89,23 +121,22 @@ public class Biblioteca{
      * @Parameter: livro Livro a ser removido
      * @Return: True se o livro foi removido com sucesso
      */
-    public boolean removeLivro(Livro livro){         
+    public boolean removerLivro(Livro livro){         
         for(int i=0; i<livros.size(); i++){
-            if(livros.get(i).equals(livro)){
+            if(livros.get(i).equals(livro) && livro.getEmprestado() == false){
                 livros.remove(i);
                 return true;
             }
         }
         return false;
     }
-
     /**
      * @Brief: Realiza o empréstimo de um livro para um usuário
      * @Parameter: livro Livro a ser emprestado
      * @Parameter: usuario Usuário que receberá o livro
      * @Return: True se o empréstimo foi realizado com sucesso
      */
-    public boolean emprestimo(Livro livro, Usuario usuario){
+    public boolean fazerEmprestimo(Livro livro, Usuario usuario){
         Emprestimo emprestimo = new Emprestimo();
         if(usuario.getQuantMulta() == 0){
             for(int i=0; i<livros.size(); i++){
@@ -128,7 +159,7 @@ public class Biblioteca{
      * @Parameter: usuario Usuário que está devolvendo o livro
      * @Return: True se a devolução foi realizada com sucesso
      */
-    public boolean devolucao(Livro livro, Usuario usuario){
+    public boolean fazerDevolucao(Livro livro, Usuario usuario){
         if(VerificaSeEDomingo.verificaSeEDomingo() == true){    // nao pode devolver no Domingo
             return false;
         }
@@ -142,10 +173,10 @@ public class Biblioteca{
     /**
      * @Brief: Verifica diariamente se algum usuário deve ser multado por atraso
      */
-    public void verificaAddMultaDiariamente(){
+    public void verificarAddMultaDiariamente(){
         Multa multa = new Multa();
-        ArrayList<Emprestimo> emprestimos = new ArrayList();
-        ArrayList<Livro> livros = new ArrayList();
+        ArrayList<Emprestimo> emprestimos = new ArrayList<>();
+        ArrayList<Livro> livros = new ArrayList<>();
         for(int i=0; i<usuarios.size(); i++){
             emprestimos = usuarios.get(i).getEmprestimos();
             livros = usuarios.get(i).getLivros();
@@ -162,7 +193,7 @@ public class Biblioteca{
     /**
      * @Brief: Verifica diariamente se algum usuário pode ter multas retiradas
      */
-    public void verificaRemoveMultaDiariamente(){
+    public void verificarRemoveMultaDiariamente(){
         ArrayList<Multa> multas = new ArrayList<>();
         for(int i=0; i<usuarios.size(); i++){
             if(usuarios.get(i).getQuantMulta() > 0){
@@ -180,8 +211,8 @@ public class Biblioteca{
      * @Brief: Ordena a lista de livros em ordem alfabética pelo título
      */
     public void ordenaLivrosOrdemAlfabetica(){
-        Collections.sort(livros, (Livro l1, Livro l2) -> l1.getTitulo()
-                .compareToIgnoreCase(l2.getTitulo()));
+        LivroComparator comparator = new LivroComparator();
+        Collections.sort(livros, comparator);
     }
 
     /**
