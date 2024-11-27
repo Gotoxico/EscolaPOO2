@@ -43,7 +43,7 @@ public class Biblioteca{
     public Livro retornaLivro(String isbn){
         for(int i=0; i<livros.size(); i++){
             if(livros.get(i).getISBN().equals(isbn)){
-                return livro;
+                return livros.get(i);
             }
         }
     }
