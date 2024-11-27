@@ -18,6 +18,7 @@ public class Escola{
     private ArrayList<Turma> turmas;
     private ArrayList<Disciplina> disciplinas;
     private BibliotecaEscolar biblioteca;
+    private BibliotecaEscolarConsole bibliotecaConsole;
     private ArrayList<Horario> horarios;
     private Notas notas;
     private final OutputFactory outputFactory;
@@ -431,7 +432,7 @@ public class Escola{
 
     /**
     * Adiciona um professor como usuário da biblioteca
-    * @Parameter: idProfessor - ID do professor
+    * @Parameter: idProfessor - String do Id do professor
     */
     public void addProfessorBiblioteca(String idProfessor){
         Professor temp = this.getProfessorId(idProfessor);
@@ -442,7 +443,7 @@ public class Escola{
 
     /**
     * Adiciona um aluno como usuário da biblioteca
-    * @Parameter: matricula - Matrícula do aluno
+    * @Parameter: matricula - String da matrícula do aluno
     */
     public void addAlunoBiblioteca(String matricula){
         Aluno temp = this.getAlunoMatricula(matricula);
@@ -451,35 +452,54 @@ public class Escola{
         }
     }
 
-    /*
+    /**
+    * Faz um emprestimo em nome de um aluno 
+    * @Parameter: livro - Livro que se deseja emprestar
+    * @Parameter: matricula - String da matrícula do aluno
+    */
     public void emprestimoAluno(Livro livro, String matricula){
         Aluno temp = this.getAlunoMatricula(matricula);
         if(temp != null){
-            biblioteca.emprestimo(livro, temp);
+            bibliotecaConsole.fazerEmprestimo(biblioteca, temp, livro);
         }
     }
 
+    /**
+    * Faz um emprestimo em nome de um professor 
+    * @Parameter: livro - Livro que se deseja emprestar
+    * @Parameter: idProfessor - String do Id do professor
+    */
     public void emprestimoProfessor(Livro livro, String idProfessor){
         Professor temp = this.getProfessorId(idProfessor);
         if(temp != null){
-            biblioteca.emprestimo(livro, temp);
+            bibliotecaConsole.fazerEmprestimo(biblioteca, temp, livro);
         }
     }
 
+    /**
+    * Faz uma devolução em nome de um aluno 
+    * @Parameter: livro - Livro que se deseja devolver
+    * @Parameter: matricula - String da matrícula do aluno
+    */
     public void devolucaoAluno(Livro livro, String matricula){
         Aluno temp = this.getAlunoMatricula(matricula);
         if(temp != null){
-            biblioteca.devolucao(livro, temp);
+            bibliotecaConsole.fazerDevolucao(biblioteca, temp, livro);
         }
     }
 
+    /**
+    * Faz uma devolução em nome de um professor 
+    * @Parameter: livro - Livro que se deseja devolver
+    * @Parameter: idProfessor - String do Id do professor
+    */
     public void devolucaoProfessor(Livro livro, String idProfessor){
         Professor temp = this.getProfessorId(idProfessor);
         if(temp != null){
-            biblioteca.emprestimo(livro, temp);
+            bibliotecaConsole.fazerDevolucao(biblioteca, temp, livro);
         }
     }
-    */
+    
 
     /**
      * Método para adicionar uma atividade extra curricular a um aluno
