@@ -24,6 +24,11 @@ import modelo.BibliotecaEscolarConsole;
 import modelo.PontoExtra;
 import modelo.RelatorioProfessores;
 import modelo.Trabalho;
+import modelo.Livro;
+import modelo.LivroDidatico;
+import modelo Emprestimo;
+import modelo Multa;
+import modelo Usuario;
 
 public class Principal {
 
@@ -1408,6 +1413,7 @@ public class Principal {
         String isbn = "";
         BibliotecaEscolar biblioteca = controlador.getBiblioteca();
         BibliotecaEscolarConsole bibliotecaConsole = new BibliotecaEscolarConsole();
+        Livro livro;
 
         while (true) {
             output.display("====== Página da biblioteca =====");
@@ -1419,7 +1425,7 @@ public class Principal {
             output.display("6 - Fazer a devolução de um livro para um usuário");
             output.display("7 - Relatório geral dos livros cadastrados");
             output.display("8 - Cadastrar livro");
-            output.display("9 - Buscar usuario")
+            output.display("9 - Buscar usuario");
             output.display("10 - Relatório de multas");
             output.display("11 - Remover livro");
             output.display("12 - Imprimir recomendações");
@@ -1433,7 +1439,7 @@ public class Principal {
             switch (opc) {
                 case 0:
                     break;
-                    
+
                 case 1:
                     controlador.imprimirCatalogoDeLivros();
                     break;
@@ -1466,7 +1472,6 @@ public class Principal {
                     output.display("Digite o ISBN do livro: ");
                     isbn = sc.nextLine();
                     
-                    Livro livro;
                     if(biblioteca.buscarLivroPorISBN(isbn) == true){
                         livro = biblioteca.retornaLivro(isbn);
                         bibliotecaConsole.fazerEmprestimo(biblioteca, usuarioId, livro);
@@ -1478,7 +1483,7 @@ public class Principal {
                     usuarioId = sc.nextLine();
                     output.display("Digite o ISBN do livro: ");
                     isbn = sc.nextLine();
-                    Livro livro;
+
                     if(biblioteca.buscarLivroPorISBN(isbn) == true){
                         livro = biblioteca.retornaLivro(isbn);
                         bibliotecaConsole.fazerDevolucao(biblioteca, usuarioId, livro);
@@ -1520,7 +1525,6 @@ public class Principal {
                     output.display("Digite o isbn do livro: ");
                     isbn = sc.nextLine();
 
-                    Livro livro;
                     if(biblioteca.buscarLivroPorISBN(isbn) == true){
                         livro = biblioteca.retornaLivro(isbn);
                         controlador.removerLivro(usuarioId, livro);
@@ -1536,7 +1540,7 @@ public class Principal {
 
                 case 13: 
                     output.display("Digite um gênero: ");
-                    genero = sc.nextLine();
+                    String genero = sc.nextLine();
 
                     controlador.imprimirLivrosDeGeneroEspecifico(genero);
                     break;
