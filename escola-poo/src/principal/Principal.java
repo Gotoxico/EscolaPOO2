@@ -1,4 +1,3 @@
-
 package principal;
 
 import controlador.Escola;
@@ -88,29 +87,25 @@ public class Principal {
                     break;
 
                 case 2:
-                    output.display("Digite o nome do novo professor: ");
+                    output.display("Digite o nome do professor: ");
                     nome = sc.nextLine();
-                    output.display("Digite a titulação do novo professor: ");
-                    titulacao = sc.nextLine();
-                    controlador.addProfessor(nome, titulacao);
+                    output.display("Digite o ID do professor: ");
+                    professorID = sc.nextLine();
+                    controlador.demitirProfessor(nome, professorID);
                     break;
 
                 case 3:
-                    output.display("Digite o nome da nova disciplina: ");
+                    output.display("Digite o nome da disciplina: ");
                     nome = sc.nextLine();
-                    output.display("Digite a unidade escolar: ");
-                    unidadeEscolar = sc.nextLine();
-                    output.display("Digite o ano escolar da disciplina: ");
-                    anoEscolar = sc.nextLine();
-                    controlador.addDisciplina(nome, unidadeEscolar, anoEscolar);
+                    output.display("Digite o ID da turma: ");
+                    turmaId = sc.nextLine();
+                    controlador.removerDisciplinaTurma(nome, turmaId);
                     break;
 
                 case 4:
-                    output.display("Digite o nome da nova turma: ");
-                    nome = sc.nextLine();
-                    output.display("Digite tamanho da nova turma: ");
-                    Integer tamanho = sc.nextInt();
-                    controlador.addTurma(nome, tamanho);
+                    output.display("Digite o ID da turma: ");
+                    turmaId = sc.nextLine();
+                    controlador.removerTurma(turmaId);
                     break;
 
                 case 5:
@@ -120,10 +115,9 @@ public class Principal {
                     controlador.addDisciplinaTurma(disciplinaId, turmaId);
                     break;
                 case 6:
-                    turmaId = menuSelecionarTurma(controlador.getTodasTurmas());
-
-                    menuCriarHorario(turmaId);
-
+                    output.display("Digite o ID da turma: ");
+                    turmaId = sc.nextLine();
+                    controlador.removerHorarioTurma(turmaId);
                     break;
 
                 // Cadastrar provas, trabalhos, pontoExtra, atividades extra curriculares,
@@ -612,6 +606,7 @@ public class Principal {
         ArrayList<Disciplina> disciplinas = null;
         ArrayList<Prova> provas = null;
         ArrayList<Trabalho> trabalhos = null;
+        ArrayList<PontoExtra> pontosExtra = null;
 
         output.display("====== Impressão =====");
         output.display("1 - Imprimir alunos");
@@ -683,6 +678,16 @@ public class Principal {
                 relatorioAluno(controlador.getAlunoMatricula(matricula));
                 break;
 
+            case 6:
+                String nomeTurma = menuSelecionarTurma(controlador.getTodasTurmas());
+                Turma turma = controlador.getTurmaId(nomeTurma);
+                output.display("=========================");
+                output.display("Nome: " + turma.getNomeTurma());
+                output.display("ID: " + turma.getID());
+                output.display("Quantidade de Vagas: " + turma.getQuantidadeVagas());
+                output.display("=========================");
+                break;
+            
             case 7:
                 // Imprimir Dados Professor
                 output.display("=========================");
@@ -729,28 +734,41 @@ public class Principal {
                     relatorioTrabalho(t);
                 }
                 break;
-            case 13:
-                ArrayList<Turma> turmasHorario = controlador.getTodasTurmas();
-                output.display("Digite o ID da turma: ");
-                String turmaId = sc.nextLine();
+            
+             case 11:
+                nomeDisciplina = menuSelecionarDisciplina(controlador.getTodasDisciplinas());
 
-                for (Turma t : turmasHorario) {
-                    if (t.getID().equals(turmaId)) {
-                        output.display("====== Horário da Turma =====");
-                        output.display("ID: " + t.getID());
-                        output.display("Nome: " + t.getNomeTurma());
-                        output.display("Horário: \n" + t.getHorario().toString());
-                        output.display("=========================");
-                    }
-                }
-                output.display("0 - Voltar");
-                output.display("==============================");
-                int opcHorario = sc.nextInt();
-                sc.nextLine();
-                if (opcHorario == 0) {
-                    break;
+                disciplina = controlador.getDisciplinaNome(nomeDisciplina);
+                pontosExtra = disciplina.getPontosExtra();
+
+                for (PontoExtra pExtra : pontosExtra) {
+                    relatorioPontoExtra(pExtra);
                 }
                 break;
+            
+            case 13:
+                ArrayList<Turma> turmasHorario = controlador.getTodasTurmas();
+                String turmaId;
+                int opcHorario = 1;
+
+                while(opcHorario != 0) {
+                    output.display("Digite o ID da turma: ");
+                    turmaId = sc.nextLine();
+
+                    for (Turma t : turmasHorario) {
+                        if (t.getID().equals(turmaId)) {
+                            output.display("====== Horário da Turma =====");
+                            output.display("ID: " + t.getID());
+                            output.display("Nome: " + t.getNomeTurma());
+                            output.display("Horário: \n" + t.getHorario().toString());
+                            output.display("=========================");
+                        }
+                    }
+                    output.display("0 - Voltar");
+                    output.display("==============================");
+                    opcHorario = sc.nextInt();
+                    sc.nextLine();
+                }
 
             case 0:
                 return;
@@ -812,6 +830,19 @@ public class Principal {
         output.display(String.format("Ementa: %s", d.getEmenta()));
         output.display(String.format("Média: %.2f", d.calcularMedia()));
         output.display(String.format("Carga Horária: %dh", d.getCargaHoraria()));
+        output.display("=====================================");
+    }
+  
+    public static void relatorioPontoExtra(PontoExtra pontoExtra) {
+        if (pontoExtra == null) {
+            output.display("Ponto Extra inexistente");
+            return;
+        }
+
+        output.display("============= Trabalho ==============");
+        output.display(String.format("Nome: %s", pontoExtra.getNomePontoExtra()));
+        output.display(String.format("Valor: %.2f", pontoExtra.getValor()));
+        output.display(String.format("Valor Máximo: %s", pontoExtra.getValorMaximo()));
         output.display("=====================================");
     }
 
@@ -1231,20 +1262,7 @@ public class Principal {
                     break;
 
                 case 8:
-                    professores = controlador.getTodosProfessores();
-                    output.display("=========================");
-                    for (Professor p : professores) {
-                        output.display("ID: " + p.getID());
-                        output.display("Nome: " + p.getNome());
-                        turmas = p.getTurmas();
-                        output.display("Turmas: ");
-                        output.display("-------------------------");
-                        for (Turma t : turmas) {
-                            output.display("Nome: " + t.getNomeTurma());
-                            output.display("-------------------------");
-                        }
-                        output.display("=========================");
-                    }
+                    
                     break;
 
                 case 9:
@@ -1252,12 +1270,7 @@ public class Principal {
                     break;
 
                 case 10:
-                    System.out.print("Digite o nome da disciplina: ");
-                    nome = sc.nextLine();
-                    turmas = controlador.getTodasTurmas();
-                    menuSelecionarTurma(turmas);
-                    turmaId = sc.nextLine();
-                    controlador.addDisciplinaTurma(nome, turmaId);
+                    menuAdminBiblioteca();
                     break;
 
                 case 11:
@@ -1269,10 +1282,6 @@ public class Principal {
                     professorId = menuSelecionarProfessor(controlador.getTodosProfessores());
                     disciplinaId = menuSelecionarDisciplina(controlador.getTodasDisciplinas());
                     controlador.atribuirProfessorDisciplina(professorId, disciplinaId);
-                    break;
-
-                case 13:
-                    menuAdminBiblioteca();
                     break;
                 
                 case 0:
