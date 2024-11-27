@@ -1419,8 +1419,11 @@ public class Principal {
             output.display("6 - Fazer a devolução de um livro para um usuário");
             output.display("7 - Relatório geral dos livros cadastrados");
             output.display("8 - Cadastrar livro");
-            output.display("9 - Relatório de multas");
-            output.display("10 - Remover livro");
+            output.display("9 - Buscar usuario")
+            output.display("10 - Relatório de multas");
+            output.display("11 - Remover livro");
+            output.display("12 - Imprimir recomendações");
+            output.display("13 - Imprimir livros de um gênero específico");
             output.display("0 - Voltar");
             output.display("Selecione sua opção: ");
 
@@ -1428,34 +1431,46 @@ public class Principal {
             sc.nextLine();
 
             switch (opc) {
+                case 0:
+                    break;
+                    
                 case 1:
-                    bibliotecaConsole.imprimirCatalogoDeLivros(biblioteca);
+                    controlador.imprimirCatalogoDeLivros();
                     break;
 
                 case 2:
                     output.display("Digite o título do livro: ");
                     titulo = sc.nextLine();
-                    // bibliotecaConsole.buscarLivroPorTitulo(biblioteca, titulo);
+                    
+                    controlador.buscarLivroPorTitulo(titulo);
                     break;
 
                 case 3:
                     output.display("Digite o autor do livro: ");
                     autor = sc.nextLine();
-                    // biblioteca.buscarLivroPorAutor(autor);
+
+                    controlador.buscarLivroPorAutor(autor);
                     break;
 
                 case 4:
                     output.display("Digite o ISBN do livro: ");
                     isbn = sc.nextLine();
-                    // biblioteca.buscarLivroPorISBN(isbn);
+
+                    controlador.buscarLivroPorISBN(isbn);
                     break;
 
                 case 5:
                     output.display("Digite o ID do usuário: ");
                     String usuarioId = sc.nextLine();
+
                     output.display("Digite o ISBN do livro: ");
                     isbn = sc.nextLine();
-                    // biblioteca.fazerEmprestimo(usuarioId, isbn);
+                    
+                    Livro livro;
+                    if(biblioteca.buscarLivroPorISBN(isbn) == true){
+                        livro = biblioteca.retornaLivro(isbn);
+                        bibliotecaConsole.fazerEmprestimo(biblioteca, usuarioId, livro);
+                    }
                     break;
 
                 case 6:
@@ -1463,11 +1478,15 @@ public class Principal {
                     usuarioId = sc.nextLine();
                     output.display("Digite o ISBN do livro: ");
                     isbn = sc.nextLine();
-                    // biblioteca.fazerDevolucao(usuarioId, isbn);
+                    Livro livro;
+                    if(biblioteca.buscarLivroPorISBN(isbn) == true){
+                        livro = biblioteca.retornaLivro(isbn);
+                        bibliotecaConsole.fazerDevolucao(biblioteca, usuarioId, livro);
+                    }
                     break;
 
                 case 7:
-                    // biblioteca.relatorioGeralLivros();
+                    controlador.relatorioGeralLivros();
                     break;
 
                 case 8:
@@ -1480,13 +1499,50 @@ public class Principal {
                     output.display("Digite o isbn do livro: ");
                     isbn = sc.nextLine();
 
-                    // controlador.addLivroBiblioteca(titulo, autor, isbn);
+                    output.display("Digite o genero do livro: ");
+                    isbn = sc.nextLine();
+
+                    controlador.addLivroBiblioteca(titulo, autor, isbn, genero);
                     break;
 
-                case 9:
-                    // biblioteca.relatorioMultas();
+                case 9: 
+                    output.display("Digite o ID do usuário: ");
+                    usuarioId = sc.nextLine(); 
+
+                    controlador.buscarUsuario(usuarioId);
                     break;
 
+                case 10:
+                    controlador.relatorioMultas();
+                    break;
+
+                case 11: 
+                    output.display("Digite o isbn do livro: ");
+                    isbn = sc.nextLine();
+
+                    Livro livro;
+                    if(biblioteca.buscarLivroPorISBN(isbn) == true){
+                        livro = biblioteca.retornaLivro(isbn);
+                        controlador.removerLivro(usuarioId, livro);
+                    }
+                    break;
+
+                case 12: 
+                    output.display("Digite a disciplina: ");
+                    disciplina = sc.nextLine();
+
+                    controlador.imprimirRecomenadacoes(disciplina);
+                    break;
+
+                case 13: 
+                    output.display("Digite um gênero: ");
+                    genero = sc.nextLine();
+
+                    controlador.imprimirLivrosDeGeneroEspecifico(genero);
+                    break;
+                
+                default:
+                    break;
             }
         }
     }
