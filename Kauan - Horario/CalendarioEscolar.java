@@ -7,7 +7,9 @@ import java.util.List;
 import java.util.Map;
 import Classes.Disciplina;
 
-
+/**
+ * @Brief: Classe CalendarioEscolar que representa o calendário das aulas de uma instituição, organizando os períodos e intervalos
+ */
 public class CalendarioEscolar {
 
     private static final int DURACAO_AULA_MINUTOS = 50;
@@ -25,6 +27,9 @@ public class CalendarioEscolar {
     private Map<String, List<Periodo>> calendario;
     String[] diasDaSemana = {"Segunda-feira", "TerÃ§a-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira"};
 
+    /**
+     * @Brief: Construtor da classe que inicializa o calendário escolar chamando o método para gerar os períodos de aula para os dias da semana
+     */
     public CalendarioEscolar() {
         calendario = new LinkedHashMap<>();
         inicializarCalendario();
@@ -63,9 +68,9 @@ public class CalendarioEscolar {
         return contadorGeralDeAulas;
     }
     
-    
-
-    // Inicializa o calendÃ¡rio para todos os dias da semana
+    /**
+     * @Brief: Inicializa o calendário com os períodos de aula para cada dia da semana
+     */
     private void inicializarCalendario() {
         
         for (String dia : diasDaSemana) {
@@ -73,7 +78,10 @@ public class CalendarioEscolar {
         }
     }
 
-    // Gera a lista de perÃ­odos para um dia
+    /**
+     * @Brief: Gera a lista de períodos de aula para um dia específico
+     * @Return: Lista de períodos de aula
+     */
     private List<Periodo> gerarPeriodosAula() {
         periodos = new ArrayList<>();
         LocalTime inicio = HORA_INICIO;
@@ -109,7 +117,9 @@ public class CalendarioEscolar {
         return periodos;
     }
 
-    // Exibe o calendÃ¡rio completo
+    /**
+     * @Brief: Exibe o calendário completo com os períodos e suas disciplinas
+     */
     public void exibirCalendario() {
         int conferidor = 0;
         LocalTime horasAux = HORA_INICIO;
@@ -134,6 +144,12 @@ public class CalendarioEscolar {
         }
     }
     
+    /**
+     * @Brief: Adiciona disciplinas ao calendário de um dia
+     * @Parameter: dia - Dia da semana para adicionar as disciplinas
+     * @Parameter: disciplinas - Lista de disciplinas a serem adicionadas
+     * @Return: true se as disciplinas foram adicionadas, false caso contrário
+     */
     public boolean adicionarDisciplina(String dia, ArrayList<Disciplina> disciplinas){
         if(disciplinas.size() > contadorGeralDeAulas) return false;
         int i = 0;
@@ -149,6 +165,12 @@ public class CalendarioEscolar {
         return true;
     }
     
+    /**
+     * @Brief: Adiciona uma disciplina a um período específico
+     * @Parameter: disciplina - Disciplina a ser adicionada
+     * @Parameter: periodo - Período específico onde a disciplina será adicionada
+     * @Return: true se a disciplina foi adicionada, false caso contrário
+     */
     public boolean adicionarDisciplina(Disciplina disciplina, Periodo periodo){
         if(periodo == null) return false;
         if(disciplina == null) return false;
@@ -161,6 +183,13 @@ public class CalendarioEscolar {
         return true;
     }
     
+    /**
+     * @Brief: Adiciona uma disciplina ao calendário de um dia específico e horário
+     * @Parameter: dia - Dia da semana
+     * @Parameter: disciplina - Disciplina a ser adicionada
+     * @Parameter: inicio - Hora de início do período
+     * @Return: true se a disciplina foi adicionada, false caso contrário
+     */
     public boolean adicionarDisciplina(String dia, Disciplina disciplina, LocalTime inicio){
         if(inicio == null) return false;
         if(disciplina == null) return false;
@@ -178,6 +207,11 @@ public class CalendarioEscolar {
         return true;
     }
     
+    /**
+     * @Brief: Remove todas as disciplinas de um dia específico
+     * @Parameter: dia - Dia da semana
+     * @Return: true se as disciplinas foram removidas, false caso contrário
+     */
     public boolean removerTodasDisciplinas(String dia){
         for(Map.Entry<String, List<Periodo>> entrada : calendario.entrySet()){
             if(entrada.getKey().equals(dia)){
@@ -192,6 +226,12 @@ public class CalendarioEscolar {
         return true;
     }
     
+    /**
+     * @Brief: Remove uma disciplina de um período específico de um dia
+     * @Parameter: dia - Dia da semana
+     * @Parameter: inicio - Hora de início do período
+     * @Return: true se a disciplina foi removida, false caso contrário
+     */
     public boolean removerDisciplinaDia(String dia, LocalTime inicio){
         for(Map.Entry<String, List<Periodo>> entrada: calendario.entrySet()){
             if(entrada.getKey().equals(dia)){

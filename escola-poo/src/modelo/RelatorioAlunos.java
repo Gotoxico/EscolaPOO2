@@ -7,6 +7,12 @@ public class RelatorioAlunos {
     
     private RelatorioAlunos() {}
     
+    /**
+     * @Brief: Gera um relatório sobre os alunos, indicando se passariam ou não com base em uma nota de corte
+     * @Parameter: alunos Lista de objetos Aluno
+     * @Parameter: opcao Código da universidade que define a nota de corte
+     * @Return: Relatório com os alunos e seu status (Passaria/Não Passaria)
+     */
     public static String relatorio(ArrayList<Aluno> alunos, int opcao){
         float notaCorte = opcoes(opcao);
         StringBuilder relatorio = new StringBuilder();
@@ -18,6 +24,11 @@ public class RelatorioAlunos {
         return relatorio.toString();
     }
     
+    /**
+     * @Brief: Retorna a nota de corte dependendo da universidade selecionada
+     * @Parameter: opcao Código da universidade (1-13)
+     * @Return: Nota de corte correspondente à universidade
+     */
     private static float opcoes(int opcao){
         switch(opcao){
             case 1:

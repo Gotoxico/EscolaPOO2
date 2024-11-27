@@ -7,7 +7,7 @@ package modelo;
 import java.util.ArrayList;
 
 /**
- *
+ * @Brief: Classe que gera um relatório com a média dos professores
  * @author rodri
  */
 public class RelatorioProfessores {
@@ -15,6 +15,11 @@ public class RelatorioProfessores {
     
     }
     
+    /**
+     * @Brief: Gera um relatório com o nome e a média de todos os professores
+     * @Parameter: professores Lista de objetos Professor
+     * @Return: Relatório com os nomes dos professores e suas respectivas médias
+     */
     public static String relatorioProfessores(ArrayList<Professor> professores){
         StringBuilder relatorio = new StringBuilder();
         for(Professor professor : professores){

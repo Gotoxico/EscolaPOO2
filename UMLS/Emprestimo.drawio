@@ -1,0 +1,19 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36" version="24.9.1">
+  <diagram name="Página-1" id="GNuSe9I5lgwbCcakHk7n">
+    <mxGraphModel dx="1194" dy="-425" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="NN9tKxaTLKykTtKqgVal-1" value="&lt;b&gt;Emprestimo&lt;/b&gt;" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=default;" vertex="1" parent="1">
+          <mxGeometry x="160" y="1500" width="460" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="NN9tKxaTLKykTtKqgVal-2" value="- diaEmprestimo: LocalDate&lt;div&gt;- diaDevolucao: LocalDate&lt;/div&gt;&lt;div&gt;- diaAtual: LocalDate&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=default;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;labelBorderColor=none;" vertex="1" parent="NN9tKxaTLKykTtKqgVal-1">
+          <mxGeometry y="30" width="460" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="NN9tKxaTLKykTtKqgVal-3" value="+ &lt;span class=&quot;hljs-built_in&quot;&gt;Emprestimo&lt;/span&gt;()&amp;nbsp;&lt;div&gt;+ &lt;span class=&quot;hljs-built_in&quot;&gt;calculaDataDevolucao&lt;/span&gt;(): LocalDate&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ &lt;span class=&quot;hljs-built_in&quot;&gt;getDiaEmprestimo&lt;/span&gt;(): LocalDate&lt;/div&gt;&lt;div&gt;+ &lt;span class=&quot;hljs-built_in&quot;&gt;getDiaDevolucao&lt;/span&gt;(): LocalDate&lt;/div&gt;&lt;div&gt;+ &lt;span class=&quot;hljs-built_in&quot;&gt;getDiaAtual&lt;/span&gt;(): LocalDate&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ &lt;span class=&quot;hljs-built_in&quot;&gt;verificaMulta&lt;/span&gt;(): boolean&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="NN9tKxaTLKykTtKqgVal-1">
+          <mxGeometry y="90" width="460" height="100" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

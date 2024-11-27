@@ -18,6 +18,7 @@ public class Escola{
     private ArrayList<Turma> turmas;
     private ArrayList<Disciplina> disciplinas;
     private BibliotecaEscolar biblioteca;
+    private BibliotecaEscolarConsole bibliotecaConsole;
     private ArrayList<Horario> horarios;
     private Notas notas;
     private final OutputFactory outputFactory;
@@ -164,6 +165,27 @@ public class Escola{
                 return professor;
             }
         }
+        return null;
+    }
+    
+    /**
+    * Retorna um usuário(Aluno ou Professor) pelo ID
+    * @Parameter: usuarioId - ID do usuário a ser buscado
+    * @Return: O usuário correspondente ao ID, ou null se não encontrado
+    */
+    public Usuario getUsuarioId(String usuarioId){
+        for(Professor professor : professores){
+            if(professor.getID().equals(usuarioId)){
+                return professor;
+            }
+        }
+        
+        for(Aluno aluno : alunos){
+            if(aluno.getID().equals(usuarioId)){
+                return aluno;
+            }
+        }
+        
         return null;
     }
 
@@ -431,7 +453,7 @@ public class Escola{
 
     /**
     * Adiciona um professor como usuário da biblioteca
-    * @Parameter: idProfessor - ID do professor
+    * @Parameter: idProfessor - String do Id do professor
     */
     public void addProfessorBiblioteca(String idProfessor){
         Professor temp = this.getProfessorId(idProfessor);
@@ -442,7 +464,7 @@ public class Escola{
 
     /**
     * Adiciona um aluno como usuário da biblioteca
-    * @Parameter: matricula - Matrícula do aluno
+    * @Parameter: matricula - String da matrícula do aluno
     */
     public void addAlunoBiblioteca(String matricula){
         Aluno temp = this.getAlunoMatricula(matricula);
@@ -451,35 +473,152 @@ public class Escola{
         }
     }
 
-    /*
+    /**
+    * Remove um aluno da biblioteca
+    * @Parameter: idProfessor - String do Id do professor
+    */
+    public void removerProfessorBiblioteca(String idProfessor){
+        Professor temp = this.getProfessorId(idProfessor);
+        if(temp != null){
+            biblioteca.removerUsuario(temp);
+        }
+    }
+
+    /**
+    * Remove um professor da biblioteca
+    * @Parameter: matricula - String da matrícula do aluno
+    */
+    public void removerAlunoBiblioteca(String matricula){
+        Aluno temp = this.getAlunoMatricula(matricula);
+        if(temp != null){
+            biblioteca.removerUsuario(temp);
+        }
+    }
+
+    /**
+    * Remove um livro da biblioteca
+    * @Parameter: livro - Livro que se deseja remover
+    */
+    public void removerLivro(Livro livro){
+        biblioteca.removerLivro(livro);
+    }
+
+    /**
+    * Faz um emprestimo em nome de um aluno 
+    * @Parameter: livro - Livro que se deseja emprestar
+    * @Parameter: matricula - String da matrícula do aluno
+    */
     public void emprestimoAluno(Livro livro, String matricula){
         Aluno temp = this.getAlunoMatricula(matricula);
         if(temp != null){
-            biblioteca.emprestimo(livro, temp);
+            biblioteca.fazerEmprestimo(livro, temp);
         }
     }
 
+    /**
+    * Faz um emprestimo em nome de um professor 
+    * @Parameter: livro - Livro que se deseja emprestar
+    * @Parameter: idProfessor - String do Id do professor
+    */
     public void emprestimoProfessor(Livro livro, String idProfessor){
         Professor temp = this.getProfessorId(idProfessor);
         if(temp != null){
-            biblioteca.emprestimo(livro, temp);
+            biblioteca.fazerEmprestimo(livro, temp);
         }
     }
 
+    /**
+    * Faz uma devolução em nome de um aluno 
+    * @Parameter: livro - Livro que se deseja devolver
+    * @Parameter: matricula - String da matrícula do aluno
+    */
     public void devolucaoAluno(Livro livro, String matricula){
         Aluno temp = this.getAlunoMatricula(matricula);
         if(temp != null){
-            biblioteca.devolucao(livro, temp);
+            biblioteca.fazerDevolucao(livro, temp);
         }
     }
 
+    /**
+    * Faz uma devolução em nome de um professor 
+    * @Parameter: livro - Livro que se deseja devolver
+    * @Parameter: idProfessor - String do Id do professor
+    */
     public void devolucaoProfessor(Livro livro, String idProfessor){
         Professor temp = this.getProfessorId(idProfessor);
         if(temp != null){
-            biblioteca.emprestimo(livro, temp);
+            biblioteca.fazerDevolucao(livro, temp);
         }
     }
+
+    /**
+    * Faz a busca de um livro por autor 
+    * @Parameter: autor - String do autor do livro que se deseja buscar
     */
+    public void buscarLivroPorAutor(String autor){
+        bibliotecaConsole.buscarLivroPorAutor(biblioteca, autor);
+    }
+
+    /**
+    * Faz a busca de um livro por titulo 
+    * @Parameter: titulo - String do titulo do livro que se deseja buscar
+    */
+    public void buscarLivroPorTitulo(String titulo){
+        bibliotecaConsole.buscarLivroPorTitulo(biblioteca, titulo);
+    }
+    
+    /**
+    * Faz a busca de um livro por isbn 
+    * @Parameter: isbn - String do isbn do livro que se deseja buscar
+    */
+    public void buscarLivroPorISBN(String isbn){
+        bibliotecaConsole.buscarLivroPorAutor(biblioteca, isbn);
+    }
+
+    /**
+    * Faz a busca de um usuario por ID 
+    * @Parameter: usuarioId - String do ID do usuario que se deseja buscar
+    */
+    public void buscarUsuario(String usuarioId){
+        bibliotecaConsole.buscarUsuario(biblioteca, usuarioId);
+    }
+
+    /**
+    * Imprime o catálogo de livros da Biblioteca
+    */
+    public void imprimirCatalogoDeLivros(){
+        bibliotecaConsole.imprimirCatalogoDeLivros(biblioteca);
+    }
+
+    /**
+    * Faz o relatório geral dos livros de Biblioteca Escolar
+    */
+    public void relatorioGeralLivros(){
+        bibliotecaConsole.relatorioGeralLivros(biblioteca);
+    }
+
+    /**
+    * Faz o relatório geral dos usuarios multados e de suas multas 
+    */
+    public void relatorioMultas(){
+        bibliotecaConsole.relatorioMultas(biblioteca);
+    }
+
+    /**
+    * Imprime recomendações de livros baseados em uma disciplina
+    * @Parameter: disciplina - String de uma disciplina 
+    */
+    public void imprimirRecomenadacoes(String disciplina){
+        bibliotecaConsole.imprimirRecomenadacoes(biblioteca, disciplina);
+    }
+
+    /**
+    * Imprime livros de um genero específico
+    * @Parameter: genero - String de um genero de livro 
+    */
+    public void imprimirLivrosDeGeneroEspecifico(String genero){
+        bibliotecaConsole.imprimirLivrosDeGeneroEspecifico(biblioteca, genero);
+    }
 
     /**
      * Método para adicionar uma atividade extra curricular a um aluno
@@ -554,35 +693,97 @@ public class Escola{
     public void adicionarPontoExtraDisciplina(String nomeDisciplina, String nomeProfessor, String nomePontoExtra, String nomeTurma, float valorMaximo) {
         notas.adicionarPontoExtraDisciplina(nomeDisciplina, nomeProfessor, nomePontoExtra, nomeTurma, valorMaximo);
     }
-        
+    
+    /**
+    * @Brief: Adiciona a nota de uma prova para um aluno
+    * @Parameter: nomeAluno Nome do aluno
+    * @Parameter: nomeDisciplina Nome da disciplina
+    * @Parameter: nomeProfessor Nome do professor
+    * @Parameter: nomeProva Nome da prova
+    * @Parameter: notaProva Nota da prova
+    * @Parameter: nomeTurma Nome da turma
+    */
     public void adicionarNotaProva(String nomeAluno, String nomeDisciplina, String nomeProfessor, String nomeProva, float notaProva, String nomeTurma) {
         notas.adicionarNotaProva(nomeAluno, nomeDisciplina, nomeProfessor, nomeProva, notaProva, nomeTurma);
     }
     
+    /**
+    * @Brief: Adiciona a nota de um trabalho para um aluno
+    * @Parameter: nomeAluno Nome do aluno
+    * @Parameter: nomeDisciplina Nome da disciplina
+    * @Parameter: nomeProfessor Nome do professor
+    * @Parameter: nomeTrabalho Nome do trabalho
+    * @Parameter: notaTrabalho Nota do trabalho
+    * @Parameter: nomeTurma Nome da turma
+    */
     public void adicionarNotaTrabalho(String nomeAluno, String nomeDisciplina, String nomeProfessor, String nomeTrabalho, float notaTrabalho, String nomeTurma) {
         notas.adicionarNotaTrabalho(nomeAluno, nomeDisciplina, nomeProfessor, nomeTrabalho, notaTrabalho, nomeTurma);
     }
     
+    /**
+    * @Brief: Adiciona uma nota de ponto extra para um aluno 
+    * @Parameter: nomeAluno Nome do aluno
+    * @Parameter: nomeDisciplina Nome da disciplina
+    * @Parameter: nomeProfessor Nome do professor
+    * @Parameter: nomePontoExtra Nome do ponto extra
+    * @Parameter: nomeTurma Nome da turma
+    * @Parameter: valor Valor do ponto extra
+    */
     public void adicionarNotaPontoExtra(String nomeAluno, String nomeDisciplina, String nomeProfessor, String nomePontoExtra, String nomeTurma, float valor) {
         notas.adicionarNotaPontoExtra(nomeAluno, nomeDisciplina, nomeProfessor, nomePontoExtra, nomeTurma, valor);
     }
     
+    /**
+    * @Brief: Remove a nota de uma prova de um aluno
+    * @Parameter: nomeAluno Nome do aluno
+    * @Parameter: nomeDisciplina Nome da disciplina
+    * @Parameter: nomeProfessor Nome do professor
+    * @Parameter: nomeProva Nome da prova
+    * @Parameter: notaProva Nota da prova
+    * @Parameter: nomeTurma Nome da turma
+    */
     public void removerNotaProva(String nomeAluno, String nomeDisciplina, String nomeProfessor, String nomeProva, float notaProva, String nomeTurma) {
         notas.removerNotaProva(nomeAluno, nomeDisciplina, nomeProfessor, nomeProva, notaProva, nomeTurma);
     }
     
+    /**
+    * @Brief: Remove a nota de um trabalho de um aluno
+    * @Parameter: nomeAluno Nome do aluno
+    * @Parameter: nomeDisciplina Nome da disciplina
+    * @Parameter: nomeProfessor Nome do professor
+    * @Parameter: nomeTrabalho Nome do trabalho
+    * @Parameter: notaTrabalho Nota do trabalho
+    * @Parameter: nomeTurma Nome da turma
+    */
     public void removerNotaTrabalho(String nomeAluno, String nomeDisciplina, String nomeProfessor, String nomeTrabalho, float notaTrabalho, String nomeTurma) {
         notas.removerNotaTrabalho(nomeAluno, nomeDisciplina, nomeProfessor, nomeTrabalho, notaTrabalho, nomeTurma);
     }
-    
+    /**
+    * @Brief: Remove uma nota de ponto extra de um aluno
+    * @Parameter: nomeAluno Nome do aluno
+    * @Parameter: nomeDisciplina Nome da disciplina
+    * @Parameter: nomeProfessor Nome do professor
+    * @Parameter: nomePontoExtra Nome do ponto extra
+    * @Parameter: nomeTurma Nome da turma
+    * @Parameter: valor Valor do ponto extra
+    */
     public void removerNotaPontoExtra(String nomeAluno, String nomeDisciplina, String nomeProfessor, String nomePontoExtra, String nomeTurma, float valor) {
         notas.removerNotaPontoExtra(nomeAluno, nomeDisciplina, nomeProfessor, nomePontoExtra, nomeTurma, valor);
     }
     
+    /**
+    * @Brief: Gera um relatorio com informações sobre os professores
+    * @Return: Relatorio dos professores 
+    */
     public String relatorioProfessores(){
         return RelatorioProfessores.relatorioProfessores(professores);
     }
     
+    /**
+    * @Brief: Gera um relatório com informações dos alunos de uma turma
+    * @Parameter: t Objeto da turma
+    * @Parameter: opcao Opção de exibição do relatório
+    */
     public void relatorioAlunosTurma(Turma t, int opcao){
         RelatorioAlunos.relatorio(t.getAlunos(), opcao);
     }
@@ -591,7 +792,6 @@ public class Escola{
      * Ao demitir um professor, será removido de todas as disciplinas que ministrava
      * @Parameter: nomeProfessor - Nome do professor
      * @Parameter: ID - Id do usuario
-     * 
      */
     public void demitirProfessor(String nomeProfessor, String ID){
         for(Disciplina disciplina : disciplinas){
@@ -609,7 +809,6 @@ public class Escola{
      * Ao expulsar um aluno, será removido da turma que pertencia
      * @Parameter: nomeAluno - Nome aluno
      * @Parameter: ID - Id do aluno
-     * 
      */
     public void expulsarAluno(String nomeAluno, String ID){
         for(Turma turma : turmas){
@@ -623,6 +822,14 @@ public class Escola{
         }
     }
 
+    /**
+    * @Brief: Adiciona as notas de uma prova para todos os alunos de uma turma
+    * @Parameter: turma Objeto representando a turma
+    * @Parameter: disciplina Disciplina associada a prova
+    * @Parameter: nomeProva Nome da prova
+    * @Parameter: nota Nota atribuída à prova
+    * @Parameter: peso Peso da prova
+    */
     public void addNotasProvaTurma(Turma turma, Disciplina disciplina, String nomeProva, float nota, float peso){
         int i=0;
         for(Aluno aluno : turma.getAlunos()){
@@ -631,6 +838,14 @@ public class Escola{
         }
     }
 
+    /**
+    * @Brief: Adiciona as notas de um trabalho para todos os alunos de uma turma
+    * @Parameter: turma Objeto representando a turma
+    * @Parameter: disciplina Disciplina associada ao trabalho
+    * @Parameter: nomeTrabalho Nome do trabalho
+    * @Parameter: nota Nota atribuída ao trabalho
+    * @Parameter: peso Peso do trabalho
+    */
     public void addNotasTrabalhoTurma(Turma turma, Disciplina disciplina, String nomeTrabalho, float nota, float peso){
         int i=0;
         for(Aluno aluno : turma.getAlunos()){
@@ -639,6 +854,13 @@ public class Escola{
         }
     }
 
+    /**
+    * @Brief: Adiciona notas de ponto extra para todos os alunos de uma turma
+    * @Parameter: turma Objeto representando a turma
+    * @Parameter: disciplina Disciplina associada ao ponto extra
+    * @Parameter: nomePontoExtra Nome do ponto extra
+    * @Parameter: valor Valor do ponto extra
+    */
     public void addNotasPontoExtraTurma(Turma turma, Disciplina disciplina, String nomePontoExtra, float valor){
         int i=0;
         for(Aluno aluno : turma.getAlunos()){
