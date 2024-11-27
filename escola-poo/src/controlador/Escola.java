@@ -454,12 +454,23 @@ public class Escola{
 
     /**
     * Remove um aluno da biblioteca
+    * @Parameter: idProfessor - String do Id do professor
+    */
+    public void removerProfessorBiblioteca(String idProfessor){
+        Professor temp = this.getProfessorId(idProfessor);
+        if(temp != null){
+            biblioteca.removerUsuario(temp);
+        }
+    }
+
+    /**
+    * Remove um professor da biblioteca
     * @Parameter: matricula - String da matrícula do aluno
     */
     public void removerAlunoBiblioteca(String matricula){
         Aluno temp = this.getAlunoMatricula(matricula);
         if(temp != null){
-            bibliotecaConsole.removerUsuario(biblioteca, temp);
+            biblioteca.removerUsuario(temp);
         }
     }
 
@@ -467,8 +478,8 @@ public class Escola{
     * Remove um livro da biblioteca
     * @Parameter: livro - Livro que se deseja remover
     */
-    public void removerAlunoBiblioteca(Livro livro){
-        bibliotecaConsole.removerLivro(biblioteca, livro);
+    public void removerLivro(Livro livro){
+        biblioteca.removerLivro(livro);
     }
 
     /**
@@ -479,7 +490,7 @@ public class Escola{
     public void emprestimoAluno(Livro livro, String matricula){
         Aluno temp = this.getAlunoMatricula(matricula);
         if(temp != null){
-            bibliotecaConsole.fazerEmprestimo(biblioteca, temp, livro);
+            biblioteca.fazerEmprestimo(temp, livro);
         }
     }
 
@@ -491,7 +502,7 @@ public class Escola{
     public void emprestimoProfessor(Livro livro, String idProfessor){
         Professor temp = this.getProfessorId(idProfessor);
         if(temp != null){
-            bibliotecaConsole.fazerEmprestimo(biblioteca, temp, livro);
+            biblioteca.fazerEmprestimo(temp, livro);
         }
     }
 
@@ -503,7 +514,7 @@ public class Escola{
     public void devolucaoAluno(Livro livro, String matricula){
         Aluno temp = this.getAlunoMatricula(matricula);
         if(temp != null){
-            bibliotecaConsole.fazerDevolucao(biblioteca, temp, livro);
+            biblioteca.fazerDevolucao(temp, livro);
         }
     }
 
@@ -515,7 +526,7 @@ public class Escola{
     public void devolucaoProfessor(Livro livro, String idProfessor){
         Professor temp = this.getProfessorId(idProfessor);
         if(temp != null){
-            bibliotecaConsole.fazerDevolucao(biblioteca, temp, livro);
+            biblioteca.fazerDevolucao(temp, livro);
         }
     }
 
