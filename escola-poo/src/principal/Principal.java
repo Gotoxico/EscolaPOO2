@@ -88,26 +88,29 @@ public class Principal {
                     break;
 
                 case 2:
-                    output.display("Digite o nome do professor: ");
+                    output.display("Digite o nome do novo professor: ");
                     nome = sc.nextLine();
-                    output.display("Digite o ID do professor: ");
-                    professorId = sc.nextLine();
-                    controlador.demitirProfessor(nome, professorId);
+                    output.display("Digite a titulação do novo professor: ");
+                    titulacao = sc.nextLine();
+                    controlador.addProfessor(nome, titulacao);
                     break;
-
                 case 3:
-                    output.display("Digite o nome da disciplina: ");
+                    output.display("Digite o nome da nova disciplina: ");
                     nome = sc.nextLine();
-                    output.display("Digite o ID da turma: ");
-                    turmaId = sc.nextLine();
-                    controlador.removerDisciplinaTurma(nome, turmaId);
+                    output.display("Digite a unidade escolar: ");
+                    unidadeEscolar = sc.nextLine();
+                    output.display("Digite o ano escolar da disciplina: ");
+                    anoEscolar = sc.nextLine();
+                    controlador.addDisciplina(nome, unidadeEscolar, anoEscolar);
                     break;
-
                 case 4:
-                    output.display("Digite o ID da turma: ");
-                    turmaId = sc.nextLine();
-                    controlador.removerTurma(turmaId);
+                    output.display("Digite o nome da nova turma: ");
+                    nome = sc.nextLine();
+                    output.display("Digite tamanho da nova turma: ");
+                    Integer tamanho = sc.nextInt();
+                    controlador.addTurma(nome, tamanho);
                     break;
+                    
 
                 case 5:
                     output.display("Digite o nome da disciplina: ");
@@ -115,10 +118,10 @@ public class Principal {
                     turmaId = menuSelecionarTurma(controlador.getTodasTurmas());
                     controlador.addDisciplinaTurma(disciplinaId, turmaId);
                     break;
+                    
                 case 6:
-                    output.display("Digite o ID da turma: ");
-                    turmaId = sc.nextLine();
-                    controlador.removerHorarioTurma(turmaId);
+                    turmaId = menuSelecionarTurma(controlador.getTodasTurmas());
+                    menuCriarHorario(turmaId);
                     break;
 
                 // Cadastrar provas, trabalhos, pontoExtra, atividades extra curriculares,
@@ -414,30 +417,27 @@ public class Principal {
                     break;
 
                 case 2:
-                    output.display("Digite o nome do novo professor: ");
+                    output.display("Digite o nome do professor: ");
                     nome = sc.nextLine();
-                    output.display("Digite a titulação do novo professor: ");
-                    titulacao = sc.nextLine();
-                    controlador.addProfessor(nome, titulacao);
+                    output.display("Digite o ID do professor: ");
+                    profId = sc.nextLine();
+                    controlador.demitirProfessor(nome, profId);
                     break;
 
                 case 3:
-                    output.display("Digite o nome da nova disciplina: ");
+                    output.display("Digite o nome da disciplina: ");
                     nome = sc.nextLine();
-                    output.display("Digite a unidade escolar: ");
-                    unidadeEscolar = sc.nextLine();
-                    output.display("Digite o ano escolar da disciplina: ");
-                    anoEscolar = sc.nextLine();
-                    controlador.addDisciplina(nome, unidadeEscolar, anoEscolar);
+                    output.display("Digite o ID da turma: ");
+                    turmaId = sc.nextLine();
+                    controlador.removerDisciplinaTurma(nome, turmaId);
                     break;
 
                 case 4:
-                    output.display("Digite o nome da nova turma: ");
-                    nome = sc.nextLine();
-                    output.display("Digite tamanho da nova turma: ");
-                    Integer tamanho = sc.nextInt();
-                    controlador.addTurma(nome, tamanho);
+                    output.display("Digite o ID da turma: ");
+                    turmaId = sc.nextLine();
+                    controlador.removerTurma(turmaId);
                     break;
+                    
                 
                 case 5:
                     nomeDisc = menuSelecionarDisciplina(controlador.getTodasDisciplinas());
