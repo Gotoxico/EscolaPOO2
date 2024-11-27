@@ -1480,7 +1480,7 @@ public class Principal {
 
             switch (opc) {
                 case 0:
-                    break;
+                    return;
 
                 case 1:
                     controlador.imprimirCatalogoDeLivros();

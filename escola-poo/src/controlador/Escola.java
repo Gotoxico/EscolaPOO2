@@ -39,6 +39,7 @@ public class Escola{
         this.outputFactory = outputFactory;
         this.tipoOutput = tipoOutput;
         this.horarios = new ArrayList<>();    
+        this.bibliotecaConsole = new BibliotecaEscolarConsole();
     }
 
     /**
