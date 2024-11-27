@@ -178,4 +178,32 @@ public class BibliotecaEscolarConsole{    //classe com funções de impressão r
             System.out.println("\nEste usuário não está cadastrado na biblioteca\n");
         }
     }
+
+    /**
+     * @Brief: Informa se foi possível realizar o emprestimo 
+     * @Parameter: biblioteca Objeto do tipo Biblioteca 
+     * @Parameter: usuario Objeto do tipo Usuario que indica o usuário que fará o empréstimo
+     * @Parameter: livro Objeto do tipo Livro que indica o livro que o usuário deseja emprestar
+     */
+    public void fazerEmprestimo(Biblioteca biblioteca, Usuario usuario, Livro livro){
+        if(biblioteca.fazerEmprestimo(livro, usuario) == true){
+            System.out.println("\nEmpréstimo realizado com sucesso!\n");
+        } else {
+            System.out.println("\nNão foi possível realizar o empréstimo\n");
+        }
+    }
+
+    /**
+     * @Brief: Informa se foi possível realizar a devolução 
+     * @Parameter: biblioteca Objeto do tipo Biblioteca 
+     * @Parameter: usuario Objeto do tipo Usuario que indica o usuário que fará a devolução
+     * @Parameter: livro Objeto do tipo Livro que indica o livro que o usuário deseja devolver
+     */
+    public void fazerEmprestimo(Biblioteca biblioteca, Usuario usuario, Livro livro){
+        if(biblioteca.fazerDevolucao(livro, usuario) == true){
+            System.out.println("\nDevolução realizada com sucesso!\n");
+        } else {
+            System.out.println("\nNão foi possível realizar a devolução\n");
+        }
+    }
 }
