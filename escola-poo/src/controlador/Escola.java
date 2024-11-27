@@ -490,7 +490,7 @@ public class Escola{
     public void emprestimoAluno(Livro livro, String matricula){
         Aluno temp = this.getAlunoMatricula(matricula);
         if(temp != null){
-            biblioteca.fazerEmprestimo(temp, livro);
+            biblioteca.fazerEmprestimo(livro, temp);
         }
     }
 
@@ -502,7 +502,7 @@ public class Escola{
     public void emprestimoProfessor(Livro livro, String idProfessor){
         Professor temp = this.getProfessorId(idProfessor);
         if(temp != null){
-            biblioteca.fazerEmprestimo(temp, livro);
+            biblioteca.fazerEmprestimo(livro, temp);
         }
     }
 
@@ -514,7 +514,7 @@ public class Escola{
     public void devolucaoAluno(Livro livro, String matricula){
         Aluno temp = this.getAlunoMatricula(matricula);
         if(temp != null){
-            biblioteca.fazerDevolucao(temp, livro);
+            biblioteca.fazerDevolucao(livro, temp);
         }
     }
 
@@ -526,7 +526,7 @@ public class Escola{
     public void devolucaoProfessor(Livro livro, String idProfessor){
         Professor temp = this.getProfessorId(idProfessor);
         if(temp != null){
-            biblioteca.fazerDevolucao(temp, livro);
+            biblioteca.fazerDevolucao(livro, temp);
         }
     }
 
@@ -566,7 +566,7 @@ public class Escola{
     * Imprime o catálogo de livros da Biblioteca
     */
     public void imprimirCatalogoDeLivros(){
-        bibliotecaConsole(biblioteca);
+        bibliotecaConsole.imprimirCatalogoDeLivros(biblioteca);
     }
 
     /**
