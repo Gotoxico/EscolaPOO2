@@ -206,4 +206,30 @@ public class BibliotecaEscolarConsole{    //classe com funções de impressão r
             System.out.println("\nNão foi possível realizar a devolução\n");
         }
     }
+
+    /**
+     * @Brief: Informa se foi possível remover um usuário
+     * @Parameter: biblioteca Objeto do tipo Biblioteca 
+     * @Parameter: usuario Objeto do tipo Usuario que indica o usuário que se deseja remover
+     */
+    public void removerUsuario(Biblioteca biblioteca, Usuario usuario){
+        if(biblioteca.removerUsuario(usuario) == true){
+            System.out.println("\nUsuário removido\n");
+        } else {
+            System.out.println("\nNão foi possível remover o usuário\n");
+        }
+    }
+
+    /**
+     * @Brief: Informa se foi possível remover um livro 
+     * @Parameter: biblioteca Objeto do tipo Biblioteca 
+     * @Parameter: livro Objeto do tipo Livro que indica o livro que se deseja remover
+     */
+    public void removerLivro(Biblioteca biblioteca, Livro livro){
+        if(biblioteca.removerLivro(livro) == true){
+            System.out.println("\nLivro removido\n");
+        } else {
+            System.out.println("\nNão foi possível remover o livro\n");
+        }
+    }
 }
