@@ -99,6 +99,22 @@ public class Biblioteca{
     }
 
     /**
+     * @Brief: Retorna um usuario buscado
+     * @Parameter: usuarioId String do usuario a ser buscado
+     * @Return: usuario Usuario buscado
+     */
+    public Usuario retornaUsuario(String usuarioId){
+        for(int i=0; i<usuarios.size(); i++){
+            if(usuarios.get(i).getID().equals(usuarioId)){
+                return usuarios.get(i);
+            }
+        }
+        
+        return null;
+    }
+
+
+    /**
      * @Brief: Busca um usuário na biblioteca
      * @Parameter: usuarioId Objeto do tipo String do usuário a ser buscado
      * @Return: True se o usuário foi encontrado, false se não for
