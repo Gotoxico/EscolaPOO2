@@ -199,7 +199,7 @@ public class BibliotecaEscolarConsole{    //classe com funções de impressão r
      * @Parameter: usuario Objeto do tipo Usuario que indica o usuário que fará a devolução
      * @Parameter: livro Objeto do tipo Livro que indica o livro que o usuário deseja devolver
      */
-    public void fazerEmprestimo(Biblioteca biblioteca, Usuario usuario, Livro livro){
+    public void fazerDevolucao(Biblioteca biblioteca, Usuario usuario, Livro livro){
         if(biblioteca.fazerDevolucao(livro, usuario) == true){
             System.out.println("\nDevolução realizada com sucesso!\n");
         } else {
