@@ -1,0 +1,13 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36" version="24.9.1">
+  <diagram name="Página-1" id="HC_HHaVXZaaxtRUNZykp">
+    <mxGraphModel dx="367" dy="744" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="sVgqfE30unkTex1y7R3n-1" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Multa&lt;/b&gt;&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- diaAtual: LocalDate&amp;nbsp;&lt;br&gt;- inicioMulta: LocalDate&amp;nbsp;&lt;br&gt;- fimMulta: LocalDate&amp;nbsp;&lt;br&gt;- livro: Livro&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ &lt;span class=&quot;hljs-built_in&quot;&gt;Multa&lt;/span&gt;()&amp;nbsp;&lt;br&gt;+ &lt;span class=&quot;hljs-built_in&quot;&gt;getDiaAtual&lt;/span&gt;(): LocalDate&amp;nbsp;&lt;br&gt;+ &lt;span class=&quot;hljs-built_in&quot;&gt;getInicioMulta&lt;/span&gt;(): LocalDate&amp;nbsp;&lt;br&gt;+ &lt;span class=&quot;hljs-built_in&quot;&gt;getFimMulta&lt;/span&gt;(): LocalDate&amp;nbsp;&lt;br&gt;+ &lt;span class=&quot;hljs-built_in&quot;&gt;getLivro&lt;/span&gt;(): Livro&amp;nbsp;&lt;br&gt;+ &lt;span class=&quot;hljs-built_in&quot;&gt;aplicaMulta&lt;/span&gt;(livro: Livro): void&amp;nbsp;&lt;br&gt;+ &lt;span class=&quot;hljs-built_in&quot;&gt;removeMulta&lt;/span&gt;(usuario: Usuario): boolean&lt;br&gt;&lt;/p&gt;" style="verticalAlign=middle;align=left;overflow=fill;html=1;whiteSpace=wrap;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1030" y="270" width="460" height="205" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
